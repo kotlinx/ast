@@ -8,18 +8,20 @@ import UnicodeClasses;
 
 // SECTION: lexicalGeneral
 
+channels { COMMENT }
+
 ShebangLine
     : '#!' ~[\r\n]*
     ;
 
 DelimitedComment
     : '/*' ( DelimitedComment | . )*? '*/'
-      -> channel(HIDDEN)
+      -> channel(COMMENT)
     ;
 
 LineComment
     : '//' ~[\r\n]*
-      -> channel(HIDDEN)
+      -> channel(COMMENT)
     ;
 
 WS
@@ -514,7 +516,7 @@ Inside_LongLiteral: LongLiteral -> type(LongLiteral);
 Inside_UnsignedLiteral: UnsignedLiteral -> type(UnsignedLiteral);
 
 Inside_Identifier: Identifier -> type(Identifier);
-Inside_Comment: (LineComment | DelimitedComment) -> channel(HIDDEN);
+Inside_Comment: (LineComment | DelimitedComment) -> channel(COMMENT);
 Inside_WS: WS -> channel(HIDDEN);
 Inside_NL: NL -> channel(HIDDEN);
 
