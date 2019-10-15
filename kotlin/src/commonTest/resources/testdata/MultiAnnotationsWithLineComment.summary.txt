@@ -1,0 +1,11 @@
+PackageHeader()
+importList
+KlassDeclaration(fun parse)
+  KlassAnnotation(Annotation1)
+    KlassArgument()
+      KlassString
+        "abc"
+  KlassAnnotation(Annotation2)
+    KlassArgument()
+      KlassString
+        "123"

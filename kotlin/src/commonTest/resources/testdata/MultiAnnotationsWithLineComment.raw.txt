@@ -1,0 +1,94 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      functionDeclaration
+        modifiers
+          annotation
+            singleAnnotation
+              AT_NO_WS >>>@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                constructorInvocation
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>Annotation1<<< (DEFAULT_TOKEN_CHANNEL)
+                  valueArguments
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    valueArgument
+                      expression
+                        disjunction
+                          conjunction
+                            equality
+                              comparison
+                                infixOperation
+                                  elvisExpression
+                                    infixFunctionCall
+                                      rangeExpression
+                                        additiveExpression
+                                          multiplicativeExpression
+                                            asExpression
+                                              prefixUnaryExpression
+                                                postfixUnaryExpression
+                                                  primaryExpression
+                                                    stringLiteral
+                                                      lineStringLiteral
+                                                        QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        lineStringContent
+                                                          LineStrText >>>abc<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          LineComment >>>// line comment between annotations crashes parser<<< (COMMENT)
+          annotation
+            singleAnnotation
+              AT_PRE_WS >>>\n@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                constructorInvocation
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>Annotation2<<< (DEFAULT_TOKEN_CHANNEL)
+                  valueArguments
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    valueArgument
+                      expression
+                        disjunction
+                          conjunction
+                            equality
+                              comparison
+                                infixOperation
+                                  elvisExpression
+                                    infixFunctionCall
+                                      rangeExpression
+                                        additiveExpression
+                                          multiplicativeExpression
+                                            asExpression
+                                              prefixUnaryExpression
+                                                postfixUnaryExpression
+                                                  primaryExpression
+                                                    stringLiteral
+                                                      lineStringLiteral
+                                                        QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        lineStringContent
+                                                          LineStrText >>>123<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+        FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>parse<<< (DEFAULT_TOKEN_CHANNEL)
+        functionValueParameters
+          LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+          RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        functionBody
+          block
+            LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+            statements
+            RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
