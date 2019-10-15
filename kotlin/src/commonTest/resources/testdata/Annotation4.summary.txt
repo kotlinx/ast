@@ -1,0 +1,4 @@
+PackageHeader()
+importList
+KlassDeclaration(val target4)
+  KlassAnnotation(Annotation4<Foo>)

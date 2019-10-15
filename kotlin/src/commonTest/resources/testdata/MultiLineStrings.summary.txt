@@ -1,0 +1,28 @@
+PackageHeader()
+importList
+KlassDeclaration(val multiLineString1)
+  expression
+    KlassString
+KlassDeclaration(val multiLineString2)
+  expression
+    KlassString
+      "hello"
+KlassDeclaration(val multiLineString3)
+  expression
+    KlassString
+      KlassIdentifier(multiLineString2)
+      " world"
+KlassDeclaration(val multiLineString4)
+  expression
+    KlassString
+      expression
+        additiveExpression
+          KlassIdentifier(multiLineString1)
+          additiveOperator
+            ADD >>>+<<< (DEFAULT_TOKEN_CHANNEL)
+          KlassIdentifier(multiLineString2)
+      " world"
+KlassDeclaration(val multiLineString5)
+  expression
+    KlassString
+      "\n"

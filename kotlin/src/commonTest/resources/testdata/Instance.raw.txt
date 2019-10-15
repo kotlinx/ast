@@ -1,0 +1,94 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        INTERFACE >>>interface<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>A1<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      classDeclaration
+        INTERFACE >>>interface<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>A2<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        delegationSpecifiers
+          annotatedDelegationSpecifier
+            delegationSpecifier
+              userType
+                simpleUserType
+                  simpleIdentifier
+                    Identifier >>>A1<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      classDeclaration
+        modifiers
+          modifier
+            inheritanceModifier
+              OPEN >>>open<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>B<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        delegationSpecifiers
+          annotatedDelegationSpecifier
+            delegationSpecifier
+              userType
+                simpleUserType
+                  simpleIdentifier
+                    Identifier >>>A1<<< (DEFAULT_TOKEN_CHANNEL)
+          COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+          annotatedDelegationSpecifier
+            annotation
+              singleAnnotation
+                AT_PRE_WS >>> @<<< (DEFAULT_TOKEN_CHANNEL)
+                unescapedAnnotation
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>annotated<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            delegationSpecifier
+              userType
+                simpleUserType
+                  simpleIdentifier
+                    Identifier >>>A2<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      objectDeclaration
+        OBJECT >>>object<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>C<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        delegationSpecifiers
+          annotatedDelegationSpecifier
+            delegationSpecifier
+              userType
+                simpleUserType
+                  simpleIdentifier
+                    Identifier >>>B<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

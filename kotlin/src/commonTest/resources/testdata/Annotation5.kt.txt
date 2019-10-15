@@ -1,0 +1,2 @@
+@some.where.Class<Hello>.Annotation5("hello")
+val target5

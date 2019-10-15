@@ -1,0 +1,4 @@
+val singleLineString1 = ""
+val singleLineString2 = "hello"
+val singleLineString3 = "$singleLineString2 world"
+val singleLineString4 = "${singleLineString1 + singleLineString2} world"

@@ -1,0 +1,23 @@
+package testdata
+
+@Annotation
+data class Name(some: ConstructorParam) : BaseClass("argument"), Interface {
+    @Annotated
+    val annotatedVal = 1
+
+    @Annotated
+    var annotatedVar: Int = 2
+
+    @Annotated
+    fun annotated1(x: Int = 3) = x * 2
+
+    @Annotated
+    private fun annotated2(@AnotherAnnotation x: Int): Int {
+        return x * 2
+    }
+
+    @Annotated
+    fun <X : Int> generic(x: X): X
+
+    fun frames(): List<javax.swing.JFrame>
+}

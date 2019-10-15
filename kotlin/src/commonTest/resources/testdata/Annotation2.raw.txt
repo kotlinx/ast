@@ -1,0 +1,131 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      propertyDeclaration
+        modifiers
+          annotation
+            singleAnnotation
+              AT_NO_WS >>>@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                constructorInvocation
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>Annotation2a<<< (DEFAULT_TOKEN_CHANNEL)
+                  valueArguments
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    valueArgument
+                      expression
+                        disjunction
+                          conjunction
+                            equality
+                              comparison
+                                infixOperation
+                                  elvisExpression
+                                    infixFunctionCall
+                                      rangeExpression
+                                        additiveExpression
+                                          multiplicativeExpression
+                                            asExpression
+                                              prefixUnaryExpression
+                                                postfixUnaryExpression
+                                                  primaryExpression
+                                                    stringLiteral
+                                                      lineStringLiteral
+                                                        QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        lineStringContent
+                                                          LineStrText >>>hello1<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          modifier
+            visibilityModifier
+              PRIVATE >>>private<<< (DEFAULT_TOKEN_CHANNEL)
+          annotation
+            singleAnnotation
+              AT_PRE_WS >>>\n@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                constructorInvocation
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>Annotation2b<<< (DEFAULT_TOKEN_CHANNEL)
+                  valueArguments
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    valueArgument
+                      expression
+                        disjunction
+                          conjunction
+                            equality
+                              comparison
+                                infixOperation
+                                  elvisExpression
+                                    infixFunctionCall
+                                      rangeExpression
+                                        additiveExpression
+                                          multiplicativeExpression
+                                            asExpression
+                                              prefixUnaryExpression
+                                                postfixUnaryExpression
+                                                  primaryExpression
+                                                    stringLiteral
+                                                      lineStringLiteral
+                                                        QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        lineStringContent
+                                                          LineStrText >>>hello2<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          modifier
+            platformModifier
+              EXPECT >>>expect<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            inheritanceModifier
+              FINAL >>>final<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        variableDeclaration
+          annotation
+            singleAnnotation
+              AT_PRE_WS >>>\n@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                constructorInvocation
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>Annotation2c<<< (DEFAULT_TOKEN_CHANNEL)
+                  valueArguments
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    valueArgument
+                      expression
+                        disjunction
+                          conjunction
+                            equality
+                              comparison
+                                infixOperation
+                                  elvisExpression
+                                    infixFunctionCall
+                                      rangeExpression
+                                        additiveExpression
+                                          multiplicativeExpression
+                                            asExpression
+                                              prefixUnaryExpression
+                                                postfixUnaryExpression
+                                                  primaryExpression
+                                                    stringLiteral
+                                                      lineStringLiteral
+                                                        QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        lineStringContent
+                                                          LineStrText >>>hello3<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          simpleIdentifier
+            Identifier >>>target2<<< (DEFAULT_TOKEN_CHANNEL)
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

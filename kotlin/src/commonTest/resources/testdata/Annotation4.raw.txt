@@ -1,0 +1,35 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      propertyDeclaration
+        modifiers
+          annotation
+            singleAnnotation
+              AT_NO_WS >>>@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                userType
+                  simpleUserType
+                    simpleIdentifier
+                      Identifier >>>Annotation4<<< (DEFAULT_TOKEN_CHANNEL)
+                    typeArguments
+                      LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                      typeProjection
+                        type
+                          typeReference
+                            userType
+                              simpleUserType
+                                simpleIdentifier
+                                  Identifier >>>Foo<<< (DEFAULT_TOKEN_CHANNEL)
+                      RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        variableDeclaration
+          simpleIdentifier
+            Identifier >>>target4<<< (DEFAULT_TOKEN_CHANNEL)
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

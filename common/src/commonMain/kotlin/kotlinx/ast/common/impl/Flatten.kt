@@ -1,15 +1,17 @@
 package kotlinx.ast.common.impl
 
-import kotlinx.ast.common.Ast
+import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.AstChannel
+import kotlinx.ast.common.ast.DefaultAstNode
+import kotlinx.ast.common.ast.DefaultAstTerminal
 
 internal fun Ast.flatten(defaultChannel: AstChannel): List<Ast> {
-    return if (this is Ast.Node) {
+    return if (this is DefaultAstNode) {
         val start = mutableListOf<Ast>()
         val self = mutableListOf<Ast>()
         val stop = mutableListOf<Ast>()
         children.forEach { ast ->
-            val flat = ast is Ast.Terminal && ast.channel != defaultChannel
+            val flat = ast is DefaultAstTerminal && ast.channel != defaultChannel
             if (self.isEmpty()) {
                 if (flat) {
                     start += ast

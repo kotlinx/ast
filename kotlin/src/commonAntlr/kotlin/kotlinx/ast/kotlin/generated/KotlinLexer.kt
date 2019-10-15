@@ -4,11 +4,9 @@ package kotlinx.ast.kotlin.generated
 import com.strumenta.kotlinmultiplatform.asCharArray
 import org.antlr.v4.kotlinruntime.CharStream
 import org.antlr.v4.kotlinruntime.Lexer
+import org.antlr.v4.kotlinruntime.Vocabulary
 import org.antlr.v4.kotlinruntime.VocabularyImpl
-import org.antlr.v4.kotlinruntime.atn.ATN
-import org.antlr.v4.kotlinruntime.atn.ATNDeserializer
-import org.antlr.v4.kotlinruntime.atn.LexerATNSimulator
-import org.antlr.v4.kotlinruntime.atn.PredictionContextCache
+import org.antlr.v4.kotlinruntime.atn.*
 import org.antlr.v4.kotlinruntime.dfa.DFA
 
 class KotlinLexer(val input: CharStream) : Lexer(input) {
@@ -704,6 +702,8 @@ class KotlinLexer(val input: CharStream) : Lexer(input) {
 	    ErrorCharacter
 	}
 
+	override val vocabulary: Vocabulary
+		get() = VOCABULARY
 
 	init {
 		this.interpreter = LexerATNSimulator(this, ATN, decisionToDFA as Array<DFA?>, sharedContextCache)

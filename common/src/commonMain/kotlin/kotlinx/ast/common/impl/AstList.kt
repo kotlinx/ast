@@ -1,6 +1,7 @@
 package kotlinx.ast.common.impl
 
-import kotlinx.ast.common.Ast
+import kotlinx.ast.common.ast.Ast
+import kotlinx.ast.common.ast.DefaultAstNode
 
 internal data class AstList(
     val start: List<Ast>,
@@ -14,7 +15,7 @@ internal data class AstList(
     fun join(): Ast {
         return if (start.isEmpty() && stop.isEmpty()) {
             ast
-        } else if (ast is Ast.Node) {
+        } else if (ast is DefaultAstNode) {
             ast.copy(children = start + ast.children + stop)
         } else {
             throw RuntimeException()

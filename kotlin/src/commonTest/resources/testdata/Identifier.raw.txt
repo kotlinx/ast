@@ -1,0 +1,50 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      propertyDeclaration
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        variableDeclaration
+          simpleIdentifier
+            Identifier >>>someMap<<< (DEFAULT_TOKEN_CHANNEL)
+          COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          type
+            typeReference
+              userType
+                simpleUserType
+                  simpleIdentifier
+                    Identifier >>>Map<<< (DEFAULT_TOKEN_CHANNEL)
+                  typeArguments
+                    LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                    typeProjection
+                      type
+                        typeReference
+                          userType
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>some<<< (DEFAULT_TOKEN_CHANNEL)
+                            DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>Key<<< (DEFAULT_TOKEN_CHANNEL)
+                    COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+                    WS >>> <<< (HIDDEN)
+                    typeProjection
+                      type
+                        typeReference
+                          userType
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>some<<< (DEFAULT_TOKEN_CHANNEL)
+                            DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>Value<<< (DEFAULT_TOKEN_CHANNEL)
+                    RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

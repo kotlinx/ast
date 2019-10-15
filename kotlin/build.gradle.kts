@@ -1,9 +1,18 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
     kotlin("multiplatform")
+    `maven-publish`
 }
 
 kotlin {
-    jvm()
+    jvm {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
 
     sourceSets {
         val commonAntlr by creating {
@@ -25,6 +34,13 @@ kotlin {
                 api(kotlin("stdlib-jdk8"))
             }
         }
+
+        val jvmTest by getting {
+            dependencies {
+                implementation("ch.qos.logback:logback-classic:1.2.3")
+                implementation("io.kotlintest:kotlintest-runner-junit5:3.4.0")
+            }
+        }
     }
 }
 
@@ -42,4 +58,12 @@ tasks.register<com.strumenta.antlrkotlin.gradleplugin.AntlrKotlinTask>("generate
             include("*.g4")
         }
     outputDirectory = File("src/commonAntlr/kotlin")
+}
+
+tasks.withType(Test::class.java).all {
+    useJUnitPlatform {}
+    testLogging {
+        showStandardStreams = true
+        events = TestLogEvent.values().toSet()
+    }
 }

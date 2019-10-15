@@ -1,0 +1,14 @@
+kotlinFile
+  packageHeader
+    PACKAGE >>>package<<< (DEFAULT_TOKEN_CHANNEL)
+    WS >>> <<< (HIDDEN)
+    identifier
+      simpleIdentifier
+        Identifier >>>some<<< (DEFAULT_TOKEN_CHANNEL)
+      DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+      simpleIdentifier
+        Identifier >>>testdata<<< (DEFAULT_TOKEN_CHANNEL)
+    semi
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  importList
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

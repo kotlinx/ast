@@ -1,0 +1,16 @@
+PackageHeader()
+importList
+KlassDeclaration(interface A1)
+KlassDeclaration(interface A2)
+  KlassInheritance
+    KlassIdentifier(A1)
+KlassDeclaration(class B)
+  KlassModifier(open, inheritanceModifier)
+  KlassInheritance
+    KlassIdentifier(A1)
+  KlassInheritance
+    KlassIdentifier(A2)
+    KlassAnnotation(annotated)
+KlassDeclaration(object C)
+  KlassInheritance
+    KlassIdentifier(B)

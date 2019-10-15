@@ -1,0 +1,38 @@
+PackageHeader(testdata)
+importList
+KlassDeclaration(class Name)
+  KlassAnnotation(Annotation)
+  KlassModifier(data, classModifier)
+  KlassInheritance
+    KlassIdentifier(BaseClass)
+  KlassInheritance
+    KlassIdentifier(Interface)
+  classBody
+    KlassDeclaration(val annotatedVal)
+      KlassAnnotation(Annotated)
+      expression
+        literalConstant
+          IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+    KlassDeclaration(var annotatedVar: Int)
+      KlassAnnotation(Annotated)
+      expression
+        literalConstant
+          IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+    KlassDeclaration(fun annotated1)
+      KlassAnnotation(Annotated)
+      KlassArgument(x: Int)
+        expression
+          literalConstant
+            IntegerLiteral >>>3<<< (DEFAULT_TOKEN_CHANNEL)
+    KlassDeclaration(fun annotated2: Int)
+      KlassAnnotation(Annotated)
+      KlassModifier(private, visibilityModifier)
+      KlassArgument(x: Int)
+        KlassAnnotation(AnotherAnnotation)
+    KlassDeclaration(fun generic: X)
+      KlassAnnotation(Annotated)
+      KlassArgument(x: X)
+      KlassTypeParameter
+        KlassIdentifier(X)
+        KlassIdentifier(Int)
+    KlassDeclaration(fun frames: List<javax.swing.JFrame>)

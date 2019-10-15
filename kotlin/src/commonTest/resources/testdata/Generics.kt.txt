@@ -1,0 +1,7 @@
+interface A
+
+data class B(val b: Int) : A
+
+data class G1<X>(val x: X)
+
+data class G2<X : A>(val x: A)

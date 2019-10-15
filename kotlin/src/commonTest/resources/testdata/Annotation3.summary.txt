@@ -1,0 +1,7 @@
+PackageHeader()
+importList
+KlassDeclaration(val target3)
+  KlassAnnotation(some.Annotation3)
+    KlassArgument()
+      KlassString
+        "hello"

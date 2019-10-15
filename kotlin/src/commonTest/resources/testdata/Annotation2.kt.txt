@@ -1,0 +1,6 @@
+@Annotation2a("hello1")
+private
+@Annotation2b("hello2")
+expect final val
+@Annotation2c("hello3")
+target2

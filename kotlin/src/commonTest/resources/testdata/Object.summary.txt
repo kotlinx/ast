@@ -1,0 +1,30 @@
+PackageHeader(testdata)
+importList
+KlassDeclaration(object ObjectEmpty)
+KlassDeclaration(object ObjectEmptyInternal)
+  KlassModifier(internal, visibilityModifier)
+KlassDeclaration(object ObjectEmptyPrivate)
+  KlassModifier(private, visibilityModifier)
+KlassDeclaration(object Object)
+  KlassAnnotation(Annotation1)
+  KlassAnnotation(Annotation2)
+    KlassArgument()
+      KlassString
+        "hello"
+  KlassAnnotation(some.where.Class<Hello>.Annotation3)
+    KlassArgument()
+      KlassString
+        "hello"
+  KlassModifier(protected, visibilityModifier)
+  KlassModifier(data, classModifier)
+  KlassModifier(enum, classModifier)
+  KlassModifier(sealed, classModifier)
+  KlassModifier(annotation, classModifier)
+  KlassModifier(data, classModifier)
+  KlassModifier(inner, classModifier)
+  KlassModifier(override, memberModifier)
+  KlassModifier(lateinit, memberModifier)
+  KlassModifier(public, visibilityModifier)
+  KlassModifier(private, visibilityModifier)
+  KlassModifier(internal, visibilityModifier)
+  KlassModifier(protected, visibilityModifier)

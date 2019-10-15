@@ -1,0 +1,13 @@
+package testdata
+
+object ObjectEmpty
+
+internal object ObjectEmptyInternal
+
+private object ObjectEmptyPrivate
+
+@Annotation1
+protected data
+@Annotation2("hello")
+@some.where.Class<Hello>.Annotation3("hello")
+enum sealed annotation data inner override lateinit public private internal protected object Object

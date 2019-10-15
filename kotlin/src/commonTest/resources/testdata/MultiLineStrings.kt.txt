@@ -1,0 +1,6 @@
+val multiLineString1 = """"""
+val multiLineString2 = """hello"""
+val multiLineString3 = """$multiLineString2 world"""
+val multiLineString4 = """${multiLineString1 + multiLineString2} world"""
+val multiLineString5 = """
+"""

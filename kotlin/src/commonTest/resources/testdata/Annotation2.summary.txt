@@ -1,0 +1,18 @@
+PackageHeader()
+importList
+KlassDeclaration(val target2)
+  KlassAnnotation(Annotation2a)
+    KlassArgument()
+      KlassString
+        "hello1"
+  KlassAnnotation(Annotation2b)
+    KlassArgument()
+      KlassString
+        "hello2"
+  KlassAnnotation(Annotation2c)
+    KlassArgument()
+      KlassString
+        "hello3"
+  KlassModifier(private, visibilityModifier)
+  KlassModifier(expect, platformModifier)
+  KlassModifier(final, inheritanceModifier)

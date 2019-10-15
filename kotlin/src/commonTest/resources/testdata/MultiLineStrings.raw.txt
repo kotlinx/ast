@@ -1,0 +1,202 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      propertyDeclaration
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        variableDeclaration
+          simpleIdentifier
+            Identifier >>>multiLineString1<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      stringLiteral
+                                        multiLineStringLiteral
+                                          TRIPLE_QUOTE_OPEN >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+                                          TRIPLE_QUOTE_CLOSE >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      propertyDeclaration
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        variableDeclaration
+          simpleIdentifier
+            Identifier >>>multiLineString2<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      stringLiteral
+                                        multiLineStringLiteral
+                                          TRIPLE_QUOTE_OPEN >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+                                          multiLineStringContent
+                                            MultiLineStrText >>>hello<<< (DEFAULT_TOKEN_CHANNEL)
+                                          TRIPLE_QUOTE_CLOSE >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      propertyDeclaration
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        variableDeclaration
+          simpleIdentifier
+            Identifier >>>multiLineString3<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      stringLiteral
+                                        multiLineStringLiteral
+                                          TRIPLE_QUOTE_OPEN >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+                                          multiLineStringContent
+                                            MultiLineStrRef >>>$multiLineString2<<< (DEFAULT_TOKEN_CHANNEL)
+                                          multiLineStringContent
+                                            MultiLineStrText >>> world<<< (DEFAULT_TOKEN_CHANNEL)
+                                          TRIPLE_QUOTE_CLOSE >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      propertyDeclaration
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        variableDeclaration
+          simpleIdentifier
+            Identifier >>>multiLineString4<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      stringLiteral
+                                        multiLineStringLiteral
+                                          TRIPLE_QUOTE_OPEN >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+                                          multiLineStringExpression
+                                            MultiLineStrExprStart >>>${<<< (DEFAULT_TOKEN_CHANNEL)
+                                            expression
+                                              disjunction
+                                                conjunction
+                                                  equality
+                                                    comparison
+                                                      infixOperation
+                                                        elvisExpression
+                                                          infixFunctionCall
+                                                            rangeExpression
+                                                              additiveExpression
+                                                                multiplicativeExpression
+                                                                  asExpression
+                                                                    prefixUnaryExpression
+                                                                      postfixUnaryExpression
+                                                                        primaryExpression
+                                                                          simpleIdentifier
+                                                                            Identifier >>>multiLineString1<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                WS >>> <<< (HIDDEN)
+                                                                additiveOperator
+                                                                  ADD >>>+<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                WS >>> <<< (HIDDEN)
+                                                                multiplicativeExpression
+                                                                  asExpression
+                                                                    prefixUnaryExpression
+                                                                      postfixUnaryExpression
+                                                                        primaryExpression
+                                                                          simpleIdentifier
+                                                                            Identifier >>>multiLineString2<<< (DEFAULT_TOKEN_CHANNEL)
+                                            RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+                                          multiLineStringContent
+                                            MultiLineStrText >>> world<<< (DEFAULT_TOKEN_CHANNEL)
+                                          TRIPLE_QUOTE_CLOSE >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      propertyDeclaration
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        variableDeclaration
+          simpleIdentifier
+            Identifier >>>multiLineString5<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      stringLiteral
+                                        multiLineStringLiteral
+                                          TRIPLE_QUOTE_OPEN >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+                                          multiLineStringContent
+                                            MultiLineStrText >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                                          TRIPLE_QUOTE_CLOSE >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

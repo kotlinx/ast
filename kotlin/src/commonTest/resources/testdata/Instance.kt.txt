@@ -1,0 +1,7 @@
+interface A1
+
+interface A2 : A1
+
+open class B : A1, @annotated A2
+
+object C : B

@@ -1,0 +1,48 @@
+kotlinFile
+  packageHeader
+  importList
+    importHeader
+      IMPORT >>>import<<< (DEFAULT_TOKEN_CHANNEL)
+      WS >>> <<< (HIDDEN)
+      identifier
+        simpleIdentifier
+          Identifier >>>kotlin<<< (DEFAULT_TOKEN_CHANNEL)
+        DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>collections<<< (DEFAULT_TOKEN_CHANNEL)
+      DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+      MULT >>>*<<< (DEFAULT_TOKEN_CHANNEL)
+      semi
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+    importHeader
+      IMPORT >>>import<<< (DEFAULT_TOKEN_CHANNEL)
+      WS >>> <<< (HIDDEN)
+      identifier
+        simpleIdentifier
+          Identifier >>>kotlin<<< (DEFAULT_TOKEN_CHANNEL)
+        DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>math<<< (DEFAULT_TOKEN_CHANNEL)
+        DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>PI<<< (DEFAULT_TOKEN_CHANNEL)
+      semi
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+    importHeader
+      IMPORT >>>import<<< (DEFAULT_TOKEN_CHANNEL)
+      WS >>> <<< (HIDDEN)
+      identifier
+        simpleIdentifier
+          Identifier >>>kotlin<<< (DEFAULT_TOKEN_CHANNEL)
+        DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>String<<< (DEFAULT_TOKEN_CHANNEL)
+      WS >>> <<< (HIDDEN)
+      importAlias
+        AS >>>as<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>AliasString<<< (DEFAULT_TOKEN_CHANNEL)
+      semi
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

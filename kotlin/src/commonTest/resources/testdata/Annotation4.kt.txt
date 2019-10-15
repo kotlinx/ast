@@ -1,0 +1,2 @@
+@Annotation4<Foo>
+val target4

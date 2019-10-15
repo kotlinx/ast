@@ -1,0 +1,533 @@
+kotlinFile
+  packageHeader
+    PACKAGE >>>package<<< (DEFAULT_TOKEN_CHANNEL)
+    WS >>> <<< (HIDDEN)
+    identifier
+      simpleIdentifier
+        Identifier >>>testdata<<< (DEFAULT_TOKEN_CHANNEL)
+    semi
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        modifiers
+          annotation
+            singleAnnotation
+              AT_PRE_WS >>>\n@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                userType
+                  simpleUserType
+                    simpleIdentifier
+                      Identifier >>>Annotation<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          modifier
+            classModifier
+              DATA >>>data<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>Name<<< (DEFAULT_TOKEN_CHANNEL)
+        primaryConstructor
+          classParameters
+            LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+            classParameter
+              simpleIdentifier
+                Identifier >>>some<<< (DEFAULT_TOKEN_CHANNEL)
+              COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              type
+                typeReference
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>ConstructorParam<<< (DEFAULT_TOKEN_CHANNEL)
+            RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        delegationSpecifiers
+          annotatedDelegationSpecifier
+            delegationSpecifier
+              constructorInvocation
+                userType
+                  simpleUserType
+                    simpleIdentifier
+                      Identifier >>>BaseClass<<< (DEFAULT_TOKEN_CHANNEL)
+                valueArguments
+                  LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                  valueArgument
+                    expression
+                      disjunction
+                        conjunction
+                          equality
+                            comparison
+                              infixOperation
+                                elvisExpression
+                                  infixFunctionCall
+                                    rangeExpression
+                                      additiveExpression
+                                        multiplicativeExpression
+                                          asExpression
+                                            prefixUnaryExpression
+                                              postfixUnaryExpression
+                                                primaryExpression
+                                                  stringLiteral
+                                                    lineStringLiteral
+                                                      QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                      lineStringContent
+                                                        LineStrText >>>argument<<< (DEFAULT_TOKEN_CHANNEL)
+                                                      QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                  RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+          COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          annotatedDelegationSpecifier
+            delegationSpecifier
+              userType
+                simpleUserType
+                  simpleIdentifier
+                    Identifier >>>Interface<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        classBody
+          LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          classMemberDeclarations
+            classMemberDeclaration
+              declaration
+                propertyDeclaration
+                  modifiers
+                    annotation
+                      singleAnnotation
+                        AT_PRE_WS >>> @<<< (DEFAULT_TOKEN_CHANNEL)
+                        unescapedAnnotation
+                          userType
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>Annotated<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  variableDeclaration
+                    simpleIdentifier
+                      Identifier >>>annotatedVal<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  expression
+                    disjunction
+                      conjunction
+                        equality
+                          comparison
+                            infixOperation
+                              elvisExpression
+                                infixFunctionCall
+                                  rangeExpression
+                                    additiveExpression
+                                      multiplicativeExpression
+                                        asExpression
+                                          prefixUnaryExpression
+                                            postfixUnaryExpression
+                                              primaryExpression
+                                                literalConstant
+                                                  IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+                  NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                  NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            classMemberDeclaration
+              declaration
+                propertyDeclaration
+                  modifiers
+                    annotation
+                      singleAnnotation
+                        AT_PRE_WS >>> @<<< (DEFAULT_TOKEN_CHANNEL)
+                        unescapedAnnotation
+                          userType
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>Annotated<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  VAR >>>var<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  variableDeclaration
+                    simpleIdentifier
+                      Identifier >>>annotatedVar<<< (DEFAULT_TOKEN_CHANNEL)
+                    COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                    WS >>> <<< (HIDDEN)
+                    type
+                      typeReference
+                        userType
+                          simpleUserType
+                            simpleIdentifier
+                              Identifier >>>Int<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  expression
+                    disjunction
+                      conjunction
+                        equality
+                          comparison
+                            infixOperation
+                              elvisExpression
+                                infixFunctionCall
+                                  rangeExpression
+                                    additiveExpression
+                                      multiplicativeExpression
+                                        asExpression
+                                          prefixUnaryExpression
+                                            postfixUnaryExpression
+                                              primaryExpression
+                                                literalConstant
+                                                  IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+                  NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                  NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            classMemberDeclaration
+              declaration
+                functionDeclaration
+                  modifiers
+                    annotation
+                      singleAnnotation
+                        AT_PRE_WS >>> @<<< (DEFAULT_TOKEN_CHANNEL)
+                        unescapedAnnotation
+                          userType
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>Annotated<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  simpleIdentifier
+                    Identifier >>>annotated1<<< (DEFAULT_TOKEN_CHANNEL)
+                  functionValueParameters
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    functionValueParameter
+                      parameter
+                        simpleIdentifier
+                          Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+                        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                        Inside_WS >>> <<< (HIDDEN)
+                        type
+                          typeReference
+                            userType
+                              simpleUserType
+                                simpleIdentifier
+                                  Identifier >>>Int<<< (DEFAULT_TOKEN_CHANNEL)
+                      Inside_WS >>> <<< (HIDDEN)
+                      ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                      Inside_WS >>> <<< (HIDDEN)
+                      expression
+                        disjunction
+                          conjunction
+                            equality
+                              comparison
+                                infixOperation
+                                  elvisExpression
+                                    infixFunctionCall
+                                      rangeExpression
+                                        additiveExpression
+                                          multiplicativeExpression
+                                            asExpression
+                                              prefixUnaryExpression
+                                                postfixUnaryExpression
+                                                  primaryExpression
+                                                    literalConstant
+                                                      IntegerLiteral >>>3<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  functionBody
+                    ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                    WS >>> <<< (HIDDEN)
+                    expression
+                      disjunction
+                        conjunction
+                          equality
+                            comparison
+                              infixOperation
+                                elvisExpression
+                                  infixFunctionCall
+                                    rangeExpression
+                                      additiveExpression
+                                        multiplicativeExpression
+                                          asExpression
+                                            prefixUnaryExpression
+                                              postfixUnaryExpression
+                                                primaryExpression
+                                                  simpleIdentifier
+                                                    Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+                                          WS >>> <<< (HIDDEN)
+                                          multiplicativeOperator
+                                            MULT >>>*<<< (DEFAULT_TOKEN_CHANNEL)
+                                          WS >>> <<< (HIDDEN)
+                                          asExpression
+                                            prefixUnaryExpression
+                                              postfixUnaryExpression
+                                                primaryExpression
+                                                  literalConstant
+                                                    IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            classMemberDeclaration
+              declaration
+                functionDeclaration
+                  modifiers
+                    annotation
+                      singleAnnotation
+                        AT_PRE_WS >>> @<<< (DEFAULT_TOKEN_CHANNEL)
+                        unescapedAnnotation
+                          userType
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>Annotated<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    modifier
+                      visibilityModifier
+                        PRIVATE >>>private<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  simpleIdentifier
+                    Identifier >>>annotated2<<< (DEFAULT_TOKEN_CHANNEL)
+                  functionValueParameters
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    functionValueParameter
+                      parameterModifiers
+                        annotation
+                          singleAnnotation
+                            AT_NO_WS >>>@<<< (DEFAULT_TOKEN_CHANNEL)
+                            unescapedAnnotation
+                              userType
+                                simpleUserType
+                                  simpleIdentifier
+                                    Identifier >>>AnotherAnnotation<<< (DEFAULT_TOKEN_CHANNEL)
+                      Inside_WS >>> <<< (HIDDEN)
+                      parameter
+                        simpleIdentifier
+                          Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+                        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                        Inside_WS >>> <<< (HIDDEN)
+                        type
+                          typeReference
+                            userType
+                              simpleUserType
+                                simpleIdentifier
+                                  Identifier >>>Int<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  type
+                    typeReference
+                      userType
+                        simpleUserType
+                          simpleIdentifier
+                            Identifier >>>Int<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  functionBody
+                    block
+                      LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      statements
+                        statement
+                          expression
+                            disjunction
+                              conjunction
+                                equality
+                                  comparison
+                                    infixOperation
+                                      elvisExpression
+                                        infixFunctionCall
+                                          rangeExpression
+                                            additiveExpression
+                                              multiplicativeExpression
+                                                asExpression
+                                                  prefixUnaryExpression
+                                                    postfixUnaryExpression
+                                                      primaryExpression
+                                                        jumpExpression
+                                                          RETURN >>>return<<< (DEFAULT_TOKEN_CHANNEL)
+                                                          WS >>> <<< (HIDDEN)
+                                                          expression
+                                                            disjunction
+                                                              conjunction
+                                                                equality
+                                                                  comparison
+                                                                    infixOperation
+                                                                      elvisExpression
+                                                                        infixFunctionCall
+                                                                          rangeExpression
+                                                                            additiveExpression
+                                                                              multiplicativeExpression
+                                                                                asExpression
+                                                                                  prefixUnaryExpression
+                                                                                    postfixUnaryExpression
+                                                                                      primaryExpression
+                                                                                        simpleIdentifier
+                                                                                          Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                WS >>> <<< (HIDDEN)
+                                                                                multiplicativeOperator
+                                                                                  MULT >>>*<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                WS >>> <<< (HIDDEN)
+                                                                                asExpression
+                                                                                  prefixUnaryExpression
+                                                                                    postfixUnaryExpression
+                                                                                      primaryExpression
+                                                                                        literalConstant
+                                                                                          IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+                        semis
+                          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            classMemberDeclaration
+              declaration
+                functionDeclaration
+                  modifiers
+                    annotation
+                      singleAnnotation
+                        AT_PRE_WS >>> @<<< (DEFAULT_TOKEN_CHANNEL)
+                        unescapedAnnotation
+                          userType
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>Annotated<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  typeParameters
+                    LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                    typeParameter
+                      simpleIdentifier
+                        Identifier >>>X<<< (DEFAULT_TOKEN_CHANNEL)
+                      WS >>> <<< (HIDDEN)
+                      COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                      WS >>> <<< (HIDDEN)
+                      type
+                        typeReference
+                          userType
+                            simpleUserType
+                              simpleIdentifier
+                                Identifier >>>Int<<< (DEFAULT_TOKEN_CHANNEL)
+                    RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  simpleIdentifier
+                    Identifier >>>generic<<< (DEFAULT_TOKEN_CHANNEL)
+                  functionValueParameters
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    functionValueParameter
+                      parameter
+                        simpleIdentifier
+                          Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+                        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                        Inside_WS >>> <<< (HIDDEN)
+                        type
+                          typeReference
+                            userType
+                              simpleUserType
+                                simpleIdentifier
+                                  Identifier >>>X<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  type
+                    typeReference
+                      userType
+                        simpleUserType
+                          simpleIdentifier
+                            Identifier >>>X<<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            classMemberDeclaration
+              declaration
+                functionDeclaration
+                  FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  simpleIdentifier
+                    Identifier >>>frames<<< (DEFAULT_TOKEN_CHANNEL)
+                  functionValueParameters
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  type
+                    typeReference
+                      userType
+                        simpleUserType
+                          simpleIdentifier
+                            Identifier >>>List<<< (DEFAULT_TOKEN_CHANNEL)
+                          typeArguments
+                            LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                            typeProjection
+                              type
+                                typeReference
+                                  userType
+                                    simpleUserType
+                                      simpleIdentifier
+                                        Identifier >>>javax<<< (DEFAULT_TOKEN_CHANNEL)
+                                    DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+                                    simpleUserType
+                                      simpleIdentifier
+                                        Identifier >>>swing<<< (DEFAULT_TOKEN_CHANNEL)
+                                    DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+                                    simpleUserType
+                                      simpleIdentifier
+                                        Identifier >>>JFrame<<< (DEFAULT_TOKEN_CHANNEL)
+                            RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

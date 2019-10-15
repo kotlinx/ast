@@ -1,0 +1,212 @@
+kotlinFile
+  packageHeader
+    PACKAGE >>>package<<< (DEFAULT_TOKEN_CHANNEL)
+    WS >>> <<< (HIDDEN)
+    identifier
+      simpleIdentifier
+        Identifier >>>testdata<<< (DEFAULT_TOKEN_CHANNEL)
+    semi
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  importList
+  topLevelObject
+    declaration
+      objectDeclaration
+        OBJECT >>>object<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>ObjectEmpty<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      objectDeclaration
+        modifiers
+          modifier
+            visibilityModifier
+              INTERNAL >>>internal<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        OBJECT >>>object<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>ObjectEmptyInternal<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      objectDeclaration
+        modifiers
+          modifier
+            visibilityModifier
+              PRIVATE >>>private<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        OBJECT >>>object<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>ObjectEmptyPrivate<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      objectDeclaration
+        modifiers
+          annotation
+            singleAnnotation
+              AT_PRE_WS >>>\n@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                userType
+                  simpleUserType
+                    simpleIdentifier
+                      Identifier >>>Annotation1<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          modifier
+            visibilityModifier
+              PROTECTED >>>protected<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            classModifier
+              DATA >>>data<<< (DEFAULT_TOKEN_CHANNEL)
+          annotation
+            singleAnnotation
+              AT_PRE_WS >>>\n@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                constructorInvocation
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>Annotation2<<< (DEFAULT_TOKEN_CHANNEL)
+                  valueArguments
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    valueArgument
+                      expression
+                        disjunction
+                          conjunction
+                            equality
+                              comparison
+                                infixOperation
+                                  elvisExpression
+                                    infixFunctionCall
+                                      rangeExpression
+                                        additiveExpression
+                                          multiplicativeExpression
+                                            asExpression
+                                              prefixUnaryExpression
+                                                postfixUnaryExpression
+                                                  primaryExpression
+                                                    stringLiteral
+                                                      lineStringLiteral
+                                                        QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        lineStringContent
+                                                          LineStrText >>>hello<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+          annotation
+            singleAnnotation
+              AT_PRE_WS >>>\n@<<< (DEFAULT_TOKEN_CHANNEL)
+              unescapedAnnotation
+                constructorInvocation
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>some<<< (DEFAULT_TOKEN_CHANNEL)
+                    DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+                    simpleUserType
+                      simpleIdentifier
+                        WHERE >>>where<<< (DEFAULT_TOKEN_CHANNEL)
+                    DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>Class<<< (DEFAULT_TOKEN_CHANNEL)
+                      typeArguments
+                        LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                        typeProjection
+                          type
+                            typeReference
+                              userType
+                                simpleUserType
+                                  simpleIdentifier
+                                    Identifier >>>Hello<<< (DEFAULT_TOKEN_CHANNEL)
+                        RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+                    DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>Annotation3<<< (DEFAULT_TOKEN_CHANNEL)
+                  valueArguments
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    valueArgument
+                      expression
+                        disjunction
+                          conjunction
+                            equality
+                              comparison
+                                infixOperation
+                                  elvisExpression
+                                    infixFunctionCall
+                                      rangeExpression
+                                        additiveExpression
+                                          multiplicativeExpression
+                                            asExpression
+                                              prefixUnaryExpression
+                                                postfixUnaryExpression
+                                                  primaryExpression
+                                                    stringLiteral
+                                                      lineStringLiteral
+                                                        QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        lineStringContent
+                                                          LineStrText >>>hello<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          modifier
+            classModifier
+              ENUM >>>enum<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            classModifier
+              SEALED >>>sealed<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            classModifier
+              ANNOTATION >>>annotation<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            classModifier
+              DATA >>>data<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            classModifier
+              INNER >>>inner<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            memberModifier
+              OVERRIDE >>>override<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            memberModifier
+              LATEINIT >>>lateinit<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            visibilityModifier
+              PUBLIC >>>public<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            visibilityModifier
+              PRIVATE >>>private<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            visibilityModifier
+              INTERNAL >>>internal<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          modifier
+            visibilityModifier
+              PROTECTED >>>protected<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        OBJECT >>>object<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>Object<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
