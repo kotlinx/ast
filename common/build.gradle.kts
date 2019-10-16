@@ -10,7 +10,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(kotlin("stdlib-common"))
-                api("com.strumenta.antlr-kotlin:antlr-kotlin-runtime:${Versions.antlrKotlin}")
+                api("${Versions.antlrKotlinGroup}:antlr-kotlin-runtime:${Versions.antlrKotlin}")
             }
         }
 

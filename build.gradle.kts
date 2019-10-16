@@ -1,7 +1,7 @@
 buildscript {
     dependencies {
         // add the antlr-kotlin-gradle-plugin to the classpath
-        classpath("com.strumenta.antlr-kotlin:antlr-kotlin-gradle-plugin:${Versions.antlrKotlin}")
+        classpath("${Versions.antlrKotlinGroup}:antlr-kotlin-gradle-plugin:${Versions.antlrKotlin}")
     }
 }
 
@@ -18,6 +18,8 @@ allprojects {
         mavenLocal()
         mavenCentral()
         jcenter()
+        // used to download antlr-kotlin runtime
+        maven("https://jitpack.io")
     }
 }
 

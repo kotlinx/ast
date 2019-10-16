@@ -18,7 +18,7 @@ kotlin {
         val commonAntlr by creating {
             dependencies {
                 api(kotlin("stdlib-common"))
-                api("com.strumenta.antlr-kotlin:antlr-kotlin-runtime:${Versions.antlrKotlin}")
+                api("${Versions.antlrKotlinGroup}:antlr-kotlin-runtime:${Versions.antlrKotlin}")
             }
         }
 
@@ -47,7 +47,7 @@ kotlin {
 tasks.register<com.strumenta.antlrkotlin.gradleplugin.AntlrKotlinTask>("generateKotlinCommonGrammarSource") {
     antlrClasspath = configurations.detachedConfiguration(
         project.dependencies.create("org.antlr:antlr4:${Versions.antlr}"),
-        project.dependencies.create("com.strumenta.antlr-kotlin:antlr-kotlin-target:${Versions.antlrKotlin}")
+        project.dependencies.create("${Versions.antlrKotlinGroup}:antlr-kotlin-target:${Versions.antlrKotlin}")
     )
     maxHeapSize = "64m"
     packageName = "kotlinx.ast.kotlin.generated"
