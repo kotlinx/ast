@@ -9,5 +9,4 @@ object Versions {
     */
     // antlr kotlin version patched by kotlinx.ast author
     val antlrKotlinGroup = "com.github.drieks.antlr-kotlin"
-    val self = "0.0.1"
 }
