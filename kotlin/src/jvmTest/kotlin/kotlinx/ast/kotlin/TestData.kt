@@ -1,13 +1,18 @@
 package kotlinx.ast.kotlin
 
 import java.io.File
+import java.nio.file.FileSystems
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.streams.toList
 
+private fun pathOf(path: String): Path {
+    return FileSystems.getDefault().getPath(path)
+}
+
 private val path = listOf(
-    Path.of("src/commonTest/resources/testdata"),
-    Path.of("kotlin/src/commonTest/resources/testdata")
+    pathOf("src/commonTest/resources/testdata"),
+    pathOf("kotlin/src/commonTest/resources/testdata")
 ).find { path ->
     Files.isDirectory(path)
 }
