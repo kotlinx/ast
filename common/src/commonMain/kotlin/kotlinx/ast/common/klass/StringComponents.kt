@@ -17,6 +17,16 @@ fun String.asStringComponentRaw(): StringComponent {
     return StringComponentRaw(this)
 }
 
+data class StringComponentEscape(
+    val escape: String
+) : StringComponent() {
+    override val description: String = """Escape("${escape.escape()}")"""
+}
+
+fun String.asStringComponentEscape(): StringComponent {
+    return StringComponentEscape(this)
+}
+
 fun <A : Ast> A.asStringComponent(): StringComponent {
     return if (this is AstNode) {
         StringComponentAstNodeExpression(this)

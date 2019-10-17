@@ -8,4 +8,5 @@ KlassDeclaration(fun parse)
   KlassAnnotation(Annotation2)
     KlassArgument()
       KlassString
-        "123"
+        Escape("\$")
+        "{123}"

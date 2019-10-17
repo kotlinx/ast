@@ -72,7 +72,9 @@ kotlinFile
                                                       lineStringLiteral
                                                         QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
                                                         lineStringContent
-                                                          LineStrText >>>123<<< (DEFAULT_TOKEN_CHANNEL)
+                                                          LineStrEscapedChar >>>\$<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        lineStringContent
+                                                          LineStrText >>>{123}<<< (DEFAULT_TOKEN_CHANNEL)
                                                         QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
                     RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
             NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)

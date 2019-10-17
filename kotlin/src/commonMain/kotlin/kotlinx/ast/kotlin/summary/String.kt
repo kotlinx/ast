@@ -38,6 +38,10 @@ val stringMapper: TreeMapMapper = TreeMapMapper()
         TreeMapResult.Continue(
             terminal.text.asStringComponentRaw()
         )
+    }.map("LineStrEscapedChar") { terminal: AstTerminal ->
+        TreeMapResult.Continue(
+            terminal.text.asStringComponentEscape()
+        )
     }.map(
         setOf(
             "LineStrRef",
