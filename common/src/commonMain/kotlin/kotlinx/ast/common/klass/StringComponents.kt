@@ -13,7 +13,7 @@ data class StringComponentRaw(
     override val description: String = """"${string.escape()}""""
 }
 
-fun String.asStringComponent(): StringComponent {
+fun String.asStringComponentRaw(): StringComponent {
     return StringComponentRaw(this)
 }
 

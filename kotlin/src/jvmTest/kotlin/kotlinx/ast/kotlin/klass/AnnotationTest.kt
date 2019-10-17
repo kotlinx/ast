@@ -103,14 +103,14 @@ class AnnotationTest : KlassTest(
                     KlassArgument(
                         expression = listOf(
                             KlassString(
-                                "hello".asStringComponent()
+                                "hello".asStringComponentRaw()
                             )
                         )
                     ),
                     KlassArgument(
                         expression = listOf(
                             KlassString(
-                                "world".asStringComponent()
+                                "world".asStringComponentRaw()
                             )
                         )
                     )

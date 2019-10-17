@@ -3,10 +3,7 @@ package kotlinx.ast.kotlin.summary
 import kotlinx.ast.common.ast.AstTerminal
 import kotlinx.ast.common.ast.DefaultAstNode
 import kotlinx.ast.common.astFailure
-import kotlinx.ast.common.klass.KlassIdentifier
-import kotlinx.ast.common.klass.KlassString
-import kotlinx.ast.common.klass.StringComponent
-import kotlinx.ast.common.klass.asStringComponent
+import kotlinx.ast.common.klass.*
 import kotlinx.ast.common.map.TreeMapMapper
 import kotlinx.ast.common.map.TreeMapResult
 
@@ -39,7 +36,7 @@ val stringMapper: TreeMapMapper = TreeMapMapper()
         )
     ) { terminal: AstTerminal ->
         TreeMapResult.Continue(
-            terminal.text.asStringComponent()
+            terminal.text.asStringComponentRaw()
         )
     }.map(
         setOf(
