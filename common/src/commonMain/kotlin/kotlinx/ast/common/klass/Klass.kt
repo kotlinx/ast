@@ -60,30 +60,9 @@ data class KlassString(
     override val description: String = "KlassString"
 }
 
-data class KlassArgument(
-    val identifier: KlassIdentifier? = null,
-    val type: KlassIdentifier? = null,
-    val annotations: List<KlassAnnotation> = emptyList(),
-    val modifiers: List<KlassModifier> = emptyList(),
-    val expression: List<Ast> = emptyList()
-) : Klass(), AstNode {
-    override val description: String = "KlassArgument(${identifier?.rawName ?: ""}${
-    if (type == null) {
-        ""
-    } else {
-        ": ${type.rawName}"
-    }})"
-
-    override val children: List<Ast> = listOf(
-        annotations,
-        modifiers,
-        expression
-    ).flatten()
-}
-
 data class KlassAnnotation(
     val identifier: List<KlassIdentifier>,
-    val arguments: List<KlassArgument>
+    val arguments: List<KlassDeclaration>
 ) : Klass(), AstNode {
     override val description: String = "KlassAnnotation(${identifier.identifierName()})"
 
@@ -118,7 +97,7 @@ data class KlassDeclaration(
     val type: KlassIdentifier? = null,
     val annotations: List<KlassAnnotation> = emptyList(),
     val modifiers: List<KlassModifier> = emptyList(),
-    val parameter: List<KlassArgument> = emptyList(),
+    val parameter: List<KlassDeclaration> = emptyList(),
     val typeParameters: List<KlassTypeParameter> = emptyList(),
     val inheritance: List<KlassInheritance> = emptyList(),
     val expressions: List<Ast> = emptyList()

@@ -2,15 +2,15 @@ PackageHeader()
 importList
 KlassDeclaration(val target2)
   KlassAnnotation(Annotation2a)
-    KlassArgument()
+    KlassDeclaration(argument)
       KlassString
         "hello1"
   KlassAnnotation(Annotation2b)
-    KlassArgument()
+    KlassDeclaration(argument)
       KlassString
         "hello2"
   KlassAnnotation(Annotation2c)
-    KlassArgument()
+    KlassDeclaration(argument)
       KlassString
         "hello3"
   KlassModifier(private, visibilityModifier)

@@ -66,25 +66,15 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
         )
     ).map("valueArgument") { node: AstNode ->
         treeMap(node.children).flatMap { summary ->
-            val expressions = summary.filter("expression")
-            val count = expressions.size
-            if (count == 1) {
-                val first = expressions.first()
-                val expression = if (first is AstNode) {
-                    first.children
-                } else {
-                    listOf(first)
-                }
-                TreeMapResult.Continue(
-                    KlassArgument(
-                        annotations = summary.filterIsInstance<KlassAnnotation>(),
-                        identifier = summary.filterIsInstance<KlassIdentifier>().firstOrNull(),
-                        expression = expression
-                    )
+            val expressions = summary.filter("expression").filterIsInstance<AstNode>().flatMap(AstNode::children)
+            TreeMapResult.Continue(
+                KlassDeclaration(
+                    keyword = "argument",
+                    identifier = summary.filterIsInstance<KlassIdentifier>().firstOrNull(),
+                    annotations = summary.filterIsInstance<KlassAnnotation>(),
+                    expressions = expressions
                 )
-            } else {
-                astFailure<TreeMapResult>("expected one expression, but found $count")
-            }
+            )
         }
     }.map("propertyDeclaration") { node: AstNode ->
         treeMap(node.children).map { summary ->
@@ -114,12 +104,13 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
         treeMap(node.children).map { summary ->
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
-                KlassArgument(
+                KlassDeclaration(
+                    keyword = "parameter",
                     identifier = identifier.first(),
                     type = identifier.getOrNull(1),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
-                    expression = summary.filter("expression")
+                    expressions = summary.filter("expression")
                 )
             )
         }
@@ -159,7 +150,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                     identifier = identifier.first(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
-                    parameter = summary.filterIsInstance<KlassArgument>(),
+                    parameter = summary.filterIsInstance<KlassDeclaration>(),
                     typeParameters = summary.filterIsInstance<KlassTypeParameter>(),
                     type = identifier.getOrNull(1)
                 )
@@ -187,7 +178,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                     identifier = identifier.first(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
-                    parameter = summary.filterIsInstance<KlassArgument>(),
+                    parameter = summary.filterIsInstance<KlassDeclaration>(),
                     typeParameters = summary.filterIsInstance<KlassTypeParameter>(),
                     type = identifier.getOrNull(1),
                     inheritance = summary.filterIsInstance<KlassInheritance>(),
@@ -204,7 +195,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                     identifier = identifier.first(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
-                    parameter = summary.filterIsInstance<KlassArgument>(),
+                    parameter = summary.filterIsInstance<KlassDeclaration>(),
                     typeParameters = summary.filterIsInstance<KlassTypeParameter>(),
                     inheritance = summary.filterIsInstance<KlassInheritance>(),
                     type = identifier.getOrNull(1)

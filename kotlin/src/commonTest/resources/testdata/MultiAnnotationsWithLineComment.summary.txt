@@ -2,11 +2,11 @@ PackageHeader()
 importList
 KlassDeclaration(fun parse)
   KlassAnnotation(Annotation1)
-    KlassArgument()
+    KlassDeclaration(argument)
       KlassString
         "abc"
   KlassAnnotation(Annotation2)
-    KlassArgument()
+    KlassDeclaration(argument)
       KlassString
         Escape("\$")
         "{123}"

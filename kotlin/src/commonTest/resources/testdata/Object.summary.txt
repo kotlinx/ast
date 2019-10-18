@@ -8,11 +8,11 @@ KlassDeclaration(object ObjectEmptyPrivate)
 KlassDeclaration(object Object)
   KlassAnnotation(Annotation1)
   KlassAnnotation(Annotation2)
-    KlassArgument()
+    KlassDeclaration(argument)
       KlassString
         "hello"
   KlassAnnotation(some.where.Class<Hello>.Annotation3)
-    KlassArgument()
+    KlassDeclaration(argument)
       KlassString
         "hello"
   KlassModifier(protected, visibilityModifier)

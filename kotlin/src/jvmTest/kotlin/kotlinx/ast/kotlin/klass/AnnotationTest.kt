@@ -100,15 +100,17 @@ class AnnotationTest : KlassTest(
                     KlassIdentifier("Annotation5")
                 ),
                 arguments = listOf(
-                    KlassArgument(
-                        expression = listOf(
+                    KlassDeclaration(
+                        keyword = "argument",
+                        expressions = listOf(
                             KlassString(
                                 "hello".asStringComponentRaw()
                             )
                         )
                     ),
-                    KlassArgument(
-                        expression = listOf(
+                    KlassDeclaration(
+                        keyword = "argument",
+                        expressions = listOf(
                             KlassString(
                                 "world".asStringComponentRaw()
                             )
