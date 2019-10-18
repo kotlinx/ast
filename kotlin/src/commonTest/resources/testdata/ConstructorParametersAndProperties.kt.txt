@@ -1,0 +1,4 @@
+class TestClass(
+    @Value("test value")
+    private val propertyA: String
+)

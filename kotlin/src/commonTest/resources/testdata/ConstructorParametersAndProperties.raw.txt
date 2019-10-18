@@ -1,0 +1,79 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>TestClass<<< (DEFAULT_TOKEN_CHANNEL)
+        primaryConstructor
+          classParameters
+            LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+            Inside_NL >>>\n<<< (HIDDEN)
+            Inside_WS >>> <<< (HIDDEN)
+            Inside_WS >>> <<< (HIDDEN)
+            Inside_WS >>> <<< (HIDDEN)
+            classParameter
+              modifiers
+                annotation
+                  singleAnnotation
+                    AT_PRE_WS >>> @<<< (DEFAULT_TOKEN_CHANNEL)
+                    unescapedAnnotation
+                      constructorInvocation
+                        userType
+                          simpleUserType
+                            simpleIdentifier
+                              Identifier >>>Value<<< (DEFAULT_TOKEN_CHANNEL)
+                        valueArguments
+                          LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                          valueArgument
+                            expression
+                              disjunction
+                                conjunction
+                                  equality
+                                    comparison
+                                      infixOperation
+                                        elvisExpression
+                                          infixFunctionCall
+                                            rangeExpression
+                                              additiveExpression
+                                                multiplicativeExpression
+                                                  asExpression
+                                                    prefixUnaryExpression
+                                                      postfixUnaryExpression
+                                                        primaryExpression
+                                                          stringLiteral
+                                                            lineStringLiteral
+                                                              QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                              lineStringContent
+                                                                LineStrText >>>test value<<< (DEFAULT_TOKEN_CHANNEL)
+                                                              QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                          RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                Inside_NL >>>\n<<< (HIDDEN)
+                Inside_WS >>> <<< (HIDDEN)
+                Inside_WS >>> <<< (HIDDEN)
+                Inside_WS >>> <<< (HIDDEN)
+                Inside_WS >>> <<< (HIDDEN)
+                modifier
+                  visibilityModifier
+                    PRIVATE >>>private<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              simpleIdentifier
+                Identifier >>>propertyA<<< (DEFAULT_TOKEN_CHANNEL)
+              COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              type
+                typeReference
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>String<<< (DEFAULT_TOKEN_CHANNEL)
+            Inside_NL >>>\n<<< (HIDDEN)
+            RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

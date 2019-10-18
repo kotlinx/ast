@@ -1,0 +1,3 @@
+PackageHeader()
+importList
+KlassDeclaration(class TestClass)
