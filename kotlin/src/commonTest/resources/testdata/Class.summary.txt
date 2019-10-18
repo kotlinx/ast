@@ -17,7 +17,7 @@ KlassDeclaration(class Name)
       expression
         literalConstant
           IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
-    KlassDeclaration(var annotatedVar: Int)
+    KlassDeclaration(var annotatedVar Int)
       KlassAnnotation(Annotated)
       expression
         literalConstant
@@ -28,15 +28,15 @@ KlassDeclaration(class Name)
         expression
           literalConstant
             IntegerLiteral >>>3<<< (DEFAULT_TOKEN_CHANNEL)
-    KlassDeclaration(fun annotated2: Int)
+    KlassDeclaration(fun annotated2 Int)
       KlassAnnotation(Annotated)
       KlassModifier(private, visibilityModifier)
       KlassArgument(x: Int)
         KlassAnnotation(AnotherAnnotation)
-    KlassDeclaration(fun generic: X)
+    KlassDeclaration(fun generic X)
       KlassAnnotation(Annotated)
       KlassArgument(x: X)
       KlassTypeParameter
         KlassIdentifier(X)
         KlassIdentifier(Int)
-    KlassDeclaration(fun frames: List<javax.swing.JFrame>)
+    KlassDeclaration(fun frames List<javax.swing.JFrame>)

@@ -114,7 +114,7 @@ data class KlassInheritance(
 
 data class KlassDeclaration(
     val keyword: String,
-    val identifier: KlassIdentifier,
+    val identifier: KlassIdentifier? = null,
     val type: KlassIdentifier? = null,
     val annotations: List<KlassAnnotation> = emptyList(),
     val modifiers: List<KlassModifier> = emptyList(),
@@ -123,12 +123,12 @@ data class KlassDeclaration(
     val inheritance: List<KlassInheritance> = emptyList(),
     val expressions: List<Ast> = emptyList()
 ) : Klass(), AstNode {
-    override val description: String = "KlassDeclaration($keyword ${identifier.rawName}" +
-            if (type == null) {
-                ""
-            } else {
-                ": ${type.rawName}"
-            } + ")"
+    override val description: String =
+        listOfNotNull(
+            keyword,
+            identifier?.rawName,
+            type?.rawName
+        ).joinToString(" ", "KlassDeclaration(", ")")
 
     override val children: List<Ast> = listOf(
         annotations,
