@@ -3,29 +3,20 @@ importList
 KlassDeclaration(interface A)
 KlassDeclaration(class B)
   KlassModifier(data, classModifier)
+  KlassDeclaration(constructor)
+    KlassDeclaration(val b Int)
   KlassInheritance
     KlassIdentifier(A)
-  primaryConstructor
-    classParameter
-      VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
-      KlassIdentifier(b)
-      KlassIdentifier(Int)
 KlassDeclaration(class G1)
   KlassModifier(data, classModifier)
+  KlassDeclaration(constructor)
+    KlassDeclaration(val x X)
   KlassTypeParameter
     KlassIdentifier(X)
-  primaryConstructor
-    classParameter
-      VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
-      KlassIdentifier(x)
-      KlassIdentifier(X)
 KlassDeclaration(class G2)
   KlassModifier(data, classModifier)
+  KlassDeclaration(constructor)
+    KlassDeclaration(val x A)
   KlassTypeParameter
     KlassIdentifier(X)
     KlassIdentifier(A)
-  primaryConstructor
-    classParameter
-      VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
-      KlassIdentifier(x)
-      KlassIdentifier(A)

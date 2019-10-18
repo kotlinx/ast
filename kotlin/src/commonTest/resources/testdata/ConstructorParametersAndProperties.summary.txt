@@ -1,13 +1,10 @@
 PackageHeader()
 importList
 KlassDeclaration(class TestClass)
-  primaryConstructor
-    classParameter
+  KlassDeclaration(constructor)
+    KlassDeclaration(val propertyA String)
       KlassAnnotation(Value)
         KlassDeclaration(argument)
           KlassString
             "test value"
       KlassModifier(private, visibilityModifier)
-      VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
-      KlassIdentifier(propertyA)
-      KlassIdentifier(String)

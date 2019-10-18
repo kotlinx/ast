@@ -19,6 +19,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
         "constructorInvocation",
         "classMemberDeclaration",
         "classMemberDeclarations",
+        "classParameters",
         "declaration",
         "variableDeclaration",
         "delegationSpecifier",
@@ -76,6 +77,40 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                     keyword = "argument",
                     identifier = summary.filterIsInstance<KlassIdentifier>().firstOrNull(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
+                    expressions = summary.expressions()
+                )
+            )
+        }
+    }.map("primaryConstructor") { node: AstNode ->
+        treeMap(node.children).flatMap { summary ->
+            TreeMapResult.Continue(
+                KlassDeclaration(
+                    keyword = "constructor",
+                    annotations = summary.filterIsInstance<KlassAnnotation>(),
+                    modifiers = summary.filterIsInstance<KlassModifier>(),
+                    parameter = summary.filterIsInstance<KlassDeclaration>()
+                )
+            )
+        }
+    }.map("classParameter") { node: AstNode ->
+        treeMap(node.children).map { summary ->
+            val keyword = when {
+                summary.filterIsInstance<AstTerminal>().map(AstTerminal::description).contains("VAR") ->
+                    "var"
+                summary.filterIsInstance<AstTerminal>().map(AstTerminal::description).contains("VAL") ->
+                    "val"
+                else ->
+                    "parameter"
+            }
+
+            val identifier = summary.filterIsInstance<KlassIdentifier>()
+            TreeMapResult.Continue(
+                KlassDeclaration(
+                    keyword = keyword,
+                    identifier = identifier[0],
+                    type = identifier[1],
+                    annotations = summary.filterIsInstance<KlassAnnotation>(),
+                    modifiers = summary.filterIsInstance<KlassModifier>(),
                     expressions = summary.expressions()
                 )
             )

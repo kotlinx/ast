@@ -3,14 +3,12 @@ importList
 KlassDeclaration(class Name)
   KlassAnnotation(Annotation)
   KlassModifier(data, classModifier)
+  KlassDeclaration(constructor)
+    KlassDeclaration(parameter some ConstructorParam)
   KlassInheritance
     KlassIdentifier(BaseClass)
   KlassInheritance
     KlassIdentifier(Interface)
-  primaryConstructor
-    classParameter
-      KlassIdentifier(some)
-      KlassIdentifier(ConstructorParam)
   classBody
     KlassDeclaration(val annotatedVal)
       KlassAnnotation(Annotated)
