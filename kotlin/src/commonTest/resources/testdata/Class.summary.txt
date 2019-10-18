@@ -14,20 +14,17 @@ KlassDeclaration(class Name)
   classBody
     KlassDeclaration(val annotatedVal)
       KlassAnnotation(Annotated)
-      expression
-        literalConstant
-          IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+      literalConstant
+        IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
     KlassDeclaration(var annotatedVar Int)
       KlassAnnotation(Annotated)
-      expression
-        literalConstant
-          IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+      literalConstant
+        IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
     KlassDeclaration(fun annotated1)
       KlassAnnotation(Annotated)
       KlassDeclaration(parameter x Int)
-        expression
-          literalConstant
-            IntegerLiteral >>>3<<< (DEFAULT_TOKEN_CHANNEL)
+        literalConstant
+          IntegerLiteral >>>3<<< (DEFAULT_TOKEN_CHANNEL)
     KlassDeclaration(fun annotated2 Int)
       KlassAnnotation(Annotated)
       KlassModifier(private, visibilityModifier)

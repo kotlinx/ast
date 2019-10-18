@@ -1,24 +1,20 @@
 PackageHeader()
 importList
 KlassDeclaration(val singleLineString1)
-  expression
-    KlassString
+  KlassString
 KlassDeclaration(val singleLineString2)
-  expression
-    KlassString
-      "hello"
+  KlassString
+    "hello"
 KlassDeclaration(val singleLineString3)
-  expression
-    KlassString
-      KlassIdentifier(singleLineString2)
-      " world"
+  KlassString
+    KlassIdentifier(singleLineString2)
+    " world"
 KlassDeclaration(val singleLineString4)
-  expression
-    KlassString
-      expression
-        additiveExpression
-          KlassIdentifier(singleLineString1)
-          additiveOperator
-            ADD >>>+<<< (DEFAULT_TOKEN_CHANNEL)
-          KlassIdentifier(singleLineString2)
-      " world"
+  KlassString
+    expression
+      additiveExpression
+        KlassIdentifier(singleLineString1)
+        additiveOperator
+          ADD >>>+<<< (DEFAULT_TOKEN_CHANNEL)
+        KlassIdentifier(singleLineString2)
+    " world"

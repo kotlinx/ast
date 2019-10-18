@@ -1,5 +1,6 @@
 package kotlinx.ast.kotlin.summary
 
+import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.ast.AstNode
 import kotlinx.ast.common.ast.AstTerminal
 import kotlinx.ast.common.astFailure
@@ -7,6 +8,10 @@ import kotlinx.ast.common.filter
 import kotlinx.ast.common.klass.*
 import kotlinx.ast.common.map.TreeMapMapper
 import kotlinx.ast.common.map.TreeMapResult
+
+fun List<Ast>.expressions(): List<Ast> {
+    return filter("expression").filterIsInstance<AstNode>().flatMap(AstNode::children)
+}
 
 val declarationsMapper: TreeMapMapper = TreeMapMapper()
     .excludeNames<AstNode>("functionBody")
@@ -66,13 +71,12 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
         )
     ).map("valueArgument") { node: AstNode ->
         treeMap(node.children).flatMap { summary ->
-            val expressions = summary.filter("expression").filterIsInstance<AstNode>().flatMap(AstNode::children)
             TreeMapResult.Continue(
                 KlassDeclaration(
                     keyword = "argument",
                     identifier = summary.filterIsInstance<KlassIdentifier>().firstOrNull(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
-                    expressions = expressions
+                    expressions = summary.expressions()
                 )
             )
         }
@@ -94,9 +98,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                     type = identifier.getOrNull(1),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
-                    expressions = summary.filter { ast ->
-                        ast is AstNode && ast.description == "expression"
-                    }
+                    expressions = summary.expressions()
                 )
             )
         }
@@ -110,7 +112,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                     type = identifier.getOrNull(1),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
-                    expressions = summary.filter("expression")
+                    expressions = summary.expressions()
                 )
             )
         }
