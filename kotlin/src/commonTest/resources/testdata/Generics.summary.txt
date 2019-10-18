@@ -5,12 +5,27 @@ KlassDeclaration(class B)
   KlassModifier(data, classModifier)
   KlassInheritance
     KlassIdentifier(A)
+  primaryConstructor
+    classParameter
+      VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+      KlassIdentifier(b)
+      KlassIdentifier(Int)
 KlassDeclaration(class G1)
   KlassModifier(data, classModifier)
   KlassTypeParameter
     KlassIdentifier(X)
+  primaryConstructor
+    classParameter
+      VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+      KlassIdentifier(x)
+      KlassIdentifier(X)
 KlassDeclaration(class G2)
   KlassModifier(data, classModifier)
   KlassTypeParameter
     KlassIdentifier(X)
     KlassIdentifier(A)
+  primaryConstructor
+    classParameter
+      VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+      KlassIdentifier(x)
+      KlassIdentifier(A)

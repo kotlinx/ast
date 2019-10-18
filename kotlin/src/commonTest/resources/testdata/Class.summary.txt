@@ -7,6 +7,10 @@ KlassDeclaration(class Name)
     KlassIdentifier(BaseClass)
   KlassInheritance
     KlassIdentifier(Interface)
+  primaryConstructor
+    classParameter
+      KlassIdentifier(some)
+      KlassIdentifier(ConstructorParam)
   classBody
     KlassDeclaration(val annotatedVal)
       KlassAnnotation(Annotated)

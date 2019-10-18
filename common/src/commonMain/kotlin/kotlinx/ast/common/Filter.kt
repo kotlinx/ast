@@ -11,8 +11,8 @@ fun List<Ast>.filter(name: String): List<Ast> {
 
 fun List<Ast>.filter(
     names: Set<String>?,
-    types: Set<KClass<out Ast>>?,
-    drop: Set<String>?
+    types: Set<KClass<out Ast>>? = null,
+    drop: Set<String>? = null
 ): List<Ast> {
     return flatMap { ast ->
         ast.filter(names, types, drop)

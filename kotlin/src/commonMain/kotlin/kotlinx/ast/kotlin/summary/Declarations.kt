@@ -173,6 +173,14 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             } else {
                 "interface"
             }
+            val expressions = summary.filter(
+                setOf(
+                    "primaryConstructor",
+                    "typeConstraints",
+                    "classBody",
+                    "enumClassBody"
+                )
+            )
             TreeMapResult.Continue(
                 KlassDeclaration(
                     keyword = keyword,
@@ -183,7 +191,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                     typeParameters = summary.filterIsInstance<KlassTypeParameter>(),
                     type = identifier.getOrNull(1),
                     inheritance = summary.filterIsInstance<KlassInheritance>(),
-                    expressions = summary.filter("classBody")
+                    expressions = expressions
                 )
             )
         }
