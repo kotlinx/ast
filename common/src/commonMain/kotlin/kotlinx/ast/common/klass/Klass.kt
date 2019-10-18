@@ -121,7 +121,7 @@ data class KlassDeclaration(
     val parameter: List<KlassArgument> = emptyList(),
     val typeParameters: List<KlassTypeParameter> = emptyList(),
     val inheritance: List<KlassInheritance> = emptyList(),
-    val expression: Ast? = null
+    val expressions: List<Ast> = emptyList()
 ) : Klass(), AstNode {
     override val description: String = "KlassDeclaration($keyword ${identifier.rawName}" +
             if (type == null) {
@@ -136,6 +136,6 @@ data class KlassDeclaration(
         parameter,
         typeParameters,
         inheritance,
-        listOfNotNull(expression)
+        expressions
     ).flatten()
 }

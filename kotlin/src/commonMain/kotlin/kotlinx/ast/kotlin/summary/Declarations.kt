@@ -104,7 +104,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                     type = identifier.getOrNull(1),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
-                    expression = summary.find { ast ->
+                    expressions = summary.filter { ast ->
                         ast is AstNode && ast.description == "expression"
                     }
                 )
@@ -183,7 +183,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                     typeParameters = summary.filterIsInstance<KlassTypeParameter>(),
                     type = identifier.getOrNull(1),
                     inheritance = summary.filterIsInstance<KlassInheritance>(),
-                    expression = summary.filter("classBody").firstOrNull()
+                    expressions = summary.filter("classBody")
                 )
             )
         }
