@@ -32,6 +32,7 @@ val stringMapper: TreeMapMapper = TreeMapMapper()
     ).map(
         setOf(
             "LineStrText",
+            "MultiLineStringQuote",
             "MultiLineStrText"
         )
     ) { terminal: AstTerminal ->
