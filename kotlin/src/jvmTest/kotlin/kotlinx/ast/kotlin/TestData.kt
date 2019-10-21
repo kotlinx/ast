@@ -6,8 +6,31 @@ import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.streams.toList
 
-private fun pathOf(path: String): Path {
+fun pathOf(path: String): Path {
     return FileSystems.getDefault().getPath(path)
+}
+
+fun Path.listRecusive(): List<File> {
+    val file = toFile()
+    return when {
+        file.isDirectory && (!file.name.startsWith(".") || file.name == ".") ->
+            Files.list(this).toList().flatMap { it.listRecusive() }
+        file.isFile && file.name.endsWith(".kt") ->
+            listOf(file)
+        else ->
+            emptyList()
+    }
+}
+
+fun Path.pathMap(): Map<File, String> {
+    return listRecusive().mapNotNull { file ->
+        val content = file.readTextOrNull()
+        if (content == null) {
+            null
+        } else {
+            file to content
+        }
+    }.toMap()
 }
 
 private val path = listOf(
@@ -31,7 +54,7 @@ private fun File.sourceFile(suffix: String): File {
     return File(parentFile, name.replace(".kt.txt", suffix))
 }
 
-private fun File.readTextOrNull(): String? {
+fun File.readTextOrNull(): String? {
     return if (isFile) {
         readText()
     } else {

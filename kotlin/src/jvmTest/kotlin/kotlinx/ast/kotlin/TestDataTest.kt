@@ -21,7 +21,7 @@ class TestDataTest : FunSpec({
         testData.apply {
             context(name) {
                 val overwriteTestData = System.getProperty("overwrite.test.data") != null
-                val ast = KotlinAstParser.parseKotlinFile(AstSource.String(kotlinContent))
+                val ast by lazy { KotlinAstParser.parseKotlinFile(AstSource.String(kotlinContent)) }
 
                 suspend fun ContextScope.test(
                     testCase: String,
