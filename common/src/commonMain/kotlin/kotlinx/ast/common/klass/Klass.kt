@@ -26,18 +26,26 @@ fun List<KlassIdentifier>.identifierName(): String {
 
 data class KlassIdentifier(
     val identifier: String,
-    val parameter: List<KlassIdentifier> = emptyList()
+    val parameter: List<KlassIdentifier> = emptyList(),
+    val nullable: Boolean = false
 ) : Klass() {
-    val rawName = identifier +
-            if (parameter.isEmpty()) {
-                ""
-            } else {
-                parameter.map(KlassIdentifier::identifier).joinToString(
-                    prefix = "<",
-                    separator = ", ",
-                    postfix = ">"
-                )
-            }
+    val rawName = listOfNotNull(
+        identifier,
+        if (parameter.isEmpty()) {
+            null
+        } else {
+            parameter.map(KlassIdentifier::identifier).joinToString(
+                prefix = "<",
+                separator = ", ",
+                postfix = ">"
+            )
+        },
+        if (nullable) {
+            "?"
+        } else {
+            null
+        }
+    ).joinToString("")
 
     override val description: String = "KlassIdentifier($rawName)"
 
