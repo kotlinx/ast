@@ -3,8 +3,8 @@ package kotlinx.ast.kotlin
 import io.kotlintest.fail
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.FunSpec
-import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.AstSource
+import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.printString
 import java.io.File
 

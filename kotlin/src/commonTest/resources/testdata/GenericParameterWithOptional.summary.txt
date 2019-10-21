@@ -1,0 +1,6 @@
+PackageHeader(com.example.test)
+importList
+KlassDeclaration(class TestClass)
+  classBody
+    KlassDeclaration(fun function)
+      KlassDeclaration(parameter record Map<String?, String>)

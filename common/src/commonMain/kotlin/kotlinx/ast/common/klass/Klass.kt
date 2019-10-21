@@ -29,12 +29,12 @@ data class KlassIdentifier(
     val parameter: List<KlassIdentifier> = emptyList(),
     val nullable: Boolean = false
 ) : Klass() {
-    val rawName = listOfNotNull(
+    val rawName: String = listOfNotNull(
         identifier,
         if (parameter.isEmpty()) {
             null
         } else {
-            parameter.map(KlassIdentifier::identifier).joinToString(
+            parameter.map(KlassIdentifier::rawName).joinToString(
                 prefix = "<",
                 separator = ", ",
                 postfix = ">"
