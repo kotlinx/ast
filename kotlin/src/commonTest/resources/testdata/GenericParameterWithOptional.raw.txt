@@ -1,0 +1,94 @@
+kotlinFile
+  packageHeader
+    PACKAGE >>>package<<< (DEFAULT_TOKEN_CHANNEL)
+    WS >>> <<< (HIDDEN)
+    identifier
+      simpleIdentifier
+        Identifier >>>com<<< (DEFAULT_TOKEN_CHANNEL)
+      DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+      simpleIdentifier
+        Identifier >>>example<<< (DEFAULT_TOKEN_CHANNEL)
+      DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+      simpleIdentifier
+        Identifier >>>test<<< (DEFAULT_TOKEN_CHANNEL)
+    semi
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>TestClass<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        classBody
+          LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          classMemberDeclarations
+            classMemberDeclaration
+              declaration
+                functionDeclaration
+                  FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  simpleIdentifier
+                    Identifier >>>function<<< (DEFAULT_TOKEN_CHANNEL)
+                  functionValueParameters
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    functionValueParameter
+                      parameter
+                        simpleIdentifier
+                          Identifier >>>record<<< (DEFAULT_TOKEN_CHANNEL)
+                        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                        Inside_WS >>> <<< (HIDDEN)
+                        type
+                          typeReference
+                            userType
+                              simpleUserType
+                                simpleIdentifier
+                                  Identifier >>>Map<<< (DEFAULT_TOKEN_CHANNEL)
+                                typeArguments
+                                  LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                                  typeProjection
+                                    type
+                                      nullableType
+                                        typeReference
+                                          userType
+                                            simpleUserType
+                                              simpleIdentifier
+                                                Identifier >>>String<<< (DEFAULT_TOKEN_CHANNEL)
+                                        quest
+                                          QUEST_NO_WS >>>?<<< (DEFAULT_TOKEN_CHANNEL)
+                                  COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+                                  Inside_WS >>> <<< (HIDDEN)
+                                  typeProjection
+                                    type
+                                      typeReference
+                                        userType
+                                          simpleUserType
+                                            simpleIdentifier
+                                              Identifier >>>String<<< (DEFAULT_TOKEN_CHANNEL)
+                                  RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  functionBody
+                    block
+                      LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      statements
+                      RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

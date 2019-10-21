@@ -1,0 +1,6 @@
+package com.example.test
+
+class TestClass {
+    fun function(record: Map<String?, String>) {
+    }
+}
