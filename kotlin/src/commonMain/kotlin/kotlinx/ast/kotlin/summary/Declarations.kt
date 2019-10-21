@@ -108,7 +108,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                 KlassDeclaration(
                     keyword = keyword,
                     identifier = identifier[0],
-                    type = identifier[1],
+                    type = identifier.getOrNull(1),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
                     expressions = summary.expressions()
