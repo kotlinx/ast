@@ -129,7 +129,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             TreeMapResult.Continue(
                 KlassDeclaration(
                     keyword = keyword,
-                    identifier = identifier.first(),
+                    identifier = identifier.firstOrNull(),
                     type = identifier.getOrNull(1),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
