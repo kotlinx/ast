@@ -154,12 +154,16 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
     }.map("annotatedDelegationSpecifier") { node: AstNode ->
         treeMap(node.children).map { summary ->
             val identifier = summary.filterIsInstance<KlassIdentifier>()
-            TreeMapResult.Continue(
-                KlassInheritance(
-                    type = identifier.first(),
-                    annotations = summary.filterIsInstance<KlassAnnotation>()
+            if (identifier.size == 1) {
+                TreeMapResult.Continue(
+                    KlassInheritance(
+                        type = identifier.first(),
+                        annotations = summary.filterIsInstance<KlassAnnotation>()
+                    )
                 )
-            )
+            } else {
+                TreeMapResult.Continue(summary)
+            }
         }
     }.map("typeParameter") { node: AstNode ->
         treeMap(node.children).map { summary ->
