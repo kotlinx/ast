@@ -2,7 +2,7 @@ object Versions {
     val kotlin = "1.3.50"
     val gradle = "5.6.2"
     val antlr = "4.7.1"
-    val antlrKotlin = "6c7393e0a7"
+    val antlrKotlin = "5222659c92"
     /*
     // official antlr kotlin version
     val antlrKotlinGroup = "com.strumenta.antlr-kotlin"
