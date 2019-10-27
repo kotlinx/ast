@@ -40,7 +40,7 @@ private fun TreeMap.treeMapMapper(
         astSuccess(TreeMapStatus(skip = skip))
     ) { astResult, ast ->
         astResult.flatMap { status ->
-            if (status.changed || skip[mapper]?.contains(ast) == true) {
+            if (skip[mapper]?.contains(ast) == true) {
                 astSuccess(
                     status.copy(
                         list = status.list + ast
