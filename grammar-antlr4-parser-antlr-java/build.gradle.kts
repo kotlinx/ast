@@ -19,8 +19,15 @@ tasks.withType(Test::class.java).all {
 dependencies {
     antlr("org.antlr:antlr4:${Versions.antlrJava}")
     api(project(":parser-antlr-java"))
-    api(project(":grammar-kotlin-parser-common"))
-    testImplementation(project(":grammar-kotlin-parser-test"))
+    api(project(":grammar-antlr4-parser-common"))
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir("src/antlr/java")
+        }
+    }
 }
 
 tasks.generateGrammarSource {
@@ -28,12 +35,12 @@ tasks.generateGrammarSource {
         "-no-listener",
         "-no-visitor",
         "-package",
-        "kotlinx.ast.grammar.kotlin.target.antlr.java.generated"
+        "org.antlr.parser.antlr4"
     )
     source = project.objects
         .sourceDirectorySet("antlr", "antlr")
-        .srcDir("$projectDir/../grammar-kotlin-parser-common/src/commonAntlr/antlr").apply {
+        .srcDir("$projectDir/../grammar-antlr4-parser-common/src/commonAntlr/antlr").apply {
             include("*.g4")
         }
-    outputDirectory = File("$projectDir/src/main/java/kotlinx/ast/grammar/kotlin/target/antlr/java/generated")
+    outputDirectory = File("$projectDir/src/antlr/java/org/antlr/parser/antlr4")
 }

@@ -4,6 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":common"))
-    implementation("org.antlr:antlr4:${Versions.antlrJava}")
+    api(project(":common"))
+    api("org.antlr:antlr4:${Versions.antlrJava}")
 }
