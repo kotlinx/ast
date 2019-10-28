@@ -62,6 +62,7 @@ tasks.register<com.strumenta.antlrkotlin.gradleplugin.AntlrKotlinTask>("generate
 
 tasks.withType(Test::class.java).all {
     useJUnitPlatform {}
+    maxHeapSize = "4g"
     testLogging {
         showStandardStreams = true
         events = TestLogEvent.values().toSet()
