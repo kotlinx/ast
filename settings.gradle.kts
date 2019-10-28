@@ -1,5 +1,9 @@
 include("common")
-include("kotlin")
+include("common-test")
+include("parser-antlr-kotlin")
+include("grammar-kotlin-parser-common")
+include("grammar-kotlin-parser-test")
+include("grammar-kotlin-parser-antlr-kotlin")
 
 pluginManagement {
     repositories {

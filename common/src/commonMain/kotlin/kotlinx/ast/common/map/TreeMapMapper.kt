@@ -1,9 +1,11 @@
 package kotlinx.ast.common.map
 
-import kotlinx.ast.common.*
+import kotlinx.ast.common.AstResult
 import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.ast.AstNode
 import kotlinx.ast.common.ast.DefaultAstNode
+import kotlinx.ast.common.astFailure
+import kotlinx.ast.common.filter
 import kotlin.reflect.KClass
 
 data class TreeMapMapper(

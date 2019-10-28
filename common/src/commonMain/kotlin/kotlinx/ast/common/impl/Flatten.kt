@@ -1,11 +1,11 @@
 package kotlinx.ast.common.impl
 
-import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.AstChannel
+import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.ast.DefaultAstNode
 import kotlinx.ast.common.ast.DefaultAstTerminal
 
-internal fun Ast.flatten(defaultChannel: AstChannel): List<Ast> {
+fun Ast.flatten(defaultChannel: AstChannel): List<Ast> {
     return if (this is DefaultAstNode) {
         val start = mutableListOf<Ast>()
         val self = mutableListOf<Ast>()

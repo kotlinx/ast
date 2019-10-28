@@ -3,7 +3,7 @@ package kotlinx.ast.common.impl
 import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.ast.DefaultAstNode
 
-internal data class AstList(
+data class AstList(
     val start: List<Ast>,
     val ast: Ast,
     val stop: List<Ast>

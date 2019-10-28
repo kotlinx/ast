@@ -1,9 +1,9 @@
 package kotlinx.ast.common.map
 
-import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.AstFailure
 import kotlinx.ast.common.AstResult
 import kotlinx.ast.common.AstSuccess
+import kotlinx.ast.common.ast.Ast
 
 fun AstResult<TreeMapResult>.flatten(): TreeMapResult {
     return if (this is AstSuccess) {

@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="antlr.kotlin" pattern="!file[ast]:extern//*" />
+</component>

@@ -1,8 +1,11 @@
 package kotlinx.ast.common.map
 
-import kotlinx.ast.common.*
+import kotlinx.ast.common.AstResult
+import kotlinx.ast.common.AstSuccess
 import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.ast.AstNode
+import kotlinx.ast.common.astSuccess
+import kotlinx.ast.common.filter
 
 interface ChildrenMapper {
     fun map(treeMap: TreeMap, node: AstNode): AstResult<TreeMapResult>
