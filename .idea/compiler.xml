@@ -20,6 +20,8 @@
       <module name="kotlinx.ast.grammar-kotlin-parser-test.jvmTest" target="1.8" />
       <module name="kotlinx.ast.kotlin.jvmMain" target="1.8" />
       <module name="kotlinx.ast.kotlin.jvmTest" target="1.8" />
+      <module name="kotlinx.ast.parser-antlr-java.jvmMain" target="1.6" />
+      <module name="kotlinx.ast.parser-antlr-java.jvmTest" target="1.6" />
       <module name="kotlinx.ast.parser-antlr-kotlin.jvmMain" target="1.6" />
       <module name="kotlinx.ast.parser-antlr-kotlin.jvmTest" target="1.6" />
       <module name="kotlinx.ast.target-antlr-kotlin.jvmMain" target="1.6" />

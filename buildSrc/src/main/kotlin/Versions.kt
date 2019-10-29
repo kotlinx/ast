@@ -1,7 +1,8 @@
 object Versions {
     val kotlin = "1.3.50"
     val gradle = "5.6.2"
-    val antlr = "4.7.1"
+    val antlrJava = "4.7.2"
+    val antlrUsedByAntlrKotlin = "4.7.1"
     val antlrKotlin = "5222659c92"
     /*
     // official antlr kotlin version

@@ -1,6 +1,7 @@
 include("common")
 include("common-test")
 include("parser-antlr-kotlin")
+include("parser-antlr-java")
 include("grammar-kotlin-parser-common")
 include("grammar-kotlin-parser-test")
 include("grammar-kotlin-parser-antlr-kotlin")
