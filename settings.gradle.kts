@@ -5,6 +5,7 @@ include("parser-antlr-java")
 include("grammar-kotlin-parser-common")
 include("grammar-kotlin-parser-test")
 include("grammar-kotlin-parser-antlr-kotlin")
+include("grammar-kotlin-parser-antlr-java")
 
 pluginManagement {
     repositories {
