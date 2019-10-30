@@ -84,8 +84,8 @@ External Dependencies:
 
 ## How to use kotlinx.ast
 There is a small example to get started:
-* for `antlr-java` [ExampleMain.kt](grammar-kotlin-parser-antlr-kotlin/src/jvmTest/kotlin/kotlinx/ast/example/ExampleMain.kt)
-* for `antlr-kotlin` [ExampleMain.kt](grammar-kotlin-parser-antlr-java/src/test/kotlin/kotlinx/ast/example/ExampleMain.kt)
+* for `antlr-kotlin` [ExampleMain.kt](grammar-kotlin-parser-antlr-kotlin/src/jvmTest/kotlin/kotlinx/ast/example/ExampleMain.kt)
+* for `antlr-java` [ExampleMain.kt](grammar-kotlin-parser-antlr-java/src/test/kotlin/kotlinx/ast/example/ExampleMain.kt)
 
 ## Using with Gradle
 `kotlinx.ast` is accessible on Maven & Gradle through Jitpack. In jitpack basically you can use every commit or tag as a version number. You can find recent versions on the Jitpack page for `kotlinx.ast`.
