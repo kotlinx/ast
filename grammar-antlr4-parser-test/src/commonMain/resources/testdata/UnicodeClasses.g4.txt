@@ -1,0 +1,8 @@
+lexer grammar UnicodeClasses;
+
+UNICODE_CLASS_LL:
+	'\u0061'..'\u007A' |
+	'\u00B5' |
+	'\u00DF'..'\u00F6' |
+	'\u0101' |
+	'\uA6E6'..'\uA6EF';

@@ -1,0 +1,70 @@
+grammarSpec
+  grammarDecl
+    grammarType
+      LEXER >>>lexer<<< (DEFAULT_TOKEN_CHANNEL)
+      WS >>> <<< (OFF_CHANNEL)
+      GRAMMAR >>>grammar<<< (DEFAULT_TOKEN_CHANNEL)
+    WS >>> <<< (OFF_CHANNEL)
+    identifier
+      TOKEN_REF >>>UnicodeClasses<<< (DEFAULT_TOKEN_CHANNEL)
+    SEMI >>>;<<< (DEFAULT_TOKEN_CHANNEL)
+  WS >>>\n\n<<< (OFF_CHANNEL)
+  rules
+    ruleSpec
+      lexerRuleSpec
+        TOKEN_REF >>>UNICODE_CLASS_LL<<< (DEFAULT_TOKEN_CHANNEL)
+        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>>\n\t<<< (OFF_CHANNEL)
+        lexerRuleBlock
+          lexerAltList
+            lexerAlt
+              lexerElements
+                lexerElement
+                  lexerAtom
+                    characterRange
+                      STRING_LITERAL >>>'\u0061'<<< (DEFAULT_TOKEN_CHANNEL)
+                      RANGE >>>..<<< (DEFAULT_TOKEN_CHANNEL)
+                      STRING_LITERAL >>>'\u007A'<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (OFF_CHANNEL)
+            OR >>>|<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>>\n\t<<< (OFF_CHANNEL)
+            lexerAlt
+              lexerElements
+                lexerElement
+                  lexerAtom
+                    terminal
+                      STRING_LITERAL >>>'\u00B5'<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (OFF_CHANNEL)
+            OR >>>|<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>>\n\t<<< (OFF_CHANNEL)
+            lexerAlt
+              lexerElements
+                lexerElement
+                  lexerAtom
+                    characterRange
+                      STRING_LITERAL >>>'\u00DF'<<< (DEFAULT_TOKEN_CHANNEL)
+                      RANGE >>>..<<< (DEFAULT_TOKEN_CHANNEL)
+                      STRING_LITERAL >>>'\u00F6'<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (OFF_CHANNEL)
+            OR >>>|<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>>\n\t<<< (OFF_CHANNEL)
+            lexerAlt
+              lexerElements
+                lexerElement
+                  lexerAtom
+                    terminal
+                      STRING_LITERAL >>>'\u0101'<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (OFF_CHANNEL)
+            OR >>>|<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>>\n\t<<< (OFF_CHANNEL)
+            lexerAlt
+              lexerElements
+                lexerElement
+                  lexerAtom
+                    characterRange
+                      STRING_LITERAL >>>'\uA6E6'<<< (DEFAULT_TOKEN_CHANNEL)
+                      RANGE >>>..<<< (DEFAULT_TOKEN_CHANNEL)
+                      STRING_LITERAL >>>'\uA6EF'<<< (DEFAULT_TOKEN_CHANNEL)
+        SEMI >>>;<<< (DEFAULT_TOKEN_CHANNEL)
+  WS >>>\n<<< (OFF_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
