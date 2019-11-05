@@ -8,8 +8,12 @@
       <module name="ast.grammar-antlr4-parser-antlr-java.test" target="11" />
       <module name="ast.grammar-kotlin-parser-antlr-java.main" target="11" />
       <module name="ast.grammar-kotlin-parser-antlr-java.test" target="11" />
+      <module name="ast.grammar-kotlin-parser-antlr-optimized.main" target="11" />
+      <module name="ast.grammar-kotlin-parser-antlr-optimized.test" target="11" />
       <module name="ast.parser-antlr-java.main" target="11" />
       <module name="ast.parser-antlr-java.test" target="11" />
+      <module name="ast.parser-antlr-optimized.main" target="11" />
+      <module name="ast.parser-antlr-optimized.test" target="11" />
       <module name="kotlinx.ast.common-test.jvmMain" target="1.6" />
       <module name="kotlinx.ast.common-test.jvmTest" target="1.6" />
       <module name="kotlinx.ast.common.jvmMain" target="1.6" />
