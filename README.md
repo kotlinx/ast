@@ -21,14 +21,14 @@ Bug Reports, Feature Requests and Pull Requests are very welcome.
 `kotlinx.ast` is a multiplatform project, but currently, JVM is the only supported target.
 Support for JS and native is planned.
 
-Both `antlr-java` and `antlr-kotlin` are supported on the JVM.
+`antlr-java`, `antlr-optimized` and `antlr-kotlin` are supported on the JVM.
 Multiplatform support (Kotlin Native and Kotlin JavaScript) for `antlr-kotlin` is planned.
-Because `antlr-java` is JVM-only, support for other platforms is not possible.
+Because `antlr-java` and `antlr-optimized` are JVM-only, support for other platforms is not possible.
 
 ## Prior art
 [kastree](https://github.com/cretz/kastree) is using the kotlin compiler for parsing,
 it can only parse kotlin files.
-JS and native support is not possible. kastree is currently not under active development.
+JS and native support is not possible. 'kastree` is currently not under active development.
 
 ## Example
 
@@ -70,22 +70,47 @@ There are some parts missing, for example the _importList_ is not converted into
 Currently, there are some libraries that are part of kotlinx.ast:
 * `kotlinx.ast:common` contains the code that can later be reused by other grammar parsers
 * `kotlinx.ast:common-test` contains the dependencies to test frameworks, used by `kotlinx.ast` unit tests
-* `kotlinx.ast:parser-antlr-java` contains the shared code required to parse grammars using antlr-kotlin
-* `kotlinx.ast:parser-antlr-kotlin` contains the shared code required to parse grammars using the official antlr4 JVM implementation.
+* `kotlinx.ast:parser-antlr-java` contains the shared code required to parse grammars using the official antlr4 JVM implementation.
+* `kotlinx.ast:parser-antlr-kotlin` contains the shared code required to parse grammars using antlr-kotlin
+* `kotlinx.ast:parser-antlr-optimized` contains the shared code required to parse grammars using the optimized fork of antlr.
 * `kotlinx.ast:grammar-kotlin-parser-common` contains the shared code required to parse kotlin source
 * `kotlinx.ast:grammar-kotlin-parser-antlr-java` provides a kotlin ast parsed using antlr-java
 * `kotlinx.ast:grammar-kotlin-parser-antlr-kotlin` provides a kotlin ast parsed using antlr-kotlin
 * `kotlinx.ast:grammar-kotlin-parser-test` contains the test data used by the kotlin parsers
+* `kotlinx.ast:grammar-antlr4-parser-common` contains the shared code required to parse antlr4 grammar files
+* `kotlinx.ast:grammar-antlr4-parser-antlr-java` provides an antlr4 grammar ast parser using antlr-java
+* `kotlinx.ast:grammar-antlr4-parser-test` contains the test data used by the antlr4 grammar parsers
 
-External Dependencies:
-* `${Versions.antlrKotlinGroup}:antlr-kotlin-runtime:${Versions.antlrKotlin}` is required at runtime to be able to parse kotlin code into an AST when using `kotlinx.ast:grammar-kotlin-parser-antlr-kotlin`.
-* `org.antlr:antlr4:${Versions.antlrJava}` is required at runtime to be able to parse kotlin code into an AST when using `kotlinx.ast:grammar-kotlin-parser-antlr-java`.
-(Versions can be found here: [Versions.kt|buildSrc/src/main/kotlin/Versions.kt])
+## External Dependencies
+
+[antlr-kotlin](https://github.com/Strumenta/antlr-kotlin)
+* `${Versions.antlrKotlinGroup}:antlr-kotlin-runtime:${Versions.antlrKotlin}`
+is required at runtime to be able to parse kotlin code into an AST when using `kotlinx.ast:grammar-kotlin-parser-antlr-kotlin`.
+
+[antlr-java](https://github.com/antlr/antlr4)
+* `org.antlr:antlr4:${Versions.antlrJava}`
+is required at runtime to be able to parse kotlin code into an AST when using `kotlinx.ast:grammar-kotlin-parser-antlr-java`.
+
+[antlr-optimized](https://github.com/tunnelvisionlabs/antlr4)
+* `com.tunnelvisionlabs:antlr4:${Versions.antlrOptimized}`
+is required at runtime to be able to parse kotlin code into an AST when using `kotlinx.ast:grammar-kotlin-parser-antlr-optimized`.
+*NOTE:* `antlr-optimized` is a drop-in replacement of `antlr-java`.
+Both jars provide the same API, namely the package `org.antlr.v4`, so you can't use both at the same time.
+`kotlinx.ast:parser-antlr-optimized` depends on `kotlinx.ast:parser-antlr-java`, both provide the same `kotlinx.ast` API.
+The difference is that `parser-antlr-optimized` will exclude the dependency to `org.antlr:antlr4`
+and instead include `com.tunnelvisionlabs:antlr4`.
+The generated code of these two libraries is not equal, therefore two different grammar modules are required:
+* [kotlinx.ast:parser-antlr-java](grammar-kotlin-parser-antlr-java/src/main/java/kotlinx/ast/grammar/kotlin/target/antlr/java/generated)
+* [kotlinx.ast:parser-antlr-optimized](grammar-kotlin-parser-antlr-optimized/src/main/java/kotlinx/ast/grammar/kotlin/target/antlr/optimized/generated)
+(the generated code is linked, for the case that you want to compare it)
+
+(`Versions` can be found here: [Versions.kt](buildSrc/src/main/kotlin/Versions.kt))
 
 ## How to use kotlinx.ast
 There is a small example to get started:
 * for `antlr-kotlin` [ExampleMain.kt](grammar-kotlin-parser-antlr-kotlin/src/jvmTest/kotlin/kotlinx/ast/example/ExampleMain.kt)
 * for `antlr-java` [ExampleMain.kt](grammar-kotlin-parser-antlr-java/src/test/kotlin/kotlinx/ast/example/ExampleMain.kt)
+* for `antlr-optimized` [ExampleMain.kt](grammar-kotlin-parser-antlr-optimized/src/test/kotlin/kotlinx/ast/example/ExampleMain.kt)
 
 ## Using with Gradle
 `kotlinx.ast` is accessible on Maven & Gradle through Jitpack. In jitpack basically you can use every commit or tag as a version number. You can find recent versions on the Jitpack page for `kotlinx.ast`.
