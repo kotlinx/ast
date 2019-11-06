@@ -112,7 +112,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 // please look at https://jitpack.io/#drieks/antlr-kotlin to find the latest version
-                api("com.github.kotlinx.ast:kotlinx.ast:grammar-kotlin-parser-antlr-kotlin:0123456789")
+                api("com.github.kotlinx.ast:grammar-kotlin-parser-antlr-kotlin:0123456789")
             }
         }
     }
