@@ -1,0 +1,1 @@
+class Sample (private val propertyA: String)

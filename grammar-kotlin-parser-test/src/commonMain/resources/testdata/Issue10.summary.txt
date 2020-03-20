@@ -1,0 +1,6 @@
+PackageHeader()
+importList
+KlassDeclaration(class Sample)
+  KlassDeclaration(constructor)
+    KlassDeclaration(val propertyA String)
+      KlassModifier(private, visibilityModifier)
