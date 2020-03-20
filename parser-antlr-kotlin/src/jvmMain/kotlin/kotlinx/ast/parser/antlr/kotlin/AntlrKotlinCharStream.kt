@@ -18,7 +18,7 @@ internal actual fun AstSource.toAntlrKotlinCharStream(): CharStream {
             // first reading the file into a string
             */
             val path = FileSystems.getDefault().getPath(filename)
-            val content = Files.readString(path)
+            val content = String(Files.readAllBytes(path))
             CharStreams.fromString(content)
         }
         is AstSource.String ->
