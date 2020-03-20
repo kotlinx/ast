@@ -24,7 +24,14 @@ private class AntlrKotlinAstParserImpl(
 
     private fun toAstTerminal(token: Token): AstTerminal {
         val text = token.text ?: throw RuntimeException()
-        val name = if (token.type == -1) "EOF" else tokenNames[token.type] ?: "<Invalid>"
+        val name = when (token.type) {
+            -1 ->
+                "EOF"
+            in tokenNames.indices ->
+                tokenNames[token.type]
+            else ->
+                null
+        } ?: "<Invalid>"
         val channel = channels[token.channel]
         return DefaultAstTerminal(name, text, channel)
     }
