@@ -4,9 +4,9 @@ object Versions {
     val antlrJava = "4.7.2"
     val antlrOptimized = "4.7.4"
     val antlrUsedByAntlrKotlin = "4.7.1"
-    // https://github.com/drieks/antlr-kotlin/commit/9fde270e3a29f09e75a5ea7dc3cffc0ccf864095
+    // https://github.com/drieks/antlr-kotlin/commit/b09d76328f7d8c38417174d5621bbdfb52b6405e
     // https://jitpack.io/#drieks/antlr-kotlin
-    val antlrKotlin = "9fde270e3a"
+    val antlrKotlin = "b09d76328f"
     /*
     // official antlr kotlin version
     val antlrKotlinGroup = "com.strumenta.antlr-kotlin"
