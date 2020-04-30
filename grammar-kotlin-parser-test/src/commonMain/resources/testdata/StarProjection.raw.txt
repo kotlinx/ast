@@ -1,0 +1,53 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      propertyDeclaration
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        variableDeclaration
+          simpleIdentifier
+            Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+          COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          type
+            typeReference
+              userType
+                simpleUserType
+                  simpleIdentifier
+                    Identifier >>>List<<< (DEFAULT_TOKEN_CHANNEL)
+                  typeArguments
+                    LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                    typeProjection
+                      MULT >>>*<<< (DEFAULT_TOKEN_CHANNEL)
+                    RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      simpleIdentifier
+                                        Identifier >>>emptyList<<< (DEFAULT_TOKEN_CHANNEL)
+                                    postfixUnarySuffix
+                                      callSuffix
+                                        valueArguments
+                                          LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                                          RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
