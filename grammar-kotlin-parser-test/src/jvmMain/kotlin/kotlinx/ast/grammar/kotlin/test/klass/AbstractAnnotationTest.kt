@@ -96,26 +96,32 @@ abstract class AbstractAnnotationTest<Parser : KotlinGrammarParser<*, *>>(parser
                 """.trimIndent(),
             summary = listOf(
                 KlassAnnotation(
+                    raw = ignoredByUnitTest,
                     identifier = listOf(
-                        KlassIdentifier("some"),
-                        KlassIdentifier("where"),
-                        KlassIdentifier("Class").parameterizedBy(KlassIdentifier("Hello")),
-                        KlassIdentifier("Annotation5")
+                        KlassIdentifier(ignoredByUnitTest, "some"),
+                        KlassIdentifier(ignoredByUnitTest, "where"),
+                        KlassIdentifier(ignoredByUnitTest, "Class")
+                            .parameterizedBy(KlassIdentifier(ignoredByUnitTest, "Hello")),
+                        KlassIdentifier(ignoredByUnitTest, "Annotation5")
                     ),
                     arguments = listOf(
                         KlassDeclaration(
+                            raw = ignoredByUnitTest,
                             keyword = "argument",
                             expressions = listOf(
                                 KlassString(
-                                    "hello".asStringComponentRaw()
+                                    "hello".asStringComponentRaw(),
+                                    raw = ignoredByUnitTest
                                 )
                             )
                         ),
                         KlassDeclaration(
+                            raw = ignoredByUnitTest,
                             keyword = "argument",
                             expressions = listOf(
                                 KlassString(
-                                    "world".asStringComponentRaw()
+                                    "world".asStringComponentRaw(),
+                                    raw = ignoredByUnitTest
                                 )
                             )
                         )

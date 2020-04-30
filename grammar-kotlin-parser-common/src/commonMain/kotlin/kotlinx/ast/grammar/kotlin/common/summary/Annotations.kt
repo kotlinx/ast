@@ -18,6 +18,7 @@ val annotationsMapper: TreeMapMapper = TreeMapMapper()
         treeMap(node.children).map { summary ->
             TreeMapResult.Continue(
                 KlassAnnotation(
+                    raw = node,
                     identifier = summary.filterIsInstance<KlassIdentifier>(),
                     arguments = summary.filterIsInstance<KlassDeclaration>()
                 )

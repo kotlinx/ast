@@ -43,11 +43,11 @@ abstract class AbstractHelloWorldOuterSpaceTest<Parser : KotlinGrammarParser<*, 
                       RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Hello").parameterizedBy(
-                    KlassIdentifier("World")
+                KlassIdentifier(ignoredByUnitTest, "Hello").parameterizedBy(
+                    KlassIdentifier(ignoredByUnitTest, "World")
                 ),
-                KlassIdentifier("Outer").parameterizedBy(
-                    KlassIdentifier("Space")
+                KlassIdentifier(ignoredByUnitTest, "Outer").parameterizedBy(
+                    KlassIdentifier(ignoredByUnitTest, "Space")
                 )
             )
         )

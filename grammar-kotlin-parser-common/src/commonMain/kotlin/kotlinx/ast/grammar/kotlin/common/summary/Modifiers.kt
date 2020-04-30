@@ -25,6 +25,6 @@ val modifierMapper: TreeMapMapper = TreeMapMapper()
     ) {
         it.map { modifier: AstTerminal ->
             val group = KlassModifierGroup(context.description)
-            TreeMapResult.Continue(KlassModifier(modifier.text, group))
+            TreeMapResult.Continue(KlassModifier(modifier, modifier.text, group))
         }
     }

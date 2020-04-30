@@ -4,6 +4,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.FunSpec
 import kotlinx.ast.common.AstSource
 import kotlinx.ast.common.ast.Ast
+import kotlinx.ast.common.astSuccess
 import kotlinx.ast.common.flatten
 import kotlinx.ast.common.printString
 import kotlinx.ast.grammar.kotlin.common.KotlinGrammarParser
@@ -37,8 +38,9 @@ abstract class AbstractKlassTest<Parser : KotlinGrammarParser<*, *>>(
             }
 
             test("summary") {
-                val actual = given.map(Ast::summary).flatten().get().flatten()
-                check(actual, testCase.summary)
+                val actual =
+                    ignoredByUnitTestMapper.treeMap(given.map(Ast::summary).flatten().get().flatten())
+                check(actual, astSuccess(testCase.summary))
             }
         }
     }

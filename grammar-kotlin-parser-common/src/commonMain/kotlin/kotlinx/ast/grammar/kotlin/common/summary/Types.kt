@@ -29,7 +29,7 @@ val typesMapper: TreeMapMapper = TreeMapMapper()
         )
     ).mapChildren("simpleIdentifier") {
         it.map { a: AstTerminal ->
-            TreeMapResult.Continue(KlassIdentifier(a.text))
+            TreeMapResult.Continue(KlassIdentifier(a, a.text))
         }
     }.mapChildren("simpleUserType") {
         it.mapList { children: List<Ast> ->

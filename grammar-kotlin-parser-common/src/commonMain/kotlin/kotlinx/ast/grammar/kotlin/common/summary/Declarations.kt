@@ -74,6 +74,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
         treeMap(node.children).flatMap { summary ->
             TreeMapResult.Continue(
                 KlassDeclaration(
+                    raw = node,
                     keyword = "argument",
                     identifier = summary.filterIsInstance<KlassIdentifier>().firstOrNull(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
@@ -85,6 +86,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
         treeMap(node.children).flatMap { summary ->
             TreeMapResult.Continue(
                 KlassDeclaration(
+                    raw = node,
                     keyword = "constructor",
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
@@ -106,6 +108,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
+                    raw = node,
                     keyword = keyword,
                     identifier = identifier[0],
                     type = identifier.getOrNull(1),
@@ -128,6 +131,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
+                    raw = node,
                     keyword = keyword,
                     identifier = identifier.firstOrNull(),
                     type = identifier.getOrNull(1),
@@ -142,6 +146,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
+                    raw = node,
                     keyword = "parameter",
                     identifier = identifier.first(),
                     type = identifier.getOrNull(1),
@@ -157,6 +162,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             if (identifier.size == 1) {
                 TreeMapResult.Continue(
                     KlassInheritance(
+                        raw = node,
                         type = identifier.first(),
                         annotations = summary.filterIsInstance<KlassAnnotation>()
                     )
@@ -172,7 +178,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
                 val b = summary.getOrNull(1) as? KlassIdentifier
                 if (a != null) {
                     TreeMapResult.Continue(
-                        KlassTypeParameter(a, b)
+                        KlassTypeParameter(node, a, b)
                     )
                 } else {
                     null
@@ -187,6 +193,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
+                    raw = node,
                     keyword = "fun",
                     identifier = identifier.first(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
@@ -215,6 +222,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
             TreeMapResult.Continue(
                 KlassDeclaration(
+                    raw = node,
                     keyword = keyword,
                     identifier = identifier.first(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
@@ -232,6 +240,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
+                    raw = node,
                     keyword = "object",
                     identifier = identifier.first(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),

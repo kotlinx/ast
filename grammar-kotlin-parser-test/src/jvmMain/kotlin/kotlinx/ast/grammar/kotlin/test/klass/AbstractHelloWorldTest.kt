@@ -22,9 +22,9 @@ abstract class AbstractHelloWorldTest<Parser : KotlinGrammarParser<*, *>>(parser
                   Identifier >>>World<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Hello"),
+                KlassIdentifier(ignoredByUnitTest, "Hello"),
                 terminal("DOT", "."),
-                KlassIdentifier("World")
+                KlassIdentifier(ignoredByUnitTest, "World")
             )
         ),
         TestCase(
@@ -40,8 +40,8 @@ abstract class AbstractHelloWorldTest<Parser : KotlinGrammarParser<*, *>>(parser
                     Identifier >>>World<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Hello"),
-                KlassIdentifier("World")
+                KlassIdentifier(ignoredByUnitTest, "Hello"),
+                KlassIdentifier(ignoredByUnitTest, "World")
             )
         ),
         TestCase(
@@ -60,9 +60,9 @@ abstract class AbstractHelloWorldTest<Parser : KotlinGrammarParser<*, *>>(parser
                     Identifier >>>World<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Hello"),
+                KlassIdentifier(ignoredByUnitTest, "Hello"),
                 terminal("DOT", "."),
-                KlassIdentifier("World")
+                KlassIdentifier(ignoredByUnitTest, "World")
             )
         ),
         TestCase(
@@ -80,8 +80,8 @@ abstract class AbstractHelloWorldTest<Parser : KotlinGrammarParser<*, *>>(parser
                       Identifier >>>World<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Hello"),
-                KlassIdentifier("World")
+                KlassIdentifier(ignoredByUnitTest, "Hello"),
+                KlassIdentifier(ignoredByUnitTest, "World")
             )
         )
     )

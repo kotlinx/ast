@@ -1,21 +1,30 @@
 package kotlinx.ast.common.klass
 
-import kotlinx.ast.common.ast.Ast
-import kotlinx.ast.common.ast.AstGroup
-import kotlinx.ast.common.ast.AstNode
+import kotlinx.ast.common.AstChannel
+import kotlinx.ast.common.ast.*
 
-sealed class Klass() : AstGroup
+sealed class Klass() : AstGroup {
+    abstract val raw: Ast
+}
 
 data class KlassModifierGroup(val group: String)
 
 data class KlassModifier(
+    override val raw: Ast,
     val modifier: String,
     val group: KlassModifierGroup
 ) : Klass() {
     override val description: String = "KlassModifier($modifier, ${group.group})"
 }
 
-val starProjection = KlassIdentifier("*")
+val starProjection = KlassIdentifier(
+    raw = DefaultAstNode(
+        "typeProjection", listOf(
+            DefaultAstTerminal("MULT", "*", AstChannel(0, "DEFAULT_TOKEN_CHANNEL"))
+        )
+    ),
+    identifier = "*"
+)
 
 fun List<KlassIdentifier>.identifierName(): String {
     return joinToString(
@@ -25,6 +34,7 @@ fun List<KlassIdentifier>.identifierName(): String {
 }
 
 data class KlassIdentifier(
+    override val raw: Ast,
     val identifier: String,
     val parameter: List<KlassIdentifier> = emptyList(),
     val nullable: Boolean = false
@@ -61,14 +71,19 @@ data class KlassIdentifier(
 }
 
 data class KlassString(
+    override val raw: Ast,
     override val children: List<StringComponent>
 ) : Klass(), AstNode {
-    constructor(vararg children: StringComponent) : this(children.toList())
+    constructor(
+        vararg children: StringComponent,
+        raw: Ast
+    ) : this(raw, children.toList())
 
     override val description: String = "KlassString"
 }
 
 data class KlassAnnotation(
+    override val raw: Ast,
     val identifier: List<KlassIdentifier>,
     val arguments: List<KlassDeclaration>
 ) : Klass(), AstNode {
@@ -78,6 +93,7 @@ data class KlassAnnotation(
 }
 
 data class KlassTypeParameter(
+    override val raw: Ast,
     val generic: KlassIdentifier,
     val base: KlassIdentifier?
 ) : Klass(), AstNode {
@@ -90,6 +106,7 @@ data class KlassTypeParameter(
 }
 
 data class KlassInheritance(
+    override val raw: Ast,
     val type: KlassIdentifier,
     val annotations: List<KlassAnnotation> = emptyList()
 ) : Klass(), AstNode {
@@ -100,6 +117,7 @@ data class KlassInheritance(
 }
 
 data class KlassDeclaration(
+    override val raw: Ast,
     val keyword: String,
     val identifier: KlassIdentifier? = null,
     val type: KlassIdentifier? = null,

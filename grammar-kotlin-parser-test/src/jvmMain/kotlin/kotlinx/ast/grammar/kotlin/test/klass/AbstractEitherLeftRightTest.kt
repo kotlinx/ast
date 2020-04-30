@@ -37,9 +37,9 @@ abstract class AbstractEitherLeftRightTest<Parser : KotlinGrammarParser<*, *>>(p
                     RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Either").parameterizedBy(
-                    KlassIdentifier("Left"),
-                    KlassIdentifier("Right")
+                KlassIdentifier(ignoredByUnitTest, "Either").parameterizedBy(
+                    KlassIdentifier(ignoredByUnitTest, "Left"),
+                    KlassIdentifier(ignoredByUnitTest, "Right")
                 )
             )
         )

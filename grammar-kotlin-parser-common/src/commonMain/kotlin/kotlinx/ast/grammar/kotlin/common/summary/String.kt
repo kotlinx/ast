@@ -50,7 +50,7 @@ val stringMapper: TreeMapMapper = TreeMapMapper()
         )
     ) { terminal: AstTerminal ->
         TreeMapResult.Continue(
-            KlassIdentifier(terminal.text.drop(1)).asStringComponent()
+            KlassIdentifier(terminal, terminal.text.drop(1)).asStringComponent()
         )
     }.map(
         setOf(
@@ -69,6 +69,6 @@ val stringMapper: TreeMapMapper = TreeMapMapper()
         }
     }.mapChildren("stringLiteral", treeMap = true) {
         it.mapList { components: List<StringComponent> ->
-            TreeMapResult.Continue(KlassString(components))
+            TreeMapResult.Continue(KlassString(context, components))
         }
     }

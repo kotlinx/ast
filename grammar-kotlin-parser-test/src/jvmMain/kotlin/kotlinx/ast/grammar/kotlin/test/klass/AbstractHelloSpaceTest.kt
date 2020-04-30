@@ -24,9 +24,9 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
                 RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Hello"),
+                KlassIdentifier(ignoredByUnitTest, "Hello"),
                 terminal("LANGLE", "<"),
-                KlassIdentifier("Space"),
+                KlassIdentifier(ignoredByUnitTest, "Space"),
                 terminal("RANGLE", ">")
             )
         ),
@@ -48,9 +48,9 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
                 RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Hello"),
+                KlassIdentifier(ignoredByUnitTest, "Hello"),
                 terminal("LANGLE", "<"),
-                KlassIdentifier("Space"),
+                KlassIdentifier(ignoredByUnitTest, "Space"),
                 terminal("RANGLE", ">")
             )
         ),
@@ -74,8 +74,8 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
                     RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Hello").parameterizedBy(
-                    KlassIdentifier("Space")
+                KlassIdentifier(ignoredByUnitTest, "Hello").parameterizedBy(
+                    KlassIdentifier(ignoredByUnitTest, "Space")
                 )
             )
         ),
@@ -100,8 +100,8 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
                       RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier("Hello").parameterizedBy(
-                    KlassIdentifier("Space")
+                KlassIdentifier(ignoredByUnitTest, "Hello").parameterizedBy(
+                    KlassIdentifier(ignoredByUnitTest, "Space")
                 )
             )
         )
