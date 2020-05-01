@@ -65,6 +65,12 @@ interface AstSuccess<T> : AstResult<T> {
     override fun onFailure(callback: (List<String>) -> Unit): AstResult<T> {
         return this
     }
+
+    companion object {
+        operator fun <T> invoke(result: T): AstSuccess<T> {
+            return DefaultAstSuccess(result)
+        }
+    }
 }
 
 data class DefaultAstSuccess<T>(override val result: T) : AstSuccess<T>
@@ -95,6 +101,12 @@ interface AstFailure<T> : AstResult<T> {
     override fun onFailure(callback: (List<String>) -> Unit): AstResult<T> {
         callback(errors)
         return this
+    }
+
+    companion object {
+        operator fun <T> invoke(errors: List<String>): AstFailure<T> {
+            return DefaultAstFailure(errors)
+        }
     }
 }
 
