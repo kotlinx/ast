@@ -24,7 +24,7 @@ abstract class AbstractStarProjectionTest<Parser : KotlinGrammarParser<*, *>>(pa
                     RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier(ignoredByUnitTest, "Hello").parameterizedBy(
+                KlassIdentifier("Hello", raw = null).parameterizedBy(
                     starProjection
                 )
             )

@@ -50,7 +50,7 @@ val stringMapper: TreeMapMapper = TreeMapMapper()
         )
     ) { terminal: AstTerminal ->
         TreeMapResult.Continue(
-            KlassIdentifier(terminal, terminal.text.drop(1)).asStringComponent()
+            KlassIdentifier(terminal.text.drop(1), raw = attach(terminal)).asStringComponent()
         )
     }.map(
         setOf(
@@ -58,7 +58,7 @@ val stringMapper: TreeMapMapper = TreeMapMapper()
             "multiLineStringExpression"
         )
     ) { expression: DefaultAstNode ->
-        treeMap(expression.children).flatMap { summary ->
+        treeMap(expression.children, attachRawAst = attachRawAst).flatMap { summary ->
             if (summary.size == 1) {
                 TreeMapResult.Continue(
                     summary.first().asStringComponent()
@@ -69,6 +69,6 @@ val stringMapper: TreeMapMapper = TreeMapMapper()
         }
     }.mapChildren("stringLiteral", treeMap = true) {
         it.mapList { components: List<StringComponent> ->
-            TreeMapResult.Continue(KlassString(context, components))
+            TreeMapResult.Continue(KlassString(components, raw = attach(context)))
         }
     }

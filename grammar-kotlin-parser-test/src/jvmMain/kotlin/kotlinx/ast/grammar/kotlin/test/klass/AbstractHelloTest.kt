@@ -16,7 +16,7 @@ abstract class AbstractHelloTest<Parser : KotlinGrammarParser<*, *>>(parser: Par
                   Identifier >>>Hello<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
         summary = listOf(
-            KlassIdentifier(ignoredByUnitTest, "Hello")
+            KlassIdentifier("Hello", raw = null)
         )
     ),
     TestCase(
@@ -29,7 +29,7 @@ abstract class AbstractHelloTest<Parser : KotlinGrammarParser<*, *>>(parser: Par
                     Identifier >>>Hello<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
         summary = listOf(
-            KlassIdentifier(ignoredByUnitTest, "Hello")
+            KlassIdentifier("Hello", raw = null)
         )
     ),
     TestCase(
@@ -42,7 +42,7 @@ abstract class AbstractHelloTest<Parser : KotlinGrammarParser<*, *>>(parser: Par
                     Identifier >>>Hello<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
         summary = listOf(
-            KlassIdentifier(ignoredByUnitTest, "Hello")
+            KlassIdentifier("Hello", raw = null)
         )
     ),
     TestCase(
@@ -56,7 +56,7 @@ abstract class AbstractHelloTest<Parser : KotlinGrammarParser<*, *>>(parser: Par
                       Identifier >>>Hello<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
         summary = listOf(
-            KlassIdentifier(ignoredByUnitTest, "Hello")
+            KlassIdentifier("Hello", raw = null)
         )
     )
 )

@@ -24,9 +24,9 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
                 RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier(ignoredByUnitTest, "Hello"),
+                KlassIdentifier("Hello", raw = null),
                 terminal("LANGLE", "<"),
-                KlassIdentifier(ignoredByUnitTest, "Space"),
+                KlassIdentifier("Space", raw = null),
                 terminal("RANGLE", ">")
             )
         ),
@@ -48,9 +48,9 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
                 RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier(ignoredByUnitTest, "Hello"),
+                KlassIdentifier("Hello", raw = null),
                 terminal("LANGLE", "<"),
-                KlassIdentifier(ignoredByUnitTest, "Space"),
+                KlassIdentifier("Space", raw = null),
                 terminal("RANGLE", ">")
             )
         ),
@@ -74,8 +74,8 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
                     RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier(ignoredByUnitTest, "Hello").parameterizedBy(
-                    KlassIdentifier(ignoredByUnitTest, "Space")
+                KlassIdentifier("Hello", raw = null).parameterizedBy(
+                    KlassIdentifier("Space", raw = null)
                 )
             )
         ),
@@ -100,8 +100,8 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
                       RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier(ignoredByUnitTest, "Hello").parameterizedBy(
-                    KlassIdentifier(ignoredByUnitTest, "Space")
+                KlassIdentifier("Hello", raw = null).parameterizedBy(
+                    KlassIdentifier("Space", raw = null)
                 )
             )
         )

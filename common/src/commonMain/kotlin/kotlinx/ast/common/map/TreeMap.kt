@@ -11,30 +11,36 @@ private data class TreeMapStatus(
 )
 
 interface TreeMap {
-    fun treeMap(ast: Ast): AstResult<List<Ast>> = treeMap(listOf(ast))
+    fun treeMap(ast: Ast, attachRawAst: Boolean): AstResult<List<Ast>> = treeMap(listOf(ast), attachRawAst)
 
-    fun treeMap(list: List<Ast>): AstResult<List<Ast>>
+    fun treeMap(list: List<Ast>, attachRawAst: Boolean): AstResult<List<Ast>>
 }
 
-class DefaultTreeMap(private val mapper: TreeMapMapper) : TreeMap {
-    constructor(vararg mapper: TreeMapMapper) : this(
-        TreeMapMapper(mapper.flatMap(TreeMapMapper::mapper))
+class DefaultTreeMap(
+    private val mapper: TreeMapMapper
+) : TreeMap {
+    constructor(
+        vararg mapper: TreeMapMapper
+    ) : this(
+        mapper = TreeMapMapper(mapper.flatMap(TreeMapMapper::mapper))
     )
 
-    override fun treeMap(list: List<Ast>): AstResult<List<Ast>> {
-        return treeMapList(mapper, list, emptyMap())
+    override fun treeMap(list: List<Ast>, attachRawAst: Boolean): AstResult<List<Ast>> {
+        return treeMapList(mapper, list, emptyMap(), attachRawAst = attachRawAst)
     }
 }
 
 class TreeMapContext(
     treeMap: TreeMap,
-    val context: Ast
-) : TreeMap by treeMap
+    val context: Ast,
+    override val attachRawAst: Boolean
+) : TreeMap by treeMap, TreeMapWithRawAst
 
 private fun TreeMap.treeMapMapper(
     list: List<Ast>,
     skip: Map<TreeMapAstMapper, Set<Ast>>,
-    mapper: TreeMapAstMapper
+    mapper: TreeMapAstMapper,
+    attachRawAst: Boolean
 ): AstResult<TreeMapStatus> {
     return list.fold(
         astSuccess(TreeMapStatus(skip = skip))
@@ -47,7 +53,7 @@ private fun TreeMap.treeMapMapper(
                     )
                 )
             } else {
-                mapper.map(TreeMapContext(this, ast)).flatMap { result ->
+                mapper.map(TreeMapContext(this, ast, attachRawAst)).flatMap { result ->
                     when (result) {
                         is TreeMapResult.Failure ->
                             astFailure(result)
@@ -94,7 +100,8 @@ private fun TreeMap.treeMapMapper(
 private tailrec fun TreeMap.treeMapList(
     treeMapMapper: TreeMapMapper,
     list: List<Ast>,
-    skip: Map<TreeMapAstMapper, Set<Ast>>
+    skip: Map<TreeMapAstMapper, Set<Ast>>,
+    attachRawAst: Boolean
 ): AstResult<List<Ast>> {
     return if (list.isEmpty()) {
         astSuccess(emptyList())
@@ -106,7 +113,7 @@ private tailrec fun TreeMap.treeMapList(
                 if (status.changed) {
                     astSuccess(status)
                 } else {
-                    treeMapMapper(list, status.skip, mapper)
+                    treeMapMapper(list, status.skip, mapper, attachRawAst = attachRawAst)
                 }
             }
         }
@@ -115,15 +122,16 @@ private tailrec fun TreeMap.treeMapList(
             is AstSuccess -> {
                 val status = result.result
                 if (status.changed) {
-                    treeMapList(treeMapMapper, status.list, status.skip)
+                    treeMapList(treeMapMapper, status.list, status.skip, attachRawAst = attachRawAst)
                 } else {
                     list.map { ast ->
                         when (ast) {
                             is DefaultAstNode ->
                                 @Suppress("NON_TAIL_RECURSIVE_CALL")
-                                treeMapList(treeMapMapper, ast.children, status.skip).map<Ast> { children ->
-                                    ast.copy(children = children)
-                                }
+                                treeMapList(treeMapMapper, ast.children, status.skip, attachRawAst = attachRawAst)
+                                    .map<Ast> { children ->
+                                        ast.copy(children = children)
+                                    }
                             else ->
                                 astSuccess(ast)
                         }

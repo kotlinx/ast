@@ -15,10 +15,10 @@ val annotationsMapper: TreeMapMapper = TreeMapMapper()
             "singleAnnotation" to setOf("unescapedAnnotation")
         )
     ).map("annotation") { node: AstNode ->
-        treeMap(node.children).map { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             TreeMapResult.Continue(
                 KlassAnnotation(
-                    raw = node,
+                    raw = attach(node),
                     identifier = summary.filterIsInstance<KlassIdentifier>(),
                     arguments = summary.filterIsInstance<KlassDeclaration>()
                 )

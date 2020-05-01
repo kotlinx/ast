@@ -29,11 +29,11 @@ val typesMapper: TreeMapMapper = TreeMapMapper()
         )
     ).mapChildren("simpleIdentifier") {
         it.map { a: AstTerminal ->
-            TreeMapResult.Continue(KlassIdentifier(a, a.text))
+            TreeMapResult.Continue(KlassIdentifier(a.text, raw = attach(a)))
         }
     }.mapChildren("simpleUserType") {
         it.mapList { children: List<Ast> ->
-            treeMap(children).map { list ->
+            treeMap(children, attachRawAst = attachRawAst).map { list ->
                 val identifier = list.reduce { identifier, parameter ->
                     when {
                         identifier is KlassIdentifier && parameter is KlassIdentifier ->
@@ -49,7 +49,7 @@ val typesMapper: TreeMapMapper = TreeMapMapper()
         it.map<AstTerminal> {
             TreeMapResult.Continue(starProjection)
         }.map { type: AstNode ->
-            treeMap(type).flatMap { list ->
+            treeMap(type, attachRawAst = attachRawAst).flatMap { list ->
                 list.fold(
                     TreeMapResult.Keep as AstResult<TreeMapResult>
                 ) { result, right ->
@@ -79,6 +79,6 @@ val typesMapper: TreeMapMapper = TreeMapMapper()
                 }
             }
         }.map { _/*TODO typeProjectionModifiers*/: Ast, type: KlassIdentifier ->
-            treeMap(type).map(TreeMapResult::Continue)
+            treeMap(type, attachRawAst = attachRawAst).map(TreeMapResult::Continue)
         }
     }

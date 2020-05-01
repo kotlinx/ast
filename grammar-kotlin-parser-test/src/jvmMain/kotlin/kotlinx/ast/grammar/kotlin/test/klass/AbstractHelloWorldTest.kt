@@ -22,9 +22,9 @@ abstract class AbstractHelloWorldTest<Parser : KotlinGrammarParser<*, *>>(parser
                   Identifier >>>World<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier(ignoredByUnitTest, "Hello"),
+                KlassIdentifier("Hello", raw = null),
                 terminal("DOT", "."),
-                KlassIdentifier(ignoredByUnitTest, "World")
+                KlassIdentifier("World", raw = null)
             )
         ),
         TestCase(
@@ -40,8 +40,8 @@ abstract class AbstractHelloWorldTest<Parser : KotlinGrammarParser<*, *>>(parser
                     Identifier >>>World<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier(ignoredByUnitTest, "Hello"),
-                KlassIdentifier(ignoredByUnitTest, "World")
+                KlassIdentifier("Hello", raw = null),
+                KlassIdentifier("World", raw = null)
             )
         ),
         TestCase(
@@ -60,9 +60,9 @@ abstract class AbstractHelloWorldTest<Parser : KotlinGrammarParser<*, *>>(parser
                     Identifier >>>World<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier(ignoredByUnitTest, "Hello"),
+                KlassIdentifier("Hello", raw = null),
                 terminal("DOT", "."),
-                KlassIdentifier(ignoredByUnitTest, "World")
+                KlassIdentifier("World", raw = null)
             )
         ),
         TestCase(
@@ -80,8 +80,8 @@ abstract class AbstractHelloWorldTest<Parser : KotlinGrammarParser<*, *>>(parser
                       Identifier >>>World<<< (DEFAULT_TOKEN_CHANNEL)
                 """.trimIndent(),
             summary = listOf(
-                KlassIdentifier(ignoredByUnitTest, "Hello"),
-                KlassIdentifier(ignoredByUnitTest, "World")
+                KlassIdentifier("Hello", raw = null),
+                KlassIdentifier("World", raw = null)
             )
         )
     )

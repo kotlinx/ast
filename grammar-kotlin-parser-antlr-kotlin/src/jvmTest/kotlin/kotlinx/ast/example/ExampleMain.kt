@@ -11,7 +11,7 @@ fun main() {
         "grammar-kotlin-parser-antlr-kotlin/src/jvmTest/kotlin/kotlinx/ast/example/ExampleMain.kt"
     )
     val kotlinFile = KotlinGrammarAntlrKotlinParser.parseKotlinFile(source)
-    kotlinFile.summary()
+    kotlinFile.summary(attachRawAst = false)
         .onSuccess { astList ->
             astList.forEach(Ast::print)
         }.onFailure { errors ->

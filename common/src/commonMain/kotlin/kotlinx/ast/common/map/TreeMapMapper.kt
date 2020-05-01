@@ -138,7 +138,7 @@ data class TreeMapMapper(
         return map(name) { node: AstNode ->
             if (treeMap) {
                 if (node is DefaultAstNode) {
-                    treeMap(node.children).flatMap { children ->
+                    treeMap(node.children, attachRawAst = attachRawAst).flatMap { children ->
                         mapper.map(
                             this, node.copy(
                                 children = children
@@ -179,7 +179,7 @@ data class TreeMapMapper(
         noinline mapper: (List<A>) -> TreeMapResult
     ): TreeMapMapper {
         return map(name) { node: AstNode ->
-            treeMap(node.children).flatMap(filter).flatMap(mapper)
+            treeMap(node.children, attachRawAst = attachRawAst).flatMap(filter).flatMap(mapper)
         }
     }
 }

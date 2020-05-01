@@ -96,36 +96,36 @@ abstract class AbstractAnnotationTest<Parser : KotlinGrammarParser<*, *>>(parser
                 """.trimIndent(),
             summary = listOf(
                 KlassAnnotation(
-                    raw = ignoredByUnitTest,
                     identifier = listOf(
-                        KlassIdentifier(ignoredByUnitTest, "some"),
-                        KlassIdentifier(ignoredByUnitTest, "where"),
-                        KlassIdentifier(ignoredByUnitTest, "Class")
-                            .parameterizedBy(KlassIdentifier(ignoredByUnitTest, "Hello")),
-                        KlassIdentifier(ignoredByUnitTest, "Annotation5")
+                        KlassIdentifier("some", raw = null),
+                        KlassIdentifier("where", raw = null),
+                        KlassIdentifier("Class", raw = null)
+                            .parameterizedBy(KlassIdentifier("Hello", raw = null)),
+                        KlassIdentifier("Annotation5", raw = null)
                     ),
                     arguments = listOf(
                         KlassDeclaration(
-                            raw = ignoredByUnitTest,
                             keyword = "argument",
                             expressions = listOf(
                                 KlassString(
                                     "hello".asStringComponentRaw(),
-                                    raw = ignoredByUnitTest
+                                    raw = null
                                 )
-                            )
+                            ),
+                            raw = null
                         ),
                         KlassDeclaration(
-                            raw = ignoredByUnitTest,
                             keyword = "argument",
                             expressions = listOf(
                                 KlassString(
                                     "world".asStringComponentRaw(),
-                                    raw = ignoredByUnitTest
+                                    raw = null
                                 )
-                            )
+                            ),
+                            raw = null
                         )
-                    )
+                    ),
+                    raw = null
                 )
             )
         )

@@ -8,13 +8,13 @@ import kotlinx.ast.common.astSuccess
 import kotlinx.ast.common.filter
 
 interface ChildrenMapper {
-    fun map(treeMap: TreeMap, node: AstNode): AstResult<TreeMapResult>
+    fun map(treeMap: TreeMapWithRawAst, node: AstNode): AstResult<TreeMapResult>
 }
 
 private data class ChildrenMapperImpl(
     val mappers: List<TreeMapNodeMapper> = emptyList()
 ) : ChildrenMapper {
-    override fun map(treeMap: TreeMap, node: AstNode): AstResult<TreeMapResult> {
+    override fun map(treeMap: TreeMapWithRawAst, node: AstNode): AstResult<TreeMapResult> {
         return mappers.fold(
             TreeMapResult.Keep as AstResult<TreeMapResult>
         ) { result, mapper ->
@@ -41,7 +41,7 @@ data class ChildrenMapperBuilder(
         return copy(
             mappers = mappers + TreeMapNodeMapper { node ->
                 node.children.filter<A>().flatMap { children ->
-                    mapper(TreeMapContext(this, node), children)
+                    mapper(TreeMapContext(this, node, attachRawAst = attachRawAst), children)
                 }
             }
         )
@@ -56,7 +56,7 @@ data class ChildrenMapperBuilder(
                 if (children.size == 1) {
                     val a = children[0]
                     if (a is A) {
-                        mapper(TreeMapContext(this, node), a)
+                        mapper(TreeMapContext(this, node, attachRawAst = attachRawAst), a)
                     } else {
                         TreeMapResult.Keep
                     }
@@ -77,7 +77,7 @@ data class ChildrenMapperBuilder(
                     val a = children[0]
                     val b = children[1]
                     if (a is A && b is B) {
-                        mapper(TreeMapContext(this, node), a, b)
+                        mapper(TreeMapContext(this, node, attachRawAst = attachRawAst), a, b)
                     } else {
                         TreeMapResult.Keep
                     }

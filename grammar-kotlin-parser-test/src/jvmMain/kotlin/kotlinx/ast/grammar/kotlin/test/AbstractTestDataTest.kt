@@ -52,7 +52,7 @@ abstract class AbstractTestDataTest<Parser : KotlinGrammarParser<*, *>>(parser: 
                 }
 
                 test("summary ast", summaryContent, summaryFile) {
-                    ast.summary().map {
+                    ast.summary(attachRawAst = false).map {
                         it.joinToString("", transform = Ast::printString)
                     }.get()
                 }

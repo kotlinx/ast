@@ -11,7 +11,7 @@ import kotlinx.ast.test.pathOf
 abstract class AbstractSelfTest<Parser : KotlinGrammarParser<*, *>>(
     parser: Parser
 ) : kotlinx.ast.test.AbstractDirectoryTest({ _, source ->
-    when (val summary = parser.parseKotlinFile(source).summary()) {
+    when (val summary = parser.parseKotlinFile(source).summary(attachRawAst = false)) {
         is AstSuccess -> {
             // test succeeded
         }

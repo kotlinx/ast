@@ -71,10 +71,10 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
         )
     ).map("valueArgument") { node: AstNode ->
-        treeMap(node.children).flatMap { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).flatMap { summary ->
             TreeMapResult.Continue(
                 KlassDeclaration(
-                    raw = node,
+                    raw = attach(node),
                     keyword = "argument",
                     identifier = summary.filterIsInstance<KlassIdentifier>().firstOrNull(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
@@ -83,10 +83,10 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
         }
     }.map("primaryConstructor") { node: AstNode ->
-        treeMap(node.children).flatMap { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).flatMap { summary ->
             TreeMapResult.Continue(
                 KlassDeclaration(
-                    raw = node,
+                    raw = attach(node),
                     keyword = "constructor",
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
@@ -95,7 +95,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
         }
     }.map("classParameter") { node: AstNode ->
-        treeMap(node.children).map { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             val keyword = when {
                 summary.filterIsInstance<AstTerminal>().map(AstTerminal::description).contains("VAR") ->
                     "var"
@@ -108,7 +108,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
-                    raw = node,
+                    raw = attach(node),
                     keyword = keyword,
                     identifier = identifier[0],
                     type = identifier.getOrNull(1),
@@ -119,7 +119,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
         }
     }.map("propertyDeclaration") { node: AstNode ->
-        treeMap(node.children).map { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             val keyword = if (summary.filterIsInstance<AstTerminal>()
                     .map(AstTerminal::description).contains("VAR")
             ) {
@@ -131,7 +131,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
-                    raw = node,
+                    raw = attach(node),
                     keyword = keyword,
                     identifier = identifier.firstOrNull(),
                     type = identifier.getOrNull(1),
@@ -142,11 +142,11 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
         }
     }.map("functionValueParameter") { node: AstNode ->
-        treeMap(node.children).map { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
-                    raw = node,
+                    raw = attach(node),
                     keyword = "parameter",
                     identifier = identifier.first(),
                     type = identifier.getOrNull(1),
@@ -157,12 +157,12 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
         }
     }.map("annotatedDelegationSpecifier") { node: AstNode ->
-        treeMap(node.children).map { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             if (identifier.size == 1) {
                 TreeMapResult.Continue(
                     KlassInheritance(
-                        raw = node,
+                        raw = attach(node),
                         type = identifier.first(),
                         annotations = summary.filterIsInstance<KlassAnnotation>()
                     )
@@ -172,13 +172,13 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             }
         }
     }.map("typeParameter") { node: AstNode ->
-        treeMap(node.children).map { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             val result = if (summary.size == 1 || summary.size == 2) {
                 val a = summary[0] as? KlassIdentifier
                 val b = summary.getOrNull(1) as? KlassIdentifier
                 if (a != null) {
                     TreeMapResult.Continue(
-                        KlassTypeParameter(node, a, b)
+                        KlassTypeParameter(a, b, raw = attach(node))
                     )
                 } else {
                     null
@@ -189,11 +189,11 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             result ?: TreeMapResult.Failure(astFailure<Nothing>("failed to parse typeParameter"))
         }
     }.map("functionDeclaration") { node: AstNode ->
-        treeMap(node.children).map { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
-                    raw = node,
+                    raw = attach(node),
                     keyword = "fun",
                     identifier = identifier.first(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
@@ -205,7 +205,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
         }
     }.map("classDeclaration") { node: AstNode ->
-        treeMap(node.children).map { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             val keyword = if (summary.filter("INTERFACE").isEmpty()) {
                 "class"
@@ -222,7 +222,7 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
             TreeMapResult.Continue(
                 KlassDeclaration(
-                    raw = node,
+                    raw = attach(node),
                     keyword = keyword,
                     identifier = identifier.first(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
@@ -236,11 +236,11 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
             )
         }
     }.map("objectDeclaration") { node: AstNode ->
-        treeMap(node.children).map { summary ->
+        treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             val identifier = summary.filterIsInstance<KlassIdentifier>()
             TreeMapResult.Continue(
                 KlassDeclaration(
-                    raw = node,
+                    raw = attach(node),
                     keyword = "object",
                     identifier = identifier.first(),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),

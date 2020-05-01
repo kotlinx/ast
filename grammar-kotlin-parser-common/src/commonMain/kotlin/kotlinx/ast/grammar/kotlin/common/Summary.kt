@@ -17,10 +17,10 @@ private val summaryTreeMap: TreeMap = DefaultTreeMap(
     typesMapper
 )
 
-fun List<Ast>.summary(): AstResult<List<Ast>> {
-    return summaryTreeMap.treeMap(this)
+fun List<Ast>.summary(attachRawAst: Boolean): AstResult<List<Ast>> {
+    return summaryTreeMap.treeMap(this, attachRawAst = attachRawAst)
 }
 
-fun Ast.summary(): AstResult<List<Ast>> {
-    return listOf(this).summary()
+fun Ast.summary(attachRawAst: Boolean): AstResult<List<Ast>> {
+    return listOf(this).summary(attachRawAst = attachRawAst)
 }
