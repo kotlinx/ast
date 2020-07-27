@@ -144,12 +144,15 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
     }.map("functionValueParameter") { node: AstNode ->
         treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
             val identifier = summary.filterIsInstance<KlassIdentifier>()
+            val nullable = summary.any { ast ->
+                ast.description == "quest"
+            }
             TreeMapResult.Continue(
                 KlassDeclaration(
                     raw = attach(node),
                     keyword = "parameter",
                     identifier = identifier.first(),
-                    type = identifier.getOrNull(1),
+                    type = identifier.getOrNull(1)?.copy(nullable = nullable),
                     annotations = summary.filterIsInstance<KlassAnnotation>(),
                     modifiers = summary.filterIsInstance<KlassModifier>(),
                     expressions = summary.expressions()
