@@ -1,0 +1,8 @@
+PackageHeader(foo.bar)
+importList
+KlassDeclaration(class Spam)
+  classBody
+    KlassDeclaration(fun doSomething)
+      KlassDeclaration(parameter i Int)
+      KlassDeclaration(parameter s String)
+      KlassDeclaration(parameter l List<String>)

@@ -1,0 +1,4 @@
+package foo.bar
+class Spam {
+    fun doSomething(i: Int, s: String?, l : List<String>) {}
+}
