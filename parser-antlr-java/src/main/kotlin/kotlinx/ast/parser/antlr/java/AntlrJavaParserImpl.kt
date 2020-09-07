@@ -119,7 +119,7 @@ fun <P : Parser, Type : AstParserType> antlrJavaParser(
         AstChannel(i, channel)
     }.toTypedArray()
     val vocabulary = lexer.vocabulary
-    val tokenNames = Array(vocabulary.maxTokenType) {
+    val tokenNames = Array(vocabulary.maxTokenType + 1) {
         vocabulary.getSymbolicName(it)
     }
     val astParser = AntlrJavaParserImpl(stream, ruleNames, tokenNames, channels)
