@@ -88,21 +88,21 @@ private class AntlrJavaParserImpl(
     }
 }
 
-fun <P : Parser, Type : AstParserType> antlrKotlinParser(
+fun <P : Parser, Type : AstParserType> antlrJavaParser(
     source: AstSource,
     extractor: AntlrJavaParserExtractor<P, Type>,
     type: Type,
     lexerFactory: (CharStream) -> Lexer,
     parserFactory: (TokenStream) -> P
 ): Ast {
-    val result = antlrKotlinParser(source, extractor, listOf(type), lexerFactory, parserFactory)
+    val result = antlrJavaParser(source, extractor, listOf(type), lexerFactory, parserFactory)
     if (result.size != 1) {
         throw RuntimeException("expected exactly one ast!")
     }
     return result.first()
 }
 
-fun <P : Parser, Type : AstParserType> antlrKotlinParser(
+fun <P : Parser, Type : AstParserType> antlrJavaParser(
     source: AstSource,
     extractor: AntlrJavaParserExtractor<P, Type>,
     types: List<Type>,

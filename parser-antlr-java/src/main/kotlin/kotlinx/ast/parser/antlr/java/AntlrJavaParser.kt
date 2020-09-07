@@ -17,10 +17,10 @@ abstract class AntlrJavaParser<P : Parser, Type : AstParserType>(
 ) : AstParser<P, ParseTree, Type> {
 
     override fun parse(source: AstSource, type: Type): Ast {
-        return antlrKotlinParser(source, extractor, type, lexerFactory, parserFactory)
+        return antlrJavaParser(source, extractor, type, lexerFactory, parserFactory)
     }
 
     override fun parse(source: AstSource, types: List<Type>): List<Ast> {
-        return antlrKotlinParser(source, extractor, types, lexerFactory, parserFactory)
+        return antlrJavaParser(source, extractor, types, lexerFactory, parserFactory)
     }
 }
