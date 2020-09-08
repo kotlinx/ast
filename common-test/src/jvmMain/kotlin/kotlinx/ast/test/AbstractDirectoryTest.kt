@@ -1,13 +1,12 @@
 package kotlinx.ast.test
 
-import io.kotlintest.fail
-import io.kotlintest.specs.AbstractFunSpec
-import io.kotlintest.specs.FunSpec
+import io.kotest.assertions.fail
+import io.kotest.core.spec.style.FunSpec
 import kotlinx.ast.common.AstSource
 import java.io.File
 
 abstract class AbstractDirectoryTest(
-    tester: AbstractFunSpec.(File, AstSource) -> Unit,
+    tester: FunSpec.(File, AstSource) -> Unit,
     files: Map<File, String>
 ) : FunSpec({
     if (files.isEmpty()) {

@@ -13,4 +13,6 @@ object Versions {
     */
     // antlr kotlin version patched by kotlinx.ast author
     const val antlrKotlinGroup = "com.github.drieks.antlr-kotlin"
+
+    const val kotest = "4.2.3"
 }

@@ -1,6 +1,6 @@
 package kotlinx.ast.grammar.kotlin.test
 
-import io.kotlintest.fail
+import io.kotest.assertions.fail
 import kotlinx.ast.common.AstFailure
 import kotlinx.ast.common.AstSuccess
 import kotlinx.ast.grammar.kotlin.common.KotlinGrammarParser

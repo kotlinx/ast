@@ -1,7 +1,7 @@
 package kotlinx.ast.grammar.antlr4.target.antlr.java
 
-import io.kotlintest.fail
-import io.kotlintest.shouldBe
+import io.kotest.assertions.fail
+import io.kotest.matchers.shouldBe
 import kotlinx.ast.common.printString
 import kotlinx.ast.grammar.antlr4.common.Antlr4GrammarParser
 import kotlinx.ast.test.pathOf

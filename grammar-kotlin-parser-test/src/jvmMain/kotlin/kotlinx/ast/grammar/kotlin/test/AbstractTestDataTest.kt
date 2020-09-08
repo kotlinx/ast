@@ -1,8 +1,9 @@
 package kotlinx.ast.grammar.kotlin.test
 
-import io.kotlintest.fail
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.FunSpec
+import io.kotest.assertions.fail
+import io.kotest.core.spec.style.FunSpec
+import io.kotest.core.spec.style.scopes.ContainerScope
+import io.kotest.matchers.shouldBe
 import kotlinx.ast.common.AstSource
 import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.printString
@@ -25,7 +26,7 @@ abstract class AbstractTestDataTest<Parser : KotlinGrammarParser<*, *>>(parser: 
                 val overwriteTestData = System.getProperty("overwrite.test.data") != null
                 val ast by lazy { parser.parseKotlinFile(AstSource.String(kotlinContent)) }
 
-                suspend fun ContextScope.test(
+                suspend fun ContainerScope.test(
                     testCase: String,
                     expected: String?,
                     expectedFile: File,

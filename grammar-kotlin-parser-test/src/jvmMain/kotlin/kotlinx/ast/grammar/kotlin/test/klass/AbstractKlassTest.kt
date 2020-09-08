@@ -1,7 +1,7 @@
 package kotlinx.ast.grammar.kotlin.test.klass
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.FunSpec
+import io.kotest.core.spec.style.FunSpec
+import io.kotest.matchers.shouldBe
 import kotlinx.ast.common.AstSource
 import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.astSuccess
