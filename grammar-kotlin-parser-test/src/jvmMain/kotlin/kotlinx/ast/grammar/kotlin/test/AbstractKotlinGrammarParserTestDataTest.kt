@@ -11,7 +11,7 @@ import kotlinx.ast.grammar.kotlin.common.KotlinGrammarParser
 import kotlinx.ast.grammar.kotlin.common.summary
 import java.io.File
 
-abstract class AbstractTestDataTest<Parser : KotlinGrammarParser<*, *>>(parser: Parser) : FunSpec({
+abstract class AbstractKotlinGrammarParserTestDataTest<Parser : KotlinGrammarParser<*, *>>(parser: Parser) : FunSpec({
     val tests = testData()
 
     if (tests.isEmpty()) {
