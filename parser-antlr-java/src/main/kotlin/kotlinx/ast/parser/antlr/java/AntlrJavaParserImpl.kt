@@ -118,8 +118,12 @@ fun <P : Parser, Type : AstParserType> antlrJavaParser(
 ): List<Ast> {
     val input = source.toAntlrJavaCharStream()
     val lexer = lexerFactory(input)
+    lexer.removeErrorListeners()
+    lexer.addErrorListener(AntlrJavaErrorListener)
     val stream = CommonTokenStream(lexer)
     val parser = parserFactory(stream)
+    parser.removeErrorListeners()
+    parser.addErrorListener(AntlrJavaErrorListener)
     val ruleNames = parser.ruleNames ?: emptyArray()
     val channelNames = lexer.channelNames ?: emptyArray()
     val channels = channelNames.withIndex().map { (i, channel) ->
