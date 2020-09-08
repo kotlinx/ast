@@ -1,3 +1,3 @@
 package kotlinx.ast.grammar.antlr4.target.antlr.java
 
-class SelfTest : AbstractSelfTest<Antl4GrammarAntlrJavaParser>(Antl4GrammarAntlrJavaParser)
+class SelfTest : AbstractSelfTest<Antlr4GrammarAntlrJavaParser>(Antlr4GrammarAntlrJavaParser)
