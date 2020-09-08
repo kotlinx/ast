@@ -8,7 +8,7 @@ import kotlinx.ast.grammar.kotlin.common.summary
 import kotlinx.ast.test.pathMap
 import kotlinx.ast.test.pathOf
 
-abstract class AbstractSelfTest<Parser : KotlinGrammarParser<*, *>>(
+abstract class AbstractKotlinGrammarParserSelfTest<Parser : KotlinGrammarParser<*, *>>(
     parser: Parser
 ) : kotlinx.ast.test.AbstractDirectoryTest({ _, source ->
     when (val summary = parser.parseKotlinFile(source).summary(attachRawAst = false)) {

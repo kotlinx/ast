@@ -11,7 +11,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.streams.toList
 
-abstract class AbstractTestDataTest<Parser : Antlr4GrammarParser<*, *>>(
+abstract class AbstractAntlr4GrammarTestDataTest<Parser : Antlr4GrammarParser<*, *>>(
     parser: Parser
 ) : kotlinx.ast.test.AbstractDirectoryTest({ file, source ->
     val name = file.toString()
