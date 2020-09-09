@@ -1,3 +1,4 @@
+KlassComment(MultiLine)
 PackageHeader(example)
 importList
 KlassDeclaration(class Group)

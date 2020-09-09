@@ -8,6 +8,7 @@ import kotlinx.ast.grammar.kotlin.common.summary.*
 
 private val summaryTreeMap: TreeMap = DefaultTreeMap(
     annotationsMapper,
+    commentsMapper,
     declarationsMapper,
     expressionsMapper,
     globalsMapper,

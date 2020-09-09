@@ -1,7 +1,8 @@
 package kotlinx.ast.common.klass
 
-import kotlinx.ast.common.AstChannel
-import kotlinx.ast.common.ast.*
+import kotlinx.ast.common.ast.Ast
+import kotlinx.ast.common.ast.AstGroup
+import kotlinx.ast.common.ast.AstNode
 
 sealed class Klass() : AstGroup {
     abstract val raw: RawAst?
@@ -24,6 +25,14 @@ fun List<KlassIdentifier>.identifierName(): String {
         separator = ".",
         transform = KlassIdentifier::rawName
     )
+}
+
+data class KlassComment(
+    val comment: String,
+    val type: KlassCommentType,
+    override val raw: RawAst?
+) : Klass() {
+    override val description: String = "KlassComment(${type.rawName})"
 }
 
 data class KlassIdentifier(
