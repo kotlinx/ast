@@ -1,0 +1,113 @@
+kotlinFile
+  DelimitedComment >>>/*\n * multiline comment\n */<<< (COMMENT)
+  NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  packageHeader
+    PACKAGE >>>package<<< (DEFAULT_TOKEN_CHANNEL)
+    WS >>> <<< (HIDDEN)
+    identifier
+      simpleIdentifier
+        Identifier >>>example<<< (DEFAULT_TOKEN_CHANNEL)
+    semi
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      DelimitedComment >>>/**\n * A group of *members*.\n *\n * This class has no useful logic; it's just a documentation example.\n *\n * @param T the type of a member in this group.\n * @property name the name of this group.\n * @constructor Creates an empty group.\n */<<< (COMMENT)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>Group<<< (DEFAULT_TOKEN_CHANNEL)
+        typeParameters
+          LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+          typeParameter
+            simpleIdentifier
+              Identifier >>>T<<< (DEFAULT_TOKEN_CHANNEL)
+          RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+        primaryConstructor
+          classParameters
+            LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+            classParameter
+              VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              simpleIdentifier
+                Identifier >>>name<<< (DEFAULT_TOKEN_CHANNEL)
+              COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              type
+                typeReference
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>String<<< (DEFAULT_TOKEN_CHANNEL)
+            RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        classBody
+          LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          DelimitedComment >>>/**\n   * Adds a [member] to this group.\n   * @return the new size of the group.\n   */<<< (COMMENT)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          classMemberDeclarations
+            classMemberDeclaration
+              declaration
+                functionDeclaration
+                  FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  simpleIdentifier
+                    Identifier >>>add<<< (DEFAULT_TOKEN_CHANNEL)
+                  functionValueParameters
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    functionValueParameter
+                      parameter
+                        simpleIdentifier
+                          Identifier >>>member<<< (DEFAULT_TOKEN_CHANNEL)
+                        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                        Inside_WS >>> <<< (HIDDEN)
+                        type
+                          typeReference
+                            userType
+                              simpleUserType
+                                simpleIdentifier
+                                  Identifier >>>T<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  type
+                    typeReference
+                      userType
+                        simpleUserType
+                          simpleIdentifier
+                            Identifier >>>Int<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  functionBody
+                    block
+                      LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      LineComment >>>// single line comments<<< (COMMENT)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      LineComment >>>// ...<<< (COMMENT)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      statements
+                      RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

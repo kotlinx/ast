@@ -1,0 +1,10 @@
+PackageHeader(example)
+importList
+KlassDeclaration(class Group)
+  KlassDeclaration(constructor)
+    KlassDeclaration(val name String)
+  KlassTypeParameter
+    KlassIdentifier(T)
+  classBody
+    KlassDeclaration(fun add Int)
+      KlassDeclaration(parameter member T)
