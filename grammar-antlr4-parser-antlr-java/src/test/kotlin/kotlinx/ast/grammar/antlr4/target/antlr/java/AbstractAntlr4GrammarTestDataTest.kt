@@ -4,6 +4,7 @@ import io.kotest.assertions.fail
 import io.kotest.matchers.shouldBe
 import kotlinx.ast.common.printString
 import kotlinx.ast.grammar.antlr4.common.Antlr4GrammarParser
+import kotlinx.ast.test.OverwriteTestData
 import kotlinx.ast.test.pathOf
 import kotlinx.ast.test.readTextOrNull
 import java.io.File
@@ -16,7 +17,6 @@ abstract class AbstractAntlr4GrammarTestDataTest<Parser : Antlr4GrammarParser<*,
 ) : kotlinx.ast.test.AbstractDirectoryTest({ file, source ->
     val name = file.toString()
     val expectedFile = File(file.absolutePath.toString().replace(".g4.txt", ".raw.txt"))
-    val overwriteTestData = System.getProperty("overwrite.test.data") != null
     val ast by lazy { parser.parseGrammarSpec(source) }
     val expected by lazy { expectedFile.readTextOrNull() }
 
@@ -27,7 +27,7 @@ abstract class AbstractAntlr4GrammarTestDataTest<Parser : Antlr4GrammarParser<*,
                 expectedFile.writeText(actual)
                 fail("expected data for test \"$name -- raw ast\" not found, data created, please restart the test!")
             } else {
-                if (overwriteTestData && actual != expected) {
+                if (OverwriteTestData() && actual != expected) {
                     expectedFile.writeText(actual)
                     fail("expected data for test \"$name -- raw ast\" differs, data updated!")
                 } else {

@@ -1,5 +1,6 @@
 /.gradle
 /build
+/.override-test-data
 
 # created by IntelliJ ANTLR Plugin
 gen

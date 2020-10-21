@@ -9,6 +9,7 @@ import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.printString
 import kotlinx.ast.grammar.kotlin.common.KotlinGrammarParser
 import kotlinx.ast.grammar.kotlin.common.summary
+import kotlinx.ast.test.OverwriteTestData
 import java.io.File
 
 abstract class AbstractKotlinGrammarParserTestDataTest<Parser : KotlinGrammarParser<*, *>>(parser: Parser) : FunSpec({
@@ -23,7 +24,6 @@ abstract class AbstractKotlinGrammarParserTestDataTest<Parser : KotlinGrammarPar
     tests.forEach() { testData ->
         testData.apply {
             context(name) {
-                val overwriteTestData = System.getProperty("overwrite.test.data") != null
                 val ast by lazy { parser.parseKotlinFile(AstSource.String(kotlinContent)) }
 
                 suspend fun ContainerScope.test(
@@ -38,7 +38,7 @@ abstract class AbstractKotlinGrammarParserTestDataTest<Parser : KotlinGrammarPar
                             expectedFile.writeText(actual)
                             fail("expected data for test \"$name -- $testCase\" not found, data created, please restart the test!")
                         } else {
-                            if (overwriteTestData && actual != expected) {
+                            if (OverwriteTestData() && actual != expected) {
                                 expectedFile.writeText(actual)
                                 fail("expected data for test \"$name -- $testCase\" differs, data updated!")
                             } else {
