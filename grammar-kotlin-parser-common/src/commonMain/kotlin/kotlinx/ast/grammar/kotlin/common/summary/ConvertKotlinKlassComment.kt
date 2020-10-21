@@ -1,13 +1,13 @@
 package kotlinx.ast.grammar.kotlin.common.summary
 
 import kotlinx.ast.common.ast.AstTerminal
+import kotlinx.ast.common.filter.TreeFilter
 import kotlinx.ast.common.klass.KlassComment
 import kotlinx.ast.common.klass.KlassCommentType
-import kotlinx.ast.common.map.TreeMapMapper
-import kotlinx.ast.common.map.TreeMapResult
+import kotlinx.ast.common.map.TreeMapBuilder
 
-val commentsMapper: TreeMapMapper = TreeMapMapper()
-    .map(setOf("DelimitedComment", "LineComment")) { astComment: AstTerminal ->
+fun <State> TreeMapBuilder<State>.convertKotlinKlassComment(filter: TreeFilter): TreeMapBuilder<State> {
+    return convert(filter = filter) { astComment: AstTerminal ->
         val text = astComment.text
         val (type, comment) = when {
             text.startsWith("/**") ->
@@ -20,11 +20,12 @@ val commentsMapper: TreeMapMapper = TreeMapMapper()
                 Pair(KlassCommentType.Unknown, text)
         }
 
-        TreeMapResult.Continue(
+        astContinueList(
             KlassComment(
-                raw = attach(astComment),
+                raw = attachRaw(astComment),
                 type = type,
                 comment = comment
             )
         )
     }
+}

@@ -1,0 +1,15 @@
+val postfixUnaryOperator_INCR = x++
+val postfixUnaryOperator_DECR = x--
+val postfixUnaryOperator_excl = x!!
+val typeArguments1 = x<Type>
+val typeArguments2 = x<Type1, Type2>
+val callSuffix0 = x()
+val callSuffix1 = x(1)
+val callSuffix2 = x(1, 2)
+val indexingSuffix1 = x[1]
+val indexingSuffix2 = x[1, 2]
+val memberAccessOperatorDOT = x.x
+val memberAccessOperatorSafeNav = x?.x
+val memberAccessOperatorCOLONCOLON = x::x
+
+val example = emptyList<String>()[0]?.x.y::z

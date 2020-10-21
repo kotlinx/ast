@@ -1,7 +1,6 @@
 PackageHeader()
 importList
 KlassDeclaration(val x List<*>)
-  postfixUnaryExpression
-    KlassIdentifier(emptyList)
+  KlassIdentifier(emptyList)
     postfixUnarySuffix
       callSuffix

@@ -1,81 +1,45 @@
 package kotlinx.ast.common
 
-inline fun <reified T> List<AstResult<T>>.flatten(): AstResult<List<T>> {
-    val errors = filterIsInstance<AstFailure<T>>()
-        .flatMap(AstFailure<T>::errorList)
-    return when {
-        errors.isEmpty() ->
-            astSuccess(filterIsInstance<AstSuccess<T>>().map(AstSuccess<T>::result))
-        else ->
-            astFailure(errors)
-    }
-}
+import kotlinx.ast.common.map.TreeMapResultFactory
 
-fun <T> astSuccess(result: T): AstResult<T> = DefaultAstSuccess(result)
+interface AstResult<State, out T> {
+    val state: State
 
-fun <T> astFailure(error: String): AstResult<T> = astFailure(listOf(error))
-
-fun <T> astFailure(errors: List<String>): AstResult<T> = DefaultAstFailure(errors)
-
-fun <T1, T2> astFailure(result: AstFailure<T1>): AstResult<T2> {
-    return astFailure(result.errors)
-}
-
-interface AstResult<T> {
     fun get(): T
 
-    fun <T2> map(mapper: (T) -> T2): AstResult<T2>
+    fun <T2> map(mapper: TreeMapResultFactory<State>.(T) -> T2): AstResult<State, T2>
 
-    fun <T2> flatMap(mapper: (T) -> AstResult<T2>): AstResult<T2>
+    fun <Other, T2> flatMap(mapper: TreeMapResultFactory<State>.(T) -> AstResult<Other, T2>): AstResult<Other, T2>
 
-    fun onSuccess(callback: (T) -> Unit): AstResult<T>
+    fun onSuccess(callback: TreeMapResultFactory<State>.(T) -> Unit): AstResult<State, T>
 
-    fun onFailure(callback: (List<String>) -> Unit): AstResult<T>
+    fun onFailure(callback: TreeMapResultFactory<State>.(List<String>) -> Unit): AstResult<State, T>
 
     fun errorList(): List<String> = emptyList()
-
-    fun <T2> zip(other: AstResult<T2>): AstResult<Pair<T, T2>> {
-        return when {
-            this is AstSuccess<T> && other is AstSuccess<T2> ->
-                astSuccess(Pair(result, other.result))
-            else ->
-                astFailure(errorList() + other.errorList())
-        }
-    }
 }
 
-interface AstSuccess<T> : AstResult<T> {
-    val result: T
+interface AstSuccess<State, T> : AstResult<State, T> {
+    val factory: TreeMapResultFactory<State>
+    val success: T
 
-    override fun get(): T = result
+    override fun get(): T = success
 
-    override fun <T2> map(mapper: (T) -> T2): AstResult<T2> {
-        return DefaultAstSuccess(mapper(result))
-    }
-
-    override fun <T2> flatMap(mapper: (T) -> AstResult<T2>): AstResult<T2> {
-        return mapper(result)
-    }
-
-    override fun onSuccess(callback: (T) -> Unit): AstResult<T> {
-        callback(result)
+    override fun onSuccess(
+        callback: TreeMapResultFactory<State>.(T) -> Unit
+    ): AstResult<State, T> {
+        factory.callback(success)
         return this
     }
 
-    override fun onFailure(callback: (List<String>) -> Unit): AstResult<T> {
+    override fun onFailure(
+        callback: TreeMapResultFactory<State>.(List<String>) -> Unit
+    ): AstResult<State, T> {
         return this
-    }
-
-    companion object {
-        operator fun <T> invoke(result: T): AstSuccess<T> {
-            return DefaultAstSuccess(result)
-        }
     }
 }
 
-data class DefaultAstSuccess<T>(override val result: T) : AstSuccess<T>
-
-interface AstFailure<T> : AstResult<T> {
+interface AstFailure<State, T> : AstResult<State, T> {
+    val factory: TreeMapResultFactory<State>
     val errors: List<String>
 
     override fun errorList(): List<String> {
@@ -86,28 +50,16 @@ interface AstFailure<T> : AstResult<T> {
         throw IllegalStateException("found errors: $errors")
     }
 
-    override fun <T2> map(mapper: (T) -> T2): AstResult<T2> {
-        return astFailure(this)
-    }
-
-    override fun <T2> flatMap(mapper: (T) -> AstResult<T2>): AstResult<T2> {
-        return astFailure(this)
-    }
-
-    override fun onSuccess(callback: (T) -> Unit): AstResult<T> {
+    override fun onSuccess(
+        callback: TreeMapResultFactory<State>.(T) -> Unit
+    ): AstResult<State, T> {
         return this
     }
 
-    override fun onFailure(callback: (List<String>) -> Unit): AstResult<T> {
-        callback(errors)
+    override fun onFailure(
+        callback: TreeMapResultFactory<State>.(List<String>) -> Unit
+    ): AstResult<State, T> {
+        factory.callback(errors)
         return this
-    }
-
-    companion object {
-        operator fun <T> invoke(errors: List<String>): AstFailure<T> {
-            return DefaultAstFailure(errors)
-        }
     }
 }
-
-data class DefaultAstFailure<T>(override val errors: List<String>) : AstFailure<T>

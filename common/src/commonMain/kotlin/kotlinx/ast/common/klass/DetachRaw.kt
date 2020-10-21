@@ -3,73 +3,50 @@ package kotlinx.ast.common.klass
 import kotlinx.ast.common.AstResult
 import kotlinx.ast.common.AstSuccess
 import kotlinx.ast.common.ast.Ast
-import kotlinx.ast.common.map.DefaultTreeMap
-import kotlinx.ast.common.map.TreeMapMapper
-import kotlinx.ast.common.map.TreeMapResult
+import kotlinx.ast.common.ast.AstNode
+import kotlinx.ast.common.filter.TreeFilterAll
+import kotlinx.ast.common.map.TreeMapBuilder
 
-private inline fun <reified K : Klass> TreeMapMapper.detachRaw(
-    crossinline ignore: K.() -> K
-): TreeMapMapper {
-    return map { klass: K ->
-        if (klass.raw == null) {
-            TreeMapResult.Keep
-        } else {
-            TreeMapResult.Continue(ignore(klass))
-        }
-    }
+fun Ast.detachRaw(): AstResult<Unit, List<Ast>> {
+    return detachRawMapper(Unit, listOf(this), attachRawAst = false)
 }
 
-private fun KlassString.detachRaw(): KlassString {
-    return copy(raw = null)
-}
-
-private fun KlassIdentifier.detachRaw(): KlassIdentifier {
-    return copy(
-        raw = null,
-        parameter = parameter.map(KlassIdentifier::detachRaw)
-    )
-}
-
-private fun KlassAnnotation.detachRaw(): KlassAnnotation {
-    return copy(
-        raw = null,
-        identifier = identifier.map(KlassIdentifier::detachRaw),
-        arguments = arguments.map(KlassDeclaration::detachRaw)
-    )
-}
-
-private fun KlassDeclaration.detachRaw(): KlassDeclaration {
-    return copy(
-        raw = null,
-        annotations = annotations.map(KlassAnnotation::detachRaw),
-        expressions = detachRawMapper.treeMap(expressions, attachRawAst = false).get()
-    )
-}
-
-private val detachRawMapper: DefaultTreeMap = DefaultTreeMap(
-    TreeMapMapper()
-        .detachRaw(KlassString::detachRaw)
-        .detachRaw(KlassIdentifier::detachRaw)
-        .detachRaw(KlassAnnotation::detachRaw)
-        .detachRaw(KlassDeclaration::detachRaw)
-)
-
-fun Ast.detachRaw(): AstResult<List<Ast>> {
-    return detachRawMapper.treeMap(this, attachRawAst = false)
-}
-
-fun List<Ast>.detachRaw(): AstResult<List<Ast>> {
-    return detachRawMapper.treeMap(this, attachRawAst = false)
+fun List<Ast>.detachRaw(): AstResult<Unit, List<Ast>> {
+    return detachRawMapper(Unit, this, attachRawAst = false)
 }
 
 fun Ast.detachRawOrThrow(): Ast {
     val result = detachRaw()
     return when {
-        result is AstSuccess && result.result.size == 1 ->
-            result.result.first()
+        result is AstSuccess && result.success.size == 1 ->
+            result.success.first()
         result is AstSuccess ->
-            throw RuntimeException("detachRawOrThrow(): expected one ast but found ${result.result.size} results")
+            throw RuntimeException("detachRawOrThrow(): expected one ast but found ${result.success.size} results")
         else ->
             throw RuntimeException("detachRawOrThrow(): unexpected result: $result")
     }
 }
+
+private val detachRawMapper: TreeMapBuilder<Unit> = TreeMapBuilder<Unit>()
+    .convert(
+        filter = TreeFilterAll
+    ) { klass: Klass ->
+        when {
+            klass is KlassNode<*> ->
+                recursive(
+                    if (klass.raw == null) {
+                        klass
+                    } else {
+                        klass.detachRaw()
+                    }
+                ).toAstList()
+            klass.raw == null ->
+                astKeep()
+            else ->
+                astContinueList(klass.detachRaw())
+        }
+    }.convert(
+        filter = TreeFilterAll
+    ) { node: AstNode ->
+        recursive(node).toAstList()
+    }

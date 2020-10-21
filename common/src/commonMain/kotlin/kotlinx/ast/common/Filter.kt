@@ -19,18 +19,6 @@ fun List<Ast>.filter(
     }
 }
 
-inline fun <reified A : Ast> List<Ast>.filter(): AstResult<List<A>> {
-    val filtered = filterIsInstance<A>()
-    return if (filtered.size == size) {
-        astSuccess(filtered)
-    } else {
-        val bad = filterNot { it is A }
-        astFailure(
-            "found non-${A::class.qualifiedName} in children list: $bad"
-        )
-    }
-}
-
 fun Ast.filter(name: String): List<Ast> {
     return when (name) {
         this.description ->

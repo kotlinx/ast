@@ -1,0 +1,190 @@
+PackageHeader()
+importList
+KlassDeclaration(val postfixUnaryOperator_INCR)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      postfixUnaryOperator
+        INCR >>>++<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val postfixUnaryOperator_DECR)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      postfixUnaryOperator
+        DECR >>>--<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val postfixUnaryOperator_excl)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      postfixUnaryOperator
+        EXCL_NO_WS >>>!<<< (DEFAULT_TOKEN_CHANNEL)
+        excl
+          EXCL_NO_WS >>>!<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val typeArguments1)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      KlassIdentifier(Type)
+KlassDeclaration(val typeArguments2)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      KlassIdentifier(Type1)
+      KlassIdentifier(Type2)
+KlassDeclaration(val callSuffix0)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      callSuffix
+KlassDeclaration(val callSuffix1)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      callSuffix
+        KlassDeclaration(argument)
+          literalConstant
+            IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val callSuffix2)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      callSuffix
+        KlassDeclaration(argument)
+          literalConstant
+            IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+        KlassDeclaration(argument)
+          literalConstant
+            IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val indexingSuffix1)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      indexingSuffix
+        LSQUARE >>>[<<< (DEFAULT_TOKEN_CHANNEL)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      literalConstant
+                                        IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+        RSQUARE >>>]<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val indexingSuffix2)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      indexingSuffix
+        LSQUARE >>>[<<< (DEFAULT_TOKEN_CHANNEL)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      literalConstant
+                                        IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+        COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+        Inside_WS >>> <<< (HIDDEN)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      literalConstant
+                                        IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+        RSQUARE >>>]<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val memberAccessOperatorDOT)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      navigationSuffix
+        memberAccessOperator
+          DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val memberAccessOperatorSafeNav)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      navigationSuffix
+        memberAccessOperator
+          safeNav
+            QUEST_NO_WS >>>?<<< (DEFAULT_TOKEN_CHANNEL)
+            DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val memberAccessOperatorCOLONCOLON)
+  callableReference
+    receiverType
+      typeReference
+        userType
+          simpleUserType
+            simpleIdentifier
+              Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+    COLONCOLON >>>::<<< (DEFAULT_TOKEN_CHANNEL)
+    simpleIdentifier
+      Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val example)
+  KlassIdentifier(emptyList)
+    postfixUnarySuffix
+      KlassIdentifier(String)
+    postfixUnarySuffix
+      callSuffix
+    postfixUnarySuffix
+      indexingSuffix
+        LSQUARE >>>[<<< (DEFAULT_TOKEN_CHANNEL)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      literalConstant
+                                        IntegerLiteral >>>0<<< (DEFAULT_TOKEN_CHANNEL)
+        RSQUARE >>>]<<< (DEFAULT_TOKEN_CHANNEL)
+    postfixUnarySuffix
+      navigationSuffix
+        memberAccessOperator
+          safeNav
+            QUEST_NO_WS >>>?<<< (DEFAULT_TOKEN_CHANNEL)
+            DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+    postfixUnarySuffix
+      navigationSuffix
+        memberAccessOperator
+          DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>y<<< (DEFAULT_TOKEN_CHANNEL)
+    postfixUnarySuffix
+      navigationSuffix
+        memberAccessOperator
+          COLONCOLON >>>::<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>z<<< (DEFAULT_TOKEN_CHANNEL)
