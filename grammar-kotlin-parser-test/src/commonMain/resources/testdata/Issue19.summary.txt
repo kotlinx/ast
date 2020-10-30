@@ -1,0 +1,8 @@
+PackageHeader()
+importList
+KlassDeclaration(class SimpleType)
+  KlassTypeParameter
+    KlassIdentifier(V)
+    KlassIdentifier(BaseType)
+    KlassIdentifier(SubType)
+  classBody

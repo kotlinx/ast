@@ -96,15 +96,12 @@ data class KlassAnnotation(
 
 data class KlassTypeParameter(
     val generic: KlassIdentifier,
-    val base: KlassIdentifier?,
+    val base: List<KlassIdentifier>,
     override val raw: RawAst?
 ) : Klass(), AstNode {
     override val description: String = "KlassTypeParameter"
 
-    override val children: List<Ast> = listOfNotNull(
-        generic,
-        base
-    )
+    override val children: List<Ast> = listOfNotNull(generic) + base
 }
 
 data class KlassInheritance(

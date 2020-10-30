@@ -176,20 +176,16 @@ val declarationsMapper: TreeMapMapper = TreeMapMapper()
         }
     }.map("typeParameter") { node: AstNode ->
         treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
-            val result = if (summary.size == 1 || summary.size == 2) {
-                val a = summary[0] as? KlassIdentifier
-                val b = summary.getOrNull(1) as? KlassIdentifier
-                if (a != null) {
-                    TreeMapResult.Continue(
-                        KlassTypeParameter(a, b, raw = attach(node))
-                    )
-                } else {
-                    null
-                }
+            val identifiers = summary.filterIsInstance<KlassIdentifier>()
+            val generic = identifiers.firstOrNull()
+            val base = identifiers.drop(1)
+            if (generic == null) {
+                TreeMapResult.Failure(astFailure<Nothing>("failed to parse typeParameter"))
             } else {
-                null
+                TreeMapResult.Continue(
+                    KlassTypeParameter(generic, base, raw = attach(node))
+                )
             }
-            result ?: TreeMapResult.Failure(astFailure<Nothing>("failed to parse typeParameter"))
         }
     }.map("functionDeclaration") { node: AstNode ->
         treeMap(node.children, attachRawAst = attachRawAst).map { summary ->
