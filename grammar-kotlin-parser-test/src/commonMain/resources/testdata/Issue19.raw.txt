@@ -1,0 +1,39 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>SimpleType<<< (DEFAULT_TOKEN_CHANNEL)
+        typeParameters
+          LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+          typeParameter
+            simpleIdentifier
+              Identifier >>>V<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            type
+              typeReference
+                userType
+                  simpleUserType
+                    simpleIdentifier
+                      Identifier >>>BaseType<<< (DEFAULT_TOKEN_CHANNEL)
+                  DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+                  simpleUserType
+                    simpleIdentifier
+                      Identifier >>>SubType<<< (DEFAULT_TOKEN_CHANNEL)
+          RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        classBody
+          LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          classMemberDeclarations
+          RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
