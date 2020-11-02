@@ -26,22 +26,23 @@ kotlinFile
                           conjunction
                             equality
                               comparison
-                                infixOperation
-                                  elvisExpression
-                                    infixFunctionCall
-                                      rangeExpression
-                                        additiveExpression
-                                          multiplicativeExpression
-                                            asExpression
-                                              prefixUnaryExpression
-                                                postfixUnaryExpression
-                                                  primaryExpression
-                                                    stringLiteral
-                                                      lineStringLiteral
-                                                        QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
-                                                        lineStringContent
-                                                          LineStrText >>>hello<<< (DEFAULT_TOKEN_CHANNEL)
-                                                        QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                genericCallLikeComparison
+                                  infixOperation
+                                    elvisExpression
+                                      infixFunctionCall
+                                        rangeExpression
+                                          additiveExpression
+                                            multiplicativeExpression
+                                              asExpression
+                                                prefixUnaryExpression
+                                                  postfixUnaryExpression
+                                                    primaryExpression
+                                                      stringLiteral
+                                                        lineStringLiteral
+                                                          QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                          lineStringContent
+                                                            LineStrText >>>hello<<< (DEFAULT_TOKEN_CHANNEL)
+                                                          QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
                     RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
             NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
         VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)

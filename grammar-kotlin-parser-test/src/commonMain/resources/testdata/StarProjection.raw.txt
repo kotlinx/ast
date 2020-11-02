@@ -30,23 +30,23 @@ kotlinFile
             conjunction
               equality
                 comparison
-                  infixOperation
-                    elvisExpression
-                      infixFunctionCall
-                        rangeExpression
-                          additiveExpression
-                            multiplicativeExpression
-                              asExpression
-                                prefixUnaryExpression
-                                  postfixUnaryExpression
-                                    primaryExpression
-                                      simpleIdentifier
-                                        Identifier >>>emptyList<<< (DEFAULT_TOKEN_CHANNEL)
-                                    postfixUnarySuffix
-                                      callSuffix
-                                        valueArguments
-                                          LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
-                                          RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  genericCallLikeComparison
+                    infixOperation
+                      elvisExpression
+                        infixFunctionCall
+                          rangeExpression
+                            additiveExpression
+                              multiplicativeExpression
+                                asExpression
+                                  prefixUnaryExpression
+                                    postfixUnaryExpression
+                                      primaryExpression
+                                        simpleIdentifier
+                                          Identifier >>>emptyList<<< (DEFAULT_TOKEN_CHANNEL)
+                    callSuffix
+                      valueArguments
+                        LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                        RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
         NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
     semis
       EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

@@ -34,22 +34,23 @@ kotlinFile
                                 conjunction
                                   equality
                                     comparison
-                                      infixOperation
-                                        elvisExpression
-                                          infixFunctionCall
-                                            rangeExpression
-                                              additiveExpression
-                                                multiplicativeExpression
-                                                  asExpression
-                                                    prefixUnaryExpression
-                                                      postfixUnaryExpression
-                                                        primaryExpression
-                                                          stringLiteral
-                                                            lineStringLiteral
-                                                              QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
-                                                              lineStringContent
-                                                                LineStrText >>>test value<<< (DEFAULT_TOKEN_CHANNEL)
-                                                              QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                      genericCallLikeComparison
+                                        infixOperation
+                                          elvisExpression
+                                            infixFunctionCall
+                                              rangeExpression
+                                                additiveExpression
+                                                  multiplicativeExpression
+                                                    asExpression
+                                                      prefixUnaryExpression
+                                                        postfixUnaryExpression
+                                                          primaryExpression
+                                                            stringLiteral
+                                                              lineStringLiteral
+                                                                QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                lineStringContent
+                                                                  LineStrText >>>test value<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
                           RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
                 Inside_NL >>>\n<<< (HIDDEN)
                 Inside_WS >>> <<< (HIDDEN)
