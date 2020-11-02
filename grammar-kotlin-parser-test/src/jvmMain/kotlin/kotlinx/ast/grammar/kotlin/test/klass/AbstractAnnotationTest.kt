@@ -9,6 +9,7 @@ abstract class AbstractAnnotationTest<Parser : KotlinGrammarParser<*, *>>(parser
         parser,
         "@some.where.Class<Hello>.Annotation5(\"hello\", \"world\")",
         TestCase(
+            name = "AbstractAnnotationTest",
             parserTypes = listOf(
                 KotlinGrammarParserType.`annotation`
             ),

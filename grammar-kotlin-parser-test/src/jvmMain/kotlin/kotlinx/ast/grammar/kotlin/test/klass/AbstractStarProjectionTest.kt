@@ -10,6 +10,7 @@ abstract class AbstractStarProjectionTest<Parser : KotlinGrammarParser<*, *>>(pa
         parser,
         "Hello<*>",
         TestCase(
+            name = "AbstractStarProjectionTest",
             parserTypes = listOf(
                 KotlinGrammarParserType.simpleUserType
             ),

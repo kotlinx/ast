@@ -1,7 +1,17 @@
 package kotlinx.ast.common
 
 sealed class AstSource {
-    data class File(val filename: kotlin.String) : AstSource()
+    abstract val filename: kotlin.String?
+    abstract val description: kotlin.String
 
-    data class String(val content: kotlin.String) : AstSource()
+    data class File(override val filename: kotlin.String) : AstSource() {
+        override val description: kotlin.String = "file:/$filename"
+    }
+
+    data class String(
+        override val description: kotlin.String,
+        val content: kotlin.String
+    ) : AstSource() {
+        override val filename: kotlin.String? = null
+    }
 }

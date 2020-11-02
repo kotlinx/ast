@@ -16,6 +16,6 @@ abstract class AbstractDirectoryTest(
     }
 
     files.forEach() { (file, content) ->
-        tester(file, AstSource.String(content))
+        tester(file, AstSource.String("file:$file", content))
     }
 })

@@ -21,7 +21,7 @@ abstract class AbstractKlassTest<Parser : KotlinGrammarParser<*, *>>(
     testCases.forEach { testCase ->
         context(testCase.toString()) {
             val given by lazy {
-                parser.parse(AstSource.String(code), testCase.parserTypes)
+                parser.parse(AstSource.String(testCase.name, code), testCase.parserTypes)
             }
 
             fun <T> check(actual: T, expected: T) {

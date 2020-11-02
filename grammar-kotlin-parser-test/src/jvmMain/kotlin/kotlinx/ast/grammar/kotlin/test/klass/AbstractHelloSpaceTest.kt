@@ -9,6 +9,7 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
         parser,
         "Hello<Space>",
         TestCase(
+            name = "AbstractHelloSpaceTest1",
             parserTypes = listOf(
                 KotlinGrammarParserType.simpleIdentifier,
                 KotlinGrammarParserType.token,
@@ -31,6 +32,7 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
             )
         ),
         TestCase(
+            name = "AbstractHelloSpaceTest2",
             parserTypes = listOf(
                 KotlinGrammarParserType.identifier,
                 KotlinGrammarParserType.token,
@@ -55,6 +57,7 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
             )
         ),
         TestCase(
+            name = "AbstractHelloSpaceTest3",
             parserTypes = listOf(
                 KotlinGrammarParserType.simpleUserType
             ),
@@ -80,6 +83,7 @@ abstract class AbstractHelloSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser
             )
         ),
         TestCase(
+            name = "AbstractHelloSpaceTest4",
             parserTypes = listOf(
                 KotlinGrammarParserType.userType
             ),

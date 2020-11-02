@@ -7,6 +7,7 @@ abstract class AbstractSpaceTest<Parser : KotlinGrammarParser<*, *>>(parser: Par
     parser,
     " ",
     TestCase(
+        name = "AbstractSpaceTest",
         parserTypes = listOf(
             KotlinGrammarParserType.importList
         ),

@@ -9,6 +9,7 @@ abstract class AbstractEitherLeftRightTest<Parser : KotlinGrammarParser<*, *>>(p
         parser,
         "Either<Left, Right>",
         TestCase(
+            name = "AbstractEitherLeftRightTest",
             parserTypes = listOf(
                 KotlinGrammarParserType.simpleUserType
             ),

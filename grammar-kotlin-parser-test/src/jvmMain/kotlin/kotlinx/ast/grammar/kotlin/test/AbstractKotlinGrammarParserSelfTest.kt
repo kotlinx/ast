@@ -21,15 +21,10 @@ abstract class AbstractKotlinGrammarParserSelfTest<Parser : KotlinGrammarParser<
         else ->
             fail("unexpected AstResult $summary")
     }
-}, pathOf(".").pathMap(".kt").filterNot { (file, _) ->
-    if (System.getenv("JITPACK") == "true" || true) {
-        // skip this files in jitpack: currently too slow..
-        setOf(
-            "KotlinLexer.kt",
-            "KotlinParser.kt",
-            "UnicodeClasses.kt"
-        ).contains(file.name)
-    } else {
-        false
-    }
+}, pathOf(".").pathMap(".kt").filter { (file, _) ->
+    !setOf(
+        "KotlinLexer.kt",
+        "KotlinParser.kt",
+        "UnicodeClasses.kt"
+    ).contains(file.name)
 })

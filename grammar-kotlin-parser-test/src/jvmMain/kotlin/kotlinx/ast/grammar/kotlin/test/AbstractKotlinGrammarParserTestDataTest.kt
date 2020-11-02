@@ -24,7 +24,7 @@ abstract class AbstractKotlinGrammarParserTestDataTest<Parser : KotlinGrammarPar
     tests.forEach() { testData ->
         testData.apply {
             context(name) {
-                val ast by lazy { parser.parseKotlinFile(AstSource.String(kotlinContent)) }
+                val ast by lazy { parser.parseKotlinFile(AstSource.String(name, kotlinContent)) }
 
                 suspend fun ContainerScope.test(
                     testCase: String,

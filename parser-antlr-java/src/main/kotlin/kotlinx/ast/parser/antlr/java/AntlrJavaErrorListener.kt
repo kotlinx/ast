@@ -1,11 +1,15 @@
 package kotlinx.ast.parser.antlr.java
 
+import kotlinx.ast.common.AstSource
 import org.antlr.v4.runtime.BaseErrorListener
 import org.antlr.v4.runtime.RecognitionException
 import org.antlr.v4.runtime.Recognizer
 import org.antlr.v4.runtime.misc.ParseCancellationException
 
-object AntlrJavaErrorListener : BaseErrorListener() {
+data class AntlrJavaErrorListener(val filename: String) : BaseErrorListener() {
+
+    constructor(source: AstSource) : this(source.description)
+
     override fun syntaxError(
         recognizer: Recognizer<*, *>?,
         offendingSymbol: Any?,
@@ -14,6 +18,6 @@ object AntlrJavaErrorListener : BaseErrorListener() {
         msg: String?,
         e: RecognitionException?
     ) {
-        throw ParseCancellationException("line $line:$charPositionInLine $msg")
+        throw ParseCancellationException("$filename:$line:$charPositionInLine: $msg")
     }
 }

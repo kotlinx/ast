@@ -8,6 +8,7 @@ abstract class AbstractHelloTest<Parser : KotlinGrammarParser<*, *>>(parser: Par
     parser,
     "Hello",
     TestCase(
+        name = "AbstractHelloTest.simpleIdentifier",
         parserTypes = listOf(
             KotlinGrammarParserType.simpleIdentifier
         ),
@@ -20,6 +21,7 @@ abstract class AbstractHelloTest<Parser : KotlinGrammarParser<*, *>>(parser: Par
         )
     ),
     TestCase(
+        name = "AbstractHelloTest.identifier",
         parserTypes = listOf(
             KotlinGrammarParserType.identifier
         ),
@@ -33,6 +35,7 @@ abstract class AbstractHelloTest<Parser : KotlinGrammarParser<*, *>>(parser: Par
         )
     ),
     TestCase(
+        name = "AbstractHelloTest.simpleUserType",
         parserTypes = listOf(
             KotlinGrammarParserType.simpleUserType
         ),
@@ -46,6 +49,7 @@ abstract class AbstractHelloTest<Parser : KotlinGrammarParser<*, *>>(parser: Par
         )
     ),
     TestCase(
+        name = "AbstractHelloTest.userType",
         parserTypes = listOf(
             KotlinGrammarParserType.userType
         ),

@@ -9,6 +9,7 @@ abstract class AbstractHelloWorldOuterSpaceTest<Parser : KotlinGrammarParser<*, 
         parser,
         "Hello<World>.Outer<Space>",
         TestCase(
+            name = "AbstractHelloWorldOuterSpaceTest",
             parserTypes = listOf(
                 KotlinGrammarParserType.userType
             ),
