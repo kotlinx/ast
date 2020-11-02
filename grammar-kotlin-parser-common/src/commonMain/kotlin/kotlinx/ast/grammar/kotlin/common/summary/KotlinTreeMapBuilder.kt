@@ -7,8 +7,6 @@ import kotlinx.ast.common.ast.AstTerminal
 import kotlinx.ast.common.ast.DefaultAstTerminal
 import kotlinx.ast.common.filter
 import kotlinx.ast.common.filter.TreeFilterAll
-import kotlinx.ast.common.filter.byChildren
-import kotlinx.ast.common.filter.byChildrenCountMax1
 import kotlinx.ast.common.filter.byDescription
 import kotlinx.ast.common.klass.*
 import kotlinx.ast.common.map.TreeMapBuilder
@@ -41,7 +39,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("kotlinFile")
     ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlatten(node)
     }
 
 // script
@@ -62,14 +60,12 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("packageHeader")
     ) { node: AstNode ->
-        node.filterChildren(filter = byDescription("identifier")).toAstList()
-    }
-    .convert(
-        filter = byDescription("packageHeader")
-    ) { node: AstNode ->
-        recursive(node.children).flatMap { result ->
+        recursiveFlatten(
+            node,
+            filter = byDescription("identifier")
+        ).flatMap { result ->
             val identifier = result.filterIsInstance<KlassIdentifier>()
-            astContinueList(PackageHeader(identifier))
+            astContinue(PackageHeader(identifier))
         }
     }
 
@@ -79,7 +75,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("importList")
     ) { node: AstNode ->
-        recursive(node).toAstList()
+        recursiveChildren(node)
     }
 
 // importHeader
@@ -88,21 +84,17 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("importHeader")
     ) { node: AstNode ->
-        node.filterChildren(
+        recursiveFlatten(
+            node,
             filter = byDescription(
                 "identifier",
                 "importAlias",
                 "MULT",
                 "AS"
             )
-        ).toAstList()
-    }
-    .convert(
-        filter = byDescription("importHeader")
-    ) { node: AstNode ->
-        recursive(node.children).flatMap { result ->
+        ).flatMap { result ->
             val identifier = result.filterIsInstance<KlassIdentifier>()
-            astContinueList(
+            astContinue(
                 when {
                     result.any(byDescription("MULT")::matches) ->
                         Import(
@@ -128,7 +120,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("importAlias")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // topLevelObject
@@ -137,7 +129,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("topLevelObject")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("declaration"))
+        recursiveFlatten(node, filter = byDescription("declaration"))
     }
 
 // typeAlias
@@ -154,7 +146,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("declaration")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // // SECTION: classes
@@ -169,23 +161,21 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("classDeclaration")
     ) { node: AstNode ->
-        node.filterChildren(filter = !byDescription("COLON")).toAstList()
-    }
-    .convert(
-        filter = byDescription("classDeclaration")
-    ) { node: AstNode ->
-        toKlassDeclaration(node) { result ->
-            astContinueList(
-                result.filter(
-                    setOf(
-                        "primaryConstructor",
-                        "typeConstraints",
-                        "classBody",
-                        "enumClassBody"
+        node.filterChildren(filter = !byDescription("COLON"))
+            .flatMap { filtered: AstNode ->
+                toKlassDeclaration(filtered) { result ->
+                    astContinue(
+                        result.filter(
+                            setOf(
+                                "primaryConstructor",
+                                "typeConstraints",
+                                "classBody",
+                                "enumClassBody"
+                            )
+                        )
                     )
-                )
-            )
-        }.toAstList()
+                }
+            }.toAstList()
     }
 
 // primaryConstructor
@@ -201,12 +191,9 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     : LCURL NL* classMemberDeclarations NL* RCURL
 //     ;
     .convert(
-        filter = byDescription("classBody") and byChildren(byDescription("classMemberDeclarations"))
+        filter = byDescription("classBody")
     ) { node: AstNode ->
-        node.filterChildren(filter = byDescription("classMemberDeclarations"))
-            .flatMap { filtered ->
-                recursive(filtered).toAstList()
-            }
+        recursiveChildren(node, filter = byDescription("classMemberDeclarations"))
     }
 
 // classParameters
@@ -215,7 +202,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("classParameters")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("classParameter"))
+        recursiveFlatten(node, filter = byDescription("classParameter"))
     }
 
 // classParameter
@@ -224,14 +211,12 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("classParameter")
     ) { node: AstNode ->
-        node.filterChildren(filter = !byDescription("COLON")).toAstList()
-    }
-    .convert(
-        filter = byDescription("classParameter")
-    ) { node: AstNode ->
-        toKlassDeclaration(node) { ast ->
-            astContinueList(ast.expressions())
-        }.toAstList()
+        node.filterChildren(filter = !byDescription("COLON"))
+            .flatMap { filtered ->
+                toKlassDeclaration(filtered) { ast ->
+                    astContinue(ast.expressions())
+                }
+            }.toAstList()
     }
 
 // delegationSpecifiers
@@ -240,7 +225,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("delegationSpecifiers")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("annotatedDelegationSpecifier"))
+        recursiveFlatten(node, filter = byDescription("annotatedDelegationSpecifier"))
     }
 
 // delegationSpecifier
@@ -252,7 +237,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("delegationSpecifier")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // constructorInvocation
@@ -261,7 +246,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("constructorInvocation")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // annotatedDelegationSpecifier
@@ -270,10 +255,10 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("annotatedDelegationSpecifier")
     ) { node: AstNode ->
-        recursive(node.children).flatMap { result ->
+        recursiveFlatten(node).flatMap { result ->
             val identifier = result.filterIsInstance<KlassIdentifier>()
             if (identifier.size == 1) {
-                astContinueList(
+                astContinue(
                     KlassInheritance(
                         raw = attachRaw(node),
                         type = identifier.first(),
@@ -281,7 +266,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                     )
                 )
             } else {
-                astContinueList(result)
+                astContinue(result)
             }
         }
     }
@@ -296,7 +281,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("typeParameters")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("typeParameter"))
+        recursiveFlatten(node, filter = byDescription("typeParameter"))
     }
 
 // typeParameter
@@ -305,19 +290,17 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("typeParameter")
     ) { node: AstNode ->
-        node.filterChildren(filter = byDescription("simpleIdentifier", "type")).toAstList()
-    }
-    .convert(
-        filter = byDescription("typeParameter")
-    ) { node: AstNode ->
-        recursive(node.children).flatMap { result ->
+        recursiveFlatten(
+            node,
+            filter = byDescription("simpleIdentifier", "type")
+        ).flatMap { result ->
             val identifiers = result.filterIsInstance<KlassIdentifier>()
             val generic = identifiers.firstOrNull()
             val base = identifiers.drop(1)
             if (generic == null) {
                 "failed to parse typeParameter".astError()
             } else {
-                astContinueList(KlassTypeParameter(generic, base, raw = attachRaw(node)))
+                astContinue(KlassTypeParameter(generic, base, raw = attachRaw(node)))
             }
         }
     }
@@ -338,7 +321,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("classMemberDeclarations")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("classMemberDeclaration"))
+        recursiveFlatten(node, filter = byDescription("classMemberDeclaration"))
     }
 
 // classMemberDeclaration
@@ -350,7 +333,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("classMemberDeclaration")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // anonymousInitializer
@@ -370,7 +353,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("functionValueParameters")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("functionValueParameter"))
+        recursiveFlatten(node, filter = byDescription("functionValueParameter"))
     }
 
 // functionValueParameter
@@ -379,18 +362,14 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("functionValueParameter")
     ) { node: AstNode ->
-        node.filterChildren(
+        recursiveFlatten(
+            node,
             filter = byDescription("parameterModifiers", "parameter", "expression")
-        ).toAstList()
-    }
-    .convert(
-        filter = byDescription("functionValueParameter")
-    ) { node: AstNode ->
-        recursive(node.children).flatMap { result ->
+        ).flatMap { result ->
             val nullable = result.descriptions().contains("quest")
             val identifiers = result.filterIsInstance<KlassIdentifier>()
 
-            astContinueList(
+            astContinue(
                 KlassDeclaration(
                     raw = attachRaw(node),
                     keyword = "parameter",
@@ -415,15 +394,13 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("functionDeclaration")
     ) { node: AstNode ->
-        node.filterChildren(filter = !byDescription("FUN", "COLON")).toAstList()
-    }
-    .convert(
-        filter = byDescription("functionDeclaration")
-    ) { node: AstNode ->
-        recursive(node.children).flatMap { result ->
+        recursiveFlatten(
+            node,
+            filter = !byDescription("FUN", "COLON")
+        ).flatMap { result ->
             val identifiers = result.filterIsInstance<KlassIdentifier>()
 
-            astContinueList(
+            astContinue(
                 KlassDeclaration(
                     raw = attachRaw(node),
                     keyword = "fun",
@@ -454,7 +431,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("variableDeclaration")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // multiVariableDeclaration
@@ -474,7 +451,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("propertyDeclaration")
     ) { node: AstNode ->
         toKlassDeclaration(node) { ast ->
-            astContinueList(ast.expressions())
+            astContinue(ast.expressions())
         }.toAstList()
     }
 
@@ -484,7 +461,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("propertyDelegate")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveChildren(node, filter = byDescription("expression", "BY"))
     }
 
 // getter
@@ -511,7 +488,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("parameter")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("simpleIdentifier", "type"))
+        recursiveFlatten(node, filter = byDescription("simpleIdentifier", "type"))
     }
 
 // objectDeclaration
@@ -524,7 +501,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("objectDeclaration")
     ) { node: AstNode ->
         toKlassDeclaration(node) { ast ->
-            astContinueList(ast.expressions())
+            astContinue(ast.expressions())
         }.toAstList()
     }
 
@@ -563,7 +540,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("type")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // typeReference
@@ -573,7 +550,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("typeReference")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // nullableType
@@ -582,7 +559,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("nullableType")
     ) { node: AstNode ->
-        flatten(
+        recursiveFlatten(
             node, filter = byDescription(
                 "typeReference",
                 "parenthesizedType",
@@ -602,7 +579,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("userType")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("simpleUserType"))
+        recursiveFlatten(node, filter = byDescription("simpleUserType"))
     }
 
 // simpleUserType
@@ -611,7 +588,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("simpleUserType")
     ) { node: AstNode ->
-        recursive(node.children).flatMap { list ->
+        recursiveFlatten(node).flatMap { list ->
             val identifier = list.reduce { identifier, parameter ->
                 when {
                     identifier is KlassIdentifier && parameter is KlassIdentifier ->
@@ -620,7 +597,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                         identifier
                 }
             }
-            astContinueList(identifier)
+            astContinue(identifier)
         }
     }
 
@@ -632,9 +609,9 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     ) { node: AstNode ->
         val descriptions = node.children.descriptions()
         if (descriptions == listOf("MULT")) {
-            astContinueList(starProjection)
+            astContinue(starProjection)
         } else {
-            recursive(node.children).flatMap { list ->
+            recursiveFlatten(node).flatMap { list ->
                 list.fold(astSuccess(emptyList<KlassIdentifier>())) { result, right ->
                     when {
                         result is AstSuccess && result.success.isEmpty() ->
@@ -668,7 +645,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                             result
                     }
                 }.flatMap { identifiers ->
-                    astContinue(identifiers)
+                    astSuccess(identifiers)
                 }
             }
         }
@@ -785,7 +762,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("expression")
     ) { node: AstNode ->
-        recursive(node).toAstList()
+        recursiveChildren(node)
     }
 
 // disjunction
@@ -794,12 +771,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("disjunction")
     ) { node: AstNode ->
-        node.filterChildren(filter = byDescription("conjunction")).toAstList()
-    }
-    .convert(
-        filter = byDescription("disjunction") and byChildrenCountMax1
-    ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlattenSingle(node, filter = byDescription("conjunction"))
     }
 
 // conjunction
@@ -808,30 +780,28 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("conjunction")
     ) { node: AstNode ->
-        node.filterChildren(filter = byDescription("equality")).toAstList()
-    }
-    .convert(
-        filter = byDescription("conjunction") and byChildrenCountMax1
-    ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlattenSingle(node, filter = byDescription("equality"))
     }
 
 // equality
 //     : comparison (equalityOperator NL* comparison)*
 //     ;
     .convert(
-        filter = byDescription("equality") and byChildrenCountMax1
+        filter = byDescription("equality")
     ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlattenSingle(node, filter = byDescription("comparison", "equalityOperator"))
     }
 
 // comparison
 //     : genericCallLikeComparison (comparisonOperator NL* genericCallLikeComparison)*
 //     ;
     .convert(
-        filter = byDescription("comparison") and byChildrenCountMax1
+        filter = byDescription("comparison")
     ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlattenSingle(
+            node,
+            filter = byDescription("genericCallLikeComparison", "comparisonOperator")
+        )
     }
 
 // genericCallLikeComparison
@@ -840,20 +810,19 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("genericCallLikeComparison")
     ) { node: AstNode ->
-        if (node.children.size == 1) {
-            recursive(node.children)
-        } else {
-            recursive(node).toAstList()
-        }
+        recursiveFlattenSingle(node)
     }
 
 // infixOperation
 //     : elvisExpression (inOperator NL* elvisExpression | isOperator NL* type)*
 //     ;
     .convert(
-        filter = byDescription("infixOperation") and byChildrenCountMax1
+        filter = byDescription("infixOperation")
     ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlattenSingle(
+            node,
+            filter = byDescription("elvisExpression", "inOperator", "isOperator", "type")
+        )
     }
 
 // elvisExpression
@@ -862,14 +831,8 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("elvisExpression")
     ) { node: AstNode ->
-        node.filterChildren(filter = byDescription("infixFunctionCall")).toAstList()
+        recursiveFlattenSingle(node, filter = byDescription("infixFunctionCall"))
     }
-    .convert(
-        filter = byDescription("elvisExpression") and byChildrenCountMax1
-    ) { node: AstNode ->
-        recursive(node.children)
-    }
-
 
 // elvis
 //     : QUEST_NO_WS COLON
@@ -879,9 +842,9 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     : rangeExpression (simpleIdentifier NL* rangeExpression)*
 //     ;
     .convert(
-        filter = byDescription("infixFunctionCall") and byChildrenCountMax1
+        filter = byDescription("infixFunctionCall")
     ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlattenSingle(node, filter = byDescription("rangeExpression", "simpleIdentifier"))
     }
 
 // rangeExpression
@@ -890,27 +853,16 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("rangeExpression")
     ) { node: AstNode ->
-        node.filterChildren(filter = byDescription("additiveExpression")).toAstList()
-    }
-    .convert(
-        filter = byDescription("rangeExpression") and byChildrenCountMax1
-    ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlattenSingle(node, filter = byDescription("additiveExpression"))
     }
 
 // additiveExpression
 //     : multiplicativeExpression (additiveOperator NL* multiplicativeExpression)*
 //     ;
     .convert(
-        filter = byDescription("additiveExpression") and
-                byChildren(byDescription("additiveOperator"))
+        filter = byDescription("additiveExpression")
     ) { node: AstNode ->
-        recursive(node).toAstList()
-    }
-    .convert(
-        filter = byDescription("additiveExpression") and byChildrenCountMax1
-    ) { node: AstNode ->
-        flatten(node)
+        recursiveFlattenSingle(node, filter = byDescription("multiplicativeExpression", "additiveOperator"))
     }
 
 // multiplicativeExpression
@@ -919,12 +871,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("multiplicativeExpression")
     ) { node: AstNode ->
-        recursive(node).toAstList()
-    }
-    .convert(
-        filter = byDescription("multiplicativeExpression") and byChildrenCountMax1
-    ) { node: AstNode ->
-        flatten(node)
+        recursiveFlattenSingle(node, filter = byDescription("asExpression", "multiplicativeOperator"))
     }
 
 // asExpression
@@ -933,12 +880,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("asExpression")
     ) { node: AstNode ->
-        recursive(node).toAstList()
-    }
-    .convert(
-        filter = byDescription("asExpression") and byChildrenCountMax1
-    ) { node: AstNode ->
-        flatten(node)
+        recursiveFlattenSingle(node, filter = byDescription("prefixUnaryExpression", "type"))
     }
 
 // prefixUnaryExpression
@@ -947,7 +889,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("prefixUnaryExpression")
     ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlattenSingle(node, filter = byDescription("unaryPrefix", "postfixUnaryExpression"))
     }
 
 // unaryPrefix
@@ -963,23 +905,23 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("postfixUnaryExpression")
     ) { node: AstNode ->
-        recursive(node).flatMap { ast ->
-            when (val identifier = ast.children.getOrNull(0) as? KlassIdentifier) {
-                is KlassIdentifier -> astContinueList(
-                    if (ast.children.all { it is KlassIdentifier }) {
-                        val parameter = ast.children
+        recursiveFlatten(node).flatMap { nodes ->
+            when (val identifier = nodes.getOrNull(0) as? KlassIdentifier) {
+                is KlassIdentifier -> astContinue(
+                    if (nodes.all { it is KlassIdentifier }) {
+                        val parameter = nodes
                             .drop(1)
                             .filterIsInstance<KlassIdentifier>()
                             .toTypedArray()
                         identifier.parameterizedBy(*parameter)
                     } else {
                         identifier.copy(
-                            children = identifier.children + ast.children.drop(1)
+                            children = identifier.children + nodes.drop(1)
                         )
                     }
                 )
                 else ->
-                    flatten(ast)
+                    astContinue(nodes)
             }
         }
     }
@@ -994,7 +936,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("postfixUnarySuffix")
     ) { node: AstNode ->
-        recursive(node).toAstList()
+        recursiveChildren(node)
     }
 
 // directlyAssignableExpression
@@ -1009,7 +951,10 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("parenthesizedDirectlyAssignableExpression")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("directlyAssignableExpression"))
+        node.filterChildren(filter = byDescription("directlyAssignableExpression"))
+            .flatMap { filtered ->
+                recursiveChildren(filtered)
+            }
     }
 
 // assignableExpression
@@ -1022,7 +967,10 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("parenthesizedAssignableExpression")
     ) { node: AstNode ->
-        node.filterChildren(filter = byDescription("assignableExpression")).toAstList()
+        node.filterChildren(filter = byDescription("assignableExpression"))
+            .flatMap { filtered ->
+                recursiveChildren(filtered)
+            }
     }
 
 // assignableSuffix
@@ -1046,7 +994,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("callSuffix")
     ) { node: AstNode ->
-        recursive(node).toAstList()
+        recursiveChildren(node)
     }
 
 // annotatedLambda
@@ -1059,7 +1007,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("typeArguments")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("typeProjection"))
+        recursiveFlatten(node, filter = byDescription("typeProjection"))
     }
 
 // valueArguments
@@ -1069,7 +1017,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("valueArguments")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("valueArgument"))
+        recursiveFlatten(node, filter = byDescription("valueArgument"))
     }
 
 // valueArgument
@@ -1100,9 +1048,9 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     | jumpExpression
 //     ;
     .convert(
-        filter = byDescription("primaryExpression") and byChildrenCountMax1
+        filter = byDescription("primaryExpression")
     ) { node: AstNode ->
-        recursive(node.children)
+        recursiveFlatten(node)
     }
 
 // parenthesizedExpression
@@ -1133,8 +1081,8 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("stringLiteral")
     ) { node: AstNode ->
-        recursive(node.children).flatMap { result ->
-            astContinueList(
+        recursiveFlatten(node).flatMap { result ->
+            astContinue(
                 KlassString(
                     children = result.map { ast ->
                         if (ast is StringComponent) {
@@ -1155,12 +1103,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("lineStringLiteral")
     ) { node: AstNode ->
-        flatten(
-            node, filter = byDescription(
-                "lineStringContent",
-                "lineStringExpression"
-            )
-        )
+        recursiveFlatten(node, filter = byDescription("lineStringContent", "lineStringExpression"))
     }
 
 // multiLineStringLiteral
@@ -1169,10 +1112,12 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("multiLineStringLiteral")
     ) { node: AstNode ->
-        flatten(
-            node, filter = byDescription(
+        recursiveFlatten(
+            node,
+            filter = byDescription(
                 "multiLineStringContent",
-                "multiLineStringExpression"
+                "multiLineStringExpression",
+                "MultiLineStringQuote"
             )
         )
     }
@@ -1185,7 +1130,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("lineStringContent")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // lineStringExpression
@@ -1193,12 +1138,8 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
     .convert(
         filter = byDescription("lineStringExpression")
-                and byChildren(byDescription("LineStrExprStart"))
     ) { node: AstNode ->
-        node.filterChildren(filter = byDescription("expression"))
-            .flatMap { lineStringExpression ->
-                convertKotlinStringComponent(lineStringExpression)
-            }
+        recursiveFlattenSingle(node, filter = byDescription("expression"))
     }
 
 // multiLineStringContent
@@ -1209,7 +1150,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("multiLineStringContent")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // multiLineStringExpression
@@ -1402,7 +1343,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("modifiers")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // parameterModifiers
@@ -1411,7 +1352,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("parameterModifiers")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // modifier
@@ -1427,7 +1368,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("modifier")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // typeModifiers
@@ -1436,7 +1377,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("typeModifiers")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // typeModifier
@@ -1489,7 +1430,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("typeParameterModifiers")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // typeParameterModifier
@@ -1561,8 +1502,8 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("annotation")
     ) { node: AstNode ->
-        recursive(node.children).flatMap { result ->
-            astContinueList(
+        recursiveFlatten(node).flatMap { result ->
+            astContinue(
                 KlassAnnotation(
                     raw = attachRaw(node),
                     identifier = result.filterIsInstance<KlassIdentifier>(),
@@ -1579,7 +1520,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("singleAnnotation")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("unescapedAnnotation"))
+        recursiveFlatten(node, filter = byDescription("unescapedAnnotation"))
     }
 
 // multiAnnotation
@@ -1598,7 +1539,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("unescapedAnnotation")
     ) { node: AstNode ->
-        flatten(node)
+        recursiveFlatten(node)
     }
 
 // // SECTION: identifiers
@@ -1657,7 +1598,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         if (node.children.size == 1) {
             val terminal = node.children.first() as AstTerminal?
             if (terminal != null) {
-                astContinueList(KlassIdentifier(terminal.text, raw = attachRaw(terminal)))
+                astContinue(KlassIdentifier(terminal.text, raw = attachRaw(terminal)))
             } else {
                 astFailure("expected AstTerminal in simpleIdentifier")
             }
@@ -1672,7 +1613,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("identifier")
     ) { node: AstNode ->
-        flatten(node, filter = byDescription("simpleIdentifier"))
+        recursiveFlatten(node, filter = byDescription("simpleIdentifier"))
     }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2040,7 +1981,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("LineStrRef")
     ) { terminal: AstTerminal ->
-        astContinueList(
+        astContinue(
             KlassIdentifier(
                 terminal.text.drop(1),
                 raw = attachRaw(terminal)
@@ -2054,7 +1995,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("LineStrText")
     ) { terminal: AstTerminal ->
-        astContinueList(terminal.text.asStringComponentRaw())
+        astContinue(terminal.text.asStringComponentRaw())
     }
 
 // LineStrEscapedChar
@@ -2064,7 +2005,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("LineStrEscapedChar")
     ) { terminal: AstTerminal ->
-        astContinueList(terminal.text.asStringComponentEscape())
+        astContinue(terminal.text.asStringComponentEscape())
     }
 
 // LineStrExprStart
@@ -2083,7 +2024,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("MultiLineStringQuote")
     ) { terminal: AstTerminal ->
-        astContinueList(terminal.text.asStringComponentRaw())
+        astContinue(terminal.text.asStringComponentRaw())
     }
 
 // MultiLineStrRef
@@ -2092,7 +2033,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("MultiLineStrRef")
     ) { terminal: AstTerminal ->
-        astContinueList(
+        astContinue(
             KlassIdentifier(
                 terminal.text.drop(1),
                 raw = attachRaw(terminal)
@@ -2106,7 +2047,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("MultiLineStrText")
     ) { terminal: AstTerminal ->
-        astContinueList(terminal.text.asStringComponentRaw())
+        astContinue(terminal.text.asStringComponentRaw())
     }
 
 // MultiLineStrExprStart

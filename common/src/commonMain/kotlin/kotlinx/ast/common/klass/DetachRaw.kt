@@ -33,20 +33,20 @@ private val detachRawMapper: TreeMapBuilder<Unit> = TreeMapBuilder<Unit>()
     ) { klass: Klass ->
         when {
             klass is KlassNode<*> ->
-                recursive(
+                recursiveChildren(
                     if (klass.raw == null) {
                         klass
                     } else {
                         klass.detachRaw()
                     }
-                ).toAstList()
+                )
             klass.raw == null ->
                 astKeep()
             else ->
-                astContinueList(klass.detachRaw())
+                astContinue(klass.detachRaw())
         }
     }.convert(
         filter = TreeFilterAll
     ) { node: AstNode ->
-        recursive(node).toAstList()
+        recursiveChildren(node)
     }

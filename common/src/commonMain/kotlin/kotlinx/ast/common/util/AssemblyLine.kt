@@ -27,6 +27,9 @@ data class AssemblyLine<T>(
     }
 
     fun replace(value: List<T>): AssemblyLine<T> {
-        return copy(waiting = value + waiting.drop(1))
+        return copy(
+            processed = processed + value,
+            waiting = waiting.drop(1)
+        )
     }
 }

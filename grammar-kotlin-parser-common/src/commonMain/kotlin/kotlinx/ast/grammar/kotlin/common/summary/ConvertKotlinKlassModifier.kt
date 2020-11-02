@@ -10,7 +10,7 @@ import kotlinx.ast.common.map.TreeMapBuilder
 fun <State> TreeMapBuilder<State>.convertKotlinKlassModifier(filter: TreeFilter): TreeMapBuilder<State> {
     return convert(filter = filter) { node: AstNode ->
         val group = KlassModifierGroup(node.description)
-        astContinue(
+        astSuccess(
             node.children.filterIsInstance<AstTerminal>().map { modifier ->
                 KlassModifier(
                     modifier.text,

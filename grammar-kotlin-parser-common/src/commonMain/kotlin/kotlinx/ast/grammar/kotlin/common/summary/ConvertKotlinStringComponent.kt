@@ -11,7 +11,7 @@ fun TreeMapContext<KotlinTreeMapState>.convertKotlinStringComponent(
 ): AstResult<KotlinTreeMapState, List<Ast>> {
     return recursive(stringExpression.children).flatMap { result ->
         if (result.size == 1) {
-            astContinueList(
+            astContinue(
                 result.first().asStringComponent()
             )
         } else {

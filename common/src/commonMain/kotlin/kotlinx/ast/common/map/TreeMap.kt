@@ -4,7 +4,6 @@ import kotlinx.ast.common.AstFailure
 import kotlinx.ast.common.AstResult
 import kotlinx.ast.common.AstSuccess
 import kotlinx.ast.common.ast.Ast
-import kotlinx.ast.common.ast.AstNode
 import kotlinx.ast.common.filter.TreeFilterByDescription
 import kotlinx.ast.common.klass.RawAst
 import kotlinx.ast.common.util.AssemblyLine
@@ -62,7 +61,7 @@ private data class TreeMap<State>(
 
     fun treeMap(): AstResult<State, List<Ast>> {
         return treeMapLoop(this).flatMap { result ->
-            astContinue(result.ast.processed.map(AstWrapper::ast))
+            astSuccess(result.ast.processed.map(AstWrapper::ast))
         }
     }
 
@@ -77,18 +76,10 @@ private data class TreeMap<State>(
         ).treeMap()
     }
 
-    override fun recursive(node: AstNode): AstResult<State, AstNode> {
-        return recursive(node.children).flatMap { result ->
-            with(node) {
-                withChildren(result)
-            }
-        }
-    }
-
     override fun List<Ast>.astFold(
         mapper: TreeMapContext<State>.(Ast) -> AstResult<State, List<Ast>>
     ): AstResult<State, List<Ast>> {
-        return fold(astContinueList(emptyList())) { result, ast ->
+        return fold(astContinue(emptyList())) { result, ast ->
             when (result) {
                 is AstSuccess<State, List<Ast>> ->
                     this@TreeMap(result).mapper(ast).map { list ->
@@ -113,11 +104,7 @@ private data class TreeMap<State>(
         }
     }
 
-    override fun <T> astContinue(result: T): AstResult<State, T> {
-        return astSuccess(result)
-    }
-
-    override fun <T> astContinueList(result: List<T>): AstResult<State, List<T>> {
+    override fun <T> astContinue(result: List<T>): AstResult<State, List<T>> {
         return astSuccess(result)
     }
 

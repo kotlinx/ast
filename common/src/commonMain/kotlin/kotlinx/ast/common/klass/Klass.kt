@@ -91,7 +91,7 @@ data class KlassIdentifier(
     }
 
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassIdentifier> {
-        return astContinue(
+        return astSuccess(
             copy(
                 parameter = children.filterIsInstance<KlassIdentifier>(),
                 children = children.filter { ast ->
@@ -119,7 +119,7 @@ data class KlassString(
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassString> {
         val stringComponents = children.filterIsInstance<StringComponent>()
         return if (stringComponents.size == children.size) {
-            astContinue(
+            astSuccess(
                 copy(children = stringComponents)
             )
         } else {
@@ -147,7 +147,7 @@ data class KlassAnnotation(
         val identifiers = children.filterIsInstance<KlassIdentifier>()
         val arguments = children.filterIsInstance<KlassDeclaration>()
         return if (identifiers.size + arguments.size == children.size) {
-            astContinue(
+            astSuccess(
                 copy(
                     identifier = identifier,
                     arguments = arguments
@@ -176,7 +176,7 @@ data class KlassTypeParameter(
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassTypeParameter> {
         val identifiers = children.filterIsInstance<KlassIdentifier>()
         return if (identifiers.isNotEmpty() && children.size == identifiers.size) {
-            astContinue(
+            astSuccess(
                 copy(
                     generic = identifiers.first(),
                     base = identifiers.drop(1)
@@ -206,7 +206,7 @@ data class KlassInheritance(
         val identifier = children.filterIsInstance<KlassIdentifier>().firstOrNull()
         val annotations = children.filterIsInstance<KlassAnnotation>()
         return if (identifier != null && annotations.size + 1 == children.size) {
-            astContinue(
+            astSuccess(
                 copy(
                     type = identifier,
                     annotations = annotations
@@ -319,7 +319,7 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
             typeParameters +
             inheritance
     val remaining = ast - used
-    return (expressions?.invoke(remaining) ?: astContinue(remaining)).map { other ->
+    return (expressions?.invoke(remaining) ?: astSuccess(remaining)).map { other ->
         KlassDeclaration(
             keyword = keyword,
             identifier = identifier,

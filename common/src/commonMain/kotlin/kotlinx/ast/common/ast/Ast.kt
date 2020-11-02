@@ -46,7 +46,7 @@ interface AstNodeDefaults<Self : AstNode> : AstNode {
     override fun <State> TreeMapContext<State>.filterChildren(filter: TreeFilter): AstResult<State, Self> {
         return mapChildren { ast ->
             if (filter.matches(ast)) {
-                astContinueList(ast)
+                astContinue(ast)
             } else {
                 astDrop()
             }
@@ -83,7 +83,7 @@ data class DefaultAstNode(
     override val children: List<Ast>
 ) : AstNodeDefaults<AstNode> {
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, DefaultAstNode> {
-        return astContinue(copy(children = children))
+        return astSuccess(copy(children = children))
     }
 }
 

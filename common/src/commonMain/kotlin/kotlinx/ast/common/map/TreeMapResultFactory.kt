@@ -6,12 +6,10 @@ import kotlinx.ast.common.AstSuccess
 import kotlinx.ast.common.ast.Ast
 
 interface TreeMapResultFactory<State> {
-    fun <T> astContinue(result: T): AstResult<State, T>
+    fun <T> astContinue(result: List<T>): AstResult<State, List<T>>
 
-    fun <T> astContinueList(result: List<T>): AstResult<State, List<T>>
-
-    fun astContinueList(first: Ast, vararg other: Ast): AstResult<State, List<Ast>> {
-        return astContinue(listOf(first) + other)
+    fun astContinue(first: Ast, vararg other: Ast): AstResult<State, List<Ast>> {
+        return astSuccess(listOf(first) + other)
     }
 
     fun astKeep(): AstResult<State, List<Ast>>
