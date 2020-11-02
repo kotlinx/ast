@@ -59,7 +59,7 @@ declaration
 // SECTION: classes
 
 classDeclaration
-    : modifiers? (CLASS | INTERFACE) NL* simpleIdentifier
+    : modifiers? (CLASS | (FUN NL*)? INTERFACE) NL* simpleIdentifier
     (NL* typeParameters)? (NL* primaryConstructor)?
     (NL* COLON NL* delegationSpecifiers)?
     (NL* typeConstraints)?
@@ -75,7 +75,7 @@ classBody
     ;
 
 classParameters
-    : LPAREN NL* (classParameter (NL* COMMA NL* classParameter)*)? NL* RPAREN
+    : LPAREN NL* (classParameter (NL* COMMA NL* classParameter)* (NL* COMMA)?)? NL* RPAREN
     ;
 
 classParameter
@@ -106,7 +106,7 @@ explicitDelegation
     ;
 
 typeParameters
-    : LANGLE NL* typeParameter (NL* COMMA NL* typeParameter)* NL* RANGLE
+    : LANGLE NL* typeParameter (NL* COMMA NL* typeParameter)* (NL* COMMA)? NL* RANGLE
     ;
 
 typeParameter
@@ -146,7 +146,7 @@ companionObject
     ;
 
 functionValueParameters
-    : LPAREN NL* (functionValueParameter (NL* COMMA NL* functionValueParameter)*)? NL* RPAREN
+    : LPAREN NL* (functionValueParameter (NL* COMMA NL* functionValueParameter)* (NL* COMMA)?)? NL* RPAREN
     ;
 
 functionValueParameter
@@ -172,7 +172,7 @@ variableDeclaration
     ;
 
 multiVariableDeclaration
-    : LPAREN NL* variableDeclaration (NL* COMMA NL* variableDeclaration)* NL* RPAREN
+    : LPAREN NL* variableDeclaration (NL* COMMA NL* variableDeclaration)* (NL* COMMA)? NL* RPAREN
     ;
 
 propertyDeclaration
@@ -196,11 +196,11 @@ getter
 
 setter
     : modifiers? SET
-    | modifiers? SET NL* LPAREN NL* parameterWithOptionalType NL* RPAREN (NL* COLON NL* type)? NL* functionBody
+    | modifiers? SET NL* LPAREN NL* parameterWithOptionalType (NL* COMMA)? NL* RPAREN (NL* COLON NL* type)? NL* functionBody
     ;
 
 parametersWithOptionalType
-    : LPAREN NL* (parameterWithOptionalType (NL* COMMA NL* parameterWithOptionalType)*)? NL* RPAREN
+    : LPAREN NL* (parameterWithOptionalType (NL* COMMA NL* parameterWithOptionalType)* (NL* COMMA)?)? NL* RPAREN
     ;
 
 parameterWithOptionalType
@@ -291,7 +291,7 @@ functionType
     ;
 
 functionTypeParameters
-    : LPAREN NL* (parameter | type)? (NL* COMMA NL* (parameter | type))* NL* RPAREN
+    : LPAREN NL* (parameter | type)? (NL* COMMA NL* (parameter | type))* (NL* COMMA)? NL* RPAREN
     ;
 
 parenthesizedType
@@ -313,7 +313,7 @@ parenthesizedUserType
 // SECTION: statements
 
 statements
-    : (statement (semis statement)* semis?)?
+    : (statement (semis statement)*)? semis?
     ;
 
 statement
@@ -389,7 +389,11 @@ equality
     ;
 
 comparison
-    : infixOperation (comparisonOperator NL* infixOperation)?
+    : genericCallLikeComparison (comparisonOperator NL* genericCallLikeComparison)*
+    ;
+
+genericCallLikeComparison
+    : infixOperation callSuffix*
     ;
 
 infixOperation
@@ -421,7 +425,7 @@ multiplicativeExpression
     ;
 
 asExpression
-    : prefixUnaryExpression (NL* asOperator NL* type)?
+    : prefixUnaryExpression (NL* asOperator NL* type)*
     ;
 
 prefixUnaryExpression
@@ -472,7 +476,7 @@ assignableSuffix
     ;
 
 indexingSuffix
-    : LSQUARE NL* expression (NL* COMMA NL* expression)* NL* RSQUARE
+    : LSQUARE NL* expression (NL* COMMA NL* expression)* (NL* COMMA)? NL* RSQUARE
     ;
 
 navigationSuffix
@@ -489,12 +493,12 @@ annotatedLambda
     ;
 
 typeArguments
-    : LANGLE NL* typeProjection (NL* COMMA NL* typeProjection)* NL* RANGLE
+    : LANGLE NL* typeProjection (NL* COMMA NL* typeProjection)* (NL* COMMA)? NL* RANGLE
     ;
 
 valueArguments
     : LPAREN NL* RPAREN
-    | LPAREN NL* valueArgument (NL* COMMA NL* valueArgument)* NL* RPAREN
+    | LPAREN NL* valueArgument (NL* COMMA NL* valueArgument)* (NL* COMMA)? NL* RPAREN
     ;
 
 valueArgument
@@ -523,7 +527,7 @@ parenthesizedExpression
     ;
 
 collectionLiteral
-    : LSQUARE NL* expression (NL* COMMA NL* expression)* NL* RSQUARE
+    : LSQUARE NL* expression (NL* COMMA NL* expression)* (NL* COMMA)? NL* RSQUARE
     | LSQUARE NL* RSQUARE
     ;
 
@@ -578,7 +582,7 @@ lambdaLiteral
     ;
 
 lambdaParameters
-    : lambdaParameter (NL* COMMA NL* lambdaParameter)*
+    : lambdaParameter (NL* COMMA NL* lambdaParameter)* (NL* COMMA)?
     ;
 
 lambdaParameter
@@ -629,7 +633,7 @@ whenExpression
     ;
 
 whenEntry
-    : whenCondition (NL* COMMA NL* whenCondition)* NL* ARROW NL* controlStructureBody semi?
+    : whenCondition (NL* COMMA NL* whenCondition)* (NL* COMMA)? NL* ARROW NL* controlStructureBody semi?
     | ELSE NL* ARROW NL* controlStructureBody semi?
     ;
 
@@ -652,7 +656,7 @@ tryExpression
     ;
 
 catchBlock
-    : CATCH NL* LPAREN annotation* simpleIdentifier COLON type RPAREN NL* block
+    : CATCH NL* LPAREN annotation* simpleIdentifier COLON type (NL* COMMA)? RPAREN NL* block
     ;
 
 finallyBlock
