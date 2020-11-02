@@ -160,7 +160,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 // // SECTION: classes
 
 // classDeclaration
-//     : modifiers? (CLASS | INTERFACE) NL* simpleIdentifier
+//     : modifiers? (CLASS | (FUN NL*)? INTERFACE) NL* simpleIdentifier
 //     (NL* typeParameters)? (NL* primaryConstructor)?
 //     (NL* COLON NL* delegationSpecifiers)?
 //     (NL* typeConstraints)?
@@ -210,7 +210,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     }
 
 // classParameters
-//     : LPAREN NL* (classParameter (NL* COMMA NL* classParameter)*)? NL* RPAREN
+//     : LPAREN NL* (classParameter (NL* COMMA NL* classParameter)* (NL* COMMA)?)? NL* RPAREN
 //     ;
     .convert(
         filter = byDescription("classParameters")
@@ -291,7 +291,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // typeParameters
-//     : LANGLE NL* typeParameter (NL* COMMA NL* typeParameter)* NL* RANGLE
+//     : LANGLE NL* typeParameter (NL* COMMA NL* typeParameter)* (NL* COMMA)? NL* RANGLE
 //     ;
     .convert(
         filter = byDescription("typeParameters")
@@ -365,7 +365,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // functionValueParameters
-//     : LPAREN NL* (functionValueParameter (NL* COMMA NL* functionValueParameter)*)? NL* RPAREN
+//     : LPAREN NL* (functionValueParameter (NL* COMMA NL* functionValueParameter)* (NL* COMMA)?)? NL* RPAREN
 //     ;
     .convert(
         filter = byDescription("functionValueParameters")
@@ -458,7 +458,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     }
 
 // multiVariableDeclaration
-//     : LPAREN NL* variableDeclaration (NL* COMMA NL* variableDeclaration)* NL* RPAREN
+//     : LPAREN NL* variableDeclaration (NL* COMMA NL* variableDeclaration)* (NL* COMMA)? NL* RPAREN
 //     ;
 
 // propertyDeclaration
@@ -494,11 +494,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 
 // setter
 //     : modifiers? SET
-//     | modifiers? SET NL* LPAREN NL* parameterWithOptionalType NL* RPAREN (NL* COLON NL* type)? NL* functionBody
+//     | modifiers? SET NL* LPAREN NL* parameterWithOptionalType (NL* COMMA)? NL* RPAREN (NL* COLON NL* type)? NL* functionBody
 //     ;
 
 // parametersWithOptionalType
-//     : LPAREN NL* (parameterWithOptionalType (NL* COMMA NL* parameterWithOptionalType)*)? NL* RPAREN
+//     : LPAREN NL* (parameterWithOptionalType (NL* COMMA NL* parameterWithOptionalType)* (NL* COMMA)?)? NL* RPAREN
 //     ;
 
 // parameterWithOptionalType
@@ -688,7 +688,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // functionTypeParameters
-//     : LPAREN NL* (parameter | type)? (NL* COMMA NL* (parameter | type))* NL* RPAREN
+//     : LPAREN NL* (parameter | type)? (NL* COMMA NL* (parameter | type))* (NL* COMMA)? NL* RPAREN
 //     ;
 
 // parenthesizedType
@@ -710,7 +710,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 // // SECTION: statements
 
 // statements
-//     : (statement (semis statement)* semis?)?
+//     : (statement (semis statement)*)? semis?
 //     ;
 
 // statement
@@ -826,12 +826,25 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     }
 
 // comparison
-//     : infixOperation (comparisonOperator NL* infixOperation)?
+//     : genericCallLikeComparison (comparisonOperator NL* genericCallLikeComparison)*
 //     ;
     .convert(
         filter = byDescription("comparison") and byChildrenCountMax1
     ) { node: AstNode ->
         recursive(node.children)
+    }
+
+// genericCallLikeComparison
+//    : infixOperation callSuffix*
+//    ;
+    .convert(
+        filter = byDescription("genericCallLikeComparison")
+    ) { node: AstNode ->
+        if (node.children.size == 1) {
+            recursive(node.children)
+        } else {
+            recursive(node).toAstList()
+        }
     }
 
 // infixOperation
@@ -915,7 +928,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     }
 
 // asExpression
-//     : prefixUnaryExpression (NL* asOperator NL* type)?
+//     : prefixUnaryExpression (NL* asOperator NL* type)*
 //     ;
     .convert(
         filter = byDescription("asExpression")
@@ -1019,7 +1032,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // indexingSuffix
-//     : LSQUARE NL* expression (NL* COMMA NL* expression)* NL* RSQUARE
+//     : LSQUARE NL* expression (NL* COMMA NL* expression)* (NL* COMMA)? NL* RSQUARE
 //     ;
 
 // navigationSuffix
@@ -1041,7 +1054,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // typeArguments
-//     : LANGLE NL* typeProjection (NL* COMMA NL* typeProjection)* NL* RANGLE
+//     : LANGLE NL* typeProjection (NL* COMMA NL* typeProjection)* (NL* COMMA)? NL* RANGLE
 //     ;
     .convert(
         filter = byDescription("typeArguments")
@@ -1051,7 +1064,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 
 // valueArguments
 //     : LPAREN NL* RPAREN
-//     | LPAREN NL* valueArgument (NL* COMMA NL* valueArgument)* NL* RPAREN
+//     | LPAREN NL* valueArgument (NL* COMMA NL* valueArgument)* (NL* COMMA)? NL* RPAREN
 //     ;
     .convert(
         filter = byDescription("valueArguments")
@@ -1097,7 +1110,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // collectionLiteral
-//     : LSQUARE NL* expression (NL* COMMA NL* expression)* NL* RSQUARE
+//     : LSQUARE NL* expression (NL* COMMA NL* expression)* (NL* COMMA)? NL* RSQUARE
 //     | LSQUARE NL* RSQUARE
 //     ;
 
@@ -1217,7 +1230,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // lambdaParameters
-//     : lambdaParameter (NL* COMMA NL* lambdaParameter)*
+//     : lambdaParameter (NL* COMMA NL* lambdaParameter)* (NL* COMMA)?
 //     ;
 
 // lambdaParameter
@@ -1268,7 +1281,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // whenEntry
-//     : whenCondition (NL* COMMA NL* whenCondition)* NL* ARROW NL* controlStructureBody semi?
+//     : whenCondition (NL* COMMA NL* whenCondition)* (NL* COMMA)? NL* ARROW NL* controlStructureBody semi?
 //     | ELSE NL* ARROW NL* controlStructureBody semi?
 //     ;
 
@@ -1291,7 +1304,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // catchBlock
-//     : CATCH NL* LPAREN annotation* simpleIdentifier COLON type RPAREN NL* block
+//     : CATCH NL* LPAREN annotation* simpleIdentifier COLON type (NL* COMMA)? RPAREN NL* block
 //     ;
 
 // finallyBlock
@@ -1905,11 +1918,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
 
 // UnsignedLiteral
-//     : (IntegerLiteral | HexLiteral | BinLiteral) [uU] 'L'?
+//     : (IntegerLiteral | HexLiteral | BinLiteral) [uU] [lL]?
 //     ;
 
 // LongLiteral
-//     : (IntegerLiteral | HexLiteral | BinLiteral) 'L'
+//     : (IntegerLiteral | HexLiteral | BinLiteral) [lL]
 //     ;
 
 // BooleanLiteral: 'true'| 'false';

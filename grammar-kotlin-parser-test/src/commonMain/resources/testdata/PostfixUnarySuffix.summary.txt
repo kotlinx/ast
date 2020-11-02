@@ -27,26 +27,26 @@ KlassDeclaration(val typeArguments2)
       KlassIdentifier(Type1)
       KlassIdentifier(Type2)
 KlassDeclaration(val callSuffix0)
-  KlassIdentifier(x)
-    postfixUnarySuffix
-      callSuffix
+  genericCallLikeComparison
+    KlassIdentifier(x)
+    callSuffix
 KlassDeclaration(val callSuffix1)
-  KlassIdentifier(x)
-    postfixUnarySuffix
-      callSuffix
-        KlassDeclaration(argument)
-          literalConstant
-            IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+  genericCallLikeComparison
+    KlassIdentifier(x)
+    callSuffix
+      KlassDeclaration(argument)
+        literalConstant
+          IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
 KlassDeclaration(val callSuffix2)
-  KlassIdentifier(x)
-    postfixUnarySuffix
-      callSuffix
-        KlassDeclaration(argument)
-          literalConstant
-            IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
-        KlassDeclaration(argument)
-          literalConstant
-            IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+  genericCallLikeComparison
+    KlassIdentifier(x)
+    callSuffix
+      KlassDeclaration(argument)
+        literalConstant
+          IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+      KlassDeclaration(argument)
+        literalConstant
+          IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
 KlassDeclaration(val indexingSuffix1)
   KlassIdentifier(x)
     postfixUnarySuffix
@@ -57,18 +57,19 @@ KlassDeclaration(val indexingSuffix1)
             conjunction
               equality
                 comparison
-                  infixOperation
-                    elvisExpression
-                      infixFunctionCall
-                        rangeExpression
-                          additiveExpression
-                            multiplicativeExpression
-                              asExpression
-                                prefixUnaryExpression
-                                  postfixUnaryExpression
-                                    primaryExpression
-                                      literalConstant
-                                        IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+                  genericCallLikeComparison
+                    infixOperation
+                      elvisExpression
+                        infixFunctionCall
+                          rangeExpression
+                            additiveExpression
+                              multiplicativeExpression
+                                asExpression
+                                  prefixUnaryExpression
+                                    postfixUnaryExpression
+                                      primaryExpression
+                                        literalConstant
+                                          IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
         RSQUARE >>>]<<< (DEFAULT_TOKEN_CHANNEL)
 KlassDeclaration(val indexingSuffix2)
   KlassIdentifier(x)
@@ -80,18 +81,19 @@ KlassDeclaration(val indexingSuffix2)
             conjunction
               equality
                 comparison
-                  infixOperation
-                    elvisExpression
-                      infixFunctionCall
-                        rangeExpression
-                          additiveExpression
-                            multiplicativeExpression
-                              asExpression
-                                prefixUnaryExpression
-                                  postfixUnaryExpression
-                                    primaryExpression
-                                      literalConstant
-                                        IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+                  genericCallLikeComparison
+                    infixOperation
+                      elvisExpression
+                        infixFunctionCall
+                          rangeExpression
+                            additiveExpression
+                              multiplicativeExpression
+                                asExpression
+                                  prefixUnaryExpression
+                                    postfixUnaryExpression
+                                      primaryExpression
+                                        literalConstant
+                                          IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
         COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
         Inside_WS >>> <<< (HIDDEN)
         expression
@@ -99,18 +101,19 @@ KlassDeclaration(val indexingSuffix2)
             conjunction
               equality
                 comparison
-                  infixOperation
-                    elvisExpression
-                      infixFunctionCall
-                        rangeExpression
-                          additiveExpression
-                            multiplicativeExpression
-                              asExpression
-                                prefixUnaryExpression
-                                  postfixUnaryExpression
-                                    primaryExpression
-                                      literalConstant
-                                        IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+                  genericCallLikeComparison
+                    infixOperation
+                      elvisExpression
+                        infixFunctionCall
+                          rangeExpression
+                            additiveExpression
+                              multiplicativeExpression
+                                asExpression
+                                  prefixUnaryExpression
+                                    postfixUnaryExpression
+                                      primaryExpression
+                                        literalConstant
+                                          IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
         RSQUARE >>>]<<< (DEFAULT_TOKEN_CHANNEL)
 KlassDeclaration(val memberAccessOperatorDOT)
   KlassIdentifier(x)
@@ -155,18 +158,19 @@ KlassDeclaration(val example)
             conjunction
               equality
                 comparison
-                  infixOperation
-                    elvisExpression
-                      infixFunctionCall
-                        rangeExpression
-                          additiveExpression
-                            multiplicativeExpression
-                              asExpression
-                                prefixUnaryExpression
-                                  postfixUnaryExpression
-                                    primaryExpression
-                                      literalConstant
-                                        IntegerLiteral >>>0<<< (DEFAULT_TOKEN_CHANNEL)
+                  genericCallLikeComparison
+                    infixOperation
+                      elvisExpression
+                        infixFunctionCall
+                          rangeExpression
+                            additiveExpression
+                              multiplicativeExpression
+                                asExpression
+                                  prefixUnaryExpression
+                                    postfixUnaryExpression
+                                      primaryExpression
+                                        literalConstant
+                                          IntegerLiteral >>>0<<< (DEFAULT_TOKEN_CHANNEL)
         RSQUARE >>>]<<< (DEFAULT_TOKEN_CHANNEL)
     postfixUnarySuffix
       navigationSuffix
