@@ -7,7 +7,7 @@ object Versions {
 
     // https://github.com/drieks/antlr-kotlin/commit/b09d76328f7d8c38417174d5621bbdfb52b6405e
     // https://jitpack.io/#drieks/antlr-kotlin
-    const val antlrKotlin = "ce5a7e161a"
+    const val antlrKotlin = "41e88751ca"
 
     /*
     // official antlr kotlin version

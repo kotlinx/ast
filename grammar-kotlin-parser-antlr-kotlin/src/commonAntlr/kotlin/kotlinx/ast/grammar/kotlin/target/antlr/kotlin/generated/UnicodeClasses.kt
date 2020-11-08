@@ -4,6 +4,7 @@ package kotlinx.ast.grammar.kotlin.target.antlr.kotlin.generated
 import com.strumenta.kotlinmultiplatform.asCharArray
 import org.antlr.v4.kotlinruntime.CharStream
 import org.antlr.v4.kotlinruntime.Lexer
+import org.antlr.v4.kotlinruntime.Vocabulary
 import org.antlr.v4.kotlinruntime.VocabularyImpl
 import org.antlr.v4.kotlinruntime.atn.ATN
 import org.antlr.v4.kotlinruntime.atn.ATNDeserializer
@@ -22,6 +23,9 @@ class UnicodeClasses(val input: CharStream) : Lexer(input) {
 
     override val atn: ATN
 		get() = UnicodeClasses.Companion.ATN
+
+    override val vocabulary: Vocabulary
+        get() = UnicodeClasses.Companion.VOCABULARY
 
 	companion object {
 		val decisionToDFA : Array<DFA>

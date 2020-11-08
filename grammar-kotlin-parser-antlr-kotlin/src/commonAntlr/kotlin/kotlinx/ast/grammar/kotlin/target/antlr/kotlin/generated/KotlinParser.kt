@@ -203,6 +203,8 @@ class KotlinParser(input: TokenStream) : Parser(input) {
         get() = KotlinParser.Companion.ruleNames
     override val atn: ATN
         get() = KotlinParser.Companion.ATN
+    override val vocabulary: Vocabulary
+        get() = KotlinParser.Companion.VOCABULARY
 
     enum class Tokens(val id: Int) {
         EOF(-1),
