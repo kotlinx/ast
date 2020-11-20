@@ -228,6 +228,7 @@ data class KlassDeclaration(
     val typeParameters: List<KlassTypeParameter> = emptyList(),
     val inheritance: List<KlassInheritance> = emptyList(),
     val expressions: List<Ast> = emptyList(),
+    val comments: List<KlassComment> = emptyList(),
     override val raw: RawAst?
 ) : KlassNode<KlassDeclaration>(), AstWithAttributes {
     override val attributes: List<Ast> = listOfNotNull(identifier, type)
@@ -245,7 +246,8 @@ data class KlassDeclaration(
         parameter,
         typeParameters,
         inheritance,
-        expressions
+        expressions,
+        comments,
     ).flatten()
 
     override fun detachRaw(): KlassDeclaration {
@@ -311,13 +313,15 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
     val parameter = ast.filterIsInstance<KlassDeclaration>()
     val typeParameters = ast.filterIsInstance<KlassTypeParameter>()
     val inheritance = ast.filterIsInstance<KlassInheritance>()
+    val comments = ast.filterIsInstance<KlassComment>()
 
     val used = setOfNotNull(identifier, type) +
             annotations +
             modifiers +
             parameter +
             typeParameters +
-            inheritance
+            inheritance +
+            comments
     val remaining = ast - used
     return (expressions?.invoke(remaining) ?: astSuccess(remaining)).map { other ->
         KlassDeclaration(
@@ -330,6 +334,7 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
             typeParameters = typeParameters,
             inheritance = inheritance,
             expressions = other,
+            comments = comments,
             raw = raw,
         )
     }
