@@ -11,6 +11,7 @@ import org.antlr.v4.kotlinruntime.atn.ATNDeserializer
 import org.antlr.v4.kotlinruntime.atn.LexerATNSimulator
 import org.antlr.v4.kotlinruntime.atn.PredictionContextCache
 import org.antlr.v4.kotlinruntime.dfa.DFA
+import kotlin.native.concurrent.ThreadLocal
 
 class UnicodeClasses(val input: CharStream) : Lexer(input) {
 	// TODO Verify the runtime version is correct
@@ -27,6 +28,7 @@ class UnicodeClasses(val input: CharStream) : Lexer(input) {
     override val vocabulary: Vocabulary
         get() = UnicodeClasses.Companion.VOCABULARY
 
+	@ThreadLocal
 	companion object {
 		val decisionToDFA : Array<DFA>
 		val sharedContextCache = PredictionContextCache()
