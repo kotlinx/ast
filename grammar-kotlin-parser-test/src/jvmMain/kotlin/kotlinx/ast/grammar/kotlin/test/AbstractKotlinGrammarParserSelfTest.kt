@@ -21,10 +21,4 @@ abstract class AbstractKotlinGrammarParserSelfTest<Parser : KotlinGrammarParser<
         else ->
             fail("unexpected AstResult $summary")
     }
-}, pathOf(".").pathMap(".kt").filter { (file, _) ->
-    !setOf(
-        "KotlinLexer.kt",
-        "KotlinParser.kt",
-        "UnicodeClasses.kt"
-    ).contains(file.name)
-})
+}, pathOf(".").pathMap(".kt"))
