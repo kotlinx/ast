@@ -96,14 +96,6 @@ private data class TreeMap<State>(
         return this
     }
 
-    override fun attachRaw(raw: Ast): RawAst? {
-        return if (attachRawAst) {
-            RawAst(raw)
-        } else {
-            null
-        }
-    }
-
     override fun <T> astContinue(result: List<T>): AstResult<State, List<T>> {
         return astSuccess(result)
     }

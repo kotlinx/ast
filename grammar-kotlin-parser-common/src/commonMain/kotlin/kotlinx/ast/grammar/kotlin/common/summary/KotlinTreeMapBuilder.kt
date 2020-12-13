@@ -260,7 +260,6 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
             if (identifier.size == 1) {
                 astContinue(
                     KlassInheritance(
-                        raw = attachRaw(node),
                         type = identifier.first(),
                         annotations = result.filterIsInstance<KlassAnnotation>()
                     )
@@ -300,7 +299,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
             if (generic == null) {
                 "failed to parse typeParameter".astError()
             } else {
-                astContinue(KlassTypeParameter(generic, base, raw = attachRaw(node)))
+                astContinue(KlassTypeParameter(generic, base))
             }
         }
     }
@@ -371,7 +370,6 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 
             astContinue(
                 KlassDeclaration(
-                    raw = attachRaw(node),
                     keyword = "parameter",
                     identifier = identifiers[0],
                     type = identifiers.getOrNull(1)?.copy(nullable = nullable),
@@ -402,7 +400,6 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 
             astContinue(
                 KlassDeclaration(
-                    raw = attachRaw(node),
                     keyword = "fun",
                     identifier = identifiers[0],
                     type = identifiers.getOrNull(1),
@@ -1091,7 +1088,6 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                             ast.asStringComponent()
                         }
                     },
-                    raw = attachRaw(node)
                 )
             )
         }
@@ -1505,7 +1501,6 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         recursiveFlatten(node).flatMap { result ->
             astContinue(
                 KlassAnnotation(
-                    raw = attachRaw(node),
                     identifier = result.filterIsInstance<KlassIdentifier>(),
                     arguments = result.filterIsInstance<KlassDeclaration>()
                 )
@@ -1598,7 +1593,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         if (node.children.size == 1) {
             val terminal = node.children.first() as AstTerminal?
             if (terminal != null) {
-                astContinue(KlassIdentifier(terminal.text, raw = attachRaw(terminal)))
+                astContinue(KlassIdentifier(terminal.text))
             } else {
                 astFailure("expected AstTerminal in simpleIdentifier")
             }
@@ -1984,7 +1979,6 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         astContinue(
             KlassIdentifier(
                 terminal.text.drop(1),
-                raw = attachRaw(terminal)
             ).asStringComponent()
         )
     }
@@ -2036,7 +2030,6 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         astContinue(
             KlassIdentifier(
                 terminal.text.drop(1),
-                raw = attachRaw(terminal)
             ).asStringComponent()
         )
     }

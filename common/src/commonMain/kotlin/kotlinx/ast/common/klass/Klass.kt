@@ -6,27 +6,27 @@ import kotlinx.ast.common.filter
 import kotlinx.ast.common.filter.byTypeNode
 import kotlinx.ast.common.map.TreeMapContext
 
-sealed class Klass() : AstGroup, AstWithRawAst
+sealed class Klass() : AstWithExtensions
 
-sealed class KlassNode<Self : KlassNode<Self>>() : Klass(), AstNodeSelfTyped<Self> {
-    abstract override fun detachRaw(): Self
-}
+sealed class KlassNode<Self : KlassNode<Self>>() : Klass(),
+    AstNodeSelfTyped<Self>,
+    AstSelfTypedWithExtensions<Self>
 
 data class KlassModifierGroup(val group: String)
 
 data class KlassModifier(
     val modifier: String,
     val group: KlassModifierGroup,
-    override val raw: RawAst?
+    override val attachments: AstAttachments = AstAttachments(),
 ) : Klass() {
     override val description: String = "KlassModifier($modifier, ${group.group})"
 
-    override fun detachRaw(): KlassModifier {
-        return copy(raw = null)
+    override fun withAttachments(attachments: AstAttachments): KlassModifier {
+        return copy(attachments = attachments)
     }
 }
 
-val starProjection = KlassIdentifier(identifier = "*", raw = null)
+val starProjection = KlassIdentifier(identifier = "*")
 
 fun List<KlassIdentifier>.identifierName(): String {
     return joinToString(
@@ -38,12 +38,12 @@ fun List<KlassIdentifier>.identifierName(): String {
 data class KlassComment(
     val comment: String,
     val type: KlassCommentType,
-    override val raw: RawAst?
+    override val attachments: AstAttachments = AstAttachments(),
 ) : Klass() {
     override val description: String = "KlassComment(${type.rawName})"
 
-    override fun detachRaw(): KlassComment {
-        return copy(raw = null)
+    override fun withAttachments(attachments: AstAttachments): KlassComment {
+        return copy(attachments = attachments)
     }
 }
 
@@ -52,7 +52,7 @@ data class KlassIdentifier(
     val parameter: List<KlassIdentifier> = emptyList(),
     override val children: List<Ast> = emptyList(),
     val nullable: Boolean = false,
-    override val raw: RawAst?
+    override val attachments: AstAttachments = AstAttachments(),
 ) : KlassNode<KlassIdentifier>(), AstWithAttributes {
     override val attributes: List<Ast> = parameter
 
@@ -86,8 +86,8 @@ data class KlassIdentifier(
         return parameter.fold(this, KlassIdentifier::parameterizedBy)
     }
 
-    override fun detachRaw(): KlassIdentifier {
-        return copy(raw = null)
+    override fun withAttachments(attachments: AstAttachments): KlassIdentifier {
+        return copy(attachments = attachments)
     }
 
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassIdentifier> {
@@ -103,17 +103,17 @@ data class KlassIdentifier(
 
 data class KlassString(
     override val children: List<StringComponent>,
-    override val raw: RawAst?
+    override val attachments: AstAttachments = AstAttachments(),
 ) : KlassNode<KlassString>() {
     constructor(
         vararg children: StringComponent,
-        raw: RawAst?
-    ) : this(children.toList(), raw)
+        attachments: AstAttachments = AstAttachments(),
+    ) : this(children.toList(), attachments)
 
     override val description: String = "KlassString"
 
-    override fun detachRaw(): KlassString {
-        return copy(raw = null)
+    override fun withAttachments(attachments: AstAttachments): KlassString {
+        return copy(attachments = attachments)
     }
 
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassString> {
@@ -131,7 +131,7 @@ data class KlassString(
 data class KlassAnnotation(
     val identifier: List<KlassIdentifier>,
     val arguments: List<KlassDeclaration>,
-    override val raw: RawAst?
+    override val attachments: AstAttachments = AstAttachments(),
 ) : KlassNode<KlassAnnotation>(), AstWithAttributes {
     override val attributes: List<Ast> = identifier
 
@@ -139,8 +139,8 @@ data class KlassAnnotation(
 
     override val children: List<Ast> = arguments
 
-    override fun detachRaw(): KlassAnnotation {
-        return copy(raw = null)
+    override fun withAttachments(attachments: AstAttachments): KlassAnnotation {
+        return copy(attachments = attachments)
     }
 
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassAnnotation> {
@@ -162,15 +162,15 @@ data class KlassAnnotation(
 data class KlassTypeParameter(
     val generic: KlassIdentifier,
     val base: List<KlassIdentifier>,
-    override val raw: RawAst?
+    override val attachments: AstAttachments = AstAttachments(),
 ) : KlassNode<KlassTypeParameter>() {
 
     override val description: String = "KlassTypeParameter"
 
     override val children: List<Ast> = listOfNotNull(generic) + base
 
-    override fun detachRaw(): KlassTypeParameter {
-        return copy(raw = null)
+    override fun withAttachments(attachments: AstAttachments): KlassTypeParameter {
+        return copy(attachments = attachments)
     }
 
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassTypeParameter> {
@@ -191,15 +191,15 @@ data class KlassTypeParameter(
 data class KlassInheritance(
     val type: KlassIdentifier,
     val annotations: List<KlassAnnotation> = emptyList(),
-    override val raw: RawAst?
+    override val attachments: AstAttachments = AstAttachments(),
 ) : KlassNode<KlassInheritance>() {
     override val description: String = "KlassInheritance"
     override val children: List<Ast> = listOf(
         type
     ) + annotations
 
-    override fun detachRaw(): KlassInheritance {
-        return copy(raw = null)
+    override fun withAttachments(attachments: AstAttachments): KlassInheritance {
+        return copy(attachments = attachments)
     }
 
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassInheritance> {
@@ -229,7 +229,7 @@ data class KlassDeclaration(
     val inheritance: List<KlassInheritance> = emptyList(),
     val expressions: List<Ast> = emptyList(),
     val comments: List<KlassComment> = emptyList(),
-    override val raw: RawAst?
+    override val attachments: AstAttachments = AstAttachments(),
 ) : KlassNode<KlassDeclaration>(), AstWithAttributes {
     override val attributes: List<Ast> = listOfNotNull(identifier, type)
 
@@ -250,16 +250,12 @@ data class KlassDeclaration(
         comments,
     ).flatten()
 
-    override fun detachRaw(): KlassDeclaration {
-        return copy(raw = null)
+    override fun withAttachments(attachments: AstAttachments): KlassDeclaration {
+        return copy(attachments = attachments)
     }
 
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassDeclaration> {
-        return toKlassDeclaration(keyword, children).map { declaration ->
-            declaration.copy(
-                raw = raw
-            )
-        }
+        return toKlassDeclaration(keyword, children)
     }
 }
 
@@ -276,6 +272,7 @@ private val klassDeclarationKeywords: Map<String, String> = mapOf(
 
 fun <State> TreeMapContext<State>.toKlassDeclaration(
     node: AstNode,
+    attachments: AstAttachments = AstAttachments(),
     expressions: ((List<Ast>) -> AstResult<State, List<Ast>>)? = null,
 ): AstResult<State, KlassDeclaration> {
     val descriptions = node.children.descriptions().toSet() + node.description
@@ -292,7 +289,7 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
         node.filterChildren(byTypeNode).flatMap { filtered ->
             recursive(filtered.children)
         }.flatMap { result ->
-            toKlassDeclaration(keywords.first(), result, expressions, attachRaw(node))
+            toKlassDeclaration(keywords.first(), result, attachments, expressions)
         }
     }
 }
@@ -300,8 +297,8 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
 fun <State> TreeMapContext<State>.toKlassDeclaration(
     keyword: String,
     ast: List<Ast>,
+    attachments: AstAttachments = AstAttachments(),
     expressions: ((List<Ast>) -> AstResult<State, List<Ast>>)? = null,
-    raw: RawAst? = null
 ): AstResult<State, KlassDeclaration> {
     val identifiers = ast.filterIsInstance<KlassIdentifier>()
 
@@ -335,7 +332,7 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
             inheritance = inheritance,
             expressions = other,
             comments = comments,
-            raw = raw,
+            attachments = attachments,
         )
     }
 }

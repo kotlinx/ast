@@ -19,5 +19,10 @@ interface AstTerminal : Ast {
 data class DefaultAstTerminal(
     override val description: String,
     override val text: String,
-    val channel: AstChannel
-) : AstTerminal
+    val channel: AstChannel,
+    override val attachments: AstAttachments = AstAttachments(),
+) : AstTerminal, AstSelfTypedWithAttachments<DefaultAstTerminal> {
+    override fun withAttachments(attachments: AstAttachments): DefaultAstTerminal {
+        return copy(attachments = attachments)
+    }
+}

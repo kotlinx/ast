@@ -22,7 +22,6 @@ fun <State> TreeMapBuilder<State>.convertKotlinKlassComment(filter: TreeFilter):
 
         astContinue(
             KlassComment(
-                raw = attachRaw(astComment),
                 type = type,
                 comment = comment
             )

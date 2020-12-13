@@ -4,7 +4,6 @@ import kotlinx.ast.common.AstResult
 import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.ast.AstNode
 import kotlinx.ast.common.filter.TreeFilter
-import kotlinx.ast.common.klass.RawAst
 
 abstract class TreeMapContext<State> : TreeMapResultFactory<State> {
     abstract fun recursive(nodes: List<Ast>): AstResult<State, List<Ast>>
@@ -44,8 +43,6 @@ abstract class TreeMapContext<State> : TreeMapResultFactory<State> {
             astContinue(ast)
         }
     }
-
-    abstract fun attachRaw(raw: Ast): RawAst?
 
     abstract fun List<Ast>.astFold(
         mapper: TreeMapContext<State>.(Ast) -> AstResult<State, List<Ast>>

@@ -15,7 +15,6 @@ fun <State> TreeMapBuilder<State>.convertKotlinKlassModifier(filter: TreeFilter)
                 KlassModifier(
                     modifier.text,
                     group,
-                    raw = attachRaw(modifier)
                 )
             }
         )

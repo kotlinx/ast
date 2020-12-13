@@ -54,9 +54,14 @@ interface AstNodeSelfTyped<Self : AstNode> : AstNode, AstSelfTyped<Self> {
 
 data class DefaultAstNode(
     override val description: String,
-    override val children: List<Ast>
-) : AstNodeSelfTyped<AstNode> {
+    override val children: List<Ast>,
+    override val attachments: AstAttachments = AstAttachments(),
+) : AstNodeSelfTyped<DefaultAstNode>, AstSelfTypedWithAttachments<DefaultAstNode> {
     override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, DefaultAstNode> {
         return astSuccess(copy(children = children))
+    }
+
+    override fun withAttachments(attachments: AstAttachments): DefaultAstNode {
+        return copy(attachments = attachments)
     }
 }
