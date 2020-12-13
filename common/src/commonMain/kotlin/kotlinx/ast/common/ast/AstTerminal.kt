@@ -9,9 +9,10 @@ interface AstTerminal : Ast {
         operator fun <T> invoke(
             description: String,
             text: String,
-            channel: AstChannel
+            channel: AstChannel,
+            info: AstInfo? = null,
         ): AstTerminal {
-            return DefaultAstTerminal(description, text, channel)
+            return DefaultAstTerminal(description, text, channel).withAstInfo(info)
         }
     }
 }
@@ -21,7 +22,7 @@ data class DefaultAstTerminal(
     override val text: String,
     val channel: AstChannel,
     override val attachments: AstAttachments = AstAttachments(),
-) : AstTerminal, AstSelfTypedWithAttachments<DefaultAstTerminal> {
+) : AstTerminal, AstSelfTypedWithAstInfo<DefaultAstTerminal> {
     override fun withAttachments(attachments: AstAttachments): DefaultAstTerminal {
         return copy(attachments = attachments)
     }
