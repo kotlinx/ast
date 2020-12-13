@@ -6,7 +6,7 @@ import kotlinx.ast.common.filter
 import kotlinx.ast.common.filter.byTypeNode
 import kotlinx.ast.common.map.TreeMapContext
 
-sealed class Klass() : AstGroup, AstWithRaw
+sealed class Klass() : AstGroup, AstWithRawAst
 
 sealed class KlassNode<Self : KlassNode<Self>>() : Klass(), AstNodeDefaults<Self> {
     abstract override fun detachRaw(): Self
