@@ -99,16 +99,18 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                     result.any(byDescription("MULT")::matches) ->
                         Import(
                             identifier = identifier,
-                            starProjection = true
+                            starProjection = true,
                         )
                     result.any(byDescription("AS")::matches) -> {
                         Import(
                             identifier = identifier.dropLast(1),
-                            alias = identifier.last()
+                            alias = identifier.last(),
                         )
                     }
                     else ->
-                        Import(identifier)
+                        Import(
+                            identifier = identifier,
+                        )
                 }
             )
         }

@@ -57,7 +57,6 @@ private data class TreeMap<State>(
     )
 
     val currentAst: Ast? = ast.waiting.firstOrNull()?.ast
-    val currentMapper: TreeMapper<State>? = mapper.waiting.firstOrNull()
 
     fun treeMap(): AstResult<State, List<Ast>> {
         return treeMapLoop(this).flatMap { result ->
@@ -183,7 +182,7 @@ private fun <State> TreeMap<State>.treeMapInternal(
             is AstSuccess<State, *> -> {
                 val success = result.success
                 when {
-                    (success is Ast) || (success is List<*> && success.size == 1 && success[0] == a) ->
+                    success is List<*> && success.size == 1 && success[0] == a ->
                         astSuccess(
                             copy(
                                 mapper = mapper.next()
