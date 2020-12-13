@@ -8,7 +8,7 @@ import kotlinx.ast.common.map.TreeMapContext
 
 sealed class Klass() : AstGroup, AstWithRawAst
 
-sealed class KlassNode<Self : KlassNode<Self>>() : Klass(), AstNodeDefaults<Self> {
+sealed class KlassNode<Self : KlassNode<Self>>() : Klass(), AstNodeSelfTyped<Self> {
     abstract override fun detachRaw(): Self
 }
 
