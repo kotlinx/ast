@@ -4,6 +4,9 @@ import kotlinx.ast.common.AstFailure
 import kotlinx.ast.common.AstResult
 import kotlinx.ast.common.AstSuccess
 import kotlinx.ast.common.ast.Ast
+import kotlinx.ast.common.ast.AstWithAttachments
+import kotlinx.ast.common.ast.AstWithRawAst
+import kotlinx.ast.common.ast.astAttachmentsOrNull
 import kotlinx.ast.common.filter.TreeFilterByDescription
 import kotlinx.ast.common.klass.RawAst
 import kotlinx.ast.common.util.AssemblyLine
@@ -176,6 +179,7 @@ private fun <State> TreeMap<State>.treeMapInternal(
         val context: TreeMapContext<State> = copy(
             ast = AssemblyLine(waiting = listOf(a).wrapWithIndex())
         )
+        val attachments = a.astAttachmentsOrNull
         when (val result = m.converter.convert(context, a)) {
             null ->
                 astSuccess(copy(mapper = mapper.next()))
@@ -193,7 +197,20 @@ private fun <State> TreeMap<State>.treeMapInternal(
                         if (success.size != astList.size) {
                             "unsupported list content".astError()
                         } else {
-                            val replace = astList.wrapWithIndex(nextAstId)
+                            val replace = astList.map { ast ->
+                                if (attachments != null && ast is AstWithAttachments) {
+                                    // copy all attachments from a
+                                    ast.withAttachments(attachments + ast.attachments)
+                                } else {
+                                    ast
+                                }
+                            }.map { ast ->
+                                if (ast is AstWithRawAst && ast.raw == null) {
+                                    ast.withRaw(RawAst(a))
+                                } else {
+                                    ast
+                                }
+                            }.wrapWithIndex(nextAstId)
                             astSuccess(
                                 copy(
                                     mapper = mapper.reset(),
