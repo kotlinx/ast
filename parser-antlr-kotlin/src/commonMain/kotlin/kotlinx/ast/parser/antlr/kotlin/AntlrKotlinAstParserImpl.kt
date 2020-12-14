@@ -3,10 +3,7 @@ package kotlinx.ast.parser.antlr.kotlin
 import kotlinx.ast.common.AstChannel
 import kotlinx.ast.common.AstParserType
 import kotlinx.ast.common.AstSource
-import kotlinx.ast.common.ast.Ast
-import kotlinx.ast.common.ast.AstTerminal
-import kotlinx.ast.common.ast.DefaultAstNode
-import kotlinx.ast.common.ast.DefaultAstTerminal
+import kotlinx.ast.common.ast.*
 import kotlinx.ast.common.impl.AstList
 import kotlinx.ast.common.impl.flatten
 import org.antlr.v4.kotlinruntime.*
@@ -24,6 +21,19 @@ private class AntlrKotlinAstParserImpl(
 
     private fun toAstTerminal(token: Token): AstTerminal {
         val text = token.text ?: throw RuntimeException()
+        val info = AstInfo(
+            id = token.tokenIndex,
+            start = AstInfoPosition(
+                index = token.startIndex,
+                line = token.line,
+                row = token.charPositionInLine + 1,
+            ),
+            stop = AstInfoPosition(
+                index = token.stopIndex + 1,
+                line = token.line,
+                row = token.charPositionInLine + 1 + text.length,
+            ),
+        )
         val name = when (token.type) {
             -1 ->
                 "EOF"
@@ -33,7 +43,7 @@ private class AntlrKotlinAstParserImpl(
                 null
         } ?: "<Invalid>"
         val channel = channels[token.channel]
-        return DefaultAstTerminal(name, text, channel)
+        return DefaultAstTerminal(name, text, channel).withAstInfo(info)
     }
 
     private fun hiddenTokens(node: ParseTree, start: Boolean): List<AstTerminal> {
@@ -83,7 +93,13 @@ private class AntlrKotlinAstParserImpl(
                         ast.flatten(defaultChannel)
                     }.flatten()
                 }
-                DefaultAstNode(name, children)
+                val info = children
+                    .filterIsInstance<AstWithAstInfo>()
+                    .mapNotNull(AstWithAstInfo::info)
+                    .fold(emptyAstInfo) { left, right ->
+                        left + right
+                    }
+                DefaultAstNode(name, children).withAstInfo(info)
             }
             is TerminalNode -> {
                 toAstTerminal(node.symbol ?: throw RuntimeException())
