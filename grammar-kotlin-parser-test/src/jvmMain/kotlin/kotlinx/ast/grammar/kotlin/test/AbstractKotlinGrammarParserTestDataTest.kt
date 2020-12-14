@@ -6,6 +6,8 @@ import io.kotest.core.spec.style.scopes.ContainerScope
 import io.kotest.matchers.shouldBe
 import kotlinx.ast.common.AstSource
 import kotlinx.ast.common.ast.Ast
+import kotlinx.ast.common.ast.AstNode
+import kotlinx.ast.common.ast.AstWithAstInfo
 import kotlinx.ast.common.printString
 import kotlinx.ast.grammar.kotlin.common.KotlinGrammarParser
 import kotlinx.ast.grammar.kotlin.common.summary
@@ -56,6 +58,28 @@ abstract class AbstractKotlinGrammarParserTestDataTest<Parser : KotlinGrammarPar
                     ast.summary(attachRawAst = false).map {
                         it.joinToString("", transform = Ast::printString)
                     }.get()
+                }
+
+                fun Ast.astInfo(indent: Int = 0): List<String> {
+                    val info = when (this) {
+                        is AstWithAstInfo ->
+                            info.toString()
+                        else ->
+                            ""
+                    }
+                    val self = "$info${"  ".repeat(indent)}$description"
+                    return if (this is AstNode) {
+                        listOf(self) + children.flatMap { child ->
+                            child.astInfo(indent + 1)
+                        }
+                    } else {
+                        listOf(self)
+                    }
+                }
+
+                test("ast info", infoContent, infoFile) {
+                    "   ID Index        Position       Token\n" +
+                    ast.astInfo().joinToString("\n", postfix = "\n")
                 }
             }
         }
