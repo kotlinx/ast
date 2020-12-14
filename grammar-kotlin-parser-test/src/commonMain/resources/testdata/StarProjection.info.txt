@@ -1,0 +1,54 @@
+   ID Index        Position       Token
+      [0..29]      [1:1..2:6]     kotlinFile
+                                    packageHeader
+                                    importList
+      [0..29]      [1:1..2:6]       topLevelObject
+      [0..29]      [1:1..1:30]        declaration
+      [0..29]      [1:1..1:30]          propertyDeclaration
+    0 [0..3]       [1:1..1:4]             VAL
+    1 [3..4]       [1:4..1:5]             WS
+      [4..14]      [1:5..1:15]            variableDeclaration
+      [4..5]       [1:5..1:6]               simpleIdentifier
+    2 [4..5]       [1:5..1:6]                 Identifier
+    3 [5..6]       [1:6..1:7]               COLON
+    4 [6..7]       [1:7..1:8]               WS
+      [7..14]      [1:8..1:15]              type
+      [7..14]      [1:8..1:15]                typeReference
+      [7..14]      [1:8..1:15]                  userType
+      [7..14]      [1:8..1:15]                    simpleUserType
+      [7..11]      [1:8..1:12]                      simpleIdentifier
+    5 [7..11]      [1:8..1:12]                        Identifier
+      [11..14]     [1:12..1:15]                     typeArguments
+    6 [11..12]     [1:12..1:13]                       LANGLE
+      [12..13]     [1:13..1:14]                       typeProjection
+    7 [12..13]     [1:13..1:14]                         MULT
+    8 [13..14]     [1:14..1:15]                       RANGLE
+    9 [14..15]     [1:15..1:16]           WS
+   10 [15..16]     [1:16..1:17]           ASSIGNMENT
+   11 [16..17]     [1:17..1:18]           WS
+      [17..28]     [1:18..1:29]           expression
+      [17..28]     [1:18..1:29]             disjunction
+      [17..28]     [1:18..1:29]               conjunction
+      [17..28]     [1:18..1:29]                 equality
+      [17..28]     [1:18..1:29]                   comparison
+      [17..28]     [1:18..1:29]                     genericCallLikeComparison
+      [17..26]     [1:18..1:27]                       infixOperation
+      [17..26]     [1:18..1:27]                         elvisExpression
+      [17..26]     [1:18..1:27]                           infixFunctionCall
+      [17..26]     [1:18..1:27]                             rangeExpression
+      [17..26]     [1:18..1:27]                               additiveExpression
+      [17..26]     [1:18..1:27]                                 multiplicativeExpression
+      [17..26]     [1:18..1:27]                                   asExpression
+      [17..26]     [1:18..1:27]                                     prefixUnaryExpression
+      [17..26]     [1:18..1:27]                                       postfixUnaryExpression
+      [17..26]     [1:18..1:27]                                         primaryExpression
+      [17..26]     [1:18..1:27]                                           simpleIdentifier
+   12 [17..26]     [1:18..1:27]                                             Identifier
+      [26..28]     [1:27..1:29]                       callSuffix
+      [26..28]     [1:27..1:29]                         valueArguments
+   13 [26..27]     [1:27..1:28]                           LPAREN
+   14 [27..28]     [1:28..1:29]                           RPAREN
+   15 [28..29]     [1:29..1:30]           NL
+      [29..29]     [2:1..2:6]         semis
+   16 [29..29]     [2:1..2:6]           EOF
+   16 [29..29]     [2:1..2:6]       EOF

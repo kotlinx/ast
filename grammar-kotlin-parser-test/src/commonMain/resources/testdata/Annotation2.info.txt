@@ -1,0 +1,135 @@
+   ID Index        Position       Token
+      [0..105]     [1:1..7:6]     kotlinFile
+                                    packageHeader
+                                    importList
+      [0..105]     [1:1..7:6]       topLevelObject
+      [0..105]     [1:1..6:9]         declaration
+      [0..105]     [1:1..6:9]           propertyDeclaration
+      [0..68]      [1:1..4:13]            modifiers
+      [0..24]      [1:1..1:25]              annotation
+      [0..23]      [1:1..1:24]                singleAnnotation
+    0 [0..1]       [1:1..1:2]                   AT_NO_WS
+      [1..23]      [1:2..1:24]                  unescapedAnnotation
+      [1..23]      [1:2..1:24]                    constructorInvocation
+      [1..13]      [1:2..1:14]                      userType
+      [1..13]      [1:2..1:14]                        simpleUserType
+      [1..13]      [1:2..1:14]                          simpleIdentifier
+    1 [1..13]      [1:2..1:14]                            Identifier
+      [13..23]     [1:14..1:24]                     valueArguments
+    2 [13..14]     [1:14..1:15]                       LPAREN
+      [14..22]     [1:15..1:23]                       valueArgument
+      [14..22]     [1:15..1:23]                         expression
+      [14..22]     [1:15..1:23]                           disjunction
+      [14..22]     [1:15..1:23]                             conjunction
+      [14..22]     [1:15..1:23]                               equality
+      [14..22]     [1:15..1:23]                                 comparison
+      [14..22]     [1:15..1:23]                                   genericCallLikeComparison
+      [14..22]     [1:15..1:23]                                     infixOperation
+      [14..22]     [1:15..1:23]                                       elvisExpression
+      [14..22]     [1:15..1:23]                                         infixFunctionCall
+      [14..22]     [1:15..1:23]                                           rangeExpression
+      [14..22]     [1:15..1:23]                                             additiveExpression
+      [14..22]     [1:15..1:23]                                               multiplicativeExpression
+      [14..22]     [1:15..1:23]                                                 asExpression
+      [14..22]     [1:15..1:23]                                                   prefixUnaryExpression
+      [14..22]     [1:15..1:23]                                                     postfixUnaryExpression
+      [14..22]     [1:15..1:23]                                                       primaryExpression
+      [14..22]     [1:15..1:23]                                                         stringLiteral
+      [14..22]     [1:15..1:23]                                                           lineStringLiteral
+    3 [14..15]     [1:15..1:16]                                                             QUOTE_OPEN
+      [15..21]     [1:16..1:22]                                                             lineStringContent
+    4 [15..21]     [1:16..1:22]                                                               LineStrText
+    5 [21..22]     [1:22..1:23]                                                             QUOTE_CLOSE
+    6 [22..23]     [1:23..1:24]                       RPAREN
+    7 [23..24]     [1:24..1:25]               NL
+      [24..31]     [2:1..2:8]               modifier
+      [24..31]     [2:1..2:8]                 visibilityModifier
+    8 [24..31]     [2:1..2:8]                   PRIVATE
+      [31..56]     [2:8..3:25]              annotation
+      [31..55]     [2:8..3:24]                singleAnnotation
+    9 [31..33]     [2:8..2:10]                  AT_PRE_WS
+      [33..55]     [3:2..3:24]                  unescapedAnnotation
+      [33..55]     [3:2..3:24]                    constructorInvocation
+      [33..45]     [3:2..3:14]                      userType
+      [33..45]     [3:2..3:14]                        simpleUserType
+      [33..45]     [3:2..3:14]                          simpleIdentifier
+   10 [33..45]     [3:2..3:14]                            Identifier
+      [45..55]     [3:14..3:24]                     valueArguments
+   11 [45..46]     [3:14..3:15]                       LPAREN
+      [46..54]     [3:15..3:23]                       valueArgument
+      [46..54]     [3:15..3:23]                         expression
+      [46..54]     [3:15..3:23]                           disjunction
+      [46..54]     [3:15..3:23]                             conjunction
+      [46..54]     [3:15..3:23]                               equality
+      [46..54]     [3:15..3:23]                                 comparison
+      [46..54]     [3:15..3:23]                                   genericCallLikeComparison
+      [46..54]     [3:15..3:23]                                     infixOperation
+      [46..54]     [3:15..3:23]                                       elvisExpression
+      [46..54]     [3:15..3:23]                                         infixFunctionCall
+      [46..54]     [3:15..3:23]                                           rangeExpression
+      [46..54]     [3:15..3:23]                                             additiveExpression
+      [46..54]     [3:15..3:23]                                               multiplicativeExpression
+      [46..54]     [3:15..3:23]                                                 asExpression
+      [46..54]     [3:15..3:23]                                                   prefixUnaryExpression
+      [46..54]     [3:15..3:23]                                                     postfixUnaryExpression
+      [46..54]     [3:15..3:23]                                                       primaryExpression
+      [46..54]     [3:15..3:23]                                                         stringLiteral
+      [46..54]     [3:15..3:23]                                                           lineStringLiteral
+   12 [46..47]     [3:15..3:16]                                                             QUOTE_OPEN
+      [47..53]     [3:16..3:22]                                                             lineStringContent
+   13 [47..53]     [3:16..3:22]                                                               LineStrText
+   14 [53..54]     [3:22..3:23]                                                             QUOTE_CLOSE
+   15 [54..55]     [3:23..3:24]                       RPAREN
+   16 [55..56]     [3:24..3:25]               NL
+      [56..62]     [4:1..4:7]               modifier
+      [56..62]     [4:1..4:7]                 platformModifier
+   17 [56..62]     [4:1..4:7]                   EXPECT
+   18 [62..63]     [4:7..4:8]               WS
+      [63..68]     [4:8..4:13]              modifier
+      [63..68]     [4:8..4:13]                inheritanceModifier
+   19 [63..68]     [4:8..4:13]                  FINAL
+   20 [68..69]     [4:13..4:14]           WS
+   21 [69..72]     [4:14..4:17]           VAL
+      [72..104]    [4:17..6:8]            variableDeclaration
+      [72..97]     [4:17..5:25]             annotation
+      [72..96]     [4:17..5:24]               singleAnnotation
+   22 [72..74]     [4:17..4:19]                 AT_PRE_WS
+      [74..96]     [5:2..5:24]                  unescapedAnnotation
+      [74..96]     [5:2..5:24]                    constructorInvocation
+      [74..86]     [5:2..5:14]                      userType
+      [74..86]     [5:2..5:14]                        simpleUserType
+      [74..86]     [5:2..5:14]                          simpleIdentifier
+   23 [74..86]     [5:2..5:14]                            Identifier
+      [86..96]     [5:14..5:24]                     valueArguments
+   24 [86..87]     [5:14..5:15]                       LPAREN
+      [87..95]     [5:15..5:23]                       valueArgument
+      [87..95]     [5:15..5:23]                         expression
+      [87..95]     [5:15..5:23]                           disjunction
+      [87..95]     [5:15..5:23]                             conjunction
+      [87..95]     [5:15..5:23]                               equality
+      [87..95]     [5:15..5:23]                                 comparison
+      [87..95]     [5:15..5:23]                                   genericCallLikeComparison
+      [87..95]     [5:15..5:23]                                     infixOperation
+      [87..95]     [5:15..5:23]                                       elvisExpression
+      [87..95]     [5:15..5:23]                                         infixFunctionCall
+      [87..95]     [5:15..5:23]                                           rangeExpression
+      [87..95]     [5:15..5:23]                                             additiveExpression
+      [87..95]     [5:15..5:23]                                               multiplicativeExpression
+      [87..95]     [5:15..5:23]                                                 asExpression
+      [87..95]     [5:15..5:23]                                                   prefixUnaryExpression
+      [87..95]     [5:15..5:23]                                                     postfixUnaryExpression
+      [87..95]     [5:15..5:23]                                                       primaryExpression
+      [87..95]     [5:15..5:23]                                                         stringLiteral
+      [87..95]     [5:15..5:23]                                                           lineStringLiteral
+   25 [87..88]     [5:15..5:16]                                                             QUOTE_OPEN
+      [88..94]     [5:16..5:22]                                                             lineStringContent
+   26 [88..94]     [5:16..5:22]                                                               LineStrText
+   27 [94..95]     [5:22..5:23]                                                             QUOTE_CLOSE
+   28 [95..96]     [5:23..5:24]                       RPAREN
+   29 [96..97]     [5:24..5:25]               NL
+      [97..104]    [6:1..6:8]               simpleIdentifier
+   30 [97..104]    [6:1..6:8]                 Identifier
+   31 [104..105]   [6:8..6:9]             NL
+      [105..105]   [7:1..7:6]         semis
+   32 [105..105]   [7:1..7:6]           EOF
+   32 [105..105]   [7:1..7:6]       EOF

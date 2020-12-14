@@ -1,0 +1,215 @@
+   ID Index        Position       Token
+      [0..306]     [1:1..14:6]    kotlinFile
+      [0..18]      [1:1..2:2]       packageHeader
+    0 [0..7]       [1:1..1:8]         PACKAGE
+    1 [7..8]       [1:8..1:9]         WS
+      [8..16]      [1:9..1:17]        identifier
+      [8..16]      [1:9..1:17]          simpleIdentifier
+    2 [8..16]      [1:9..1:17]            Identifier
+      [16..18]     [1:17..2:2]        semi
+    3 [16..17]     [1:17..1:18]         NL
+    4 [17..18]     [2:1..2:2]           NL
+                                    importList
+      [18..38]     [3:1..4:2]       topLevelObject
+      [18..36]     [3:1..3:19]        declaration
+      [18..36]     [3:1..3:19]          objectDeclaration
+    5 [18..24]     [3:1..3:7]             OBJECT
+    6 [24..25]     [3:7..3:8]             WS
+      [25..36]     [3:8..3:19]            simpleIdentifier
+    7 [25..36]     [3:8..3:19]              Identifier
+      [36..38]     [3:19..4:2]        semis
+    8 [36..37]     [3:19..3:20]         NL
+    9 [37..38]     [4:1..4:2]           NL
+      [38..75]     [5:1..6:2]       topLevelObject
+      [38..73]     [5:1..5:36]        declaration
+      [38..73]     [5:1..5:36]          objectDeclaration
+      [38..46]     [5:1..5:9]             modifiers
+      [38..46]     [5:1..5:9]               modifier
+      [38..46]     [5:1..5:9]                 visibilityModifier
+   10 [38..46]     [5:1..5:9]                   INTERNAL
+   11 [46..47]     [5:9..5:10]            WS
+   12 [47..53]     [5:10..5:16]           OBJECT
+   13 [53..54]     [5:16..5:17]           WS
+      [54..73]     [5:17..5:36]           simpleIdentifier
+   14 [54..73]     [5:17..5:36]             Identifier
+      [73..75]     [5:36..6:2]        semis
+   15 [73..74]     [5:36..5:37]         NL
+   16 [74..75]     [6:1..6:2]           NL
+      [75..109]    [7:1..7:35]      topLevelObject
+      [75..108]    [7:1..7:34]        declaration
+      [75..108]    [7:1..7:34]          objectDeclaration
+      [75..82]     [7:1..7:8]             modifiers
+      [75..82]     [7:1..7:8]               modifier
+      [75..82]     [7:1..7:8]                 visibilityModifier
+   17 [75..82]     [7:1..7:8]                   PRIVATE
+   18 [82..83]     [7:8..7:9]             WS
+   19 [83..89]     [7:9..7:15]            OBJECT
+   20 [89..90]     [7:15..7:16]           WS
+      [90..108]    [7:16..7:34]           simpleIdentifier
+   21 [90..108]    [7:16..7:34]             Identifier
+      [108..109]   [7:34..7:35]       semis
+   22 [108..109]   [7:34..7:35]         NL
+      [109..306]   [8:1..13:101]    topLevelObject
+      [109..305]   [8:1..13:100]      declaration
+      [109..305]   [8:1..13:100]        objectDeclaration
+      [109..291]   [8:1..13:86]           modifiers
+      [109..123]   [8:1..9:14]              annotation
+      [109..122]   [8:1..9:13]                singleAnnotation
+   23 [109..111]   [8:1..8:3]                   AT_PRE_WS
+      [111..122]   [9:2..9:13]                  unescapedAnnotation
+      [111..122]   [9:2..9:13]                    userType
+      [111..122]   [9:2..9:13]                      simpleUserType
+      [111..122]   [9:2..9:13]                        simpleIdentifier
+   24 [111..122]   [9:2..9:13]                          Identifier
+   25 [122..123]   [9:13..9:14]               NL
+      [123..132]   [10:1..10:10]            modifier
+      [123..132]   [10:1..10:10]              visibilityModifier
+   26 [123..132]   [10:1..10:10]                PROTECTED
+   27 [132..133]   [10:10..10:11]           WS
+      [133..137]   [10:11..10:15]           modifier
+      [133..137]   [10:11..10:15]             classModifier
+   28 [133..137]   [10:11..10:15]               DATA
+      [137..159]   [10:15..11:22]           annotation
+      [137..159]   [10:15..11:22]             singleAnnotation
+   29 [137..139]   [10:15..10:17]               AT_PRE_WS
+      [139..159]   [11:2..11:22]                unescapedAnnotation
+      [139..159]   [11:2..11:22]                  constructorInvocation
+      [139..150]   [11:2..11:13]                    userType
+      [139..150]   [11:2..11:13]                      simpleUserType
+      [139..150]   [11:2..11:13]                        simpleIdentifier
+   30 [139..150]   [11:2..11:13]                          Identifier
+      [150..159]   [11:13..11:22]                   valueArguments
+   31 [150..151]   [11:13..11:14]                     LPAREN
+      [151..158]   [11:14..11:21]                     valueArgument
+      [151..158]   [11:14..11:21]                       expression
+      [151..158]   [11:14..11:21]                         disjunction
+      [151..158]   [11:14..11:21]                           conjunction
+      [151..158]   [11:14..11:21]                             equality
+      [151..158]   [11:14..11:21]                               comparison
+      [151..158]   [11:14..11:21]                                 genericCallLikeComparison
+      [151..158]   [11:14..11:21]                                   infixOperation
+      [151..158]   [11:14..11:21]                                     elvisExpression
+      [151..158]   [11:14..11:21]                                       infixFunctionCall
+      [151..158]   [11:14..11:21]                                         rangeExpression
+      [151..158]   [11:14..11:21]                                           additiveExpression
+      [151..158]   [11:14..11:21]                                             multiplicativeExpression
+      [151..158]   [11:14..11:21]                                               asExpression
+      [151..158]   [11:14..11:21]                                                 prefixUnaryExpression
+      [151..158]   [11:14..11:21]                                                   postfixUnaryExpression
+      [151..158]   [11:14..11:21]                                                     primaryExpression
+      [151..158]   [11:14..11:21]                                                       stringLiteral
+      [151..158]   [11:14..11:21]                                                         lineStringLiteral
+   32 [151..152]   [11:14..11:15]                                                           QUOTE_OPEN
+      [152..157]   [11:15..11:20]                                                           lineStringContent
+   33 [152..157]   [11:15..11:20]                                                             LineStrText
+   34 [157..158]   [11:20..11:21]                                                           QUOTE_CLOSE
+   35 [158..159]   [11:21..11:22]                     RPAREN
+      [159..206]   [11:22..12:47]           annotation
+      [159..205]   [11:22..12:46]             singleAnnotation
+   36 [159..161]   [11:22..11:24]               AT_PRE_WS
+      [161..205]   [12:2..12:46]                unescapedAnnotation
+      [161..205]   [12:2..12:46]                  constructorInvocation
+      [161..196]   [12:2..12:37]                    userType
+      [161..165]   [12:2..12:6]                       simpleUserType
+      [161..165]   [12:2..12:6]                         simpleIdentifier
+   37 [161..165]   [12:2..12:6]                           Identifier
+   38 [165..166]   [12:6..12:7]                       DOT
+      [166..171]   [12:7..12:12]                      simpleUserType
+      [166..171]   [12:7..12:12]                        simpleIdentifier
+   39 [166..171]   [12:7..12:12]                          WHERE
+   40 [171..172]   [12:12..12:13]                     DOT
+      [172..184]   [12:13..12:25]                     simpleUserType
+      [172..177]   [12:13..12:18]                       simpleIdentifier
+   41 [172..177]   [12:13..12:18]                         Identifier
+      [177..184]   [12:18..12:25]                       typeArguments
+   42 [177..178]   [12:18..12:19]                         LANGLE
+      [178..183]   [12:19..12:24]                         typeProjection
+      [178..183]   [12:19..12:24]                           type
+      [178..183]   [12:19..12:24]                             typeReference
+      [178..183]   [12:19..12:24]                               userType
+      [178..183]   [12:19..12:24]                                 simpleUserType
+      [178..183]   [12:19..12:24]                                   simpleIdentifier
+   43 [178..183]   [12:19..12:24]                                     Identifier
+   44 [183..184]   [12:24..12:25]                         RANGLE
+   45 [184..185]   [12:25..12:26]                     DOT
+      [185..196]   [12:26..12:37]                     simpleUserType
+      [185..196]   [12:26..12:37]                       simpleIdentifier
+   46 [185..196]   [12:26..12:37]                         Identifier
+      [196..205]   [12:37..12:46]                   valueArguments
+   47 [196..197]   [12:37..12:38]                     LPAREN
+      [197..204]   [12:38..12:45]                     valueArgument
+      [197..204]   [12:38..12:45]                       expression
+      [197..204]   [12:38..12:45]                         disjunction
+      [197..204]   [12:38..12:45]                           conjunction
+      [197..204]   [12:38..12:45]                             equality
+      [197..204]   [12:38..12:45]                               comparison
+      [197..204]   [12:38..12:45]                                 genericCallLikeComparison
+      [197..204]   [12:38..12:45]                                   infixOperation
+      [197..204]   [12:38..12:45]                                     elvisExpression
+      [197..204]   [12:38..12:45]                                       infixFunctionCall
+      [197..204]   [12:38..12:45]                                         rangeExpression
+      [197..204]   [12:38..12:45]                                           additiveExpression
+      [197..204]   [12:38..12:45]                                             multiplicativeExpression
+      [197..204]   [12:38..12:45]                                               asExpression
+      [197..204]   [12:38..12:45]                                                 prefixUnaryExpression
+      [197..204]   [12:38..12:45]                                                   postfixUnaryExpression
+      [197..204]   [12:38..12:45]                                                     primaryExpression
+      [197..204]   [12:38..12:45]                                                       stringLiteral
+      [197..204]   [12:38..12:45]                                                         lineStringLiteral
+   48 [197..198]   [12:38..12:39]                                                           QUOTE_OPEN
+      [198..203]   [12:39..12:44]                                                           lineStringContent
+   49 [198..203]   [12:39..12:44]                                                             LineStrText
+   50 [203..204]   [12:44..12:45]                                                           QUOTE_CLOSE
+   51 [204..205]   [12:45..12:46]                     RPAREN
+   52 [205..206]   [12:46..12:47]             NL
+      [206..210]   [13:1..13:5]             modifier
+      [206..210]   [13:1..13:5]               classModifier
+   53 [206..210]   [13:1..13:5]                 ENUM
+   54 [210..211]   [13:5..13:6]             WS
+      [211..217]   [13:6..13:12]            modifier
+      [211..217]   [13:6..13:12]              classModifier
+   55 [211..217]   [13:6..13:12]                SEALED
+   56 [217..218]   [13:12..13:13]           WS
+      [218..228]   [13:13..13:23]           modifier
+      [218..228]   [13:13..13:23]             classModifier
+   57 [218..228]   [13:13..13:23]               ANNOTATION
+   58 [228..229]   [13:23..13:24]           WS
+      [229..233]   [13:24..13:28]           modifier
+      [229..233]   [13:24..13:28]             classModifier
+   59 [229..233]   [13:24..13:28]               DATA
+   60 [233..234]   [13:28..13:29]           WS
+      [234..239]   [13:29..13:34]           modifier
+      [234..239]   [13:29..13:34]             classModifier
+   61 [234..239]   [13:29..13:34]               INNER
+   62 [239..240]   [13:34..13:35]           WS
+      [240..248]   [13:35..13:43]           modifier
+      [240..248]   [13:35..13:43]             memberModifier
+   63 [240..248]   [13:35..13:43]               OVERRIDE
+   64 [248..249]   [13:43..13:44]           WS
+      [249..257]   [13:44..13:52]           modifier
+      [249..257]   [13:44..13:52]             memberModifier
+   65 [249..257]   [13:44..13:52]               LATEINIT
+   66 [257..258]   [13:52..13:53]           WS
+      [258..264]   [13:53..13:59]           modifier
+      [258..264]   [13:53..13:59]             visibilityModifier
+   67 [258..264]   [13:53..13:59]               PUBLIC
+   68 [264..265]   [13:59..13:60]           WS
+      [265..272]   [13:60..13:67]           modifier
+      [265..272]   [13:60..13:67]             visibilityModifier
+   69 [265..272]   [13:60..13:67]               PRIVATE
+   70 [272..273]   [13:67..13:68]           WS
+      [273..281]   [13:68..13:76]           modifier
+      [273..281]   [13:68..13:76]             visibilityModifier
+   71 [273..281]   [13:68..13:76]               INTERNAL
+   72 [281..282]   [13:76..13:77]           WS
+      [282..291]   [13:77..13:86]           modifier
+      [282..291]   [13:77..13:86]             visibilityModifier
+   73 [282..291]   [13:77..13:86]               PROTECTED
+   74 [291..292]   [13:86..13:87]         WS
+   75 [292..298]   [13:87..13:93]         OBJECT
+   76 [298..299]   [13:93..13:94]         WS
+      [299..305]   [13:94..13:100]        simpleIdentifier
+   77 [299..305]   [13:94..13:100]          Identifier
+      [305..306]   [13:100..13:101]    semis
+   78 [305..306]   [13:100..13:101]      NL
+   79 [306..306]   [14:1..14:6]     EOF

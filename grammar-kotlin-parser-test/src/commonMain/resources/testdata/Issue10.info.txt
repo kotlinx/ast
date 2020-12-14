@@ -1,0 +1,37 @@
+   ID Index        Position       Token
+      [0..45]      [1:1..2:6]     kotlinFile
+                                    packageHeader
+                                    importList
+      [0..45]      [1:1..1:46]      topLevelObject
+      [0..44]      [1:1..1:45]        declaration
+      [0..44]      [1:1..1:45]          classDeclaration
+    0 [0..5]       [1:1..1:6]             CLASS
+    1 [5..6]       [1:6..1:7]             WS
+      [6..12]      [1:7..1:13]            simpleIdentifier
+    2 [6..12]      [1:7..1:13]              Identifier
+    3 [12..13]     [1:13..1:14]           WS
+      [13..44]     [1:14..1:45]           primaryConstructor
+      [13..44]     [1:14..1:45]             classParameters
+    4 [13..14]     [1:14..1:15]               LPAREN
+      [14..43]     [1:15..1:44]               classParameter
+      [14..21]     [1:15..1:22]                 modifiers
+      [14..21]     [1:15..1:22]                   modifier
+      [14..21]     [1:15..1:22]                     visibilityModifier
+    5 [14..21]     [1:15..1:22]                       PRIVATE
+    6 [21..22]     [1:22..1:23]                 Inside_WS
+    7 [22..25]     [1:23..1:26]                 VAL
+    8 [25..26]     [1:26..1:27]                 Inside_WS
+      [26..35]     [1:27..1:36]                 simpleIdentifier
+    9 [26..35]     [1:27..1:36]                   Identifier
+   10 [35..36]     [1:36..1:37]                 COLON
+   11 [36..37]     [1:37..1:38]                 Inside_WS
+      [37..43]     [1:38..1:44]                 type
+      [37..43]     [1:38..1:44]                   typeReference
+      [37..43]     [1:38..1:44]                     userType
+      [37..43]     [1:38..1:44]                       simpleUserType
+      [37..43]     [1:38..1:44]                         simpleIdentifier
+   12 [37..43]     [1:38..1:44]                           Identifier
+   13 [43..44]     [1:44..1:45]               RPAREN
+      [44..45]     [1:45..1:46]       semis
+   14 [44..45]     [1:45..1:46]         NL
+   15 [45..45]     [2:1..2:6]       EOF

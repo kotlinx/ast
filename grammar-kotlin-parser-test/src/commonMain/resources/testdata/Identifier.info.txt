@@ -1,0 +1,51 @@
+   ID Index        Position       Token
+      [0..39]      [1:1..2:6]     kotlinFile
+                                    packageHeader
+                                    importList
+      [0..39]      [1:1..2:6]       topLevelObject
+      [0..39]      [1:1..1:40]        declaration
+      [0..39]      [1:1..1:40]          propertyDeclaration
+    0 [0..3]       [1:1..1:4]             VAL
+    1 [3..4]       [1:4..1:5]             WS
+      [4..38]      [1:5..1:39]            variableDeclaration
+      [4..11]      [1:5..1:12]              simpleIdentifier
+    2 [4..11]      [1:5..1:12]                Identifier
+    3 [11..12]     [1:12..1:13]             COLON
+    4 [12..13]     [1:13..1:14]             WS
+      [13..38]     [1:14..1:39]             type
+      [13..38]     [1:14..1:39]               typeReference
+      [13..38]     [1:14..1:39]                 userType
+      [13..38]     [1:14..1:39]                   simpleUserType
+      [13..16]     [1:14..1:17]                     simpleIdentifier
+    5 [13..16]     [1:14..1:17]                       Identifier
+      [16..38]     [1:17..1:39]                     typeArguments
+    6 [16..17]     [1:17..1:18]                       LANGLE
+      [17..25]     [1:18..1:26]                       typeProjection
+      [17..25]     [1:18..1:26]                         type
+      [17..25]     [1:18..1:26]                           typeReference
+      [17..25]     [1:18..1:26]                             userType
+      [17..21]     [1:18..1:22]                               simpleUserType
+      [17..21]     [1:18..1:22]                                 simpleIdentifier
+    7 [17..21]     [1:18..1:22]                                   Identifier
+    8 [21..22]     [1:22..1:23]                               DOT
+      [22..25]     [1:23..1:26]                               simpleUserType
+      [22..25]     [1:23..1:26]                                 simpleIdentifier
+    9 [22..25]     [1:23..1:26]                                   Identifier
+   10 [25..26]     [1:26..1:27]                       COMMA
+   11 [26..27]     [1:27..1:28]                       WS
+      [27..37]     [1:28..1:38]                       typeProjection
+      [27..37]     [1:28..1:38]                         type
+      [27..37]     [1:28..1:38]                           typeReference
+      [27..37]     [1:28..1:38]                             userType
+      [27..31]     [1:28..1:32]                               simpleUserType
+      [27..31]     [1:28..1:32]                                 simpleIdentifier
+   12 [27..31]     [1:28..1:32]                                   Identifier
+   13 [31..32]     [1:32..1:33]                               DOT
+      [32..37]     [1:33..1:38]                               simpleUserType
+      [32..37]     [1:33..1:38]                                 simpleIdentifier
+   14 [32..37]     [1:33..1:38]                                   Identifier
+   15 [37..38]     [1:38..1:39]                       RANGLE
+   16 [38..39]     [1:39..1:40]           NL
+      [39..39]     [2:1..2:6]         semis
+   17 [39..39]     [2:1..2:6]           EOF
+   17 [39..39]     [2:1..2:6]       EOF

@@ -1,0 +1,209 @@
+   ID Index        Position       Token
+      [0..223]     [1:1..7:6]     kotlinFile
+                                    packageHeader
+                                    importList
+      [0..30]      [1:1..1:31]      topLevelObject
+      [0..30]      [1:1..1:31]        declaration
+      [0..30]      [1:1..1:31]          propertyDeclaration
+    0 [0..3]       [1:1..1:4]             VAL
+    1 [3..4]       [1:4..1:5]             WS
+      [4..20]      [1:5..1:21]            variableDeclaration
+      [4..20]      [1:5..1:21]              simpleIdentifier
+    2 [4..20]      [1:5..1:21]                Identifier
+    3 [20..21]     [1:21..1:22]           WS
+    4 [21..22]     [1:22..1:23]           ASSIGNMENT
+    5 [22..23]     [1:23..1:24]           WS
+      [23..29]     [1:24..1:30]           expression
+      [23..29]     [1:24..1:30]             disjunction
+      [23..29]     [1:24..1:30]               conjunction
+      [23..29]     [1:24..1:30]                 equality
+      [23..29]     [1:24..1:30]                   comparison
+      [23..29]     [1:24..1:30]                     genericCallLikeComparison
+      [23..29]     [1:24..1:30]                       infixOperation
+      [23..29]     [1:24..1:30]                         elvisExpression
+      [23..29]     [1:24..1:30]                           infixFunctionCall
+      [23..29]     [1:24..1:30]                             rangeExpression
+      [23..29]     [1:24..1:30]                               additiveExpression
+      [23..29]     [1:24..1:30]                                 multiplicativeExpression
+      [23..29]     [1:24..1:30]                                   asExpression
+      [23..29]     [1:24..1:30]                                     prefixUnaryExpression
+      [23..29]     [1:24..1:30]                                       postfixUnaryExpression
+      [23..29]     [1:24..1:30]                                         primaryExpression
+      [23..29]     [1:24..1:30]                                           stringLiteral
+      [23..29]     [1:24..1:30]                                             multiLineStringLiteral
+    6 [23..26]     [1:24..1:27]                                               TRIPLE_QUOTE_OPEN
+    7 [26..29]     [1:27..1:30]                                               TRIPLE_QUOTE_CLOSE
+    8 [29..30]     [1:30..1:31]           NL
+      [30..65]     [2:1..2:36]      topLevelObject
+      [30..65]     [2:1..2:36]        declaration
+      [30..65]     [2:1..2:36]          propertyDeclaration
+    9 [30..33]     [2:1..2:4]             VAL
+   10 [33..34]     [2:4..2:5]             WS
+      [34..50]     [2:5..2:21]            variableDeclaration
+      [34..50]     [2:5..2:21]              simpleIdentifier
+   11 [34..50]     [2:5..2:21]                Identifier
+   12 [50..51]     [2:21..2:22]           WS
+   13 [51..52]     [2:22..2:23]           ASSIGNMENT
+   14 [52..53]     [2:23..2:24]           WS
+      [53..64]     [2:24..2:35]           expression
+      [53..64]     [2:24..2:35]             disjunction
+      [53..64]     [2:24..2:35]               conjunction
+      [53..64]     [2:24..2:35]                 equality
+      [53..64]     [2:24..2:35]                   comparison
+      [53..64]     [2:24..2:35]                     genericCallLikeComparison
+      [53..64]     [2:24..2:35]                       infixOperation
+      [53..64]     [2:24..2:35]                         elvisExpression
+      [53..64]     [2:24..2:35]                           infixFunctionCall
+      [53..64]     [2:24..2:35]                             rangeExpression
+      [53..64]     [2:24..2:35]                               additiveExpression
+      [53..64]     [2:24..2:35]                                 multiplicativeExpression
+      [53..64]     [2:24..2:35]                                   asExpression
+      [53..64]     [2:24..2:35]                                     prefixUnaryExpression
+      [53..64]     [2:24..2:35]                                       postfixUnaryExpression
+      [53..64]     [2:24..2:35]                                         primaryExpression
+      [53..64]     [2:24..2:35]                                           stringLiteral
+      [53..64]     [2:24..2:35]                                             multiLineStringLiteral
+   15 [53..56]     [2:24..2:27]                                               TRIPLE_QUOTE_OPEN
+      [56..61]     [2:27..2:32]                                               multiLineStringContent
+   16 [56..61]     [2:27..2:32]                                                 MultiLineStrText
+   17 [61..64]     [2:32..2:35]                                               TRIPLE_QUOTE_CLOSE
+   18 [64..65]     [2:35..2:36]           NL
+      [65..118]    [3:1..3:54]      topLevelObject
+      [65..118]    [3:1..3:54]        declaration
+      [65..118]    [3:1..3:54]          propertyDeclaration
+   19 [65..68]     [3:1..3:4]             VAL
+   20 [68..69]     [3:4..3:5]             WS
+      [69..85]     [3:5..3:21]            variableDeclaration
+      [69..85]     [3:5..3:21]              simpleIdentifier
+   21 [69..85]     [3:5..3:21]                Identifier
+   22 [85..86]     [3:21..3:22]           WS
+   23 [86..87]     [3:22..3:23]           ASSIGNMENT
+   24 [87..88]     [3:23..3:24]           WS
+      [88..117]    [3:24..3:53]           expression
+      [88..117]    [3:24..3:53]             disjunction
+      [88..117]    [3:24..3:53]               conjunction
+      [88..117]    [3:24..3:53]                 equality
+      [88..117]    [3:24..3:53]                   comparison
+      [88..117]    [3:24..3:53]                     genericCallLikeComparison
+      [88..117]    [3:24..3:53]                       infixOperation
+      [88..117]    [3:24..3:53]                         elvisExpression
+      [88..117]    [3:24..3:53]                           infixFunctionCall
+      [88..117]    [3:24..3:53]                             rangeExpression
+      [88..117]    [3:24..3:53]                               additiveExpression
+      [88..117]    [3:24..3:53]                                 multiplicativeExpression
+      [88..117]    [3:24..3:53]                                   asExpression
+      [88..117]    [3:24..3:53]                                     prefixUnaryExpression
+      [88..117]    [3:24..3:53]                                       postfixUnaryExpression
+      [88..117]    [3:24..3:53]                                         primaryExpression
+      [88..117]    [3:24..3:53]                                           stringLiteral
+      [88..117]    [3:24..3:53]                                             multiLineStringLiteral
+   25 [88..91]     [3:24..3:27]                                               TRIPLE_QUOTE_OPEN
+      [91..108]    [3:27..3:44]                                               multiLineStringContent
+   26 [91..108]    [3:27..3:44]                                                 MultiLineStrRef
+      [108..114]   [3:44..3:50]                                               multiLineStringContent
+   27 [108..114]   [3:44..3:50]                                                 MultiLineStrText
+   28 [114..117]   [3:50..3:53]                                               TRIPLE_QUOTE_CLOSE
+   29 [117..118]   [3:53..3:54]           NL
+      [118..192]   [4:1..4:75]      topLevelObject
+      [118..192]   [4:1..4:75]        declaration
+      [118..192]   [4:1..4:75]          propertyDeclaration
+   30 [118..121]   [4:1..4:4]             VAL
+   31 [121..122]   [4:4..4:5]             WS
+      [122..138]   [4:5..4:21]            variableDeclaration
+      [122..138]   [4:5..4:21]              simpleIdentifier
+   32 [122..138]   [4:5..4:21]                Identifier
+   33 [138..139]   [4:21..4:22]           WS
+   34 [139..140]   [4:22..4:23]           ASSIGNMENT
+   35 [140..141]   [4:23..4:24]           WS
+      [141..191]   [4:24..4:74]           expression
+      [141..191]   [4:24..4:74]             disjunction
+      [141..191]   [4:24..4:74]               conjunction
+      [141..191]   [4:24..4:74]                 equality
+      [141..191]   [4:24..4:74]                   comparison
+      [141..191]   [4:24..4:74]                     genericCallLikeComparison
+      [141..191]   [4:24..4:74]                       infixOperation
+      [141..191]   [4:24..4:74]                         elvisExpression
+      [141..191]   [4:24..4:74]                           infixFunctionCall
+      [141..191]   [4:24..4:74]                             rangeExpression
+      [141..191]   [4:24..4:74]                               additiveExpression
+      [141..191]   [4:24..4:74]                                 multiplicativeExpression
+      [141..191]   [4:24..4:74]                                   asExpression
+      [141..191]   [4:24..4:74]                                     prefixUnaryExpression
+      [141..191]   [4:24..4:74]                                       postfixUnaryExpression
+      [141..191]   [4:24..4:74]                                         primaryExpression
+      [141..191]   [4:24..4:74]                                           stringLiteral
+      [141..191]   [4:24..4:74]                                             multiLineStringLiteral
+   36 [141..144]   [4:24..4:27]                                               TRIPLE_QUOTE_OPEN
+      [144..182]   [4:27..4:65]                                               multiLineStringExpression
+   37 [144..146]   [4:27..4:29]                                                 MultiLineStrExprStart
+      [146..181]   [4:29..4:64]                                                 expression
+      [146..181]   [4:29..4:64]                                                   disjunction
+      [146..181]   [4:29..4:64]                                                     conjunction
+      [146..181]   [4:29..4:64]                                                       equality
+      [146..181]   [4:29..4:64]                                                         comparison
+      [146..181]   [4:29..4:64]                                                           genericCallLikeComparison
+      [146..181]   [4:29..4:64]                                                             infixOperation
+      [146..181]   [4:29..4:64]                                                               elvisExpression
+      [146..181]   [4:29..4:64]                                                                 infixFunctionCall
+      [146..181]   [4:29..4:64]                                                                   rangeExpression
+      [146..181]   [4:29..4:64]                                                                     additiveExpression
+      [146..162]   [4:29..4:45]                                                                       multiplicativeExpression
+      [146..162]   [4:29..4:45]                                                                         asExpression
+      [146..162]   [4:29..4:45]                                                                           prefixUnaryExpression
+      [146..162]   [4:29..4:45]                                                                             postfixUnaryExpression
+      [146..162]   [4:29..4:45]                                                                               primaryExpression
+      [146..162]   [4:29..4:45]                                                                                 simpleIdentifier
+   38 [146..162]   [4:29..4:45]                                                                                   Identifier
+   39 [162..163]   [4:45..4:46]                                                                       WS
+      [163..164]   [4:46..4:47]                                                                       additiveOperator
+   40 [163..164]   [4:46..4:47]                                                                         ADD
+   41 [164..165]   [4:47..4:48]                                                                       WS
+      [165..181]   [4:48..4:64]                                                                       multiplicativeExpression
+      [165..181]   [4:48..4:64]                                                                         asExpression
+      [165..181]   [4:48..4:64]                                                                           prefixUnaryExpression
+      [165..181]   [4:48..4:64]                                                                             postfixUnaryExpression
+      [165..181]   [4:48..4:64]                                                                               primaryExpression
+      [165..181]   [4:48..4:64]                                                                                 simpleIdentifier
+   42 [165..181]   [4:48..4:64]                                                                                   Identifier
+   43 [181..182]   [4:64..4:65]                                                 RCURL
+      [182..188]   [4:65..4:71]                                               multiLineStringContent
+   44 [182..188]   [4:65..4:71]                                                 MultiLineStrText
+   45 [188..191]   [4:71..4:74]                                               TRIPLE_QUOTE_CLOSE
+   46 [191..192]   [4:74..4:75]           NL
+      [192..223]   [5:1..7:6]       topLevelObject
+      [192..223]   [5:1..6:5]         declaration
+      [192..223]   [5:1..6:5]           propertyDeclaration
+   47 [192..195]   [5:1..5:4]             VAL
+   48 [195..196]   [5:4..5:5]             WS
+      [196..212]   [5:5..5:21]            variableDeclaration
+      [196..212]   [5:5..5:21]              simpleIdentifier
+   49 [196..212]   [5:5..5:21]                Identifier
+   50 [212..213]   [5:21..5:22]           WS
+   51 [213..214]   [5:22..5:23]           ASSIGNMENT
+   52 [214..215]   [5:23..5:24]           WS
+      [215..222]   [5:24..6:4]            expression
+      [215..222]   [5:24..6:4]              disjunction
+      [215..222]   [5:24..6:4]                conjunction
+      [215..222]   [5:24..6:4]                  equality
+      [215..222]   [5:24..6:4]                    comparison
+      [215..222]   [5:24..6:4]                      genericCallLikeComparison
+      [215..222]   [5:24..6:4]                        infixOperation
+      [215..222]   [5:24..6:4]                          elvisExpression
+      [215..222]   [5:24..6:4]                            infixFunctionCall
+      [215..222]   [5:24..6:4]                              rangeExpression
+      [215..222]   [5:24..6:4]                                additiveExpression
+      [215..222]   [5:24..6:4]                                  multiplicativeExpression
+      [215..222]   [5:24..6:4]                                    asExpression
+      [215..222]   [5:24..6:4]                                      prefixUnaryExpression
+      [215..222]   [5:24..6:4]                                        postfixUnaryExpression
+      [215..222]   [5:24..6:4]                                          primaryExpression
+      [215..222]   [5:24..6:4]                                            stringLiteral
+      [215..222]   [5:24..6:4]                                              multiLineStringLiteral
+   53 [215..218]   [5:24..5:27]                                               TRIPLE_QUOTE_OPEN
+      [218..219]   [5:27..5:28]                                               multiLineStringContent
+   54 [218..219]   [5:27..5:28]                                                 MultiLineStrText
+   55 [219..222]   [6:1..6:4]                                                 TRIPLE_QUOTE_CLOSE
+   56 [222..223]   [6:4..6:5]             NL
+      [223..223]   [7:1..7:6]         semis
+   57 [223..223]   [7:1..7:6]           EOF
+   57 [223..223]   [7:1..7:6]       EOF

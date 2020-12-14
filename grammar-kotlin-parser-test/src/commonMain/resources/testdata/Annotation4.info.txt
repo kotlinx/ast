@@ -1,0 +1,36 @@
+   ID Index        Position       Token
+      [0..30]      [1:1..3:6]     kotlinFile
+                                    packageHeader
+                                    importList
+      [0..30]      [1:1..3:6]       topLevelObject
+      [0..30]      [1:1..2:13]        declaration
+      [0..30]      [1:1..2:13]          propertyDeclaration
+      [0..18]      [1:1..1:19]            modifiers
+      [0..18]      [1:1..1:19]              annotation
+      [0..17]      [1:1..1:18]                singleAnnotation
+    0 [0..1]       [1:1..1:2]                   AT_NO_WS
+      [1..17]      [1:2..1:18]                  unescapedAnnotation
+      [1..17]      [1:2..1:18]                    userType
+      [1..17]      [1:2..1:18]                      simpleUserType
+      [1..12]      [1:2..1:13]                        simpleIdentifier
+    1 [1..12]      [1:2..1:13]                          Identifier
+      [12..17]     [1:13..1:18]                       typeArguments
+    2 [12..13]     [1:13..1:14]                         LANGLE
+      [13..16]     [1:14..1:17]                         typeProjection
+      [13..16]     [1:14..1:17]                           type
+      [13..16]     [1:14..1:17]                             typeReference
+      [13..16]     [1:14..1:17]                               userType
+      [13..16]     [1:14..1:17]                                 simpleUserType
+      [13..16]     [1:14..1:17]                                   simpleIdentifier
+    3 [13..16]     [1:14..1:17]                                     Identifier
+    4 [16..17]     [1:17..1:18]                         RANGLE
+    5 [17..18]     [1:18..1:19]               NL
+    6 [18..21]     [2:1..2:4]             VAL
+    7 [21..22]     [2:4..2:5]             WS
+      [22..29]     [2:5..2:12]            variableDeclaration
+      [22..29]     [2:5..2:12]              simpleIdentifier
+    8 [22..29]     [2:5..2:12]                Identifier
+    9 [29..30]     [2:12..2:13]           NL
+      [30..30]     [3:1..3:6]         semis
+   10 [30..30]     [3:1..3:6]           EOF
+   10 [30..30]     [3:1..3:6]       EOF
