@@ -1,0 +1,19 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..105]     [1:1..6:9]     KlassDeclaration(val target2)
+      [0..24]      [1:1..1:25]      KlassAnnotation(Annotation2a)
+      [14..22]     [1:15..1:23]       KlassDeclaration(argument)
+      [14..22]     [1:15..1:23]         KlassString
+    4 [15..21]     [1:16..1:22]           "hello1"
+      [31..56]     [2:8..3:25]      KlassAnnotation(Annotation2b)
+      [46..54]     [3:15..3:23]       KlassDeclaration(argument)
+      [46..54]     [3:15..3:23]         KlassString
+   13 [47..53]     [3:16..3:22]           "hello2"
+      [72..97]     [4:17..5:25]     KlassAnnotation(Annotation2c)
+      [87..95]     [5:15..5:23]       KlassDeclaration(argument)
+      [87..95]     [5:15..5:23]         KlassString
+   26 [88..94]     [5:16..5:22]           "hello3"
+      [24..31]     [2:1..2:8]       KlassModifier(private, visibilityModifier)
+      [56..62]     [4:1..4:7]       KlassModifier(expect, platformModifier)
+      [63..68]     [4:8..4:13]      KlassModifier(final, inheritanceModifier)

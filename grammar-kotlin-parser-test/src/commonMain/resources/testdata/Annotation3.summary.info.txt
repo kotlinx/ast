@@ -1,0 +1,8 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..39]      [1:1..2:13]    KlassDeclaration(val target3)
+      [0..27]      [1:1..1:28]      KlassAnnotation(some.Annotation3)
+      [18..25]     [1:19..1:26]       KlassDeclaration(argument)
+      [18..25]     [1:19..1:26]         KlassString
+    6 [19..24]     [1:20..1:25]           "hello"

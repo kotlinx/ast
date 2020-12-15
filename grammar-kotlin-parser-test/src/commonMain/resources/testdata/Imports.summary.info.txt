@@ -1,0 +1,6 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+      [0..86]      [1:1..3:37]    importList
+      [0..28]      [1:1..1:29]      Import(kotlin.collections.*)
+      [28..50]     [2:1..2:23]      Import(kotlin.math.PI)
+      [50..86]     [3:1..3:37]      Import(kotlin.String as AliasString)

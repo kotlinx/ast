@@ -1,0 +1,31 @@
+   ID Index        Position       Token
+      [0..18]      [1:1..2:2]     PackageHeader(testdata)
+                                  importList
+      [18..36]     [3:1..3:19]    KlassDeclaration(object ObjectEmpty)
+      [38..73]     [5:1..5:36]    KlassDeclaration(object ObjectEmptyInternal)
+      [38..46]     [5:1..5:9]       KlassModifier(internal, visibilityModifier)
+      [75..108]    [7:1..7:34]    KlassDeclaration(object ObjectEmptyPrivate)
+      [75..82]     [7:1..7:8]       KlassModifier(private, visibilityModifier)
+      [109..305]   [8:1..13:100]  KlassDeclaration(object Object)
+      [109..123]   [8:1..9:14]      KlassAnnotation(Annotation1)
+      [137..159]   [10:15..11:22]   KlassAnnotation(Annotation2)
+      [151..158]   [11:14..11:21]     KlassDeclaration(argument)
+      [151..158]   [11:14..11:21]       KlassString
+   33 [152..157]   [11:15..11:20]         "hello"
+      [159..206]   [11:22..12:47]   KlassAnnotation(some.where.Class<Hello>.Annotation3)
+      [197..204]   [12:38..12:45]     KlassDeclaration(argument)
+      [197..204]   [12:38..12:45]       KlassString
+   49 [198..203]   [12:39..12:44]         "hello"
+      [123..132]   [10:1..10:10]    KlassModifier(protected, visibilityModifier)
+      [133..137]   [10:11..10:15]   KlassModifier(data, classModifier)
+      [206..210]   [13:1..13:5]     KlassModifier(enum, classModifier)
+      [211..217]   [13:6..13:12]    KlassModifier(sealed, classModifier)
+      [218..228]   [13:13..13:23]   KlassModifier(annotation, classModifier)
+      [229..233]   [13:24..13:28]   KlassModifier(data, classModifier)
+      [234..239]   [13:29..13:34]   KlassModifier(inner, classModifier)
+      [240..248]   [13:35..13:43]   KlassModifier(override, memberModifier)
+      [249..257]   [13:44..13:52]   KlassModifier(lateinit, memberModifier)
+      [258..264]   [13:53..13:59]   KlassModifier(public, visibilityModifier)
+      [265..272]   [13:60..13:67]   KlassModifier(private, visibilityModifier)
+      [273..281]   [13:68..13:76]   KlassModifier(internal, visibilityModifier)
+      [282..291]   [13:77..13:86]   KlassModifier(protected, visibilityModifier)

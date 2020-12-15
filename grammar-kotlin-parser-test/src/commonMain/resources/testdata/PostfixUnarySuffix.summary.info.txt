@@ -1,0 +1,195 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..36]      [1:1..1:37]    KlassDeclaration(val postfixUnaryOperator_INCR)
+      [32..33]     [1:33..1:34]     KlassIdentifier(x)
+      [33..35]     [1:34..1:36]       postfixUnarySuffix
+      [33..35]     [1:34..1:36]         postfixUnaryOperator
+    7 [33..35]     [1:34..1:36]           INCR
+      [36..72]     [2:1..2:37]    KlassDeclaration(val postfixUnaryOperator_DECR)
+      [68..69]     [2:33..2:34]     KlassIdentifier(x)
+      [69..71]     [2:34..2:36]       postfixUnarySuffix
+      [69..71]     [2:34..2:36]         postfixUnaryOperator
+   16 [69..71]     [2:34..2:36]           DECR
+      [72..108]    [3:1..3:37]    KlassDeclaration(val postfixUnaryOperator_excl)
+      [104..105]   [3:33..3:34]     KlassIdentifier(x)
+      [105..107]   [3:34..3:36]       postfixUnarySuffix
+      [105..107]   [3:34..3:36]         postfixUnaryOperator
+   25 [105..106]   [3:34..3:35]           EXCL_NO_WS
+      [106..107]   [3:35..3:36]           excl
+   26 [106..107]   [3:35..3:36]             EXCL_NO_WS
+      [108..137]   [4:1..4:30]    KlassDeclaration(val typeArguments1)
+      [129..130]   [4:22..4:23]     KlassIdentifier(x)
+      [130..136]   [4:23..4:29]       postfixUnarySuffix
+      [131..135]   [4:24..4:28]         KlassIdentifier(Type)
+      [137..174]   [5:1..5:38]    KlassDeclaration(val typeArguments2)
+      [158..159]   [5:22..5:23]     KlassIdentifier(x)
+      [159..173]   [5:23..5:37]       postfixUnarySuffix
+      [160..165]   [5:24..5:29]         KlassIdentifier(Type1)
+      [167..172]   [5:31..5:36]         KlassIdentifier(Type2)
+      [174..196]   [6:1..6:23]    KlassDeclaration(val callSuffix0)
+      [192..195]   [6:19..6:22]     genericCallLikeComparison
+      [192..193]   [6:19..6:20]       KlassIdentifier(x)
+      [193..195]   [6:20..6:22]       callSuffix
+      [196..219]   [7:1..7:24]    KlassDeclaration(val callSuffix1)
+      [214..218]   [7:19..7:23]     genericCallLikeComparison
+      [214..215]   [7:19..7:20]       KlassIdentifier(x)
+      [215..218]   [7:20..7:23]       callSuffix
+      [216..217]   [7:21..7:22]         KlassDeclaration(argument)
+      [216..217]   [7:21..7:22]           literalConstant
+   71 [216..217]   [7:21..7:22]             IntegerLiteral
+      [219..245]   [8:1..8:27]    KlassDeclaration(val callSuffix2)
+      [237..244]   [8:19..8:26]     genericCallLikeComparison
+      [237..238]   [8:19..8:20]       KlassIdentifier(x)
+      [238..244]   [8:20..8:26]       callSuffix
+      [239..240]   [8:21..8:22]         KlassDeclaration(argument)
+      [239..240]   [8:21..8:22]           literalConstant
+   82 [239..240]   [8:21..8:22]             IntegerLiteral
+      [242..243]   [8:24..8:25]         KlassDeclaration(argument)
+      [242..243]   [8:24..8:25]           literalConstant
+   85 [242..243]   [8:24..8:25]             IntegerLiteral
+      [245..272]   [9:1..9:28]    KlassDeclaration(val indexingSuffix1)
+      [267..268]   [9:23..9:24]     KlassIdentifier(x)
+      [268..271]   [9:24..9:27]       postfixUnarySuffix
+      [268..271]   [9:24..9:27]         indexingSuffix
+   95 [268..269]   [9:24..9:25]           LSQUARE
+      [269..270]   [9:25..9:26]           expression
+      [269..270]   [9:25..9:26]             disjunction
+      [269..270]   [9:25..9:26]               conjunction
+      [269..270]   [9:25..9:26]                 equality
+      [269..270]   [9:25..9:26]                   comparison
+      [269..270]   [9:25..9:26]                     genericCallLikeComparison
+      [269..270]   [9:25..9:26]                       infixOperation
+      [269..270]   [9:25..9:26]                         elvisExpression
+      [269..270]   [9:25..9:26]                           infixFunctionCall
+      [269..270]   [9:25..9:26]                             rangeExpression
+      [269..270]   [9:25..9:26]                               additiveExpression
+      [269..270]   [9:25..9:26]                                 multiplicativeExpression
+      [269..270]   [9:25..9:26]                                   asExpression
+      [269..270]   [9:25..9:26]                                     prefixUnaryExpression
+      [269..270]   [9:25..9:26]                                       postfixUnaryExpression
+      [269..270]   [9:25..9:26]                                         primaryExpression
+      [269..270]   [9:25..9:26]                                           literalConstant
+   96 [269..270]   [9:25..9:26]                                             IntegerLiteral
+   97 [270..271]   [9:26..9:27]           RSQUARE
+      [272..302]   [10:1..10:31]  KlassDeclaration(val indexingSuffix2)
+      [294..295]   [10:23..10:24]   KlassIdentifier(x)
+      [295..301]   [10:24..10:30]     postfixUnarySuffix
+      [295..301]   [10:24..10:30]       indexingSuffix
+  106 [295..296]   [10:24..10:25]         LSQUARE
+      [296..297]   [10:25..10:26]         expression
+      [296..297]   [10:25..10:26]           disjunction
+      [296..297]   [10:25..10:26]             conjunction
+      [296..297]   [10:25..10:26]               equality
+      [296..297]   [10:25..10:26]                 comparison
+      [296..297]   [10:25..10:26]                   genericCallLikeComparison
+      [296..297]   [10:25..10:26]                     infixOperation
+      [296..297]   [10:25..10:26]                       elvisExpression
+      [296..297]   [10:25..10:26]                         infixFunctionCall
+      [296..297]   [10:25..10:26]                           rangeExpression
+      [296..297]   [10:25..10:26]                             additiveExpression
+      [296..297]   [10:25..10:26]                               multiplicativeExpression
+      [296..297]   [10:25..10:26]                                 asExpression
+      [296..297]   [10:25..10:26]                                   prefixUnaryExpression
+      [296..297]   [10:25..10:26]                                     postfixUnaryExpression
+      [296..297]   [10:25..10:26]                                       primaryExpression
+      [296..297]   [10:25..10:26]                                         literalConstant
+  107 [296..297]   [10:25..10:26]                                           IntegerLiteral
+  108 [297..298]   [10:26..10:27]         COMMA
+  109 [298..299]   [10:27..10:28]         Inside_WS
+      [299..300]   [10:28..10:29]         expression
+      [299..300]   [10:28..10:29]           disjunction
+      [299..300]   [10:28..10:29]             conjunction
+      [299..300]   [10:28..10:29]               equality
+      [299..300]   [10:28..10:29]                 comparison
+      [299..300]   [10:28..10:29]                   genericCallLikeComparison
+      [299..300]   [10:28..10:29]                     infixOperation
+      [299..300]   [10:28..10:29]                       elvisExpression
+      [299..300]   [10:28..10:29]                         infixFunctionCall
+      [299..300]   [10:28..10:29]                           rangeExpression
+      [299..300]   [10:28..10:29]                             additiveExpression
+      [299..300]   [10:28..10:29]                               multiplicativeExpression
+      [299..300]   [10:28..10:29]                                 asExpression
+      [299..300]   [10:28..10:29]                                   prefixUnaryExpression
+      [299..300]   [10:28..10:29]                                     postfixUnaryExpression
+      [299..300]   [10:28..10:29]                                       primaryExpression
+      [299..300]   [10:28..10:29]                                         literalConstant
+  110 [299..300]   [10:28..10:29]                                           IntegerLiteral
+  111 [300..301]   [10:29..10:30]         RSQUARE
+      [302..336]   [11:1..11:35]  KlassDeclaration(val memberAccessOperatorDOT)
+      [332..333]   [11:31..11:32]   KlassIdentifier(x)
+      [333..335]   [11:32..11:34]     postfixUnarySuffix
+      [333..335]   [11:32..11:34]       navigationSuffix
+      [333..334]   [11:32..11:33]         memberAccessOperator
+  120 [333..334]   [11:32..11:33]           DOT
+      [334..335]   [11:33..11:34]         simpleIdentifier
+  121 [334..335]   [11:33..11:34]           Identifier
+      [336..375]   [12:1..12:40]  KlassDeclaration(val memberAccessOperatorSafeNav)
+      [370..371]   [12:35..12:36]   KlassIdentifier(x)
+      [371..374]   [12:36..12:39]     postfixUnarySuffix
+      [371..374]   [12:36..12:39]       navigationSuffix
+      [371..373]   [12:36..12:38]         memberAccessOperator
+      [371..373]   [12:36..12:38]           safeNav
+  130 [371..372]   [12:36..12:37]             QUEST_NO_WS
+  131 [372..373]   [12:37..12:38]             DOT
+      [373..374]   [12:38..12:39]         simpleIdentifier
+  132 [373..374]   [12:38..12:39]           Identifier
+      [375..418]   [13:1..14:2]   KlassDeclaration(val memberAccessOperatorCOLONCOLON)
+      [412..416]   [13:38..13:42]   callableReference
+      [412..413]   [13:38..13:39]     receiverType
+      [412..413]   [13:38..13:39]       typeReference
+      [412..413]   [13:38..13:39]         userType
+      [412..413]   [13:38..13:39]           simpleUserType
+      [412..413]   [13:38..13:39]             simpleIdentifier
+  140 [412..413]   [13:38..13:39]               Identifier
+  141 [413..415]   [13:39..13:41]     COLONCOLON
+      [415..416]   [13:41..13:42]     simpleIdentifier
+  142 [415..416]   [13:41..13:42]       Identifier
+      [418..463]   [15:1..15:46]  KlassDeclaration(val example)
+      [432..441]   [15:15..15:24]   KlassIdentifier(emptyList)
+      [441..449]   [15:24..15:32]     postfixUnarySuffix
+      [442..448]   [15:25..15:31]       KlassIdentifier(String)
+      [449..451]   [15:32..15:34]     postfixUnarySuffix
+      [449..451]   [15:32..15:34]       callSuffix
+      [451..454]   [15:34..15:37]     postfixUnarySuffix
+      [451..454]   [15:34..15:37]       indexingSuffix
+  157 [451..452]   [15:34..15:35]         LSQUARE
+      [452..453]   [15:35..15:36]         expression
+      [452..453]   [15:35..15:36]           disjunction
+      [452..453]   [15:35..15:36]             conjunction
+      [452..453]   [15:35..15:36]               equality
+      [452..453]   [15:35..15:36]                 comparison
+      [452..453]   [15:35..15:36]                   genericCallLikeComparison
+      [452..453]   [15:35..15:36]                     infixOperation
+      [452..453]   [15:35..15:36]                       elvisExpression
+      [452..453]   [15:35..15:36]                         infixFunctionCall
+      [452..453]   [15:35..15:36]                           rangeExpression
+      [452..453]   [15:35..15:36]                             additiveExpression
+      [452..453]   [15:35..15:36]                               multiplicativeExpression
+      [452..453]   [15:35..15:36]                                 asExpression
+      [452..453]   [15:35..15:36]                                   prefixUnaryExpression
+      [452..453]   [15:35..15:36]                                     postfixUnaryExpression
+      [452..453]   [15:35..15:36]                                       primaryExpression
+      [452..453]   [15:35..15:36]                                         literalConstant
+  158 [452..453]   [15:35..15:36]                                           IntegerLiteral
+  159 [453..454]   [15:36..15:37]         RSQUARE
+      [454..457]   [15:37..15:40]     postfixUnarySuffix
+      [454..457]   [15:37..15:40]       navigationSuffix
+      [454..456]   [15:37..15:39]         memberAccessOperator
+      [454..456]   [15:37..15:39]           safeNav
+  160 [454..455]   [15:37..15:38]             QUEST_NO_WS
+  161 [455..456]   [15:38..15:39]             DOT
+      [456..457]   [15:39..15:40]         simpleIdentifier
+  162 [456..457]   [15:39..15:40]           Identifier
+      [457..459]   [15:40..15:42]     postfixUnarySuffix
+      [457..459]   [15:40..15:42]       navigationSuffix
+      [457..458]   [15:40..15:41]         memberAccessOperator
+  163 [457..458]   [15:40..15:41]           DOT
+      [458..459]   [15:41..15:42]         simpleIdentifier
+  164 [458..459]   [15:41..15:42]           Identifier
+      [459..462]   [15:42..15:45]     postfixUnarySuffix
+      [459..462]   [15:42..15:45]       navigationSuffix
+      [459..461]   [15:42..15:44]         memberAccessOperator
+  165 [459..461]   [15:42..15:44]           COLONCOLON
+      [461..462]   [15:44..15:45]         simpleIdentifier
+  166 [461..462]   [15:44..15:45]           Identifier

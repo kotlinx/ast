@@ -1,0 +1,3 @@
+   ID Index        Position       Token
+      [0..22]      [1:1..1:23]    PackageHeader(some.testdata)
+                                  importList

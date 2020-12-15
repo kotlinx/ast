@@ -1,0 +1,21 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..27]      [1:1..1:28]    KlassDeclaration(val singleLineString1)
+      [24..26]     [1:25..1:27]     KlassString
+      [27..59]     [2:1..2:33]    KlassDeclaration(val singleLineString2)
+      [51..58]     [2:25..2:32]     KlassString
+   16 [52..57]     [2:26..2:31]       "hello"
+      [59..110]    [3:1..3:52]    KlassDeclaration(val singleLineString3)
+      [83..109]    [3:25..3:51]     KlassString
+   26 [84..102]    [3:26..3:44]       KlassIdentifier(singleLineString2)
+   27 [102..108]   [3:44..3:50]       " world"
+      [110..183]   [4:1..4:74]    KlassDeclaration(val singleLineString4)
+      [134..182]   [4:25..4:73]     KlassString
+                                      expression
+      [137..174]   [4:28..4:65]         additiveExpression
+      [137..154]   [4:28..4:45]           KlassIdentifier(singleLineString1)
+      [155..156]   [4:46..4:47]           additiveOperator
+   40 [155..156]   [4:46..4:47]             ADD
+      [157..174]   [4:48..4:65]           KlassIdentifier(singleLineString2)
+   44 [175..181]   [4:66..4:72]       " world"

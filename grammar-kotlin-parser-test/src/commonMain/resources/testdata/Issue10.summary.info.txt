@@ -1,0 +1,7 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..44]      [1:1..1:45]    KlassDeclaration(class Sample)
+      [13..44]     [1:14..1:45]     KlassDeclaration(constructor)
+      [14..43]     [1:15..1:44]       KlassDeclaration(val propertyA String)
+      [14..21]     [1:15..1:22]         KlassModifier(private, visibilityModifier)

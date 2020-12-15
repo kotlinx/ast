@@ -1,0 +1,9 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..43]      [1:1..3:2]     KlassDeclaration(class SimpleType)
+      [17..37]     [1:18..1:38]     KlassTypeParameter
+      [17..18]     [1:18..1:19]       KlassIdentifier(V)
+      [21..29]     [1:22..1:30]       KlassIdentifier(BaseType)
+      [30..37]     [1:31..1:38]       KlassIdentifier(SubType)
+      [39..43]     [1:40..3:2]      classBody

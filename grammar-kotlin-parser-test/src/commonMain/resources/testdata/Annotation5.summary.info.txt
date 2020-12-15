@@ -1,0 +1,8 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..58]      [1:1..2:13]    KlassDeclaration(val target5)
+      [0..46]      [1:1..1:47]      KlassAnnotation(some.where.Class<Hello>.Annotation5)
+      [37..44]     [1:38..1:45]       KlassDeclaration(argument)
+      [37..44]     [1:38..1:45]         KlassString
+   13 [38..43]     [1:39..1:44]           "hello"

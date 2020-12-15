@@ -1,0 +1,11 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..77]      [1:1..4:2]     KlassDeclaration(class TestClass)
+      [15..77]     [1:16..4:2]      KlassDeclaration(constructor)
+      [20..75]     [2:4..3:34]        KlassDeclaration(val propertyA String)
+      [20..41]     [2:4..2:25]          KlassAnnotation(Value)
+      [28..40]     [2:12..2:24]           KlassDeclaration(argument)
+      [28..40]     [2:12..2:24]             KlassString
+   12 [29..39]     [2:13..2:23]               "test value"
+      [46..53]     [3:5..3:12]          KlassModifier(private, visibilityModifier)
