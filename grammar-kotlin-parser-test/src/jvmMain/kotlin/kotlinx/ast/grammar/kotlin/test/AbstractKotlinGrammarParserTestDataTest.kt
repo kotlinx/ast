@@ -60,13 +60,8 @@ abstract class AbstractKotlinGrammarParserTestDataTest<Parser : KotlinGrammarPar
                     }.get()
                 }
 
-                fun Ast.astInfo(indent: Int = 0): List<String> {
-                    val info = when (this) {
-                        is AstWithAstInfo ->
-                            info.toString()
-                        else ->
-                            ""
-                    }
+                fun Ast.astInfo(indent: Int): List<String> {
+                    val info = ((this as? AstWithAstInfo)?.info?.toString() ?: "").padEnd(34)
                     val self = "$info${"  ".repeat(indent)}$description"
                     return if (this is AstNode) {
                         listOf(self) + children.flatMap { child ->
@@ -77,9 +72,20 @@ abstract class AbstractKotlinGrammarParserTestDataTest<Parser : KotlinGrammarPar
                     }
                 }
 
-                test("ast info", infoContent, infoFile) {
-                    "   ID Index        Position       Token\n" +
-                    ast.astInfo().joinToString("\n", postfix = "\n")
+                fun Ast.astInfo(): String {
+                    return astInfo(indent = 0).joinToString("\n", postfix = "\n")
+                }
+
+                val infoHeader = "   ID Index        Position       Token\n"
+
+                test("raw info", rawInfoContent, rawInfoFile) {
+                    infoHeader + ast.astInfo()
+                }
+
+                test("summary info", summaryInfoContent, summaryInfoFile) {
+                    infoHeader + ast.summary(attachRawAst = false).map {
+                        it.joinToString("", transform = Ast::astInfo)
+                    }.get()
                 }
             }
         }

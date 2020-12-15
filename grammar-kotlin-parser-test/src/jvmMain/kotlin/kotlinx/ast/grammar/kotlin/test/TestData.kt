@@ -20,10 +20,12 @@ data class TestData(
     val kotlinContent: String,
     val rawAstFile: File,
     val rawAstContent: String?,
-    val infoFile: File,
-    val infoContent: String?,
+    val rawInfoFile: File,
+    val rawInfoContent: String?,
     val summaryFile: File,
-    val summaryContent: String?
+    val summaryContent: String?,
+    val summaryInfoFile: File,
+    val summaryInfoContent: String?,
 )
 
 private fun File.sourceFile(suffix: String): File {
@@ -41,19 +43,22 @@ internal fun testData(): List<TestData> {
         if (kotlinContent == null) {
             null
         } else {
-            val rawAstFile = kotlinFile.sourceFile(".raw.txt")
-            val summaryFile = kotlinFile.sourceFile(".summary.txt")
-            val infoFile = kotlinFile.sourceFile(".info.txt")
+            val rawAstFile = kotlinFile.sourceFile(".raw.ast.txt")
+            val rawInfoFile = kotlinFile.sourceFile(".raw.info.txt")
+            val summaryFile = kotlinFile.sourceFile(".summary.ast.txt")
+            val summaryInfoFile = kotlinFile.sourceFile(".summary.info.txt")
             TestData(
                 name = kotlinFile.nameWithoutExtension,
                 kotlinFile = kotlinFile,
                 kotlinContent = kotlinContent,
                 rawAstFile = rawAstFile,
                 rawAstContent = rawAstFile.readTextOrNull(),
-                infoFile = infoFile,
-                infoContent = infoFile.readTextOrNull(),
+                rawInfoFile = rawInfoFile,
+                rawInfoContent = rawInfoFile.readTextOrNull(),
                 summaryFile = summaryFile,
-                summaryContent = summaryFile.readTextOrNull()
+                summaryContent = summaryFile.readTextOrNull(),
+                summaryInfoFile = summaryInfoFile,
+                summaryInfoContent = summaryInfoFile.readTextOrNull(),
             )
         }
     }

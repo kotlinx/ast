@@ -70,7 +70,7 @@ data class AstInfo(
             val index = "[${start.index}..${stop.index}]"
             val pos = "[$start..$stop]"
             id.padStart(5) + " " + index.padEnd(12) + " " + pos
-        }).padEnd(34)
+        })
     }
 
     infix operator fun plus(other: AstInfo): AstInfo {
