@@ -17,7 +17,7 @@ interface AstWithRawAst : AstWithAttachments {
     }
 }
 
-fun Ast.rawOrNull(): RawAst? {
+fun Ast.rawAstOrNull(): RawAst? {
     return if(this is AstWithRawAst) {
         raw
     } else {

@@ -11,6 +11,15 @@ interface AstWithAstInfo : AstWithAttachments {
     }
 }
 
+val Ast.astInfoOrNull: AstInfo?
+    get() {
+        return if (this is AstWithAstInfo) {
+            info
+        } else {
+            null
+        }
+    }
+
 interface AstSelfTypedWithAstInfo<Self> : AstSelfTypedWithAttachments<Self>, AstWithAstInfo
         where Self : AstSelfTypedWithAttachments<Self>, Self : AstWithAstInfo {
     override fun withAstInfo(info: AstInfo?): Self {
