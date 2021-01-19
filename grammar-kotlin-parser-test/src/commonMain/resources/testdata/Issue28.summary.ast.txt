@@ -1,0 +1,6 @@
+PackageHeader()
+importList
+KlassDeclaration(object MyObject)
+KlassDeclaration(class MyClass)
+  classBody
+    KlassDeclaration(fun myFun)

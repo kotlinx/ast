@@ -1,0 +1,78 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      objectDeclaration
+        OBJECT >>>object<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>MyObject<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        classBody
+          LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          classMemberDeclarations
+            classMemberDeclaration
+              declaration
+                functionDeclaration
+                  FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  simpleIdentifier
+                    Identifier >>>myFun<<< (DEFAULT_TOKEN_CHANNEL)
+                  functionValueParameters
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  functionBody
+                    block
+                      LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+                      statements
+                      RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      classDeclaration
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>MyClass<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        classBody
+          LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          classMemberDeclarations
+            classMemberDeclaration
+              declaration
+                functionDeclaration
+                  FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  simpleIdentifier
+                    Identifier >>>myFun<<< (DEFAULT_TOKEN_CHANNEL)
+                  functionValueParameters
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  functionBody
+                    block
+                      LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+                      statements
+                      RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

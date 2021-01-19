@@ -1,0 +1,7 @@
+object MyObject {
+   fun myFun() {}
+}
+
+class MyClass {
+    fun myFun() {}
+}
