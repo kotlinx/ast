@@ -163,21 +163,18 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("classDeclaration")
     ) { node: AstNode ->
-        node.filterChildren(filter = !byDescription("COLON"))
-            .flatMap { filtered: AstNode ->
-                toKlassDeclaration(filtered) { result ->
-                    astContinue(
-                        result.filter(
-                            setOf(
-                                "primaryConstructor",
-                                "typeConstraints",
-                                "classBody",
-                                "enumClassBody"
-                            )
-                        )
+        toKlassDeclaration(node) { result ->
+            astContinue(
+                result.filter(
+                    setOf(
+                        "primaryConstructor",
+                        "typeConstraints",
+                        "classBody",
+                        "enumClassBody"
                     )
-                }
-            }.toAstList()
+                )
+            )
+        }.toAstList()
     }
 
 // primaryConstructor
@@ -500,7 +497,13 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("objectDeclaration")
     ) { node: AstNode ->
         toKlassDeclaration(node) { ast ->
-            astContinue(ast.expressions())
+            astContinue(
+                ast.filter(
+                    setOf(
+                        "classBody",
+                    )
+                )
+            )
         }.toAstList()
     }
 
