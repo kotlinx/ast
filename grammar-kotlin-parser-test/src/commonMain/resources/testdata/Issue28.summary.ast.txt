@@ -1,6 +1,8 @@
 PackageHeader()
 importList
 KlassDeclaration(object MyObject)
+  classBody
+    KlassDeclaration(fun myFun)
 KlassDeclaration(class MyClass)
   classBody
     KlassDeclaration(fun myFun)
