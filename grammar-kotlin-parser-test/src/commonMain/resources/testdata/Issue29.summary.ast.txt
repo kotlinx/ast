@@ -1,0 +1,28 @@
+PackageHeader(com.kickstarter.libs.utils)
+importList
+  Import(android.content.Context)
+  Import(android.net.Uri)
+  Import(androidx.browser.customtabs.CustomTabsIntent)
+  Import(androidx.core.content.ContextCompat)
+  Import(com.kickstarter.R)
+KlassDeclaration(object UrlUtils)
+  classBody
+    KlassDeclaration(val KEY_REF)
+      KlassModifier(private, visibilityModifier)
+      KlassModifier(const, propertyModifier)
+      KlassString
+        "ref"
+    KlassDeclaration(fun appendPath String)
+      KlassDeclaration(parameter baseUrl String)
+      KlassDeclaration(parameter path String)
+    KlassDeclaration(fun appendQueryParameter String)
+      KlassDeclaration(parameter baseUrl String)
+      KlassDeclaration(parameter key String)
+      KlassDeclaration(parameter value String)
+    KlassDeclaration(fun appendRefTag String)
+      KlassDeclaration(parameter baseUrl String)
+      KlassDeclaration(parameter tag String)
+    KlassDeclaration(fun baseCustomTabsIntent CustomTabsIntent)
+      KlassDeclaration(parameter context Context)
+    KlassDeclaration(fun refTag String)
+      KlassDeclaration(parameter url String)

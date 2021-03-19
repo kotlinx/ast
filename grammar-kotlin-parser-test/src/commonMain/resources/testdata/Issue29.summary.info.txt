@@ -1,0 +1,29 @@
+   ID Index        Position       Token
+      [0..36]      [1:1..2:2]     PackageHeader(com.kickstarter.libs.utils)
+      [36..211]    [3:1..8:2]     importList
+      [36..67]     [3:1..3:32]      Import(android.content.Context)
+      [67..90]     [4:1..4:24]      Import(android.net.Uri)
+      [90..142]    [5:1..5:53]      Import(androidx.browser.customtabs.CustomTabsIntent)
+      [142..185]   [6:1..6:44]      Import(androidx.core.content.ContextCompat)
+      [185..211]   [7:1..8:2]       Import(com.kickstarter.R)
+      [211..1229]  [9:1..43:2]    KlassDeclaration(object UrlUtils)
+      [227..1229]  [9:17..43:2]     classBody
+      [234..269]   [11:5..12:2]       KlassDeclaration(val KEY_REF)
+      [234..241]   [11:5..11:12]        KlassModifier(private, visibilityModifier)
+      [242..247]   [11:13..11:18]       KlassModifier(const, propertyModifier)
+      [262..267]   [11:33..11:38]       KlassString
+   78 [263..266]   [11:34..11:37]         "ref"
+      [273..479]   [13:5..18:6]       KlassDeclaration(fun appendPath String)
+      [288..303]   [13:20..13:35]       KlassDeclaration(parameter baseUrl String)
+      [305..317]   [13:37..13:49]       KlassDeclaration(parameter path String)
+      [485..724]   [20:5..25:6]       KlassDeclaration(fun appendQueryParameter String)
+      [510..525]   [20:30..20:45]       KlassDeclaration(parameter baseUrl String)
+      [527..538]   [20:47..20:58]       KlassDeclaration(parameter key String)
+      [540..553]   [20:60..20:73]       KlassDeclaration(parameter value String)
+      [730..851]   [27:5..29:6]       KlassDeclaration(fun appendRefTag String)
+      [747..762]   [27:22..27:37]       KlassDeclaration(parameter baseUrl String)
+      [764..775]   [27:39..27:50]       KlassDeclaration(parameter tag String)
+      [857..1124]  [31:5..38:6]       KlassDeclaration(fun baseCustomTabsIntent CustomTabsIntent)
+      [882..898]   [31:30..31:46]       KlassDeclaration(parameter context Context)
+      [1130..1227] [40:5..42:6]       KlassDeclaration(fun refTag String)
+      [1141..1152] [40:16..40:27]       KlassDeclaration(parameter url String)
