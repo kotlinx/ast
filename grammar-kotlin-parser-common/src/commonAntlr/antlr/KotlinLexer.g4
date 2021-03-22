@@ -158,6 +158,7 @@ SEALED: 'sealed';
 ANNOTATION: 'annotation';
 DATA: 'data';
 INNER: 'inner';
+VALUE: 'value';
 TAILREC: 'tailrec';
 OPERATOR: 'operator';
 INLINE: 'inline';
@@ -298,6 +299,7 @@ IdentifierOrSoftKey
     | FILE
     | EXPECT
     | ACTUAL
+    | VALUE
     /* Strong keywords */
     | CONST
     | SUSPEND
@@ -486,6 +488,7 @@ Inside_SEALED: SEALED -> type(SEALED);
 Inside_ANNOTATION: ANNOTATION -> type(ANNOTATION);
 Inside_DATA: DATA -> type(DATA);
 Inside_INNER: INNER -> type(INNER);
+Inside_VALUE: VALUE -> type(VALUE);
 Inside_TAILREC: TAILREC -> type(TAILREC);
 Inside_OPERATOR: OPERATOR -> type(OPERATOR);
 Inside_INLINE: INLINE -> type(INLINE);
