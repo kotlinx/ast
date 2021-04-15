@@ -565,9 +565,16 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
             node, filter = byDescription(
                 "typeReference",
                 "parenthesizedType",
-                "quest"
             )
-        )
+        ).map { astList ->
+            astList.map { ast ->
+                if (ast is KlassIdentifier) {
+                    ast.copy(nullable = true)
+                } else {
+                    ast
+                }
+            }
+        }
     }
 
 // quest
