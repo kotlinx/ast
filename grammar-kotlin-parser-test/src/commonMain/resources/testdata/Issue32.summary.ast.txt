@@ -1,0 +1,5 @@
+PackageHeader(test)
+importList
+KlassDeclaration(class MyObj)
+  KlassDeclaration(constructor)
+    KlassDeclaration(val myParam String)

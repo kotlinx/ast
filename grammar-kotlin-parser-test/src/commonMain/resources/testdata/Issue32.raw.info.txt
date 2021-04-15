@@ -1,0 +1,42 @@
+   ID Index        Position       Token
+      [0..48]      [1:1..4:6]     kotlinFile
+      [0..14]      [1:1..2:2]       packageHeader
+    0 [0..7]       [1:1..1:8]         PACKAGE
+    1 [7..8]       [1:8..1:9]         WS
+      [8..12]      [1:9..1:13]        identifier
+      [8..12]      [1:9..1:13]          simpleIdentifier
+    2 [8..12]      [1:9..1:13]            Identifier
+      [12..14]     [1:13..2:2]        semi
+    3 [12..13]     [1:13..1:14]         NL
+    4 [13..14]     [2:1..2:2]           NL
+                                    importList
+      [14..48]     [3:1..3:35]      topLevelObject
+      [14..47]     [3:1..3:34]        declaration
+      [14..47]     [3:1..3:34]          classDeclaration
+    5 [14..19]     [3:1..3:6]             CLASS
+    6 [19..20]     [3:6..3:7]             WS
+      [20..25]     [3:7..3:12]            simpleIdentifier
+    7 [20..25]     [3:7..3:12]              Identifier
+      [25..47]     [3:12..3:34]           primaryConstructor
+      [25..47]     [3:12..3:34]             classParameters
+    8 [25..26]     [3:12..3:13]               LPAREN
+      [26..46]     [3:13..3:33]               classParameter
+    9 [26..29]     [3:13..3:16]                 VAL
+   10 [29..30]     [3:16..3:17]                 Inside_WS
+      [30..37]     [3:17..3:24]                 simpleIdentifier
+   11 [30..37]     [3:17..3:24]                   Identifier
+   12 [37..38]     [3:24..3:25]                 COLON
+   13 [38..39]     [3:25..3:26]                 Inside_WS
+      [39..46]     [3:26..3:33]                 type
+      [39..46]     [3:26..3:33]                   nullableType
+      [39..45]     [3:26..3:32]                     typeReference
+      [39..45]     [3:26..3:32]                       userType
+      [39..45]     [3:26..3:32]                         simpleUserType
+      [39..45]     [3:26..3:32]                           simpleIdentifier
+   14 [39..45]     [3:26..3:32]                             Identifier
+      [45..46]     [3:32..3:33]                     quest
+   15 [45..46]     [3:32..3:33]                       QUEST_NO_WS
+   16 [46..47]     [3:33..3:34]               RPAREN
+      [47..48]     [3:34..3:35]       semis
+   17 [47..48]     [3:34..3:35]         NL
+   18 [48..48]     [4:1..4:6]       EOF

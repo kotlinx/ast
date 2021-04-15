@@ -1,0 +1,3 @@
+package test
+
+class MyObj(val myParam: String?)

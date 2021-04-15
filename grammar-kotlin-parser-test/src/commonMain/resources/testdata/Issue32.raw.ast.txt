@@ -1,0 +1,41 @@
+kotlinFile
+  packageHeader
+    PACKAGE >>>package<<< (DEFAULT_TOKEN_CHANNEL)
+    WS >>> <<< (HIDDEN)
+    identifier
+      simpleIdentifier
+        Identifier >>>test<<< (DEFAULT_TOKEN_CHANNEL)
+    semi
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>MyObj<<< (DEFAULT_TOKEN_CHANNEL)
+        primaryConstructor
+          classParameters
+            LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+            classParameter
+              VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              simpleIdentifier
+                Identifier >>>myParam<<< (DEFAULT_TOKEN_CHANNEL)
+              COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              type
+                nullableType
+                  typeReference
+                    userType
+                      simpleUserType
+                        simpleIdentifier
+                          Identifier >>>String<<< (DEFAULT_TOKEN_CHANNEL)
+                  quest
+                    QUEST_NO_WS >>>?<<< (DEFAULT_TOKEN_CHANNEL)
+            RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
