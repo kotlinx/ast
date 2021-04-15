@@ -1,0 +1,10 @@
+PackageHeader(com.example.app.ui)
+importList
+KlassDeclaration(class FeatureFragment)
+  KlassModifier(internal, visibilityModifier)
+  KlassInheritance
+    KlassIdentifier(BaseFragment<FeatureViewModel, FeatureFragmentBinding>)
+  classBody
+    KlassDeclaration(fun handleViewStateChanges Unit)
+      KlassModifier(private, visibilityModifier)
+      KlassDeclaration(parameter viewState FeatureViewModel)
