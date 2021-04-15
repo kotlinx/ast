@@ -1,0 +1,15 @@
+package com.example.app.ui
+
+internal class FeatureFragment :
+    BaseFragment<FeatureViewModel, FeatureFragmentBinding>() {
+
+    private fun handleViewStateChanges(viewState: FeatureViewModel.ViewState): Unit =
+        with(
+            requireBinding
+        ) {
+            dateRangePropertyView.text =
+                "${monthDayYearDateFormat.format(viewState.dateRange.startDate)} - ${
+                    monthDayYearDateFormat.format(viewState.dateRange.endDate)
+                }"
+        }
+}
