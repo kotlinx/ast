@@ -36,7 +36,7 @@ kotlin {
     }
 }
 
-tasks.register<com.strumenta.antlrkotlin.gradleplugin.AntlrKotlinTask>("generateKotlinCommonGrammarSource") {
+tasks.register<com.strumenta.antlrkotlin.gradleplugin.AntlrKotlinTask>("generateGrammarSource") {
     antlrClasspath = configurations.detachedConfiguration(
         project.dependencies.create("org.antlr:antlr4:${Versions.antlrUsedByAntlrKotlin}"),
         project.dependencies.create("${Versions.antlrKotlinGroup}:antlr-kotlin-target:${Versions.antlrKotlin}")
