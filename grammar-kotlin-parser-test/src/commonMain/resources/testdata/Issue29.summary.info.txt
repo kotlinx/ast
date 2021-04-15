@@ -25,5 +25,5 @@
       [764..775]   [27:39..27:50]       KlassDeclaration(parameter tag String)
       [857..1124]  [31:5..38:6]       KlassDeclaration(fun baseCustomTabsIntent CustomTabsIntent)
       [882..898]   [31:30..31:46]       KlassDeclaration(parameter context Context)
-      [1130..1227] [40:5..42:6]       KlassDeclaration(fun refTag String)
+      [1130..1227] [40:5..42:6]       KlassDeclaration(fun refTag String?)
       [1141..1152] [40:16..40:27]       KlassDeclaration(parameter url String)
