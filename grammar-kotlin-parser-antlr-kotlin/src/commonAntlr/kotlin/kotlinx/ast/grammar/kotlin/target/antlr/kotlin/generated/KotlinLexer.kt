@@ -4,6 +4,7 @@ package kotlinx.ast.grammar.kotlin.target.antlr.kotlin.generated
 import com.strumenta.kotlinmultiplatform.asCharArray
 import org.antlr.v4.kotlinruntime.CharStream
 import org.antlr.v4.kotlinruntime.Lexer
+import org.antlr.v4.kotlinruntime.ThreadLocal
 import org.antlr.v4.kotlinruntime.Vocabulary
 import org.antlr.v4.kotlinruntime.VocabularyImpl
 import org.antlr.v4.kotlinruntime.atn.ATN
@@ -11,7 +12,6 @@ import org.antlr.v4.kotlinruntime.atn.ATNDeserializer
 import org.antlr.v4.kotlinruntime.atn.LexerATNSimulator
 import org.antlr.v4.kotlinruntime.atn.PredictionContextCache
 import org.antlr.v4.kotlinruntime.dfa.DFA
-import kotlin.native.concurrent.ThreadLocal
 
 class KotlinLexer(val input: CharStream) : Lexer(input) {
 	// TODO Verify the runtime version is correct
