@@ -1,0 +1,5 @@
+PackageHeader()
+importList
+KlassDeclaration(fun extension1 String)
+KlassDeclaration(val extension2 String)
+KlassDeclaration(val extension3 String)

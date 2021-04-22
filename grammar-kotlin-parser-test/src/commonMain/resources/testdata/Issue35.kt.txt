@@ -1,0 +1,13 @@
+fun String.extension1(): String {
+    return "($this)"
+}
+
+val String.extension2: String
+    get() {
+        return "[$this]"
+    }
+
+val Some.Class.extension3: String
+    get() {
+        return "<$this>"
+    }

@@ -1,0 +1,6 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..56]      [1:1..3:2]     KlassDeclaration(fun extension1 String)
+      [58..130]    [5:1..8:6]     KlassDeclaration(val extension2 String)
+      [132..208]   [10:1..13:6]   KlassDeclaration(val extension3 String)
