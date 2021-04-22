@@ -1,5 +1,5 @@
 PackageHeader()
 importList
-KlassDeclaration(fun extension1 String)
-KlassDeclaration(val extension2 String)
-KlassDeclaration(val extension3 String)
+KlassDeclaration(fun String extension1 String)
+KlassDeclaration(val String extension2 String)
+KlassDeclaration(val Some.Class extension3 String)
