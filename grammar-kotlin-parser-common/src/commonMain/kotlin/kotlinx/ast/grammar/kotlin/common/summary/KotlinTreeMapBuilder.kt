@@ -396,12 +396,18 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
             filter = !byDescription("FUN", "COLON")
         ).flatMap { result ->
             val identifiers = result.filterIsInstance<KlassIdentifier>()
+            val receiverType: List<KlassIdentifier> = result
+                .filter("receiverType")
+                .filterIsInstance<AstNode>()
+                .flatMap(AstNode::children)
+                .filterIsInstance<KlassIdentifier>()
 
             astContinue(
                 KlassDeclaration(
                     keyword = "fun",
                     identifier = identifiers[0],
                     type = identifiers.getOrNull(1),
+                    receiverType = receiverType,
                     annotations = result.filterIsInstance<KlassAnnotation>(),
                     modifiers = result.filterIsInstance<KlassModifier>(),
                     parameter = result.filterIsInstance<KlassDeclaration>(),
@@ -687,6 +693,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     | nullableType
 //     | typeReference)
 //     ;
+    .convert(
+        filter = byDescription("receiverType")
+    ) { node: AstNode ->
+        recursiveChildren(node)
+    }
 
 // parenthesizedUserType
 //     : LPAREN NL* userType NL* RPAREN

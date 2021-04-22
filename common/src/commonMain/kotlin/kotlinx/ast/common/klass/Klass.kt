@@ -222,6 +222,7 @@ data class KlassDeclaration(
     val keyword: String,
     val identifier: KlassIdentifier? = null,
     val type: KlassIdentifier? = null,
+    val receiverType: List<KlassIdentifier> = emptyList(),
     val annotations: List<KlassAnnotation> = emptyList(),
     val modifiers: List<KlassModifier> = emptyList(),
     val parameter: List<KlassDeclaration> = emptyList(),
@@ -236,6 +237,7 @@ data class KlassDeclaration(
     override val description: String =
         listOfNotNull(
             keyword,
+            if (receiverType.isEmpty()) null else receiverType.identifierName(),
             identifier?.rawName,
             type?.rawName
         ).joinToString(" ", "KlassDeclaration(", ")")
@@ -311,6 +313,11 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
     val typeParameters = ast.filterIsInstance<KlassTypeParameter>()
     val inheritance = ast.filterIsInstance<KlassInheritance>()
     val comments = ast.filterIsInstance<KlassComment>()
+    val receiverType: List<KlassIdentifier> = ast
+        .filter("receiverType")
+        .filterIsInstance<AstNode>()
+        .flatMap(AstNode::children)
+        .filterIsInstance<KlassIdentifier>()
 
     val used = setOfNotNull(identifier, type) +
             annotations +
@@ -325,6 +332,7 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
             keyword = keyword,
             identifier = identifier,
             type = type,
+            receiverType = receiverType,
             annotations = annotations,
             modifiers = modifiers,
             parameter = parameter,
