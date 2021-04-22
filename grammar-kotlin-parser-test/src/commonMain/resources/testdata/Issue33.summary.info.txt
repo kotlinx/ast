@@ -1,0 +1,84 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..490]     [1:1..10:2]    KlassDeclaration(class MyClass)
+      [14..490]    [1:15..10:2]     classBody
+      [19..488]    [2:4..9:6]         KlassDeclaration(fun topicTest4MultipleMixedTopics)
+      [19..349]    [2:4..7:7]           KlassAnnotation(KafkaListener)
+      [44..103]    [3:9..3:68]            KlassDeclaration(argument id)
+      [49..103]    [3:14..3:68]             KlassString
+   26 [50..52]     [3:15..3:17]               Escape("\$")
+   27 [52..54]     [3:17..3:19]               "{'"
+   28 [54..55]     [3:19..3:20]               "$"
+   29 [55..102]    [3:20..3:67]               "'}{messaging.command.topic.consumer.group.name}"
+      [113..184]   [4:9..4:80]            KlassDeclaration(argument clientIdPrefix)
+      [130..184]   [4:26..4:80]             KlassString
+   46 [131..133]   [4:27..4:29]               Escape("\$")
+   47 [133..135]   [4:29..4:31]               "{'"
+   48 [135..136]   [4:31..4:32]               "$"
+   49 [136..183]   [4:32..4:79]               "'}{messaging.command.topic.consumer.group.name}"
+      [194..269]   [5:9..5:84]            KlassDeclaration(argument topics)
+      [203..269]   [5:18..5:84]             collectionLiteral
+   65 [203..204]   [5:18..5:19]               LSQUARE
+      [204..225]   [5:19..5:40]               expression
+      [204..225]   [5:19..5:40]                 disjunction
+      [204..225]   [5:19..5:40]                   conjunction
+      [204..225]   [5:19..5:40]                     equality
+      [204..225]   [5:19..5:40]                       comparison
+      [204..225]   [5:19..5:40]                         genericCallLikeComparison
+      [204..225]   [5:19..5:40]                           infixOperation
+      [204..225]   [5:19..5:40]                             elvisExpression
+      [204..225]   [5:19..5:40]                               infixFunctionCall
+      [204..225]   [5:19..5:40]                                 rangeExpression
+      [204..225]   [5:19..5:40]                                   additiveExpression
+      [204..225]   [5:19..5:40]                                     multiplicativeExpression
+      [204..225]   [5:19..5:40]                                       asExpression
+      [204..225]   [5:19..5:40]                                         prefixUnaryExpression
+      [204..225]   [5:19..5:40]                                           postfixUnaryExpression
+      [204..225]   [5:19..5:40]                                             primaryExpression
+      [204..225]   [5:19..5:40]                                               stringLiteral
+      [204..225]   [5:19..5:40]                                                 lineStringLiteral
+   66 [204..205]   [5:19..5:20]                                                   QUOTE_OPEN
+      [205..224]   [5:20..5:39]                                                   lineStringContent
+   67 [205..224]   [5:20..5:39]                                                     LineStrText
+   68 [224..225]   [5:39..5:40]                                                   QUOTE_CLOSE
+   69 [225..226]   [5:40..5:41]               COMMA
+   70 [226..227]   [5:41..5:42]               Inside_WS
+      [227..268]   [5:42..5:83]               expression
+      [227..268]   [5:42..5:83]                 disjunction
+      [227..268]   [5:42..5:83]                   conjunction
+      [227..268]   [5:42..5:83]                     equality
+      [227..268]   [5:42..5:83]                       comparison
+      [227..268]   [5:42..5:83]                         genericCallLikeComparison
+      [227..268]   [5:42..5:83]                           infixOperation
+      [227..268]   [5:42..5:83]                             elvisExpression
+      [227..268]   [5:42..5:83]                               infixFunctionCall
+      [227..268]   [5:42..5:83]                                 rangeExpression
+      [227..268]   [5:42..5:83]                                   additiveExpression
+      [227..268]   [5:42..5:83]                                     multiplicativeExpression
+      [227..268]   [5:42..5:83]                                       asExpression
+      [227..268]   [5:42..5:83]                                         prefixUnaryExpression
+      [227..268]   [5:42..5:83]                                           postfixUnaryExpression
+      [227..268]   [5:42..5:83]                                             primaryExpression
+      [227..268]   [5:42..5:83]                                               stringLiteral
+      [227..268]   [5:42..5:83]                                                 lineStringLiteral
+   71 [227..228]   [5:42..5:43]                                                   QUOTE_OPEN
+      [228..230]   [5:43..5:45]                                                   lineStringContent
+   72 [228..230]   [5:43..5:45]                                                     LineStrEscapedChar
+      [230..232]   [5:45..5:47]                                                   lineStringContent
+   73 [230..232]   [5:45..5:47]                                                     LineStrText
+      [232..233]   [5:47..5:48]                                                   lineStringContent
+   74 [232..233]   [5:47..5:48]                                                     LineStrText
+      [233..267]   [5:48..5:82]                                                   lineStringContent
+   75 [233..267]   [5:48..5:82]                                                     LineStrText
+   76 [267..268]   [5:82..5:83]                                                   QUOTE_CLOSE
+   77 [268..269]   [5:83..5:84]               RSQUARE
+      [279..342]   [6:9..6:72]            KlassDeclaration(argument concurrency)
+      [293..342]   [6:23..6:72]             KlassString
+   93 [294..296]   [6:24..6:26]               Escape("\$")
+   94 [296..298]   [6:26..6:28]               "{'"
+   95 [298..299]   [6:28..6:29]               "$"
+   96 [299..341]   [6:29..6:71]               "'}{messaging.command.topic.listener-count}"
+      [387..434]   [8:39..8:86]         KlassDeclaration(parameter entityCommand EntityCommand<JsonNode>)
+      [387..395]   [8:39..8:47]           KlassAnnotation(Payload)
+      [436..479]   [8:88..8:131]        KlassDeclaration(parameter record ConsumerRecord<String, Array<Byte>>)

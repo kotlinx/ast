@@ -1,0 +1,10 @@
+class MyClass {
+    @KafkaListener(
+        id = "\${'$'}{messaging.command.topic.consumer.group.name}",
+        clientIdPrefix = "\${'$'}{messaging.command.topic.consumer.group.name}",
+        topics = ["direct.topic.name.2", "\${'$'}{messaging.command.topic.name.2}"],
+        concurrency = "\${'$'}{messaging.command.topic.listener-count}"
+    )
+    fun topicTest4MultipleMixedTopics(@Payload entityCommand: EntityCommand<JsonNode>, record: ConsumerRecord<String, Array<Byte>>) {
+    }
+}

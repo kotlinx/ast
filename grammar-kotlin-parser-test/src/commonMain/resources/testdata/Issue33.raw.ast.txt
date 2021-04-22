@@ -1,0 +1,361 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>MyClass<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        classBody
+          LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          classMemberDeclarations
+            classMemberDeclaration
+              declaration
+                functionDeclaration
+                  modifiers
+                    annotation
+                      singleAnnotation
+                        AT_PRE_WS >>> @<<< (DEFAULT_TOKEN_CHANNEL)
+                        unescapedAnnotation
+                          constructorInvocation
+                            userType
+                              simpleUserType
+                                simpleIdentifier
+                                  Identifier >>>KafkaListener<<< (DEFAULT_TOKEN_CHANNEL)
+                            valueArguments
+                              LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                              Inside_NL >>>\n<<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              valueArgument
+                                simpleIdentifier
+                                  Identifier >>>id<<< (DEFAULT_TOKEN_CHANNEL)
+                                Inside_WS >>> <<< (HIDDEN)
+                                ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                                Inside_WS >>> <<< (HIDDEN)
+                                expression
+                                  disjunction
+                                    conjunction
+                                      equality
+                                        comparison
+                                          genericCallLikeComparison
+                                            infixOperation
+                                              elvisExpression
+                                                infixFunctionCall
+                                                  rangeExpression
+                                                    additiveExpression
+                                                      multiplicativeExpression
+                                                        asExpression
+                                                          prefixUnaryExpression
+                                                            postfixUnaryExpression
+                                                              primaryExpression
+                                                                stringLiteral
+                                                                  lineStringLiteral
+                                                                    QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrEscapedChar >>>\$<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrText >>>{'<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrText >>>$<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrText >>>'}{messaging.command.topic.consumer.group.name}<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                              COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+                              Inside_NL >>>\n<<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              valueArgument
+                                simpleIdentifier
+                                  Identifier >>>clientIdPrefix<<< (DEFAULT_TOKEN_CHANNEL)
+                                Inside_WS >>> <<< (HIDDEN)
+                                ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                                Inside_WS >>> <<< (HIDDEN)
+                                expression
+                                  disjunction
+                                    conjunction
+                                      equality
+                                        comparison
+                                          genericCallLikeComparison
+                                            infixOperation
+                                              elvisExpression
+                                                infixFunctionCall
+                                                  rangeExpression
+                                                    additiveExpression
+                                                      multiplicativeExpression
+                                                        asExpression
+                                                          prefixUnaryExpression
+                                                            postfixUnaryExpression
+                                                              primaryExpression
+                                                                stringLiteral
+                                                                  lineStringLiteral
+                                                                    QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrEscapedChar >>>\$<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrText >>>{'<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrText >>>$<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrText >>>'}{messaging.command.topic.consumer.group.name}<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                              COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+                              Inside_NL >>>\n<<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              valueArgument
+                                simpleIdentifier
+                                  Identifier >>>topics<<< (DEFAULT_TOKEN_CHANNEL)
+                                Inside_WS >>> <<< (HIDDEN)
+                                ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                                Inside_WS >>> <<< (HIDDEN)
+                                expression
+                                  disjunction
+                                    conjunction
+                                      equality
+                                        comparison
+                                          genericCallLikeComparison
+                                            infixOperation
+                                              elvisExpression
+                                                infixFunctionCall
+                                                  rangeExpression
+                                                    additiveExpression
+                                                      multiplicativeExpression
+                                                        asExpression
+                                                          prefixUnaryExpression
+                                                            postfixUnaryExpression
+                                                              primaryExpression
+                                                                collectionLiteral
+                                                                  LSQUARE >>>[<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                  expression
+                                                                    disjunction
+                                                                      conjunction
+                                                                        equality
+                                                                          comparison
+                                                                            genericCallLikeComparison
+                                                                              infixOperation
+                                                                                elvisExpression
+                                                                                  infixFunctionCall
+                                                                                    rangeExpression
+                                                                                      additiveExpression
+                                                                                        multiplicativeExpression
+                                                                                          asExpression
+                                                                                            prefixUnaryExpression
+                                                                                              postfixUnaryExpression
+                                                                                                primaryExpression
+                                                                                                  stringLiteral
+                                                                                                    lineStringLiteral
+                                                                                                      QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                                      lineStringContent
+                                                                                                        LineStrText >>>direct.topic.name.2<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                                      QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                  COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                  Inside_WS >>> <<< (HIDDEN)
+                                                                  expression
+                                                                    disjunction
+                                                                      conjunction
+                                                                        equality
+                                                                          comparison
+                                                                            genericCallLikeComparison
+                                                                              infixOperation
+                                                                                elvisExpression
+                                                                                  infixFunctionCall
+                                                                                    rangeExpression
+                                                                                      additiveExpression
+                                                                                        multiplicativeExpression
+                                                                                          asExpression
+                                                                                            prefixUnaryExpression
+                                                                                              postfixUnaryExpression
+                                                                                                primaryExpression
+                                                                                                  stringLiteral
+                                                                                                    lineStringLiteral
+                                                                                                      QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                                      lineStringContent
+                                                                                                        LineStrEscapedChar >>>\$<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                                      lineStringContent
+                                                                                                        LineStrText >>>{'<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                                      lineStringContent
+                                                                                                        LineStrText >>>$<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                                      lineStringContent
+                                                                                                        LineStrText >>>'}{messaging.command.topic.name.2}<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                                      QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                  RSQUARE >>>]<<< (DEFAULT_TOKEN_CHANNEL)
+                              COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+                              Inside_NL >>>\n<<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              valueArgument
+                                simpleIdentifier
+                                  Identifier >>>concurrency<<< (DEFAULT_TOKEN_CHANNEL)
+                                Inside_WS >>> <<< (HIDDEN)
+                                ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                                Inside_WS >>> <<< (HIDDEN)
+                                expression
+                                  disjunction
+                                    conjunction
+                                      equality
+                                        comparison
+                                          genericCallLikeComparison
+                                            infixOperation
+                                              elvisExpression
+                                                infixFunctionCall
+                                                  rangeExpression
+                                                    additiveExpression
+                                                      multiplicativeExpression
+                                                        asExpression
+                                                          prefixUnaryExpression
+                                                            postfixUnaryExpression
+                                                              primaryExpression
+                                                                stringLiteral
+                                                                  lineStringLiteral
+                                                                    QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrEscapedChar >>>\$<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrText >>>{'<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrText >>>$<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    lineStringContent
+                                                                      LineStrText >>>'}{messaging.command.topic.listener-count}<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                    QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                              Inside_NL >>>\n<<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              Inside_WS >>> <<< (HIDDEN)
+                              RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  simpleIdentifier
+                    Identifier >>>topicTest4MultipleMixedTopics<<< (DEFAULT_TOKEN_CHANNEL)
+                  functionValueParameters
+                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                    functionValueParameter
+                      parameterModifiers
+                        annotation
+                          singleAnnotation
+                            AT_NO_WS >>>@<<< (DEFAULT_TOKEN_CHANNEL)
+                            unescapedAnnotation
+                              userType
+                                simpleUserType
+                                  simpleIdentifier
+                                    Identifier >>>Payload<<< (DEFAULT_TOKEN_CHANNEL)
+                      Inside_WS >>> <<< (HIDDEN)
+                      parameter
+                        simpleIdentifier
+                          Identifier >>>entityCommand<<< (DEFAULT_TOKEN_CHANNEL)
+                        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                        Inside_WS >>> <<< (HIDDEN)
+                        type
+                          typeReference
+                            userType
+                              simpleUserType
+                                simpleIdentifier
+                                  Identifier >>>EntityCommand<<< (DEFAULT_TOKEN_CHANNEL)
+                                typeArguments
+                                  LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                                  typeProjection
+                                    type
+                                      typeReference
+                                        userType
+                                          simpleUserType
+                                            simpleIdentifier
+                                              Identifier >>>JsonNode<<< (DEFAULT_TOKEN_CHANNEL)
+                                  RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+                    COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+                    Inside_WS >>> <<< (HIDDEN)
+                    functionValueParameter
+                      parameter
+                        simpleIdentifier
+                          Identifier >>>record<<< (DEFAULT_TOKEN_CHANNEL)
+                        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                        Inside_WS >>> <<< (HIDDEN)
+                        type
+                          typeReference
+                            userType
+                              simpleUserType
+                                simpleIdentifier
+                                  Identifier >>>ConsumerRecord<<< (DEFAULT_TOKEN_CHANNEL)
+                                typeArguments
+                                  LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                                  typeProjection
+                                    type
+                                      typeReference
+                                        userType
+                                          simpleUserType
+                                            simpleIdentifier
+                                              Identifier >>>String<<< (DEFAULT_TOKEN_CHANNEL)
+                                  COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+                                  Inside_WS >>> <<< (HIDDEN)
+                                  typeProjection
+                                    type
+                                      typeReference
+                                        userType
+                                          simpleUserType
+                                            simpleIdentifier
+                                              Identifier >>>Array<<< (DEFAULT_TOKEN_CHANNEL)
+                                            typeArguments
+                                              LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                                              typeProjection
+                                                type
+                                                  typeReference
+                                                    userType
+                                                      simpleUserType
+                                                        simpleIdentifier
+                                                          Identifier >>>Byte<<< (DEFAULT_TOKEN_CHANNEL)
+                                              RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+                                  RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  functionBody
+                    block
+                      LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+                      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      WS >>> <<< (HIDDEN)
+                      statements
+                      RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
