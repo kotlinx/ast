@@ -1,0 +1,117 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      functionDeclaration
+        FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        receiverType
+          typeReference
+            userType
+              simpleUserType
+                simpleIdentifier
+                  Identifier >>>A<<< (DEFAULT_TOKEN_CHANNEL)
+              DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+              simpleUserType
+                simpleIdentifier
+                  Identifier >>>B<<< (DEFAULT_TOKEN_CHANNEL)
+                typeArguments
+                  LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                  typeProjection
+                    type
+                      typeReference
+                        userType
+                          simpleUserType
+                            simpleIdentifier
+                              Identifier >>>C<<< (DEFAULT_TOKEN_CHANNEL)
+                  RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+              DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+              simpleUserType
+                simpleIdentifier
+                  Identifier >>>D<<< (DEFAULT_TOKEN_CHANNEL)
+        DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>function<<< (DEFAULT_TOKEN_CHANNEL)
+        functionValueParameters
+          LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+          Inside_NL >>>\n<<< (HIDDEN)
+          Inside_WS >>> <<< (HIDDEN)
+          Inside_WS >>> <<< (HIDDEN)
+          Inside_WS >>> <<< (HIDDEN)
+          Inside_WS >>> <<< (HIDDEN)
+          functionValueParameter
+            parameter
+              simpleIdentifier
+                Identifier >>>e<<< (DEFAULT_TOKEN_CHANNEL)
+              COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              type
+                typeReference
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>E<<< (DEFAULT_TOKEN_CHANNEL)
+          COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+          Inside_NL >>>\n<<< (HIDDEN)
+          Inside_WS >>> <<< (HIDDEN)
+          Inside_WS >>> <<< (HIDDEN)
+          Inside_WS >>> <<< (HIDDEN)
+          Inside_WS >>> <<< (HIDDEN)
+          functionValueParameter
+            parameter
+              simpleIdentifier
+                Identifier >>>fg<<< (DEFAULT_TOKEN_CHANNEL)
+              COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              type
+                typeReference
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>F<<< (DEFAULT_TOKEN_CHANNEL)
+                    DOT >>>.<<< (DEFAULT_TOKEN_CHANNEL)
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>G<<< (DEFAULT_TOKEN_CHANNEL)
+                      typeArguments
+                        LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                        typeProjection
+                          type
+                            typeReference
+                              userType
+                                simpleUserType
+                                  simpleIdentifier
+                                    Identifier >>>H<<< (DEFAULT_TOKEN_CHANNEL)
+                        RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+          COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+          Inside_NL >>>\n<<< (HIDDEN)
+          RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        type
+          typeReference
+            userType
+              simpleUserType
+                simpleIdentifier
+                  Identifier >>>I<<< (DEFAULT_TOKEN_CHANNEL)
+                typeArguments
+                  LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                  typeProjection
+                    type
+                      typeReference
+                        userType
+                          simpleUserType
+                            simpleIdentifier
+                              Identifier >>>J<<< (DEFAULT_TOKEN_CHANNEL)
+                  RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        functionBody
+          block
+            LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+            statements
+            RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

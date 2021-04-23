@@ -1,0 +1,5 @@
+fun A.B<C>.D.function(
+    e: E,
+    fg: F.G<H>,
+): I<J> {
+}
