@@ -28,6 +28,14 @@ data class KlassModifier(
 
 val starProjection = KlassIdentifier(identifier = "*")
 
+fun List<KlassIdentifier>.identifierNameOrNull(): String? {
+    return if (isEmpty()) {
+        null
+    } else {
+        identifierName()
+    }
+}
+
 fun List<KlassIdentifier>.identifierName(): String {
     return joinToString(
         separator = ".",
@@ -221,7 +229,7 @@ data class KlassInheritance(
 data class KlassDeclaration(
     val keyword: String,
     val identifier: KlassIdentifier? = null,
-    val type: KlassIdentifier? = null,
+    val type: List<KlassIdentifier> = emptyList(),
     val receiverType: List<KlassIdentifier> = emptyList(),
     val annotations: List<KlassAnnotation> = emptyList(),
     val modifiers: List<KlassModifier> = emptyList(),
@@ -232,14 +240,14 @@ data class KlassDeclaration(
     val comments: List<KlassComment> = emptyList(),
     override val attachments: AstAttachments = AstAttachments(),
 ) : KlassNode<KlassDeclaration>(), AstWithAttributes {
-    override val attributes: List<Ast> = listOfNotNull(identifier, type)
+    override val attributes: List<Ast> = listOfNotNull(identifier) + type
 
     override val description: String =
         listOfNotNull(
             keyword,
             if (receiverType.isEmpty()) null else receiverType.identifierName(),
             identifier?.rawName,
-            type?.rawName
+            type.identifierNameOrNull(),
         ).joinToString(" ", "KlassDeclaration(", ")")
 
     override val children: List<Ast> = listOf(
@@ -305,7 +313,7 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
     val identifiers = ast.filterIsInstance<KlassIdentifier>()
 
     val identifier = identifiers.getOrNull(0)
-    val type = identifiers.getOrNull(1)
+    val type = identifiers.drop(1)
 
     val annotations = ast.filterIsInstance<KlassAnnotation>()
     val modifiers = ast.filterIsInstance<KlassModifier>()
@@ -319,7 +327,8 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
         .flatMap(AstNode::children)
         .filterIsInstance<KlassIdentifier>()
 
-    val used = setOfNotNull(identifier, type) +
+    val used = setOfNotNull(identifier) +
+            type +
             annotations +
             modifiers +
             parameter +

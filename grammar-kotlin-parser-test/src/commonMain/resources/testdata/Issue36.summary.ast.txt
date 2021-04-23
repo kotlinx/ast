@@ -2,4 +2,4 @@ PackageHeader()
 importList
 KlassDeclaration(fun A.B<C>.D function I<J>)
   KlassDeclaration(parameter e E)
-  KlassDeclaration(parameter fg F)
+  KlassDeclaration(parameter fg F.G<H>)

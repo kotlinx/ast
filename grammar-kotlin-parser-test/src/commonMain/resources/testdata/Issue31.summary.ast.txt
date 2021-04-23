@@ -7,4 +7,4 @@ KlassDeclaration(class FeatureFragment)
   classBody
     KlassDeclaration(fun handleViewStateChanges Unit)
       KlassModifier(private, visibilityModifier)
-      KlassDeclaration(parameter viewState FeatureViewModel)
+      KlassDeclaration(parameter viewState FeatureViewModel.ViewState)

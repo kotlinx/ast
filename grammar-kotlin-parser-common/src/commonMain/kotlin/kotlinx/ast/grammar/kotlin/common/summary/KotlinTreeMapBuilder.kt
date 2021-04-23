@@ -364,14 +364,13 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
             node,
             filter = byDescription("parameterModifiers", "parameter", "expression")
         ).flatMap { result ->
-            val nullable = result.descriptions().contains("quest")
             val identifiers = result.filterIsInstance<KlassIdentifier>()
 
             astContinue(
                 KlassDeclaration(
                     keyword = "parameter",
                     identifier = identifiers[0],
-                    type = identifiers.getOrNull(1)?.copy(nullable = nullable),
+                    type = identifiers.drop(1),
                     annotations = result.filterIsInstance<KlassAnnotation>(),
                     modifiers = result.filterIsInstance<KlassModifier>(),
                     expressions = result.expressions()
@@ -406,7 +405,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                 KlassDeclaration(
                     keyword = "fun",
                     identifier = identifiers[0],
-                    type = identifiers.getOrNull(1),
+                    type = identifiers.drop(1),
                     receiverType = receiverType,
                     annotations = result.filterIsInstance<KlassAnnotation>(),
                     modifiers = result.filterIsInstance<KlassModifier>(),
