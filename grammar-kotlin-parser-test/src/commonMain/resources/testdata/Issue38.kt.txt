@@ -1,0 +1,7 @@
+class MyClass {
+    val myClassProp = "myClassProp"
+    companion object {
+        const val myCompanionConst = "myCompanionConst"
+        val myCompanionProp = "myCompanionProp"
+    }
+}

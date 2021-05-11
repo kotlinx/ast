@@ -1,0 +1,167 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>MyClass<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        classBody
+          LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          classMemberDeclarations
+            classMemberDeclaration
+              declaration
+                propertyDeclaration
+                  VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  variableDeclaration
+                    simpleIdentifier
+                      Identifier >>>myClassProp<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  expression
+                    disjunction
+                      conjunction
+                        equality
+                          comparison
+                            genericCallLikeComparison
+                              infixOperation
+                                elvisExpression
+                                  infixFunctionCall
+                                    rangeExpression
+                                      additiveExpression
+                                        multiplicativeExpression
+                                          asExpression
+                                            prefixUnaryExpression
+                                              postfixUnaryExpression
+                                                primaryExpression
+                                                  stringLiteral
+                                                    lineStringLiteral
+                                                      QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                      lineStringContent
+                                                        LineStrText >>>myClassProp<<< (DEFAULT_TOKEN_CHANNEL)
+                                                      QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                  NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            classMemberDeclaration
+              companionObject
+                COMPANION >>>companion<<< (DEFAULT_TOKEN_CHANNEL)
+                WS >>> <<< (HIDDEN)
+                OBJECT >>>object<<< (DEFAULT_TOKEN_CHANNEL)
+                WS >>> <<< (HIDDEN)
+                classBody
+                  LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+                  NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  classMemberDeclarations
+                    classMemberDeclaration
+                      declaration
+                        propertyDeclaration
+                          modifiers
+                            modifier
+                              propertyModifier
+                                CONST >>>const<<< (DEFAULT_TOKEN_CHANNEL)
+                          WS >>> <<< (HIDDEN)
+                          VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+                          WS >>> <<< (HIDDEN)
+                          variableDeclaration
+                            simpleIdentifier
+                              Identifier >>>myCompanionConst<<< (DEFAULT_TOKEN_CHANNEL)
+                          WS >>> <<< (HIDDEN)
+                          ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                          WS >>> <<< (HIDDEN)
+                          expression
+                            disjunction
+                              conjunction
+                                equality
+                                  comparison
+                                    genericCallLikeComparison
+                                      infixOperation
+                                        elvisExpression
+                                          infixFunctionCall
+                                            rangeExpression
+                                              additiveExpression
+                                                multiplicativeExpression
+                                                  asExpression
+                                                    prefixUnaryExpression
+                                                      postfixUnaryExpression
+                                                        primaryExpression
+                                                          stringLiteral
+                                                            lineStringLiteral
+                                                              QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                              lineStringContent
+                                                                LineStrText >>>myCompanionConst<<< (DEFAULT_TOKEN_CHANNEL)
+                                                              QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    WS >>> <<< (HIDDEN)
+                    classMemberDeclaration
+                      declaration
+                        propertyDeclaration
+                          VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+                          WS >>> <<< (HIDDEN)
+                          variableDeclaration
+                            simpleIdentifier
+                              Identifier >>>myCompanionProp<<< (DEFAULT_TOKEN_CHANNEL)
+                          WS >>> <<< (HIDDEN)
+                          ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+                          WS >>> <<< (HIDDEN)
+                          expression
+                            disjunction
+                              conjunction
+                                equality
+                                  comparison
+                                    genericCallLikeComparison
+                                      infixOperation
+                                        elvisExpression
+                                          infixFunctionCall
+                                            rangeExpression
+                                              additiveExpression
+                                                multiplicativeExpression
+                                                  asExpression
+                                                    prefixUnaryExpression
+                                                      postfixUnaryExpression
+                                                        primaryExpression
+                                                          stringLiteral
+                                                            lineStringLiteral
+                                                              QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                              lineStringContent
+                                                                LineStrText >>>myCompanionProp<<< (DEFAULT_TOKEN_CHANNEL)
+                                                              QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  WS >>> <<< (HIDDEN)
+                  RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+            semis
+              NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
