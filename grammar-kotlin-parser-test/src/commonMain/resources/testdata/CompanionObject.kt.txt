@@ -1,0 +1,13 @@
+class A {
+    companion object
+}
+
+class B {
+    companion object Name
+}
+
+class C {
+    companion object {
+        val name: String
+    }
+}

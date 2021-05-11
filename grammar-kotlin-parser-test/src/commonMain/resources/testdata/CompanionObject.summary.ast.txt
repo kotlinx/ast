@@ -1,0 +1,13 @@
+PackageHeader()
+importList
+KlassDeclaration(class A)
+  classBody
+    KlassDeclaration(companion object)
+KlassDeclaration(class B)
+  classBody
+    KlassDeclaration(companion object Name)
+KlassDeclaration(class C)
+  classBody
+    KlassDeclaration(companion object)
+      classBody
+        KlassDeclaration(val name String)
