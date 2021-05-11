@@ -6,106 +6,12 @@
       [20..52]     [2:5..2:37]        KlassDeclaration(val myClassProp)
       [38..51]     [2:23..2:36]         KlassString
    17 [39..50]     [2:24..2:35]           "myClassProp"
-      [56..184]    [3:5..6:6]         companionObject
-   24 [56..65]     [3:5..3:14]          COMPANION
-   25 [65..66]     [3:14..3:15]         WS
-   26 [66..72]     [3:15..3:21]         OBJECT
-   27 [72..73]     [3:21..3:22]         WS
+      [56..184]    [3:5..6:6]         KlassDeclaration(companion object)
       [73..184]    [3:22..6:6]          classBody
-   28 [73..74]     [3:22..3:23]           LCURL
-   29 [74..75]     [3:23..3:24]           NL
-   30 [75..76]     [4:1..4:2]             WS
-   31 [76..77]     [4:2..4:3]             WS
-   32 [77..78]     [4:3..4:4]             WS
-   33 [78..79]     [4:4..4:5]             WS
-   34 [79..80]     [4:5..4:6]             WS
-   35 [80..81]     [4:6..4:7]             WS
-   36 [81..82]     [4:7..4:8]             WS
-   37 [82..83]     [4:8..4:9]             WS
-      [83..179]    [4:9..5:49]            classMemberDeclarations
-      [83..131]    [4:9..4:57]              classMemberDeclaration
-      [83..131]    [4:9..4:57]                declaration
-      [83..131]    [4:9..4:57]                  propertyDeclaration
-      [83..88]     [4:9..4:14]                    modifiers
-      [83..88]     [4:9..4:14]                      modifier
-      [83..88]     [4:9..4:14]                        propertyModifier
-   38 [83..88]     [4:9..4:14]                          CONST
-   39 [88..89]     [4:14..4:15]                   WS
-   40 [89..92]     [4:15..4:18]                   VAL
-   41 [92..93]     [4:18..4:19]                   WS
-      [93..109]    [4:19..4:35]                   variableDeclaration
-      [93..109]    [4:19..4:35]                     simpleIdentifier
-   42 [93..109]    [4:19..4:35]                       Identifier
-   43 [109..110]   [4:35..4:36]                   WS
-   44 [110..111]   [4:36..4:37]                   ASSIGNMENT
-   45 [111..112]   [4:37..4:38]                   WS
-      [112..130]   [4:38..4:56]                   expression
-      [112..130]   [4:38..4:56]                     disjunction
-      [112..130]   [4:38..4:56]                       conjunction
-      [112..130]   [4:38..4:56]                         equality
-      [112..130]   [4:38..4:56]                           comparison
-      [112..130]   [4:38..4:56]                             genericCallLikeComparison
-      [112..130]   [4:38..4:56]                               infixOperation
-      [112..130]   [4:38..4:56]                                 elvisExpression
-      [112..130]   [4:38..4:56]                                   infixFunctionCall
-      [112..130]   [4:38..4:56]                                     rangeExpression
-      [112..130]   [4:38..4:56]                                       additiveExpression
-      [112..130]   [4:38..4:56]                                         multiplicativeExpression
-      [112..130]   [4:38..4:56]                                           asExpression
-      [112..130]   [4:38..4:56]                                             prefixUnaryExpression
-      [112..130]   [4:38..4:56]                                               postfixUnaryExpression
-      [112..130]   [4:38..4:56]                                                 primaryExpression
-      [112..130]   [4:38..4:56]                                                   stringLiteral
-      [112..130]   [4:38..4:56]                                                     lineStringLiteral
-   46 [112..113]   [4:38..4:39]                                                       QUOTE_OPEN
-      [113..129]   [4:39..4:55]                                                       lineStringContent
-   47 [113..129]   [4:39..4:55]                                                         LineStrText
-   48 [129..130]   [4:55..4:56]                                                       QUOTE_CLOSE
-   49 [130..131]   [4:56..4:57]                   NL
-   50 [131..132]   [5:1..5:2]               WS
-   51 [132..133]   [5:2..5:3]               WS
-   52 [133..134]   [5:3..5:4]               WS
-   53 [134..135]   [5:4..5:5]               WS
-   54 [135..136]   [5:5..5:6]               WS
-   55 [136..137]   [5:6..5:7]               WS
-   56 [137..138]   [5:7..5:8]               WS
-   57 [138..139]   [5:8..5:9]               WS
-      [139..179]   [5:9..5:49]              classMemberDeclaration
-      [139..179]   [5:9..5:49]                declaration
-      [139..179]   [5:9..5:49]                  propertyDeclaration
-   58 [139..142]   [5:9..5:12]                    VAL
-   59 [142..143]   [5:12..5:13]                   WS
-      [143..158]   [5:13..5:28]                   variableDeclaration
-      [143..158]   [5:13..5:28]                     simpleIdentifier
-   60 [143..158]   [5:13..5:28]                       Identifier
-   61 [158..159]   [5:28..5:29]                   WS
-   62 [159..160]   [5:29..5:30]                   ASSIGNMENT
-   63 [160..161]   [5:30..5:31]                   WS
-      [161..178]   [5:31..5:48]                   expression
-      [161..178]   [5:31..5:48]                     disjunction
-      [161..178]   [5:31..5:48]                       conjunction
-      [161..178]   [5:31..5:48]                         equality
-      [161..178]   [5:31..5:48]                           comparison
-      [161..178]   [5:31..5:48]                             genericCallLikeComparison
-      [161..178]   [5:31..5:48]                               infixOperation
-      [161..178]   [5:31..5:48]                                 elvisExpression
-      [161..178]   [5:31..5:48]                                   infixFunctionCall
-      [161..178]   [5:31..5:48]                                     rangeExpression
-      [161..178]   [5:31..5:48]                                       additiveExpression
-      [161..178]   [5:31..5:48]                                         multiplicativeExpression
-      [161..178]   [5:31..5:48]                                           asExpression
-      [161..178]   [5:31..5:48]                                             prefixUnaryExpression
-      [161..178]   [5:31..5:48]                                               postfixUnaryExpression
-      [161..178]   [5:31..5:48]                                                 primaryExpression
-      [161..178]   [5:31..5:48]                                                   stringLiteral
-      [161..178]   [5:31..5:48]                                                     lineStringLiteral
-   64 [161..162]   [5:31..5:32]                                                       QUOTE_OPEN
-      [162..177]   [5:32..5:47]                                                       lineStringContent
-   65 [162..177]   [5:32..5:47]                                                         LineStrText
-   66 [177..178]   [5:47..5:48]                                                       QUOTE_CLOSE
-   67 [178..179]   [5:48..5:49]                   NL
-   68 [179..180]   [6:1..6:2]             WS
-   69 [180..181]   [6:2..6:3]             WS
-   70 [181..182]   [6:3..6:4]             WS
-   71 [182..183]   [6:4..6:5]             WS
-   72 [183..184]   [6:5..6:6]             RCURL
+      [83..131]    [4:9..4:57]            KlassDeclaration(val myCompanionConst)
+      [83..88]     [4:9..4:14]              KlassModifier(const, propertyModifier)
+      [112..130]   [4:38..4:56]             KlassString
+   47 [113..129]   [4:39..4:55]               "myCompanionConst"
+      [139..179]   [5:9..5:49]            KlassDeclaration(val myCompanionProp)
+      [161..178]   [5:31..5:48]             KlassString
+   65 [162..177]   [5:32..5:47]               "myCompanionProp"
