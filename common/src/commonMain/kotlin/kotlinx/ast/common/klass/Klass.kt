@@ -274,6 +274,7 @@ private val klassDeclarationKeywords: Map<String, String> = mapOf(
     "VAL" to "val",
     "CLASS" to "class",
     "INTERFACE" to "interface",
+    "COMPANION" to "companion object",
     "OBJECT" to "object",
     "primaryConstructor" to "constructor",
     "valueArgument" to "argument",

@@ -344,6 +344,19 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     (NL* COLON NL* delegationSpecifiers)?
 //     (NL* classBody)?
 //     ;
+    .convert(
+        filter = byDescription("companionObject")
+    ) { node: AstNode ->
+        toKlassDeclaration(node) { ast ->
+            astContinue(
+                ast.filter(
+                    setOf(
+                        "classBody",
+                    )
+                )
+            )
+        }.toAstList()
+    }
 
 // functionValueParameters
 //     : LPAREN NL* (functionValueParameter (NL* COMMA NL* functionValueParameter)* (NL* COMMA)?)? NL* RPAREN
