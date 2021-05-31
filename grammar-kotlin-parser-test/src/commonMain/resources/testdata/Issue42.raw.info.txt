@@ -1,0 +1,165 @@
+   ID Index        Position       Token
+      [0..218]     [1:1..9:6]     kotlinFile
+      [0..28]      [1:1..2:2]       packageHeader
+    0 [0..7]       [1:1..1:8]         PACKAGE
+    1 [7..8]       [1:8..1:9]         WS
+      [8..26]      [1:9..1:27]        identifier
+      [8..11]      [1:9..1:12]          simpleIdentifier
+    2 [8..11]      [1:9..1:12]            Identifier
+    3 [11..12]     [1:12..1:13]         DOT
+      [12..19]     [1:13..1:20]         simpleIdentifier
+    4 [12..19]     [1:13..1:20]           Identifier
+    5 [19..20]     [1:20..1:21]         DOT
+      [20..23]     [1:21..1:24]         simpleIdentifier
+    6 [20..23]     [1:21..1:24]           Identifier
+    7 [23..24]     [1:24..1:25]         DOT
+      [24..26]     [1:25..1:27]         simpleIdentifier
+    8 [24..26]     [1:25..1:27]           Identifier
+      [26..28]     [1:27..2:2]        semi
+    9 [26..27]     [1:27..1:28]         NL
+   10 [27..28]     [2:1..2:2]           NL
+                                    importList
+      [28..218]    [3:1..8:3]       topLevelObject
+      [28..217]    [3:1..8:2]         declaration
+      [28..217]    [3:1..8:2]           classDeclaration
+      [28..36]     [3:1..3:9]             modifiers
+      [28..36]     [3:1..3:9]               modifier
+      [28..36]     [3:1..3:9]                 visibilityModifier
+   11 [28..36]     [3:1..3:9]                   INTERNAL
+   12 [36..37]     [3:9..3:10]            WS
+   13 [37..42]     [3:10..3:15]           CLASS
+   14 [42..43]     [3:15..3:16]           WS
+      [43..58]     [3:16..3:31]           simpleIdentifier
+   15 [43..58]     [3:16..3:31]             Identifier
+   16 [58..59]     [3:31..3:32]           WS
+   17 [59..60]     [3:32..3:33]           COLON
+   18 [60..61]     [3:33..3:34]           NL
+   19 [61..62]     [4:1..4:2]             WS
+   20 [62..63]     [4:2..4:3]             WS
+   21 [63..64]     [4:3..4:4]             WS
+   22 [64..65]     [4:4..4:5]             WS
+      [65..121]    [4:5..4:61]            delegationSpecifiers
+      [65..121]    [4:5..4:61]              annotatedDelegationSpecifier
+      [65..121]    [4:5..4:61]                delegationSpecifier
+      [65..121]    [4:5..4:61]                  constructorInvocation
+      [65..119]    [4:5..4:59]                    userType
+      [65..119]    [4:5..4:59]                      simpleUserType
+      [65..77]     [4:5..4:17]                        simpleIdentifier
+   23 [65..77]     [4:5..4:17]                          Identifier
+      [77..119]    [4:17..4:59]                       typeArguments
+   24 [77..78]     [4:17..4:18]                         LANGLE
+      [78..94]     [4:18..4:34]                         typeProjection
+      [78..94]     [4:18..4:34]                           type
+      [78..94]     [4:18..4:34]                             typeReference
+      [78..94]     [4:18..4:34]                               userType
+      [78..94]     [4:18..4:34]                                 simpleUserType
+      [78..94]     [4:18..4:34]                                   simpleIdentifier
+   25 [78..94]     [4:18..4:34]                                     Identifier
+   26 [94..95]     [4:34..4:35]                         COMMA
+   27 [95..96]     [4:35..4:36]                         WS
+      [96..118]    [4:36..4:58]                         typeProjection
+      [96..118]    [4:36..4:58]                           type
+      [96..118]    [4:36..4:58]                             typeReference
+      [96..118]    [4:36..4:58]                               userType
+      [96..118]    [4:36..4:58]                                 simpleUserType
+      [96..118]    [4:36..4:58]                                   simpleIdentifier
+   28 [96..118]    [4:36..4:58]                                     Identifier
+   29 [118..119]   [4:58..4:59]                         RANGLE
+      [119..121]   [4:59..4:61]                   valueArguments
+   30 [119..120]   [4:59..4:60]                     LPAREN
+   31 [120..121]   [4:60..4:61]                     RPAREN
+   32 [121..122]   [4:61..4:62]           WS
+      [122..217]   [4:62..8:2]            classBody
+   33 [122..123]   [4:62..4:63]             LCURL
+   34 [123..124]   [4:63..4:64]             NL
+   35 [124..125]   [5:1..5:2]               NL
+   36 [125..126]   [6:1..6:2]               WS
+   37 [126..127]   [6:2..6:3]               WS
+   38 [127..128]   [6:3..6:4]               WS
+   39 [128..129]   [6:4..6:5]               WS
+      [129..216]   [6:5..7:2]               classMemberDeclarations
+      [129..214]   [6:5..6:90]                classMemberDeclaration
+      [129..214]   [6:5..6:90]                  declaration
+      [129..214]   [6:5..6:90]                    functionDeclaration
+      [129..137]   [6:5..6:13]                      modifiers
+      [129..137]   [6:5..6:13]                        modifier
+      [129..137]   [6:5..6:13]                          memberModifier
+   40 [129..137]   [6:5..6:13]                            OVERRIDE
+   41 [137..138]   [6:13..6:14]                     WS
+   42 [138..141]   [6:14..6:17]                     FUN
+   43 [141..142]   [6:17..6:18]                     WS
+      [142..160]   [6:18..6:36]                     simpleIdentifier
+   44 [142..160]   [6:18..6:36]                       Identifier
+      [160..162]   [6:36..6:38]                     functionValueParameters
+   45 [160..161]   [6:36..6:37]                       LPAREN
+   46 [161..162]   [6:37..6:38]                       RPAREN
+   47 [162..163]   [6:38..6:39]                     COLON
+   48 [163..164]   [6:39..6:40]                     WS
+      [164..200]   [6:40..6:76]                     type
+      [164..200]   [6:40..6:76]                       typeReference
+      [164..200]   [6:40..6:76]                         userType
+      [164..200]   [6:40..6:76]                           simpleUserType
+      [164..168]   [6:40..6:44]                             simpleIdentifier
+   49 [164..168]   [6:40..6:44]                               Identifier
+      [168..200]   [6:44..6:76]                             typeArguments
+   50 [168..169]   [6:44..6:45]                               LANGLE
+      [169..199]   [6:45..6:75]                               typeProjection
+      [169..199]   [6:45..6:75]                                 type
+      [169..199]   [6:45..6:75]                                   typeReference
+      [169..199]   [6:45..6:75]                                     userType
+      [169..199]   [6:45..6:75]                                       simpleUserType
+      [169..179]   [6:45..6:55]                                         simpleIdentifier
+   51 [169..179]   [6:45..6:55]                                           Identifier
+      [179..199]   [6:55..6:75]                                         typeArguments
+   52 [179..180]   [6:55..6:56]                                           LANGLE
+      [180..198]   [6:56..6:74]                                           typeProjection
+      [180..183]   [6:56..6:59]                                             typeProjectionModifiers
+      [180..183]   [6:56..6:59]                                               typeProjectionModifier
+      [180..183]   [6:56..6:59]                                                 varianceModifier
+   53 [180..183]   [6:56..6:59]                                                   OUT
+   54 [183..184]   [6:59..6:60]                                             WS
+      [184..198]   [6:60..6:74]                                             type
+      [184..198]   [6:60..6:74]                                               typeReference
+      [184..198]   [6:60..6:74]                                                 userType
+      [184..191]   [6:60..6:67]                                                   simpleUserType
+      [184..191]   [6:60..6:67]                                                     simpleIdentifier
+   55 [184..191]   [6:60..6:67]                                                       Identifier
+   56 [191..192]   [6:67..6:68]                                                   DOT
+      [192..198]   [6:68..6:74]                                                   simpleUserType
+      [192..198]   [6:68..6:74]                                                     simpleIdentifier
+   57 [192..198]   [6:68..6:74]                                                       Identifier
+   58 [198..199]   [6:74..6:75]                                           RANGLE
+   59 [199..200]   [6:75..6:76]                               RANGLE
+   60 [200..201]   [6:76..6:77]                     WS
+      [201..214]   [6:77..6:90]                     functionBody
+   61 [201..202]   [6:77..6:78]                       ASSIGNMENT
+   62 [202..203]   [6:78..6:79]                       WS
+      [203..214]   [6:79..6:90]                       expression
+      [203..214]   [6:79..6:90]                         disjunction
+      [203..214]   [6:79..6:90]                           conjunction
+      [203..214]   [6:79..6:90]                             equality
+      [203..214]   [6:79..6:90]                               comparison
+      [203..214]   [6:79..6:90]                                 genericCallLikeComparison
+      [203..212]   [6:79..6:88]                                   infixOperation
+      [203..212]   [6:79..6:88]                                     elvisExpression
+      [203..212]   [6:79..6:88]                                       infixFunctionCall
+      [203..212]   [6:79..6:88]                                         rangeExpression
+      [203..212]   [6:79..6:88]                                           additiveExpression
+      [203..212]   [6:79..6:88]                                             multiplicativeExpression
+      [203..212]   [6:79..6:88]                                               asExpression
+      [203..212]   [6:79..6:88]                                                 prefixUnaryExpression
+      [203..212]   [6:79..6:88]                                                   postfixUnaryExpression
+      [203..212]   [6:79..6:88]                                                     primaryExpression
+      [203..212]   [6:79..6:88]                                                       simpleIdentifier
+   63 [203..212]   [6:79..6:88]                                                         Identifier
+      [212..214]   [6:88..6:90]                                   callSuffix
+      [212..214]   [6:88..6:90]                                     valueArguments
+   64 [212..213]   [6:88..6:89]                                       LPAREN
+   65 [213..214]   [6:89..6:90]                                       RPAREN
+      [214..216]   [6:90..7:2]                semis
+   66 [214..215]   [6:90..6:91]                 NL
+   67 [215..216]   [7:1..7:2]                   NL
+   68 [216..217]   [8:1..8:2]               RCURL
+      [217..218]   [8:2..8:3]         semis
+   69 [217..218]   [8:2..8:3]           NL
+   70 [218..218]   [9:1..9:6]       EOF
