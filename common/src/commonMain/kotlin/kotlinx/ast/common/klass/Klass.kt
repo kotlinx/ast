@@ -58,18 +58,29 @@ data class KlassComment(
 data class KlassIdentifier(
     val identifier: String,
     val parameter: List<KlassIdentifier> = emptyList(),
+    val modifiers: List<KlassModifier> = emptyList(),
     override val children: List<Ast> = emptyList(),
     val nullable: Boolean = false,
     override val attachments: AstAttachments = AstAttachments(),
 ) : KlassNode<KlassIdentifier>(), AstWithAttributes {
-    override val attributes: List<Ast> = parameter
+    override val attributes: List<Ast> = parameter + modifiers
 
     val rawName: String = listOfNotNull(
+        if (modifiers.isEmpty()) {
+            null
+        } else {
+            modifiers.joinToString(
+                transform = KlassModifier::modifier,
+                separator = " ",
+                postfix = " ",
+            )
+        },
         identifier,
         if (parameter.isEmpty()) {
             null
         } else {
-            parameter.map(KlassIdentifier::rawName).joinToString(
+            parameter.joinToString(
+                transform = KlassIdentifier::rawName,
                 prefix = "<",
                 separator = ", ",
                 postfix = ">"
@@ -106,6 +117,10 @@ data class KlassIdentifier(
                     ast !is KlassIdentifier
                 })
         )
+    }
+
+    fun withModifiers(modifiers: List<KlassModifier>): Ast {
+        return copy(modifiers = this.modifiers + modifiers)
     }
 }
 

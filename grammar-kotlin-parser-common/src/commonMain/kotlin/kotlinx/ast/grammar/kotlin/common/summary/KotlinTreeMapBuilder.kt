@@ -639,17 +639,32 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
             astContinue(starProjection)
         } else {
             recursiveFlatten(node).flatMap { list ->
-                list.fold(astSuccess(emptyList<KlassIdentifier>())) { result, right ->
+                list.fold(
+                    astSuccess(
+                        Pair(emptyList<KlassModifier>(), emptyList<KlassIdentifier>())
+                    )
+                ) { result, right ->
                     when {
-                        result is AstSuccess && result.success.isEmpty() ->
-                            if (right is KlassIdentifier) {
-                                astSuccess(listOf(right))
-                            } else {
-                                astFailure("found unsupported ast node '$right' in typeProjection!")
+                        result is AstSuccess && result.success.second.isEmpty() ->
+                            when (right) {
+                                is KlassIdentifier ->
+                                    astSuccess(
+                                        result.success.copy(
+                                            second = listOf(right)
+                                        )
+                                    )
+                                is KlassModifier ->
+                                    astSuccess(
+                                        result.success.copy(
+                                            first = result.success.first + right
+                                        )
+                                    )
+                                else ->
+                                    astFailure("found unsupported ast node '$right' in typeProjection!")
                             }
 
-                        result is AstSuccess && result.success.size == 1 -> {
-                            val left = result.success.first()
+                        result is AstSuccess && result.success.second.size == 1 -> {
+                            val left = result.success.second.first()
                             when {
                                 right is KlassIdentifier -> {
                                     val identifier = listOf(
@@ -657,13 +672,19 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                                         right.identifier
                                     ).joinToString(".")
                                     astSuccess(
-                                        listOf(
-                                            left.copy(identifier = identifier)
+                                        result.success.copy(
+                                            second = listOf(
+                                                left.copy(identifier = identifier)
+                                            )
                                         )
                                     )
                                 }
                                 right.description == "quest" ->
-                                    astSuccess(listOf(left.copy(nullable = true)))
+                                    astSuccess(
+                                        result.success.copy(
+                                            second = listOf(left.copy(nullable = true))
+                                        )
+                                    )
                                 else ->
                                     astFailure("found unsupported ast node '$right' in typeProjection!")
                             }
@@ -671,8 +692,17 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                         else ->
                             result
                     }
-                }.flatMap { identifiers ->
-                    astSuccess(identifiers)
+                }.flatMap { (modifiers, identifiers) ->
+                    when {
+                        identifiers.isEmpty() ->
+                            astFailure("missing identifier in typeProjection!")
+                        identifiers.size != 1 ->
+                            astFailure("expected exactly one identifier in typeProjection!")
+                        modifiers.isEmpty() ->
+                            astSuccess(listOf(identifiers.first()))
+                        else ->
+                            astSuccess(listOf(identifiers.first().withModifiers(modifiers)))
+                    }
                 }
             }
         }
@@ -681,11 +711,21 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 // typeProjectionModifiers
 //     : typeProjectionModifier+
 //     ;
+    .convert(
+        filter = byDescription("typeProjectionModifiers")
+    ) { node: AstNode ->
+        recursiveFlatten(node)
+    }
 
 // typeProjectionModifier
 //     : varianceModifier NL*
 //     | annotation
 //     ;
+    .convert(
+        filter = byDescription("typeProjectionModifier")
+    ) { node: AstNode ->
+        recursiveFlatten(node)
+    }
 
 // functionType
 //     : (receiverType NL* DOT NL*)? functionTypeParameters NL* ARROW NL* type

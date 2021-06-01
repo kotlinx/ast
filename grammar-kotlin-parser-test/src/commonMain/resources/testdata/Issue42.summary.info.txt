@@ -1,0 +1,10 @@
+   ID Index        Position       Token
+      [0..28]      [1:1..2:2]     PackageHeader(com.example.app.ui)
+                                  importList
+      [28..217]    [3:1..8:2]     KlassDeclaration(class FeatureFragment)
+      [28..36]     [3:1..3:9]       KlassModifier(internal, visibilityModifier)
+      [65..121]    [4:5..4:61]      KlassInheritance
+      [65..77]     [4:5..4:17]        KlassIdentifier(BaseFragment<FeatureViewModel, FeatureFragmentBinding>)
+      [122..217]   [4:62..8:2]      classBody
+      [129..214]   [6:5..6:90]        KlassDeclaration(fun provideViewIntents List<Observable<out Feature.Intent>>)
+      [129..137]   [6:5..6:13]          KlassModifier(override, memberModifier)

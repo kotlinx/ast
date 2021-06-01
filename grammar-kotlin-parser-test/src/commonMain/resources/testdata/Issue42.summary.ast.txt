@@ -1,0 +1,9 @@
+PackageHeader(com.example.app.ui)
+importList
+KlassDeclaration(class FeatureFragment)
+  KlassModifier(internal, visibilityModifier)
+  KlassInheritance
+    KlassIdentifier(BaseFragment<FeatureViewModel, FeatureFragmentBinding>)
+  classBody
+    KlassDeclaration(fun provideViewIntents List<Observable<out Feature.Intent>>)
+      KlassModifier(override, memberModifier)
