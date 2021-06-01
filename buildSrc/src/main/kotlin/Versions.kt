@@ -1,6 +1,6 @@
 object Versions {
     const val kotlin = "1.4.10"
-    const val gradle = "6.7"
+    const val gradle = "7.1.1"
     const val antlrJava = "4.7.2"
     const val antlrOptimized = "4.7.4"
     const val antlrUsedByAntlrKotlin = "4.7.1"
