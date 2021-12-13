@@ -113,7 +113,7 @@ There is a small example to get started:
 * for `antlr-optimized` [ExampleMain.kt](grammar-kotlin-parser-antlr-optimized/src/test/kotlin/kotlinx/ast/example/ExampleMain.kt)
 
 ## Using with Gradle
-`kotlinx.ast` is accessible on Maven & Gradle through Jitpack. In jitpack basically you can use every commit or tag as a version number. You can find recent versions on the Jitpack page for `kotlinx.ast`.
+`kotlinx.ast` is accessible on Maven & Gradle through Jitpack. In Jitpack basically you can use every commit or tag as a version number. You can find recent versions on the Jitpack page for `kotlinx.ast`.
 
 You have to add this line to `settings.gradle.kts`: (otherwise, the jars are not resolved):
 ```
