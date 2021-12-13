@@ -28,7 +28,7 @@ Because `antlr-java` and `antlr-optimized` are JVM-only, support for other platf
 ## Prior art
 [kastree](https://github.com/cretz/kastree) is using the kotlin compiler for parsing,
 it can only parse kotlin files.
-JS and native support is not possible. 'kastree` is currently not under active development.
+JS and native support is not possible. `kastree` is currently not under active development.
 
 ## Example
 
