@@ -137,7 +137,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 // please look at https://jitpack.io/#drieks/antlr-kotlin to find the latest version
-                api("com.github.kotlinx.ast:grammar-kotlin-parser-antlr-kotlin:0123456789")
+                api("com.github.drieks.ast:grammar-kotlin-parser-antlr-kotlin:0123456789")
             }
         }
     }
@@ -147,11 +147,11 @@ kotlin {
 If you don't use `kotlin-multiplatform` add this line:
 ```
 // please look at https://jitpack.io/#drieks/antlr-kotlin to find the latest version
-implementation("com.github.kotlinx.ast:grammar-kotlin-parser-antlr-kotlin:0123456789")
+implementation("com.github.drieks.ast:grammar-kotlin-parser-antlr-kotlin:0123456789")
 ```
 Or, if you prefer to use the `antlr-java` parser (JVM only):
 ```
 // please look at https://jitpack.io/#drieks/antlr-kotlin to find the latest version
-implementation("com.github.kotlinx.ast:grammar-kotlin-parser-antlr-java:0123456789")
+implementation("com.github.drieks.ast:grammar-kotlin-parser-antlr-java:0123456789")
 ```
 The latest version can be be seen in the Jitpack-Badge at the top of this page.
