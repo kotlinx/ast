@@ -16,7 +16,7 @@ used to represent and easily access the AST.
 
 ## Status
 The Project is in an early stage, but it is already possible to parse Kotlin code.
-Bug Reports, Feature Requests and Pull Requests are very welcome.
+Bug reports, feature requests and pull requests are very welcome.
 
 `kotlinx.ast` is a multiplatform project, but currently, JVM is the only supported target.
 Support for JS and native is planned.
