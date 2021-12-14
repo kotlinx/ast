@@ -128,7 +128,7 @@ repositories {
 }
 ```
 
-Add the dependency to `kotlinx.ast` into your project:
+Add the dependency to `kotlinx.ast` into your project (latest version string is listed [here](https://jitpack.io/#drieks/antlr-kotlin)):
 ```
 kotlin {
     jvm()
