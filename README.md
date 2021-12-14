@@ -115,7 +115,7 @@ There is a small example to get started:
 ## Using with Gradle
 `kotlinx.ast` is accessible on Maven & Gradle through Jitpack. In Jitpack basically you can use every commit or tag as a version number. You can find recent versions on the Jitpack page for `kotlinx.ast`.
 
-You have to add this line to `settings.gradle.kts`: (otherwise, the jars are not resolved):
+You have to add this line to `settings.gradle.kts` if use Gradle lower than 5.3: (otherwise, the jars are not resolved):
 ```
 // Enables KotlinMultiplatform publication and resolving (in dependencies)
 enableFeaturePreview("GRADLE_METADATA")
