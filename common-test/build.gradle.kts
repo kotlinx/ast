@@ -15,7 +15,7 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation("ch.qos.logback:logback-classic:1.2.7")
+                implementation("ch.qos.logback:logback-classic:1.2.10")
                 api("io.kotest:kotest-runner-junit5:${Versions.kotest}")
             }
         }
