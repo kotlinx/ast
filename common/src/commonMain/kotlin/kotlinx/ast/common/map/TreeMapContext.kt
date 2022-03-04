@@ -26,9 +26,16 @@ abstract class TreeMapContext<State> : TreeMapResultFactory<State> {
 
     fun recursiveFlatten(
         node: AstNode,
-        filter: TreeFilter? = null
     ): AstResult<State, List<Ast>> {
-        return recursiveFlattenInternal(node, filter, flattenSingle = false)
+        return recursiveFlattenInternal(node, null, flattenSingle = false)
+    }
+
+    fun recursiveFlatten(
+        node: AstNode,
+        filter: TreeFilter,
+        commentTreeFilter: TreeFilter,
+    ): AstResult<State, List<Ast>> {
+        return recursiveFlattenInternal(node, filter or commentTreeFilter, flattenSingle = false)
     }
 
     fun recursiveFlattenSingle(

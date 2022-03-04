@@ -6,11 +6,17 @@ import kotlinx.ast.common.ast.AstNode
 import kotlinx.ast.common.ast.AstTerminal
 import kotlinx.ast.common.ast.DefaultAstTerminal
 import kotlinx.ast.common.filter
+import kotlinx.ast.common.filter.TreeFilter
 import kotlinx.ast.common.filter.TreeFilterAll
 import kotlinx.ast.common.filter.byDescription
 import kotlinx.ast.common.klass.*
 import kotlinx.ast.common.map.TreeMapBuilder
 import kotlinx.ast.grammar.kotlin.common.KotlinGrammarAstChannels
+
+private val commentTreeFilter: TreeFilter = byDescription(
+    "LineComment",
+    "DelimitedComment",
+)
 
 val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
@@ -61,8 +67,9 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("packageHeader")
     ) { node: AstNode ->
         recursiveFlatten(
-            node,
-            filter = byDescription("identifier")
+            node = node,
+            filter = byDescription("identifier"),
+            commentTreeFilter = commentTreeFilter,
         ).flatMap { result ->
             val identifier = result.filterIsInstance<KlassIdentifier>()
             astContinue(PackageHeader(identifier))
@@ -85,13 +92,14 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("importHeader")
     ) { node: AstNode ->
         recursiveFlatten(
-            node,
+            node = node,
             filter = byDescription(
                 "identifier",
                 "importAlias",
                 "MULT",
                 "AS"
-            )
+            ),
+            commentTreeFilter = commentTreeFilter,
         ).flatMap { result ->
             val identifier = result.filterIsInstance<KlassIdentifier>()
             astContinue(
@@ -131,7 +139,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("topLevelObject")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("declaration"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("declaration"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // typeAlias
@@ -201,7 +213,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("classParameters")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("classParameter"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("classParameter"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // classParameter
@@ -224,7 +240,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("delegationSpecifiers")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("annotatedDelegationSpecifier"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("annotatedDelegationSpecifier"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // delegationSpecifier
@@ -279,7 +299,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("typeParameters")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("typeParameter"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("typeParameter"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // typeParameter
@@ -289,8 +313,9 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("typeParameter")
     ) { node: AstNode ->
         recursiveFlatten(
-            node,
-            filter = byDescription("simpleIdentifier", "type")
+            node = node,
+            filter = byDescription("simpleIdentifier", "type"),
+            commentTreeFilter = commentTreeFilter,
         ).flatMap { result ->
             val identifiers = result.filterIsInstance<KlassIdentifier>()
             val generic = identifiers.firstOrNull()
@@ -319,7 +344,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("classMemberDeclarations")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("classMemberDeclaration"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("classMemberDeclaration"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // classMemberDeclaration
@@ -364,7 +393,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("functionValueParameters")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("functionValueParameter"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("functionValueParameter"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // functionValueParameter
@@ -374,8 +407,9 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("functionValueParameter")
     ) { node: AstNode ->
         recursiveFlatten(
-            node,
-            filter = byDescription("parameterModifiers", "parameter", "expression")
+            node = node,
+            filter = byDescription("parameterModifiers", "parameter", "expression"),
+            commentTreeFilter = commentTreeFilter,
         ).flatMap { result ->
             val identifiers = result.filterIsInstance<KlassIdentifier>()
 
@@ -404,8 +438,9 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("functionDeclaration")
     ) { node: AstNode ->
         recursiveFlatten(
-            node,
-            filter = !byDescription("FUN", "COLON")
+            node = node,
+            filter = !byDescription("FUN", "COLON"),
+            commentTreeFilter = commentTreeFilter,
         ).flatMap { result ->
             val identifiers = result.filterIsInstance<KlassIdentifier>()
             val receiverType: List<KlassIdentifier> = result
@@ -502,7 +537,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("parameter")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("simpleIdentifier", "type"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("simpleIdentifier", "type"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // objectDeclaration
@@ -580,10 +619,12 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("nullableType")
     ) { node: AstNode ->
         recursiveFlatten(
-            node, filter = byDescription(
+            node = node,
+            filter = byDescription(
                 "typeReference",
                 "parenthesizedType",
-            )
+            ),
+            commentTreeFilter = commentTreeFilter,
         ).map { astList ->
             astList.map { ast ->
                 if (ast is KlassIdentifier) {
@@ -606,7 +647,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("userType")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("simpleUserType"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("simpleUserType"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // simpleUserType
@@ -1079,7 +1124,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("typeArguments")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("typeProjection"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("typeProjection"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // valueArguments
@@ -1089,7 +1138,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("valueArguments")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("valueArgument"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("valueArgument"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // valueArgument
@@ -1174,7 +1227,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("lineStringLiteral")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("lineStringContent", "lineStringExpression"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("lineStringContent", "lineStringExpression"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // multiLineStringLiteral
@@ -1184,12 +1241,13 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
         filter = byDescription("multiLineStringLiteral")
     ) { node: AstNode ->
         recursiveFlatten(
-            node,
+            node = node,
             filter = byDescription(
                 "multiLineStringContent",
                 "multiLineStringExpression",
                 "MultiLineStringQuote"
-            )
+            ),
+            commentTreeFilter = commentTreeFilter,
         )
     }
 
@@ -1590,7 +1648,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("singleAnnotation")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("unescapedAnnotation"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("unescapedAnnotation"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 // multiAnnotation
@@ -1683,7 +1745,11 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("identifier")
     ) { node: AstNode ->
-        recursiveFlatten(node, filter = byDescription("simpleIdentifier"))
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("simpleIdentifier"),
+            commentTreeFilter = commentTreeFilter,
+        )
     }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -3,3 +3,4 @@ importList
 KlassDeclaration(val answer)
   literalConstant
     IntegerLiteral >>>42<<< (DEFAULT_TOKEN_CHANNEL)
+KlassComment(SingleLine)
