@@ -1,0 +1,37 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      propertyDeclaration
+        VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        variableDeclaration
+          simpleIdentifier
+            Identifier >>>answer<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        expression
+          disjunction
+            conjunction
+              equality
+                comparison
+                  genericCallLikeComparison
+                    infixOperation
+                      elvisExpression
+                        infixFunctionCall
+                          rangeExpression
+                            additiveExpression
+                              multiplicativeExpression
+                                asExpression
+                                  prefixUnaryExpression
+                                    postfixUnaryExpression
+                                      primaryExpression
+                                        literalConstant
+                                          IntegerLiteral >>>42<<< (DEFAULT_TOKEN_CHANNEL)
+    WS >>> <<< (HIDDEN)
+    LineComment >>>//line comment<<< (COMMENT)
+    semis
+      EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

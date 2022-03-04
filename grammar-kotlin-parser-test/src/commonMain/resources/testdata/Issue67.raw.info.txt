@@ -1,0 +1,38 @@
+   ID Index        Position       Token
+      [0..30]      [1:1..1:36]    kotlinFile
+                                    packageHeader
+                                    importList
+      [0..30]      [1:1..1:36]      topLevelObject
+      [0..15]      [1:1..1:16]        declaration
+      [0..15]      [1:1..1:16]          propertyDeclaration
+    0 [0..3]       [1:1..1:4]             VAL
+    1 [3..4]       [1:4..1:5]             WS
+      [4..10]      [1:5..1:11]            variableDeclaration
+      [4..10]      [1:5..1:11]              simpleIdentifier
+    2 [4..10]      [1:5..1:11]                Identifier
+    3 [10..11]     [1:11..1:12]           WS
+    4 [11..12]     [1:12..1:13]           ASSIGNMENT
+    5 [12..13]     [1:13..1:14]           WS
+      [13..15]     [1:14..1:16]           expression
+      [13..15]     [1:14..1:16]             disjunction
+      [13..15]     [1:14..1:16]               conjunction
+      [13..15]     [1:14..1:16]                 equality
+      [13..15]     [1:14..1:16]                   comparison
+      [13..15]     [1:14..1:16]                     genericCallLikeComparison
+      [13..15]     [1:14..1:16]                       infixOperation
+      [13..15]     [1:14..1:16]                         elvisExpression
+      [13..15]     [1:14..1:16]                           infixFunctionCall
+      [13..15]     [1:14..1:16]                             rangeExpression
+      [13..15]     [1:14..1:16]                               additiveExpression
+      [13..15]     [1:14..1:16]                                 multiplicativeExpression
+      [13..15]     [1:14..1:16]                                   asExpression
+      [13..15]     [1:14..1:16]                                     prefixUnaryExpression
+      [13..15]     [1:14..1:16]                                       postfixUnaryExpression
+      [13..15]     [1:14..1:16]                                         primaryExpression
+      [13..15]     [1:14..1:16]                                           literalConstant
+    6 [13..15]     [1:14..1:16]                                             IntegerLiteral
+    7 [15..16]     [1:16..1:17]       WS
+    8 [16..30]     [1:17..1:31]       LineComment
+      [30..30]     [1:31..1:36]       semis
+    9 [30..30]     [1:31..1:36]         EOF
+    9 [30..30]     [1:31..1:36]     EOF
