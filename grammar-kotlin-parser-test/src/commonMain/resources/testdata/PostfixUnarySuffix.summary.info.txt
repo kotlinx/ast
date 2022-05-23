@@ -28,26 +28,26 @@
       [160..165]   [5:24..5:29]         KlassIdentifier(Type1)
       [167..172]   [5:31..5:36]         KlassIdentifier(Type2)
       [174..196]   [6:1..6:23]    KlassDeclaration(val callSuffix0)
-      [192..195]   [6:19..6:22]     genericCallLikeComparison
-      [192..193]   [6:19..6:20]       KlassIdentifier(x)
-      [193..195]   [6:20..6:22]       callSuffix
+      [192..193]   [6:19..6:20]     KlassIdentifier(x)
+      [193..195]   [6:20..6:22]       postfixUnarySuffix
+      [193..195]   [6:20..6:22]         callSuffix
       [196..219]   [7:1..7:24]    KlassDeclaration(val callSuffix1)
-      [214..218]   [7:19..7:23]     genericCallLikeComparison
-      [214..215]   [7:19..7:20]       KlassIdentifier(x)
-      [215..218]   [7:20..7:23]       callSuffix
-      [216..217]   [7:21..7:22]         KlassDeclaration(argument)
-      [216..217]   [7:21..7:22]           literalConstant
-   71 [216..217]   [7:21..7:22]             IntegerLiteral
+      [214..215]   [7:19..7:20]     KlassIdentifier(x)
+      [215..218]   [7:20..7:23]       postfixUnarySuffix
+      [215..218]   [7:20..7:23]         callSuffix
+      [216..217]   [7:21..7:22]           KlassDeclaration(argument)
+      [216..217]   [7:21..7:22]             literalConstant
+   71 [216..217]   [7:21..7:22]               IntegerLiteral
       [219..245]   [8:1..8:27]    KlassDeclaration(val callSuffix2)
-      [237..244]   [8:19..8:26]     genericCallLikeComparison
-      [237..238]   [8:19..8:20]       KlassIdentifier(x)
-      [238..244]   [8:20..8:26]       callSuffix
-      [239..240]   [8:21..8:22]         KlassDeclaration(argument)
-      [239..240]   [8:21..8:22]           literalConstant
-   82 [239..240]   [8:21..8:22]             IntegerLiteral
-      [242..243]   [8:24..8:25]         KlassDeclaration(argument)
-      [242..243]   [8:24..8:25]           literalConstant
-   85 [242..243]   [8:24..8:25]             IntegerLiteral
+      [237..238]   [8:19..8:20]     KlassIdentifier(x)
+      [238..244]   [8:20..8:26]       postfixUnarySuffix
+      [238..244]   [8:20..8:26]         callSuffix
+      [239..240]   [8:21..8:22]           KlassDeclaration(argument)
+      [239..240]   [8:21..8:22]             literalConstant
+   82 [239..240]   [8:21..8:22]               IntegerLiteral
+      [242..243]   [8:24..8:25]           KlassDeclaration(argument)
+      [242..243]   [8:24..8:25]             literalConstant
+   85 [242..243]   [8:24..8:25]               IntegerLiteral
       [245..272]   [9:1..9:28]    KlassDeclaration(val indexingSuffix1)
       [267..268]   [9:23..9:24]     KlassIdentifier(x)
       [268..271]   [9:24..9:27]       postfixUnarySuffix
@@ -135,16 +135,13 @@
       [373..374]   [12:38..12:39]         simpleIdentifier
   132 [373..374]   [12:38..12:39]           Identifier
       [375..418]   [13:1..14:2]   KlassDeclaration(val memberAccessOperatorCOLONCOLON)
-      [412..416]   [13:38..13:42]   callableReference
-      [412..413]   [13:38..13:39]     receiverType
-      [412..413]   [13:38..13:39]       typeReference
-      [412..413]   [13:38..13:39]         userType
-      [412..413]   [13:38..13:39]           simpleUserType
-      [412..413]   [13:38..13:39]             simpleIdentifier
-  140 [412..413]   [13:38..13:39]               Identifier
-  141 [413..415]   [13:39..13:41]     COLONCOLON
-      [415..416]   [13:41..13:42]     simpleIdentifier
-  142 [415..416]   [13:41..13:42]       Identifier
+      [412..413]   [13:38..13:39]   KlassIdentifier(x)
+      [413..416]   [13:39..13:42]     postfixUnarySuffix
+      [413..416]   [13:39..13:42]       navigationSuffix
+      [413..415]   [13:39..13:41]         memberAccessOperator
+  141 [413..415]   [13:39..13:41]           COLONCOLON
+      [415..416]   [13:41..13:42]         simpleIdentifier
+  142 [415..416]   [13:41..13:42]           Identifier
       [418..463]   [15:1..15:46]  KlassDeclaration(val example)
       [432..441]   [15:15..15:24]   KlassIdentifier(emptyList)
       [441..449]   [15:24..15:32]     postfixUnarySuffix

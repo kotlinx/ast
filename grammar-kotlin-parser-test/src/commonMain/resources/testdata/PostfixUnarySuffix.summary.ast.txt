@@ -27,26 +27,26 @@ KlassDeclaration(val typeArguments2)
       KlassIdentifier(Type1)
       KlassIdentifier(Type2)
 KlassDeclaration(val callSuffix0)
-  genericCallLikeComparison
-    KlassIdentifier(x)
-    callSuffix
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      callSuffix
 KlassDeclaration(val callSuffix1)
-  genericCallLikeComparison
-    KlassIdentifier(x)
-    callSuffix
-      KlassDeclaration(argument)
-        literalConstant
-          IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      callSuffix
+        KlassDeclaration(argument)
+          literalConstant
+            IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
 KlassDeclaration(val callSuffix2)
-  genericCallLikeComparison
-    KlassIdentifier(x)
-    callSuffix
-      KlassDeclaration(argument)
-        literalConstant
-          IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
-      KlassDeclaration(argument)
-        literalConstant
-          IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      callSuffix
+        KlassDeclaration(argument)
+          literalConstant
+            IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+        KlassDeclaration(argument)
+          literalConstant
+            IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
 KlassDeclaration(val indexingSuffix1)
   KlassIdentifier(x)
     postfixUnarySuffix
@@ -134,16 +134,13 @@ KlassDeclaration(val memberAccessOperatorSafeNav)
         simpleIdentifier
           Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
 KlassDeclaration(val memberAccessOperatorCOLONCOLON)
-  callableReference
-    receiverType
-      typeReference
-        userType
-          simpleUserType
-            simpleIdentifier
-              Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
-    COLONCOLON >>>::<<< (DEFAULT_TOKEN_CHANNEL)
-    simpleIdentifier
-      Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+  KlassIdentifier(x)
+    postfixUnarySuffix
+      navigationSuffix
+        memberAccessOperator
+          COLONCOLON >>>::<<< (DEFAULT_TOKEN_CHANNEL)
+        simpleIdentifier
+          Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
 KlassDeclaration(val example)
   KlassIdentifier(emptyList)
     postfixUnarySuffix

@@ -32,22 +32,23 @@
       [17..28]     [1:18..1:29]                 equality
       [17..28]     [1:18..1:29]                   comparison
       [17..28]     [1:18..1:29]                     genericCallLikeComparison
-      [17..26]     [1:18..1:27]                       infixOperation
-      [17..26]     [1:18..1:27]                         elvisExpression
-      [17..26]     [1:18..1:27]                           infixFunctionCall
-      [17..26]     [1:18..1:27]                             rangeExpression
-      [17..26]     [1:18..1:27]                               additiveExpression
-      [17..26]     [1:18..1:27]                                 multiplicativeExpression
-      [17..26]     [1:18..1:27]                                   asExpression
-      [17..26]     [1:18..1:27]                                     prefixUnaryExpression
-      [17..26]     [1:18..1:27]                                       postfixUnaryExpression
+      [17..28]     [1:18..1:29]                       infixOperation
+      [17..28]     [1:18..1:29]                         elvisExpression
+      [17..28]     [1:18..1:29]                           infixFunctionCall
+      [17..28]     [1:18..1:29]                             rangeExpression
+      [17..28]     [1:18..1:29]                               additiveExpression
+      [17..28]     [1:18..1:29]                                 multiplicativeExpression
+      [17..28]     [1:18..1:29]                                   asExpression
+      [17..28]     [1:18..1:29]                                     prefixUnaryExpression
+      [17..28]     [1:18..1:29]                                       postfixUnaryExpression
       [17..26]     [1:18..1:27]                                         primaryExpression
       [17..26]     [1:18..1:27]                                           simpleIdentifier
    12 [17..26]     [1:18..1:27]                                             Identifier
-      [26..28]     [1:27..1:29]                       callSuffix
-      [26..28]     [1:27..1:29]                         valueArguments
-   13 [26..27]     [1:27..1:28]                           LPAREN
-   14 [27..28]     [1:28..1:29]                           RPAREN
+      [26..28]     [1:27..1:29]                                         postfixUnarySuffix
+      [26..28]     [1:27..1:29]                                           callSuffix
+      [26..28]     [1:27..1:29]                                             valueArguments
+   13 [26..27]     [1:27..1:28]                                               LPAREN
+   14 [27..28]     [1:28..1:29]                                               RPAREN
    15 [28..29]     [1:29..1:30]           NL
       [29..29]     [2:1..2:6]         semis
    16 [29..29]     [2:1..2:6]           EOF

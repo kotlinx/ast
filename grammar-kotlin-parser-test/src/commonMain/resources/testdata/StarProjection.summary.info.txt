@@ -2,6 +2,6 @@
                                   PackageHeader()
                                   importList
       [0..29]      [1:1..1:30]    KlassDeclaration(val x List<*>)
-      [17..28]     [1:18..1:29]     genericCallLikeComparison
-      [17..26]     [1:18..1:27]       KlassIdentifier(emptyList)
-      [26..28]     [1:27..1:29]       callSuffix
+      [17..26]     [1:18..1:27]     KlassIdentifier(emptyList)
+      [26..28]     [1:27..1:29]       postfixUnarySuffix
+      [26..28]     [1:27..1:29]         callSuffix

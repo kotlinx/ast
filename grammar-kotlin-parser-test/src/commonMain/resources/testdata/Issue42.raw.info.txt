@@ -140,22 +140,23 @@
       [203..214]   [6:79..6:90]                             equality
       [203..214]   [6:79..6:90]                               comparison
       [203..214]   [6:79..6:90]                                 genericCallLikeComparison
-      [203..212]   [6:79..6:88]                                   infixOperation
-      [203..212]   [6:79..6:88]                                     elvisExpression
-      [203..212]   [6:79..6:88]                                       infixFunctionCall
-      [203..212]   [6:79..6:88]                                         rangeExpression
-      [203..212]   [6:79..6:88]                                           additiveExpression
-      [203..212]   [6:79..6:88]                                             multiplicativeExpression
-      [203..212]   [6:79..6:88]                                               asExpression
-      [203..212]   [6:79..6:88]                                                 prefixUnaryExpression
-      [203..212]   [6:79..6:88]                                                   postfixUnaryExpression
+      [203..214]   [6:79..6:90]                                   infixOperation
+      [203..214]   [6:79..6:90]                                     elvisExpression
+      [203..214]   [6:79..6:90]                                       infixFunctionCall
+      [203..214]   [6:79..6:90]                                         rangeExpression
+      [203..214]   [6:79..6:90]                                           additiveExpression
+      [203..214]   [6:79..6:90]                                             multiplicativeExpression
+      [203..214]   [6:79..6:90]                                               asExpression
+      [203..214]   [6:79..6:90]                                                 prefixUnaryExpression
+      [203..214]   [6:79..6:90]                                                   postfixUnaryExpression
       [203..212]   [6:79..6:88]                                                     primaryExpression
       [203..212]   [6:79..6:88]                                                       simpleIdentifier
    63 [203..212]   [6:79..6:88]                                                         Identifier
-      [212..214]   [6:88..6:90]                                   callSuffix
-      [212..214]   [6:88..6:90]                                     valueArguments
-   64 [212..213]   [6:88..6:89]                                       LPAREN
-   65 [213..214]   [6:89..6:90]                                       RPAREN
+      [212..214]   [6:88..6:90]                                                     postfixUnarySuffix
+      [212..214]   [6:88..6:90]                                                       callSuffix
+      [212..214]   [6:88..6:90]                                                         valueArguments
+   64 [212..213]   [6:88..6:89]                                                           LPAREN
+   65 [213..214]   [6:89..6:90]                                                           RPAREN
       [214..216]   [6:90..7:2]                semis
    66 [214..215]   [6:90..6:91]                 NL
    67 [215..216]   [7:1..7:2]                   NL

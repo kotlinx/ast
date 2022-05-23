@@ -151,10 +151,11 @@ kotlinFile
                                                   primaryExpression
                                                     simpleIdentifier
                                                       Identifier >>>emptyList<<< (DEFAULT_TOKEN_CHANNEL)
-                                callSuffix
-                                  valueArguments
-                                    LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
-                                    RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                                                  postfixUnarySuffix
+                                                    callSuffix
+                                                      valueArguments
+                                                        LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                                                        RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
             semis
               NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
               NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)

@@ -222,10 +222,11 @@ kotlinFile
                                       primaryExpression
                                         simpleIdentifier
                                           Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
-                    callSuffix
-                      valueArguments
-                        LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
-                        RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                                      postfixUnarySuffix
+                                        callSuffix
+                                          valueArguments
+                                            LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                                            RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
         NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
   topLevelObject
     declaration
@@ -256,29 +257,30 @@ kotlinFile
                                       primaryExpression
                                         simpleIdentifier
                                           Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
-                    callSuffix
-                      valueArguments
-                        LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
-                        valueArgument
-                          expression
-                            disjunction
-                              conjunction
-                                equality
-                                  comparison
-                                    genericCallLikeComparison
-                                      infixOperation
-                                        elvisExpression
-                                          infixFunctionCall
-                                            rangeExpression
-                                              additiveExpression
-                                                multiplicativeExpression
-                                                  asExpression
-                                                    prefixUnaryExpression
-                                                      postfixUnaryExpression
-                                                        primaryExpression
-                                                          literalConstant
-                                                            IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
-                        RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                                      postfixUnarySuffix
+                                        callSuffix
+                                          valueArguments
+                                            LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                                            valueArgument
+                                              expression
+                                                disjunction
+                                                  conjunction
+                                                    equality
+                                                      comparison
+                                                        genericCallLikeComparison
+                                                          infixOperation
+                                                            elvisExpression
+                                                              infixFunctionCall
+                                                                rangeExpression
+                                                                  additiveExpression
+                                                                    multiplicativeExpression
+                                                                      asExpression
+                                                                        prefixUnaryExpression
+                                                                          postfixUnaryExpression
+                                                                            primaryExpression
+                                                                              literalConstant
+                                                                                IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+                                            RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
         NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
   topLevelObject
     declaration
@@ -309,50 +311,51 @@ kotlinFile
                                       primaryExpression
                                         simpleIdentifier
                                           Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
-                    callSuffix
-                      valueArguments
-                        LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
-                        valueArgument
-                          expression
-                            disjunction
-                              conjunction
-                                equality
-                                  comparison
-                                    genericCallLikeComparison
-                                      infixOperation
-                                        elvisExpression
-                                          infixFunctionCall
-                                            rangeExpression
-                                              additiveExpression
-                                                multiplicativeExpression
-                                                  asExpression
-                                                    prefixUnaryExpression
-                                                      postfixUnaryExpression
-                                                        primaryExpression
-                                                          literalConstant
-                                                            IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
-                        COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
-                        Inside_WS >>> <<< (HIDDEN)
-                        valueArgument
-                          expression
-                            disjunction
-                              conjunction
-                                equality
-                                  comparison
-                                    genericCallLikeComparison
-                                      infixOperation
-                                        elvisExpression
-                                          infixFunctionCall
-                                            rangeExpression
-                                              additiveExpression
-                                                multiplicativeExpression
-                                                  asExpression
-                                                    prefixUnaryExpression
-                                                      postfixUnaryExpression
-                                                        primaryExpression
-                                                          literalConstant
-                                                            IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
-                        RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+                                      postfixUnarySuffix
+                                        callSuffix
+                                          valueArguments
+                                            LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+                                            valueArgument
+                                              expression
+                                                disjunction
+                                                  conjunction
+                                                    equality
+                                                      comparison
+                                                        genericCallLikeComparison
+                                                          infixOperation
+                                                            elvisExpression
+                                                              infixFunctionCall
+                                                                rangeExpression
+                                                                  additiveExpression
+                                                                    multiplicativeExpression
+                                                                      asExpression
+                                                                        prefixUnaryExpression
+                                                                          postfixUnaryExpression
+                                                                            primaryExpression
+                                                                              literalConstant
+                                                                                IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+                                            COMMA >>>,<<< (DEFAULT_TOKEN_CHANNEL)
+                                            Inside_WS >>> <<< (HIDDEN)
+                                            valueArgument
+                                              expression
+                                                disjunction
+                                                  conjunction
+                                                    equality
+                                                      comparison
+                                                        genericCallLikeComparison
+                                                          infixOperation
+                                                            elvisExpression
+                                                              infixFunctionCall
+                                                                rangeExpression
+                                                                  additiveExpression
+                                                                    multiplicativeExpression
+                                                                      asExpression
+                                                                        prefixUnaryExpression
+                                                                          postfixUnaryExpression
+                                                                            primaryExpression
+                                                                              literalConstant
+                                                                                IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+                                            RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
         NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
   topLevelObject
     declaration
@@ -579,14 +582,12 @@ kotlinFile
                                   prefixUnaryExpression
                                     postfixUnaryExpression
                                       primaryExpression
-                                        callableReference
-                                          receiverType
-                                            typeReference
-                                              userType
-                                                simpleUserType
-                                                  simpleIdentifier
-                                                    Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
-                                          COLONCOLON >>>::<<< (DEFAULT_TOKEN_CHANNEL)
+                                        simpleIdentifier
+                                          Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
+                                      postfixUnarySuffix
+                                        navigationSuffix
+                                          memberAccessOperator
+                                            COLONCOLON >>>::<<< (DEFAULT_TOKEN_CHANNEL)
                                           simpleIdentifier
                                             Identifier >>>x<<< (DEFAULT_TOKEN_CHANNEL)
         NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)

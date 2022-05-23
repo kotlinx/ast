@@ -135,310 +135,311 @@
       [219..498]   [7:9..14:10]                             equality
       [219..498]   [7:9..14:10]                               comparison
       [219..498]   [7:9..14:10]                                 genericCallLikeComparison
-      [219..223]   [7:9..7:13]                                    infixOperation
-      [219..223]   [7:9..7:13]                                      elvisExpression
-      [219..223]   [7:9..7:13]                                        infixFunctionCall
-      [219..223]   [7:9..7:13]                                          rangeExpression
-      [219..223]   [7:9..7:13]                                            additiveExpression
-      [219..223]   [7:9..7:13]                                              multiplicativeExpression
-      [219..223]   [7:9..7:13]                                                asExpression
-      [219..223]   [7:9..7:13]                                                  prefixUnaryExpression
-      [219..223]   [7:9..7:13]                                                    postfixUnaryExpression
+      [219..498]   [7:9..14:10]                                   infixOperation
+      [219..498]   [7:9..14:10]                                     elvisExpression
+      [219..498]   [7:9..14:10]                                       infixFunctionCall
+      [219..498]   [7:9..14:10]                                         rangeExpression
+      [219..498]   [7:9..14:10]                                           additiveExpression
+      [219..498]   [7:9..14:10]                                             multiplicativeExpression
+      [219..498]   [7:9..14:10]                                               asExpression
+      [219..498]   [7:9..14:10]                                                 prefixUnaryExpression
+      [219..498]   [7:9..14:10]                                                   postfixUnaryExpression
       [219..223]   [7:9..7:13]                                                      primaryExpression
       [219..223]   [7:9..7:13]                                                        simpleIdentifier
    67 [219..223]   [7:9..7:13]                                                          Identifier
-      [223..498]   [7:13..14:10]                                  callSuffix
-      [223..261]   [7:13..9:10]                                     valueArguments
-   68 [223..224]   [7:13..7:14]                                       LPAREN
-   69 [224..225]   [7:14..7:15]                                       Inside_NL
-   70 [225..226]   [8:1..8:2]                                         Inside_WS
-   71 [226..227]   [8:2..8:3]                                         Inside_WS
-   72 [227..228]   [8:3..8:4]                                         Inside_WS
-   73 [228..229]   [8:4..8:5]                                         Inside_WS
-   74 [229..230]   [8:5..8:6]                                         Inside_WS
-   75 [230..231]   [8:6..8:7]                                         Inside_WS
-   76 [231..232]   [8:7..8:8]                                         Inside_WS
-   77 [232..233]   [8:8..8:9]                                         Inside_WS
-   78 [233..234]   [8:9..8:10]                                        Inside_WS
-   79 [234..235]   [8:10..8:11]                                       Inside_WS
-   80 [235..236]   [8:11..8:12]                                       Inside_WS
-   81 [236..237]   [8:12..8:13]                                       Inside_WS
-      [237..251]   [8:13..8:27]                                       valueArgument
-      [237..251]   [8:13..8:27]                                         expression
-      [237..251]   [8:13..8:27]                                           disjunction
-      [237..251]   [8:13..8:27]                                             conjunction
-      [237..251]   [8:13..8:27]                                               equality
-      [237..251]   [8:13..8:27]                                                 comparison
-      [237..251]   [8:13..8:27]                                                   genericCallLikeComparison
-      [237..251]   [8:13..8:27]                                                     infixOperation
-      [237..251]   [8:13..8:27]                                                       elvisExpression
-      [237..251]   [8:13..8:27]                                                         infixFunctionCall
-      [237..251]   [8:13..8:27]                                                           rangeExpression
-      [237..251]   [8:13..8:27]                                                             additiveExpression
-      [237..251]   [8:13..8:27]                                                               multiplicativeExpression
-      [237..251]   [8:13..8:27]                                                                 asExpression
-      [237..251]   [8:13..8:27]                                                                   prefixUnaryExpression
-      [237..251]   [8:13..8:27]                                                                     postfixUnaryExpression
-      [237..251]   [8:13..8:27]                                                                       primaryExpression
-      [237..251]   [8:13..8:27]                                                                         simpleIdentifier
-   82 [237..251]   [8:13..8:27]                                                                           Identifier
-   83 [251..252]   [8:27..8:28]                                       Inside_NL
-   84 [252..253]   [9:1..9:2]                                         Inside_WS
-   85 [253..254]   [9:2..9:3]                                         Inside_WS
-   86 [254..255]   [9:3..9:4]                                         Inside_WS
-   87 [255..256]   [9:4..9:5]                                         Inside_WS
-   88 [256..257]   [9:5..9:6]                                         Inside_WS
-   89 [257..258]   [9:6..9:7]                                         Inside_WS
-   90 [258..259]   [9:7..9:8]                                         Inside_WS
-   91 [259..260]   [9:8..9:9]                                         Inside_WS
-   92 [260..261]   [9:9..9:10]                                        RPAREN
-   93 [261..262]   [9:10..9:11]                                     WS
-      [262..498]   [9:11..14:10]                                    annotatedLambda
-      [262..498]   [9:11..14:10]                                      lambdaLiteral
-   94 [262..263]   [9:11..9:12]                                         LCURL
-   95 [263..264]   [9:12..9:13]                                         NL
-   96 [264..265]   [10:1..10:2]                                         WS
-   97 [265..266]   [10:2..10:3]                                         WS
-   98 [266..267]   [10:3..10:4]                                         WS
-   99 [267..268]   [10:4..10:5]                                         WS
-  100 [268..269]   [10:5..10:6]                                         WS
-  101 [269..270]   [10:6..10:7]                                         WS
-  102 [270..271]   [10:7..10:8]                                         WS
-  103 [271..272]   [10:8..10:9]                                         WS
-  104 [272..273]   [10:9..10:10]                                        WS
-  105 [273..274]   [10:10..10:11]                                       WS
-  106 [274..275]   [10:11..10:12]                                       WS
-  107 [275..276]   [10:12..10:13]                                       WS
-      [276..489]   [10:13..13:20]                                       statements
-      [276..488]   [10:13..13:19]                                         statement
-      [276..488]   [10:13..13:19]                                           assignment
-      [276..302]   [10:13..10:39]                                             directlyAssignableExpression
-      [276..297]   [10:13..10:34]                                               postfixUnaryExpression
-      [276..297]   [10:13..10:34]                                                 primaryExpression
-      [276..297]   [10:13..10:34]                                                   simpleIdentifier
-  108 [276..297]   [10:13..10:34]                                                     Identifier
-      [297..302]   [10:34..10:39]                                               assignableSuffix
-      [297..302]   [10:34..10:39]                                                 navigationSuffix
-      [297..298]   [10:34..10:35]                                                   memberAccessOperator
-  109 [297..298]   [10:34..10:35]                                                     DOT
-      [298..302]   [10:35..10:39]                                                   simpleIdentifier
-  110 [298..302]   [10:35..10:39]                                                     Identifier
-  111 [302..303]   [10:39..10:40]                                             WS
-  112 [303..304]   [10:40..10:41]                                             ASSIGNMENT
-  113 [304..305]   [10:41..10:42]                                             NL
-  114 [305..306]   [11:1..11:2]                                               WS
-  115 [306..307]   [11:2..11:3]                                               WS
-  116 [307..308]   [11:3..11:4]                                               WS
-  117 [308..309]   [11:4..11:5]                                               WS
-  118 [309..310]   [11:5..11:6]                                               WS
-  119 [310..311]   [11:6..11:7]                                               WS
-  120 [311..312]   [11:7..11:8]                                               WS
-  121 [312..313]   [11:8..11:9]                                               WS
-  122 [313..314]   [11:9..11:10]                                              WS
-  123 [314..315]   [11:10..11:11]                                             WS
-  124 [315..316]   [11:11..11:12]                                             WS
-  125 [316..317]   [11:12..11:13]                                             WS
-  126 [317..318]   [11:13..11:14]                                             WS
-  127 [318..319]   [11:14..11:15]                                             WS
-  128 [319..320]   [11:15..11:16]                                             WS
-  129 [320..321]   [11:16..11:17]                                             WS
-      [321..488]   [11:17..13:19]                                             expression
-      [321..488]   [11:17..13:19]                                               disjunction
-      [321..488]   [11:17..13:19]                                                 conjunction
-      [321..488]   [11:17..13:19]                                                   equality
-      [321..488]   [11:17..13:19]                                                     comparison
-      [321..488]   [11:17..13:19]                                                       genericCallLikeComparison
-      [321..488]   [11:17..13:19]                                                         infixOperation
-      [321..488]   [11:17..13:19]                                                           elvisExpression
-      [321..488]   [11:17..13:19]                                                             infixFunctionCall
-      [321..488]   [11:17..13:19]                                                               rangeExpression
-      [321..488]   [11:17..13:19]                                                                 additiveExpression
-      [321..488]   [11:17..13:19]                                                                   multiplicativeExpression
-      [321..488]   [11:17..13:19]                                                                     asExpression
-      [321..488]   [11:17..13:19]                                                                       prefixUnaryExpression
-      [321..488]   [11:17..13:19]                                                                         postfixUnaryExpression
-      [321..488]   [11:17..13:19]                                                                           primaryExpression
-      [321..488]   [11:17..13:19]                                                                             stringLiteral
-      [321..488]   [11:17..13:19]                                                                               lineStringLiteral
-  130 [321..322]   [11:17..11:18]                                                                                 QUOTE_OPEN
-      [322..385]   [11:18..11:81]                                                                                 lineStringExpression
-  131 [322..324]   [11:18..11:20]                                                                                   LineStrExprStart
-      [324..384]   [11:20..11:80]                                                                                   expression
-      [324..384]   [11:20..11:80]                                                                                     disjunction
-      [324..384]   [11:20..11:80]                                                                                       conjunction
-      [324..384]   [11:20..11:80]                                                                                         equality
-      [324..384]   [11:20..11:80]                                                                                           comparison
-      [324..384]   [11:20..11:80]                                                                                             genericCallLikeComparison
-      [324..384]   [11:20..11:80]                                                                                               infixOperation
-      [324..384]   [11:20..11:80]                                                                                                 elvisExpression
-      [324..384]   [11:20..11:80]                                                                                                   infixFunctionCall
-      [324..384]   [11:20..11:80]                                                                                                     rangeExpression
-      [324..384]   [11:20..11:80]                                                                                                       additiveExpression
-      [324..384]   [11:20..11:80]                                                                                                         multiplicativeExpression
-      [324..384]   [11:20..11:80]                                                                                                           asExpression
-      [324..384]   [11:20..11:80]                                                                                                             prefixUnaryExpression
-      [324..384]   [11:20..11:80]                                                                                                               postfixUnaryExpression
-      [324..346]   [11:20..11:42]                                                                                                                 primaryExpression
-      [324..346]   [11:20..11:42]                                                                                                                   simpleIdentifier
-  132 [324..346]   [11:20..11:42]                                                                                                                     Identifier
-      [346..353]   [11:42..11:49]                                                                                                                 postfixUnarySuffix
-      [346..353]   [11:42..11:49]                                                                                                                   navigationSuffix
-      [346..347]   [11:42..11:43]                                                                                                                     memberAccessOperator
-  133 [346..347]   [11:42..11:43]                                                                                                                       DOT
-      [347..353]   [11:43..11:49]                                                                                                                     simpleIdentifier
-  134 [347..353]   [11:43..11:49]                                                                                                                       Identifier
-      [353..384]   [11:49..11:80]                                                                                                                 postfixUnarySuffix
-      [353..384]   [11:49..11:80]                                                                                                                   callSuffix
-      [353..384]   [11:49..11:80]                                                                                                                     valueArguments
-  135 [353..354]   [11:49..11:50]                                                                                                                       LPAREN
-      [354..383]   [11:50..11:79]                                                                                                                       valueArgument
-      [354..383]   [11:50..11:79]                                                                                                                         expression
-      [354..383]   [11:50..11:79]                                                                                                                           disjunction
-      [354..383]   [11:50..11:79]                                                                                                                             conjunction
-      [354..383]   [11:50..11:79]                                                                                                                               equality
-      [354..383]   [11:50..11:79]                                                                                                                                 comparison
-      [354..383]   [11:50..11:79]                                                                                                                                   genericCallLikeComparison
-      [354..383]   [11:50..11:79]                                                                                                                                     infixOperation
-      [354..383]   [11:50..11:79]                                                                                                                                       elvisExpression
-      [354..383]   [11:50..11:79]                                                                                                                                         infixFunctionCall
-      [354..383]   [11:50..11:79]                                                                                                                                           rangeExpression
-      [354..383]   [11:50..11:79]                                                                                                                                             additiveExpression
-      [354..383]   [11:50..11:79]                                                                                                                                               multiplicativeExpression
-      [354..383]   [11:50..11:79]                                                                                                                                                 asExpression
-      [354..383]   [11:50..11:79]                                                                                                                                                   prefixUnaryExpression
-      [354..383]   [11:50..11:79]                                                                                                                                                     postfixUnaryExpression
-      [354..363]   [11:50..11:59]                                                                                                                                                       primaryExpression
-      [354..363]   [11:50..11:59]                                                                                                                                                         simpleIdentifier
-  136 [354..363]   [11:50..11:59]                                                                                                                                                           Identifier
-      [363..373]   [11:59..11:69]                                                                                                                                                       postfixUnarySuffix
-      [363..373]   [11:59..11:69]                                                                                                                                                         navigationSuffix
-      [363..364]   [11:59..11:60]                                                                                                                                                           memberAccessOperator
-  137 [363..364]   [11:59..11:60]                                                                                                                                                             DOT
-      [364..373]   [11:60..11:69]                                                                                                                                                           simpleIdentifier
-  138 [364..373]   [11:60..11:69]                                                                                                                                                             Identifier
-      [373..383]   [11:69..11:79]                                                                                                                                                       postfixUnarySuffix
-      [373..383]   [11:69..11:79]                                                                                                                                                         navigationSuffix
-      [373..374]   [11:69..11:70]                                                                                                                                                           memberAccessOperator
-  139 [373..374]   [11:69..11:70]                                                                                                                                                             DOT
-      [374..383]   [11:70..11:79]                                                                                                                                                           simpleIdentifier
-  140 [374..383]   [11:70..11:79]                                                                                                                                                             Identifier
-  141 [383..384]   [11:79..11:80]                                                                                                                       RPAREN
-  142 [384..385]   [11:80..11:81]                                                                                   RCURL
-      [385..388]   [11:81..11:84]                                                                                 lineStringContent
-  143 [385..388]   [11:81..11:84]                                                                                   LineStrText
-      [388..487]   [11:84..13:18]                                                                                 lineStringExpression
-  144 [388..390]   [11:84..11:86]                                                                                   LineStrExprStart
-  145 [390..391]   [11:86..11:87]                                                                                   NL
-  146 [391..392]   [12:1..12:2]                                                                                     WS
-  147 [392..393]   [12:2..12:3]                                                                                     WS
-  148 [393..394]   [12:3..12:4]                                                                                     WS
-  149 [394..395]   [12:4..12:5]                                                                                     WS
-  150 [395..396]   [12:5..12:6]                                                                                     WS
-  151 [396..397]   [12:6..12:7]                                                                                     WS
-  152 [397..398]   [12:7..12:8]                                                                                     WS
-  153 [398..399]   [12:8..12:9]                                                                                     WS
-  154 [399..400]   [12:9..12:10]                                                                                    WS
-  155 [400..401]   [12:10..12:11]                                                                                   WS
-  156 [401..402]   [12:11..12:12]                                                                                   WS
-  157 [402..403]   [12:12..12:13]                                                                                   WS
-  158 [403..404]   [12:13..12:14]                                                                                   WS
-  159 [404..405]   [12:14..12:15]                                                                                   WS
-  160 [405..406]   [12:15..12:16]                                                                                   WS
-  161 [406..407]   [12:16..12:17]                                                                                   WS
-  162 [407..408]   [12:17..12:18]                                                                                   WS
-  163 [408..409]   [12:18..12:19]                                                                                   WS
-  164 [409..410]   [12:19..12:20]                                                                                   WS
-  165 [410..411]   [12:20..12:21]                                                                                   WS
-      [411..469]   [12:21..12:79]                                                                                   expression
-      [411..469]   [12:21..12:79]                                                                                     disjunction
-      [411..469]   [12:21..12:79]                                                                                       conjunction
-      [411..469]   [12:21..12:79]                                                                                         equality
-      [411..469]   [12:21..12:79]                                                                                           comparison
-      [411..469]   [12:21..12:79]                                                                                             genericCallLikeComparison
-      [411..469]   [12:21..12:79]                                                                                               infixOperation
-      [411..469]   [12:21..12:79]                                                                                                 elvisExpression
-      [411..469]   [12:21..12:79]                                                                                                   infixFunctionCall
-      [411..469]   [12:21..12:79]                                                                                                     rangeExpression
-      [411..469]   [12:21..12:79]                                                                                                       additiveExpression
-      [411..469]   [12:21..12:79]                                                                                                         multiplicativeExpression
-      [411..469]   [12:21..12:79]                                                                                                           asExpression
-      [411..469]   [12:21..12:79]                                                                                                             prefixUnaryExpression
-      [411..469]   [12:21..12:79]                                                                                                               postfixUnaryExpression
-      [411..433]   [12:21..12:43]                                                                                                                 primaryExpression
-      [411..433]   [12:21..12:43]                                                                                                                   simpleIdentifier
-  166 [411..433]   [12:21..12:43]                                                                                                                     Identifier
-      [433..440]   [12:43..12:50]                                                                                                                 postfixUnarySuffix
-      [433..440]   [12:43..12:50]                                                                                                                   navigationSuffix
-      [433..434]   [12:43..12:44]                                                                                                                     memberAccessOperator
-  167 [433..434]   [12:43..12:44]                                                                                                                       DOT
-      [434..440]   [12:44..12:50]                                                                                                                     simpleIdentifier
-  168 [434..440]   [12:44..12:50]                                                                                                                       Identifier
-      [440..469]   [12:50..12:79]                                                                                                                 postfixUnarySuffix
-      [440..469]   [12:50..12:79]                                                                                                                   callSuffix
-      [440..469]   [12:50..12:79]                                                                                                                     valueArguments
-  169 [440..441]   [12:50..12:51]                                                                                                                       LPAREN
-      [441..468]   [12:51..12:78]                                                                                                                       valueArgument
-      [441..468]   [12:51..12:78]                                                                                                                         expression
-      [441..468]   [12:51..12:78]                                                                                                                           disjunction
-      [441..468]   [12:51..12:78]                                                                                                                             conjunction
-      [441..468]   [12:51..12:78]                                                                                                                               equality
-      [441..468]   [12:51..12:78]                                                                                                                                 comparison
-      [441..468]   [12:51..12:78]                                                                                                                                   genericCallLikeComparison
-      [441..468]   [12:51..12:78]                                                                                                                                     infixOperation
-      [441..468]   [12:51..12:78]                                                                                                                                       elvisExpression
-      [441..468]   [12:51..12:78]                                                                                                                                         infixFunctionCall
-      [441..468]   [12:51..12:78]                                                                                                                                           rangeExpression
-      [441..468]   [12:51..12:78]                                                                                                                                             additiveExpression
-      [441..468]   [12:51..12:78]                                                                                                                                               multiplicativeExpression
-      [441..468]   [12:51..12:78]                                                                                                                                                 asExpression
-      [441..468]   [12:51..12:78]                                                                                                                                                   prefixUnaryExpression
-      [441..468]   [12:51..12:78]                                                                                                                                                     postfixUnaryExpression
-      [441..450]   [12:51..12:60]                                                                                                                                                       primaryExpression
-      [441..450]   [12:51..12:60]                                                                                                                                                         simpleIdentifier
-  170 [441..450]   [12:51..12:60]                                                                                                                                                           Identifier
-      [450..460]   [12:60..12:70]                                                                                                                                                       postfixUnarySuffix
-      [450..460]   [12:60..12:70]                                                                                                                                                         navigationSuffix
-      [450..451]   [12:60..12:61]                                                                                                                                                           memberAccessOperator
-  171 [450..451]   [12:60..12:61]                                                                                                                                                             DOT
-      [451..460]   [12:61..12:70]                                                                                                                                                           simpleIdentifier
-  172 [451..460]   [12:61..12:70]                                                                                                                                                             Identifier
-      [460..468]   [12:70..12:78]                                                                                                                                                       postfixUnarySuffix
-      [460..468]   [12:70..12:78]                                                                                                                                                         navigationSuffix
-      [460..461]   [12:70..12:71]                                                                                                                                                           memberAccessOperator
-  173 [460..461]   [12:70..12:71]                                                                                                                                                             DOT
-      [461..468]   [12:71..12:78]                                                                                                                                                           simpleIdentifier
-  174 [461..468]   [12:71..12:78]                                                                                                                                                             Identifier
-  175 [468..469]   [12:78..12:79]                                                                                                                       RPAREN
-  176 [469..470]   [12:79..12:80]                                                                                   NL
-  177 [470..471]   [13:1..13:2]                                                                                     WS
-  178 [471..472]   [13:2..13:3]                                                                                     WS
-  179 [472..473]   [13:3..13:4]                                                                                     WS
-  180 [473..474]   [13:4..13:5]                                                                                     WS
-  181 [474..475]   [13:5..13:6]                                                                                     WS
-  182 [475..476]   [13:6..13:7]                                                                                     WS
-  183 [476..477]   [13:7..13:8]                                                                                     WS
-  184 [477..478]   [13:8..13:9]                                                                                     WS
-  185 [478..479]   [13:9..13:10]                                                                                    WS
-  186 [479..480]   [13:10..13:11]                                                                                   WS
-  187 [480..481]   [13:11..13:12]                                                                                   WS
-  188 [481..482]   [13:12..13:13]                                                                                   WS
-  189 [482..483]   [13:13..13:14]                                                                                   WS
-  190 [483..484]   [13:14..13:15]                                                                                   WS
-  191 [484..485]   [13:15..13:16]                                                                                   WS
-  192 [485..486]   [13:16..13:17]                                                                                   WS
-  193 [486..487]   [13:17..13:18]                                                                                   RCURL
-  194 [487..488]   [13:18..13:19]                                                                                 QUOTE_CLOSE
-      [488..489]   [13:19..13:20]                                         semis
-  195 [488..489]   [13:19..13:20]                                           NL
-  196 [489..490]   [14:1..14:2]                                         WS
-  197 [490..491]   [14:2..14:3]                                         WS
-  198 [491..492]   [14:3..14:4]                                         WS
-  199 [492..493]   [14:4..14:5]                                         WS
-  200 [493..494]   [14:5..14:6]                                         WS
-  201 [494..495]   [14:6..14:7]                                         WS
-  202 [495..496]   [14:7..14:8]                                         WS
-  203 [496..497]   [14:8..14:9]                                         WS
-  204 [497..498]   [14:9..14:10]                                        RCURL
+      [223..498]   [7:13..14:10]                                                    postfixUnarySuffix
+      [223..498]   [7:13..14:10]                                                      callSuffix
+      [223..261]   [7:13..9:10]                                                         valueArguments
+   68 [223..224]   [7:13..7:14]                                                           LPAREN
+   69 [224..225]   [7:14..7:15]                                                           Inside_NL
+   70 [225..226]   [8:1..8:2]                                                             Inside_WS
+   71 [226..227]   [8:2..8:3]                                                             Inside_WS
+   72 [227..228]   [8:3..8:4]                                                             Inside_WS
+   73 [228..229]   [8:4..8:5]                                                             Inside_WS
+   74 [229..230]   [8:5..8:6]                                                             Inside_WS
+   75 [230..231]   [8:6..8:7]                                                             Inside_WS
+   76 [231..232]   [8:7..8:8]                                                             Inside_WS
+   77 [232..233]   [8:8..8:9]                                                             Inside_WS
+   78 [233..234]   [8:9..8:10]                                                            Inside_WS
+   79 [234..235]   [8:10..8:11]                                                           Inside_WS
+   80 [235..236]   [8:11..8:12]                                                           Inside_WS
+   81 [236..237]   [8:12..8:13]                                                           Inside_WS
+      [237..251]   [8:13..8:27]                                                           valueArgument
+      [237..251]   [8:13..8:27]                                                             expression
+      [237..251]   [8:13..8:27]                                                               disjunction
+      [237..251]   [8:13..8:27]                                                                 conjunction
+      [237..251]   [8:13..8:27]                                                                   equality
+      [237..251]   [8:13..8:27]                                                                     comparison
+      [237..251]   [8:13..8:27]                                                                       genericCallLikeComparison
+      [237..251]   [8:13..8:27]                                                                         infixOperation
+      [237..251]   [8:13..8:27]                                                                           elvisExpression
+      [237..251]   [8:13..8:27]                                                                             infixFunctionCall
+      [237..251]   [8:13..8:27]                                                                               rangeExpression
+      [237..251]   [8:13..8:27]                                                                                 additiveExpression
+      [237..251]   [8:13..8:27]                                                                                   multiplicativeExpression
+      [237..251]   [8:13..8:27]                                                                                     asExpression
+      [237..251]   [8:13..8:27]                                                                                       prefixUnaryExpression
+      [237..251]   [8:13..8:27]                                                                                         postfixUnaryExpression
+      [237..251]   [8:13..8:27]                                                                                           primaryExpression
+      [237..251]   [8:13..8:27]                                                                                             simpleIdentifier
+   82 [237..251]   [8:13..8:27]                                                                                               Identifier
+   83 [251..252]   [8:27..8:28]                                                           Inside_NL
+   84 [252..253]   [9:1..9:2]                                                             Inside_WS
+   85 [253..254]   [9:2..9:3]                                                             Inside_WS
+   86 [254..255]   [9:3..9:4]                                                             Inside_WS
+   87 [255..256]   [9:4..9:5]                                                             Inside_WS
+   88 [256..257]   [9:5..9:6]                                                             Inside_WS
+   89 [257..258]   [9:6..9:7]                                                             Inside_WS
+   90 [258..259]   [9:7..9:8]                                                             Inside_WS
+   91 [259..260]   [9:8..9:9]                                                             Inside_WS
+   92 [260..261]   [9:9..9:10]                                                            RPAREN
+   93 [261..262]   [9:10..9:11]                                                         WS
+      [262..498]   [9:11..14:10]                                                        annotatedLambda
+      [262..498]   [9:11..14:10]                                                          lambdaLiteral
+   94 [262..263]   [9:11..9:12]                                                             LCURL
+   95 [263..264]   [9:12..9:13]                                                             NL
+   96 [264..265]   [10:1..10:2]                                                             WS
+   97 [265..266]   [10:2..10:3]                                                             WS
+   98 [266..267]   [10:3..10:4]                                                             WS
+   99 [267..268]   [10:4..10:5]                                                             WS
+  100 [268..269]   [10:5..10:6]                                                             WS
+  101 [269..270]   [10:6..10:7]                                                             WS
+  102 [270..271]   [10:7..10:8]                                                             WS
+  103 [271..272]   [10:8..10:9]                                                             WS
+  104 [272..273]   [10:9..10:10]                                                            WS
+  105 [273..274]   [10:10..10:11]                                                           WS
+  106 [274..275]   [10:11..10:12]                                                           WS
+  107 [275..276]   [10:12..10:13]                                                           WS
+      [276..489]   [10:13..13:20]                                                           statements
+      [276..488]   [10:13..13:19]                                                             statement
+      [276..488]   [10:13..13:19]                                                               assignment
+      [276..302]   [10:13..10:39]                                                                 directlyAssignableExpression
+      [276..297]   [10:13..10:34]                                                                   postfixUnaryExpression
+      [276..297]   [10:13..10:34]                                                                     primaryExpression
+      [276..297]   [10:13..10:34]                                                                       simpleIdentifier
+  108 [276..297]   [10:13..10:34]                                                                         Identifier
+      [297..302]   [10:34..10:39]                                                                   assignableSuffix
+      [297..302]   [10:34..10:39]                                                                     navigationSuffix
+      [297..298]   [10:34..10:35]                                                                       memberAccessOperator
+  109 [297..298]   [10:34..10:35]                                                                         DOT
+      [298..302]   [10:35..10:39]                                                                       simpleIdentifier
+  110 [298..302]   [10:35..10:39]                                                                         Identifier
+  111 [302..303]   [10:39..10:40]                                                                 WS
+  112 [303..304]   [10:40..10:41]                                                                 ASSIGNMENT
+  113 [304..305]   [10:41..10:42]                                                                 NL
+  114 [305..306]   [11:1..11:2]                                                                   WS
+  115 [306..307]   [11:2..11:3]                                                                   WS
+  116 [307..308]   [11:3..11:4]                                                                   WS
+  117 [308..309]   [11:4..11:5]                                                                   WS
+  118 [309..310]   [11:5..11:6]                                                                   WS
+  119 [310..311]   [11:6..11:7]                                                                   WS
+  120 [311..312]   [11:7..11:8]                                                                   WS
+  121 [312..313]   [11:8..11:9]                                                                   WS
+  122 [313..314]   [11:9..11:10]                                                                  WS
+  123 [314..315]   [11:10..11:11]                                                                 WS
+  124 [315..316]   [11:11..11:12]                                                                 WS
+  125 [316..317]   [11:12..11:13]                                                                 WS
+  126 [317..318]   [11:13..11:14]                                                                 WS
+  127 [318..319]   [11:14..11:15]                                                                 WS
+  128 [319..320]   [11:15..11:16]                                                                 WS
+  129 [320..321]   [11:16..11:17]                                                                 WS
+      [321..488]   [11:17..13:19]                                                                 expression
+      [321..488]   [11:17..13:19]                                                                   disjunction
+      [321..488]   [11:17..13:19]                                                                     conjunction
+      [321..488]   [11:17..13:19]                                                                       equality
+      [321..488]   [11:17..13:19]                                                                         comparison
+      [321..488]   [11:17..13:19]                                                                           genericCallLikeComparison
+      [321..488]   [11:17..13:19]                                                                             infixOperation
+      [321..488]   [11:17..13:19]                                                                               elvisExpression
+      [321..488]   [11:17..13:19]                                                                                 infixFunctionCall
+      [321..488]   [11:17..13:19]                                                                                   rangeExpression
+      [321..488]   [11:17..13:19]                                                                                     additiveExpression
+      [321..488]   [11:17..13:19]                                                                                       multiplicativeExpression
+      [321..488]   [11:17..13:19]                                                                                         asExpression
+      [321..488]   [11:17..13:19]                                                                                           prefixUnaryExpression
+      [321..488]   [11:17..13:19]                                                                                             postfixUnaryExpression
+      [321..488]   [11:17..13:19]                                                                                               primaryExpression
+      [321..488]   [11:17..13:19]                                                                                                 stringLiteral
+      [321..488]   [11:17..13:19]                                                                                                   lineStringLiteral
+  130 [321..322]   [11:17..11:18]                                                                                                     QUOTE_OPEN
+      [322..385]   [11:18..11:81]                                                                                                     lineStringExpression
+  131 [322..324]   [11:18..11:20]                                                                                                       LineStrExprStart
+      [324..384]   [11:20..11:80]                                                                                                       expression
+      [324..384]   [11:20..11:80]                                                                                                         disjunction
+      [324..384]   [11:20..11:80]                                                                                                           conjunction
+      [324..384]   [11:20..11:80]                                                                                                             equality
+      [324..384]   [11:20..11:80]                                                                                                               comparison
+      [324..384]   [11:20..11:80]                                                                                                                 genericCallLikeComparison
+      [324..384]   [11:20..11:80]                                                                                                                   infixOperation
+      [324..384]   [11:20..11:80]                                                                                                                     elvisExpression
+      [324..384]   [11:20..11:80]                                                                                                                       infixFunctionCall
+      [324..384]   [11:20..11:80]                                                                                                                         rangeExpression
+      [324..384]   [11:20..11:80]                                                                                                                           additiveExpression
+      [324..384]   [11:20..11:80]                                                                                                                             multiplicativeExpression
+      [324..384]   [11:20..11:80]                                                                                                                               asExpression
+      [324..384]   [11:20..11:80]                                                                                                                                 prefixUnaryExpression
+      [324..384]   [11:20..11:80]                                                                                                                                   postfixUnaryExpression
+      [324..346]   [11:20..11:42]                                                                                                                                     primaryExpression
+      [324..346]   [11:20..11:42]                                                                                                                                       simpleIdentifier
+  132 [324..346]   [11:20..11:42]                                                                                                                                         Identifier
+      [346..353]   [11:42..11:49]                                                                                                                                     postfixUnarySuffix
+      [346..353]   [11:42..11:49]                                                                                                                                       navigationSuffix
+      [346..347]   [11:42..11:43]                                                                                                                                         memberAccessOperator
+  133 [346..347]   [11:42..11:43]                                                                                                                                           DOT
+      [347..353]   [11:43..11:49]                                                                                                                                         simpleIdentifier
+  134 [347..353]   [11:43..11:49]                                                                                                                                           Identifier
+      [353..384]   [11:49..11:80]                                                                                                                                     postfixUnarySuffix
+      [353..384]   [11:49..11:80]                                                                                                                                       callSuffix
+      [353..384]   [11:49..11:80]                                                                                                                                         valueArguments
+  135 [353..354]   [11:49..11:50]                                                                                                                                           LPAREN
+      [354..383]   [11:50..11:79]                                                                                                                                           valueArgument
+      [354..383]   [11:50..11:79]                                                                                                                                             expression
+      [354..383]   [11:50..11:79]                                                                                                                                               disjunction
+      [354..383]   [11:50..11:79]                                                                                                                                                 conjunction
+      [354..383]   [11:50..11:79]                                                                                                                                                   equality
+      [354..383]   [11:50..11:79]                                                                                                                                                     comparison
+      [354..383]   [11:50..11:79]                                                                                                                                                       genericCallLikeComparison
+      [354..383]   [11:50..11:79]                                                                                                                                                         infixOperation
+      [354..383]   [11:50..11:79]                                                                                                                                                           elvisExpression
+      [354..383]   [11:50..11:79]                                                                                                                                                             infixFunctionCall
+      [354..383]   [11:50..11:79]                                                                                                                                                               rangeExpression
+      [354..383]   [11:50..11:79]                                                                                                                                                                 additiveExpression
+      [354..383]   [11:50..11:79]                                                                                                                                                                   multiplicativeExpression
+      [354..383]   [11:50..11:79]                                                                                                                                                                     asExpression
+      [354..383]   [11:50..11:79]                                                                                                                                                                       prefixUnaryExpression
+      [354..383]   [11:50..11:79]                                                                                                                                                                         postfixUnaryExpression
+      [354..363]   [11:50..11:59]                                                                                                                                                                           primaryExpression
+      [354..363]   [11:50..11:59]                                                                                                                                                                             simpleIdentifier
+  136 [354..363]   [11:50..11:59]                                                                                                                                                                               Identifier
+      [363..373]   [11:59..11:69]                                                                                                                                                                           postfixUnarySuffix
+      [363..373]   [11:59..11:69]                                                                                                                                                                             navigationSuffix
+      [363..364]   [11:59..11:60]                                                                                                                                                                               memberAccessOperator
+  137 [363..364]   [11:59..11:60]                                                                                                                                                                                 DOT
+      [364..373]   [11:60..11:69]                                                                                                                                                                               simpleIdentifier
+  138 [364..373]   [11:60..11:69]                                                                                                                                                                                 Identifier
+      [373..383]   [11:69..11:79]                                                                                                                                                                           postfixUnarySuffix
+      [373..383]   [11:69..11:79]                                                                                                                                                                             navigationSuffix
+      [373..374]   [11:69..11:70]                                                                                                                                                                               memberAccessOperator
+  139 [373..374]   [11:69..11:70]                                                                                                                                                                                 DOT
+      [374..383]   [11:70..11:79]                                                                                                                                                                               simpleIdentifier
+  140 [374..383]   [11:70..11:79]                                                                                                                                                                                 Identifier
+  141 [383..384]   [11:79..11:80]                                                                                                                                           RPAREN
+  142 [384..385]   [11:80..11:81]                                                                                                       RCURL
+      [385..388]   [11:81..11:84]                                                                                                     lineStringContent
+  143 [385..388]   [11:81..11:84]                                                                                                       LineStrText
+      [388..487]   [11:84..13:18]                                                                                                     lineStringExpression
+  144 [388..390]   [11:84..11:86]                                                                                                       LineStrExprStart
+  145 [390..391]   [11:86..11:87]                                                                                                       NL
+  146 [391..392]   [12:1..12:2]                                                                                                         WS
+  147 [392..393]   [12:2..12:3]                                                                                                         WS
+  148 [393..394]   [12:3..12:4]                                                                                                         WS
+  149 [394..395]   [12:4..12:5]                                                                                                         WS
+  150 [395..396]   [12:5..12:6]                                                                                                         WS
+  151 [396..397]   [12:6..12:7]                                                                                                         WS
+  152 [397..398]   [12:7..12:8]                                                                                                         WS
+  153 [398..399]   [12:8..12:9]                                                                                                         WS
+  154 [399..400]   [12:9..12:10]                                                                                                        WS
+  155 [400..401]   [12:10..12:11]                                                                                                       WS
+  156 [401..402]   [12:11..12:12]                                                                                                       WS
+  157 [402..403]   [12:12..12:13]                                                                                                       WS
+  158 [403..404]   [12:13..12:14]                                                                                                       WS
+  159 [404..405]   [12:14..12:15]                                                                                                       WS
+  160 [405..406]   [12:15..12:16]                                                                                                       WS
+  161 [406..407]   [12:16..12:17]                                                                                                       WS
+  162 [407..408]   [12:17..12:18]                                                                                                       WS
+  163 [408..409]   [12:18..12:19]                                                                                                       WS
+  164 [409..410]   [12:19..12:20]                                                                                                       WS
+  165 [410..411]   [12:20..12:21]                                                                                                       WS
+      [411..469]   [12:21..12:79]                                                                                                       expression
+      [411..469]   [12:21..12:79]                                                                                                         disjunction
+      [411..469]   [12:21..12:79]                                                                                                           conjunction
+      [411..469]   [12:21..12:79]                                                                                                             equality
+      [411..469]   [12:21..12:79]                                                                                                               comparison
+      [411..469]   [12:21..12:79]                                                                                                                 genericCallLikeComparison
+      [411..469]   [12:21..12:79]                                                                                                                   infixOperation
+      [411..469]   [12:21..12:79]                                                                                                                     elvisExpression
+      [411..469]   [12:21..12:79]                                                                                                                       infixFunctionCall
+      [411..469]   [12:21..12:79]                                                                                                                         rangeExpression
+      [411..469]   [12:21..12:79]                                                                                                                           additiveExpression
+      [411..469]   [12:21..12:79]                                                                                                                             multiplicativeExpression
+      [411..469]   [12:21..12:79]                                                                                                                               asExpression
+      [411..469]   [12:21..12:79]                                                                                                                                 prefixUnaryExpression
+      [411..469]   [12:21..12:79]                                                                                                                                   postfixUnaryExpression
+      [411..433]   [12:21..12:43]                                                                                                                                     primaryExpression
+      [411..433]   [12:21..12:43]                                                                                                                                       simpleIdentifier
+  166 [411..433]   [12:21..12:43]                                                                                                                                         Identifier
+      [433..440]   [12:43..12:50]                                                                                                                                     postfixUnarySuffix
+      [433..440]   [12:43..12:50]                                                                                                                                       navigationSuffix
+      [433..434]   [12:43..12:44]                                                                                                                                         memberAccessOperator
+  167 [433..434]   [12:43..12:44]                                                                                                                                           DOT
+      [434..440]   [12:44..12:50]                                                                                                                                         simpleIdentifier
+  168 [434..440]   [12:44..12:50]                                                                                                                                           Identifier
+      [440..469]   [12:50..12:79]                                                                                                                                     postfixUnarySuffix
+      [440..469]   [12:50..12:79]                                                                                                                                       callSuffix
+      [440..469]   [12:50..12:79]                                                                                                                                         valueArguments
+  169 [440..441]   [12:50..12:51]                                                                                                                                           LPAREN
+      [441..468]   [12:51..12:78]                                                                                                                                           valueArgument
+      [441..468]   [12:51..12:78]                                                                                                                                             expression
+      [441..468]   [12:51..12:78]                                                                                                                                               disjunction
+      [441..468]   [12:51..12:78]                                                                                                                                                 conjunction
+      [441..468]   [12:51..12:78]                                                                                                                                                   equality
+      [441..468]   [12:51..12:78]                                                                                                                                                     comparison
+      [441..468]   [12:51..12:78]                                                                                                                                                       genericCallLikeComparison
+      [441..468]   [12:51..12:78]                                                                                                                                                         infixOperation
+      [441..468]   [12:51..12:78]                                                                                                                                                           elvisExpression
+      [441..468]   [12:51..12:78]                                                                                                                                                             infixFunctionCall
+      [441..468]   [12:51..12:78]                                                                                                                                                               rangeExpression
+      [441..468]   [12:51..12:78]                                                                                                                                                                 additiveExpression
+      [441..468]   [12:51..12:78]                                                                                                                                                                   multiplicativeExpression
+      [441..468]   [12:51..12:78]                                                                                                                                                                     asExpression
+      [441..468]   [12:51..12:78]                                                                                                                                                                       prefixUnaryExpression
+      [441..468]   [12:51..12:78]                                                                                                                                                                         postfixUnaryExpression
+      [441..450]   [12:51..12:60]                                                                                                                                                                           primaryExpression
+      [441..450]   [12:51..12:60]                                                                                                                                                                             simpleIdentifier
+  170 [441..450]   [12:51..12:60]                                                                                                                                                                               Identifier
+      [450..460]   [12:60..12:70]                                                                                                                                                                           postfixUnarySuffix
+      [450..460]   [12:60..12:70]                                                                                                                                                                             navigationSuffix
+      [450..451]   [12:60..12:61]                                                                                                                                                                               memberAccessOperator
+  171 [450..451]   [12:60..12:61]                                                                                                                                                                                 DOT
+      [451..460]   [12:61..12:70]                                                                                                                                                                               simpleIdentifier
+  172 [451..460]   [12:61..12:70]                                                                                                                                                                                 Identifier
+      [460..468]   [12:70..12:78]                                                                                                                                                                           postfixUnarySuffix
+      [460..468]   [12:70..12:78]                                                                                                                                                                             navigationSuffix
+      [460..461]   [12:70..12:71]                                                                                                                                                                               memberAccessOperator
+  173 [460..461]   [12:70..12:71]                                                                                                                                                                                 DOT
+      [461..468]   [12:71..12:78]                                                                                                                                                                               simpleIdentifier
+  174 [461..468]   [12:71..12:78]                                                                                                                                                                                 Identifier
+  175 [468..469]   [12:78..12:79]                                                                                                                                           RPAREN
+  176 [469..470]   [12:79..12:80]                                                                                                       NL
+  177 [470..471]   [13:1..13:2]                                                                                                         WS
+  178 [471..472]   [13:2..13:3]                                                                                                         WS
+  179 [472..473]   [13:3..13:4]                                                                                                         WS
+  180 [473..474]   [13:4..13:5]                                                                                                         WS
+  181 [474..475]   [13:5..13:6]                                                                                                         WS
+  182 [475..476]   [13:6..13:7]                                                                                                         WS
+  183 [476..477]   [13:7..13:8]                                                                                                         WS
+  184 [477..478]   [13:8..13:9]                                                                                                         WS
+  185 [478..479]   [13:9..13:10]                                                                                                        WS
+  186 [479..480]   [13:10..13:11]                                                                                                       WS
+  187 [480..481]   [13:11..13:12]                                                                                                       WS
+  188 [481..482]   [13:12..13:13]                                                                                                       WS
+  189 [482..483]   [13:13..13:14]                                                                                                       WS
+  190 [483..484]   [13:14..13:15]                                                                                                       WS
+  191 [484..485]   [13:15..13:16]                                                                                                       WS
+  192 [485..486]   [13:16..13:17]                                                                                                       WS
+  193 [486..487]   [13:17..13:18]                                                                                                       RCURL
+  194 [487..488]   [13:18..13:19]                                                                                                     QUOTE_CLOSE
+      [488..489]   [13:19..13:20]                                                             semis
+  195 [488..489]   [13:19..13:20]                                                               NL
+  196 [489..490]   [14:1..14:2]                                                             WS
+  197 [490..491]   [14:2..14:3]                                                             WS
+  198 [491..492]   [14:3..14:4]                                                             WS
+  199 [492..493]   [14:4..14:5]                                                             WS
+  200 [493..494]   [14:5..14:6]                                                             WS
+  201 [494..495]   [14:6..14:7]                                                             WS
+  202 [495..496]   [14:7..14:8]                                                             WS
+  203 [496..497]   [14:8..14:9]                                                             WS
+  204 [497..498]   [14:9..14:10]                                                            RCURL
       [498..499]   [14:10..14:11]             semis
   205 [498..499]   [14:10..14:11]               NL
   206 [499..500]   [15:1..15:2]             RCURL
