@@ -2,7 +2,6 @@ package kotlinx.ast.grammar.kotlin.test
 
 import io.kotest.assertions.fail
 import io.kotest.core.spec.style.FunSpec
-import io.kotest.core.spec.style.scopes.ContainerScope
 import io.kotest.matchers.shouldBe
 import kotlinx.ast.common.AstSource
 import kotlinx.ast.common.ast.Ast
@@ -28,7 +27,7 @@ abstract class AbstractKotlinGrammarParserTestDataTest<Parser : KotlinGrammarPar
             context(name) {
                 val ast by lazy { parser.parseKotlinFile(AstSource.String(name, kotlinContent)) }
 
-                suspend fun ContainerScope.test(
+                suspend fun test(
                     testCase: String,
                     expected: String?,
                     expectedFile: File,
