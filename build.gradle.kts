@@ -34,7 +34,6 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
-        jcenter()
         // used to download antlr-kotlin runtime
         maven("https://jitpack.io")
     }
