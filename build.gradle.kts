@@ -7,7 +7,7 @@ buildscript {
 
 plugins {
     base
-    kotlin("multiplatform") version Versions.kotlin apply false
+    kotlin("multiplatform") version 1.8.0 apply false
 }
 
 // a small hack: the variable must be named like the property
