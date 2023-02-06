@@ -1,0 +1,5 @@
+interface Something
+
+class MyClass(
+    list: List<@JvmSuppressWildcards Something>
+)
