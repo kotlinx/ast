@@ -1,5 +1,7 @@
-interface Something
+interface Something {
+    val intSet: Set<@JvmSuppressWildcards Int>
+}
 
 class MyClass(
-    list: List<@JvmSuppressWildcards Something>
+    val stringList: List<@JvmSuppressWildcards String>
 )
