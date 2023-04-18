@@ -1,0 +1,116 @@
+   ID Index        Position       Token
+      [0..144]     [1:1..8:6]     kotlinFile
+                                    packageHeader
+                                    importList
+      [0..72]      [1:1..4:2]       topLevelObject
+      [0..70]      [1:1..3:2]         declaration
+      [0..70]      [1:1..3:2]           classDeclaration
+    0 [0..9]       [1:1..1:10]            INTERFACE
+    1 [9..10]      [1:10..1:11]           WS
+      [10..19]     [1:11..1:20]           simpleIdentifier
+    2 [10..19]     [1:11..1:20]             Identifier
+    3 [19..20]     [1:20..1:21]           WS
+      [20..70]     [1:21..3:2]            classBody
+    4 [20..21]     [1:21..1:22]             LCURL
+    5 [21..22]     [1:22..1:23]             NL
+    6 [22..23]     [2:1..2:2]               WS
+    7 [23..24]     [2:2..2:3]               WS
+    8 [24..25]     [2:3..2:4]               WS
+    9 [25..26]     [2:4..2:5]               WS
+      [26..69]     [2:5..2:48]              classMemberDeclarations
+      [26..69]     [2:5..2:48]                classMemberDeclaration
+      [26..69]     [2:5..2:48]                  declaration
+      [26..69]     [2:5..2:48]                    propertyDeclaration
+   10 [26..29]     [2:5..2:8]                       VAL
+   11 [29..30]     [2:8..2:9]                       WS
+      [30..68]     [2:9..2:47]                      variableDeclaration
+      [30..36]     [2:9..2:15]                        simpleIdentifier
+   12 [30..36]     [2:9..2:15]                          Identifier
+   13 [36..37]     [2:15..2:16]                       COLON
+   14 [37..38]     [2:16..2:17]                       WS
+      [38..68]     [2:17..2:47]                       type
+      [38..68]     [2:17..2:47]                         typeReference
+      [38..68]     [2:17..2:47]                           userType
+      [38..68]     [2:17..2:47]                             simpleUserType
+      [38..41]     [2:17..2:20]                               simpleIdentifier
+   15 [38..41]     [2:17..2:20]                                 Identifier
+      [41..68]     [2:20..2:47]                               typeArguments
+   16 [41..42]     [2:20..2:21]                                 LANGLE
+      [42..67]     [2:21..2:46]                                 typeProjection
+      [42..63]     [2:21..2:42]                                   typeProjectionModifiers
+      [42..63]     [2:21..2:42]                                     typeProjectionModifier
+      [42..63]     [2:21..2:42]                                       annotation
+      [42..63]     [2:21..2:42]                                         singleAnnotation
+   17 [42..43]     [2:21..2:22]                                           AT_NO_WS
+      [43..63]     [2:22..2:42]                                           unescapedAnnotation
+      [43..63]     [2:22..2:42]                                             userType
+      [43..63]     [2:22..2:42]                                               simpleUserType
+      [43..63]     [2:22..2:42]                                                 simpleIdentifier
+   18 [43..63]     [2:22..2:42]                                                   Identifier
+   19 [63..64]     [2:42..2:43]                                   WS
+      [64..67]     [2:43..2:46]                                   type
+      [64..67]     [2:43..2:46]                                     typeReference
+      [64..67]     [2:43..2:46]                                       userType
+      [64..67]     [2:43..2:46]                                         simpleUserType
+      [64..67]     [2:43..2:46]                                           simpleIdentifier
+   20 [64..67]     [2:43..2:46]                                             Identifier
+   21 [67..68]     [2:46..2:47]                                 RANGLE
+   22 [68..69]     [2:47..2:48]                     NL
+   23 [69..70]     [3:1..3:2]               RCURL
+      [70..72]     [3:2..4:2]         semis
+   24 [70..71]     [3:2..3:3]           NL
+   25 [71..72]     [4:1..4:2]           NL
+      [72..144]    [5:1..7:3]       topLevelObject
+      [72..143]    [5:1..7:2]         declaration
+      [72..143]    [5:1..7:2]           classDeclaration
+   26 [72..77]     [5:1..5:6]             CLASS
+   27 [77..78]     [5:6..5:7]             WS
+      [78..85]     [5:7..5:14]            simpleIdentifier
+   28 [78..85]     [5:7..5:14]              Identifier
+      [85..143]    [5:14..7:2]            primaryConstructor
+      [85..143]    [5:14..7:2]              classParameters
+   29 [85..86]     [5:14..5:15]               LPAREN
+   30 [86..87]     [5:15..5:16]               Inside_NL
+   31 [87..88]     [6:1..6:2]                 Inside_WS
+   32 [88..89]     [6:2..6:3]                 Inside_WS
+   33 [89..90]     [6:3..6:4]                 Inside_WS
+   34 [90..91]     [6:4..6:5]                 Inside_WS
+      [91..141]    [6:5..6:55]                classParameter
+   35 [91..94]     [6:5..6:8]                   VAL
+   36 [94..95]     [6:8..6:9]                   Inside_WS
+      [95..105]    [6:9..6:19]                  simpleIdentifier
+   37 [95..105]    [6:9..6:19]                    Identifier
+   38 [105..106]   [6:19..6:20]                 COLON
+   39 [106..107]   [6:20..6:21]                 Inside_WS
+      [107..141]   [6:21..6:55]                 type
+      [107..141]   [6:21..6:55]                   typeReference
+      [107..141]   [6:21..6:55]                     userType
+      [107..141]   [6:21..6:55]                       simpleUserType
+      [107..111]   [6:21..6:25]                         simpleIdentifier
+   40 [107..111]   [6:21..6:25]                           Identifier
+      [111..141]   [6:25..6:55]                         typeArguments
+   41 [111..112]   [6:25..6:26]                           LANGLE
+      [112..140]   [6:26..6:54]                           typeProjection
+      [112..133]   [6:26..6:47]                             typeProjectionModifiers
+      [112..133]   [6:26..6:47]                               typeProjectionModifier
+      [112..133]   [6:26..6:47]                                 annotation
+      [112..133]   [6:26..6:47]                                   singleAnnotation
+   42 [112..113]   [6:26..6:27]                                     AT_NO_WS
+      [113..133]   [6:27..6:47]                                     unescapedAnnotation
+      [113..133]   [6:27..6:47]                                       userType
+      [113..133]   [6:27..6:47]                                         simpleUserType
+      [113..133]   [6:27..6:47]                                           simpleIdentifier
+   43 [113..133]   [6:27..6:47]                                             Identifier
+   44 [133..134]   [6:47..6:48]                             Inside_WS
+      [134..140]   [6:48..6:54]                             type
+      [134..140]   [6:48..6:54]                               typeReference
+      [134..140]   [6:48..6:54]                                 userType
+      [134..140]   [6:48..6:54]                                   simpleUserType
+      [134..140]   [6:48..6:54]                                     simpleIdentifier
+   45 [134..140]   [6:48..6:54]                                       Identifier
+   46 [140..141]   [6:54..6:55]                           RANGLE
+   47 [141..142]   [6:55..6:56]               Inside_NL
+   48 [142..143]   [7:1..7:2]                 RPAREN
+      [143..144]   [7:2..7:3]         semis
+   49 [143..144]   [7:2..7:3]           NL
+   50 [144..144]   [8:1..8:6]       EOF

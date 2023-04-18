@@ -59,6 +59,7 @@ data class KlassIdentifier(
     val identifier: String,
     val parameter: List<KlassIdentifier> = emptyList(),
     val modifiers: List<KlassModifier> = emptyList(),
+    val annotations: List<KlassAnnotation> = emptyList(),
     override val children: List<Ast> = emptyList(),
     val nullable: Boolean = false,
     override val attachments: AstAttachments = AstAttachments(),
@@ -71,6 +72,15 @@ data class KlassIdentifier(
         } else {
             modifiers.joinToString(
                 transform = KlassModifier::modifier,
+                separator = " ",
+                postfix = " ",
+            )
+        },
+        if (annotations.isEmpty()) {
+            null
+        } else {
+            annotations.joinToString(
+                transform = { it.identifier.identifierName() },
                 separator = " ",
                 postfix = " ",
             )
@@ -119,8 +129,12 @@ data class KlassIdentifier(
         )
     }
 
-    fun withModifiers(modifiers: List<KlassModifier>): Ast {
+    fun withModifiers(modifiers: List<KlassModifier>): KlassIdentifier {
         return copy(modifiers = this.modifiers + modifiers)
+    }
+
+    fun withAnnotations(annotations: List<KlassAnnotation>): KlassIdentifier {
+        return copy(annotations = this.annotations + annotations)
     }
 }
 

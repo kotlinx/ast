@@ -1,0 +1,8 @@
+PackageHeader()
+importList
+KlassDeclaration(interface Something)
+  classBody
+    KlassDeclaration(val intSet Set<JvmSuppressWildcards Int>)
+KlassDeclaration(class MyClass)
+  KlassDeclaration(constructor)
+    KlassDeclaration(val stringList List<JvmSuppressWildcards String>)

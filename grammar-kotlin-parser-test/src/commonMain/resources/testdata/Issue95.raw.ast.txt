@@ -1,0 +1,115 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      classDeclaration
+        INTERFACE >>>interface<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>Something<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        classBody
+          LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+          NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          WS >>> <<< (HIDDEN)
+          classMemberDeclarations
+            classMemberDeclaration
+              declaration
+                propertyDeclaration
+                  VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+                  WS >>> <<< (HIDDEN)
+                  variableDeclaration
+                    simpleIdentifier
+                      Identifier >>>intSet<<< (DEFAULT_TOKEN_CHANNEL)
+                    COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+                    WS >>> <<< (HIDDEN)
+                    type
+                      typeReference
+                        userType
+                          simpleUserType
+                            simpleIdentifier
+                              Identifier >>>Set<<< (DEFAULT_TOKEN_CHANNEL)
+                            typeArguments
+                              LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                              typeProjection
+                                typeProjectionModifiers
+                                  typeProjectionModifier
+                                    annotation
+                                      singleAnnotation
+                                        AT_NO_WS >>>@<<< (DEFAULT_TOKEN_CHANNEL)
+                                        unescapedAnnotation
+                                          userType
+                                            simpleUserType
+                                              simpleIdentifier
+                                                Identifier >>>JvmSuppressWildcards<<< (DEFAULT_TOKEN_CHANNEL)
+                                WS >>> <<< (HIDDEN)
+                                type
+                                  typeReference
+                                    userType
+                                      simpleUserType
+                                        simpleIdentifier
+                                          Identifier >>>Int<<< (DEFAULT_TOKEN_CHANNEL)
+                              RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+                  NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+          RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  topLevelObject
+    declaration
+      classDeclaration
+        CLASS >>>class<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>MyClass<<< (DEFAULT_TOKEN_CHANNEL)
+        primaryConstructor
+          classParameters
+            LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+            Inside_NL >>>\n<<< (HIDDEN)
+            Inside_WS >>> <<< (HIDDEN)
+            Inside_WS >>> <<< (HIDDEN)
+            Inside_WS >>> <<< (HIDDEN)
+            Inside_WS >>> <<< (HIDDEN)
+            classParameter
+              VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              simpleIdentifier
+                Identifier >>>stringList<<< (DEFAULT_TOKEN_CHANNEL)
+              COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+              Inside_WS >>> <<< (HIDDEN)
+              type
+                typeReference
+                  userType
+                    simpleUserType
+                      simpleIdentifier
+                        Identifier >>>List<<< (DEFAULT_TOKEN_CHANNEL)
+                      typeArguments
+                        LANGLE >>><<<< (DEFAULT_TOKEN_CHANNEL)
+                        typeProjection
+                          typeProjectionModifiers
+                            typeProjectionModifier
+                              annotation
+                                singleAnnotation
+                                  AT_NO_WS >>>@<<< (DEFAULT_TOKEN_CHANNEL)
+                                  unescapedAnnotation
+                                    userType
+                                      simpleUserType
+                                        simpleIdentifier
+                                          Identifier >>>JvmSuppressWildcards<<< (DEFAULT_TOKEN_CHANNEL)
+                          Inside_WS >>> <<< (HIDDEN)
+                          type
+                            typeReference
+                              userType
+                                simpleUserType
+                                  simpleIdentifier
+                                    Identifier >>>String<<< (DEFAULT_TOKEN_CHANNEL)
+                        RANGLE >>>><<< (DEFAULT_TOKEN_CHANNEL)
+            Inside_NL >>>\n<<< (HIDDEN)
+            RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
