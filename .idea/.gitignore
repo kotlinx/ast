@@ -1,4 +1,8 @@
 /workspace.xml
+/compiler.xml
+/kotlinc.xml
+/misc.xml
+/vcs.xml
 /gradle.xml
 /modules.xml
 /git_toolbox_prj.xml
