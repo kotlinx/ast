@@ -9,3 +9,7 @@ dependencies {
     }
     api("com.tunnelvisionlabs:antlr4:${Versions.antlrOptimized}")
 }
+
+kotlin {
+    jvmToolchain(8)
+}

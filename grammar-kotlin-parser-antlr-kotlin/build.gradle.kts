@@ -6,26 +6,18 @@ plugins {
 }
 
 kotlin {
+    jvmToolchain(8)
+
     jvm {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
     }
 
     sourceSets {
-        val commonAntlr by creating {
+        val commonMain by getting {
             dependencies {
                 api(project(":parser-antlr-kotlin"))
-            }
-        }
-
-        val commonMain by getting {
-            dependsOn(commonAntlr)
-            dependencies {
                 api(project(":grammar-kotlin-parser-common"))
             }
+            kotlin.srcDir("src/commonMain/antlr-kotlin")
         }
 
         val jvmTest by getting {
@@ -36,7 +28,7 @@ kotlin {
     }
 }
 
-tasks.register<com.strumenta.antlrkotlin.gradleplugin.AntlrKotlinTask>("generateGrammarSource") {
+tasks.register<com.strumenta.antlrkotlin.gradle.AntlrKotlinTask>("generateGrammarSource") {
     antlrClasspath = configurations.detachedConfiguration(
         project.dependencies.create("org.antlr:antlr4:${Versions.antlrUsedByAntlrKotlin}"),
         project.dependencies.create("${Versions.antlrKotlinGroup}:antlr-kotlin-target:${Versions.antlrKotlin}")
@@ -49,7 +41,7 @@ tasks.register<com.strumenta.antlrkotlin.gradleplugin.AntlrKotlinTask>("generate
         .srcDir("../grammar-kotlin-parser-common/src/commonAntlr/antlr").apply {
             include("*.g4")
         }
-    outputDirectory = File("src/commonAntlr/kotlin")
+    outputDirectory = File("src/commonMain/antlr-kotlin/kotlinx/ast/grammar/kotlin/target/antlr/kotlin/generated")
 }
 
 tasks.withType(Test::class.java).all {

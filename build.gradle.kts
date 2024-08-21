@@ -43,10 +43,3 @@ tasks.withType<Wrapper> {
     gradleVersion = Versions.gradle
     distributionType = Wrapper.DistributionType.ALL
 }
-
-dependencies {
-    // Make the root project archives configuration depend on every subproject
-    subprojects.forEach {
-        archives(it)
-    }
-}
