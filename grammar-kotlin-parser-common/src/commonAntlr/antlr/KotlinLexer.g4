@@ -70,6 +70,7 @@ MOD_ASSIGNMENT: '%=';
 ARROW: '->';
 DOUBLE_ARROW: '=>';
 RANGE: '..';
+RANGE_UNTIL: '..<';
 COLONCOLON: '::';
 DOUBLE_SEMICOLON: ';;';
 HASH: '#';
@@ -89,6 +90,7 @@ AS_SAFE: 'as?';
 EQEQ: '==';
 EQEQEQ: '===';
 SINGLE_QUOTE: '\'';
+AMP: '&';
 
 // SECTION: keywords
 
@@ -418,6 +420,7 @@ Inside_MOD_ASSIGNMENT: MOD_ASSIGNMENT  -> type(MOD_ASSIGNMENT);
 Inside_ARROW: ARROW  -> type(ARROW);
 Inside_DOUBLE_ARROW: DOUBLE_ARROW  -> type(DOUBLE_ARROW);
 Inside_RANGE: RANGE  -> type(RANGE);
+Inside_RANGE_UNTIL: RANGE_UNTIL  -> type(RANGE_UNTIL);
 Inside_RESERVED: RESERVED -> type(RESERVED);
 Inside_COLONCOLON: COLONCOLON  -> type(COLONCOLON);
 Inside_DOUBLE_SEMICOLON: DOUBLE_SEMICOLON  -> type(DOUBLE_SEMICOLON);
@@ -442,6 +445,7 @@ Inside_AS_SAFE: AS_SAFE  -> type(AS_SAFE);
 Inside_EQEQ: EQEQ  -> type(EQEQ);
 Inside_EQEQEQ: EQEQEQ  -> type(EQEQEQ);
 Inside_SINGLE_QUOTE: SINGLE_QUOTE  -> type(SINGLE_QUOTE);
+Inside_AMP: AMP  -> type(AMP);
 Inside_QUOTE_OPEN: QUOTE_OPEN -> pushMode(LineString), type(QUOTE_OPEN);
 Inside_TRIPLE_QUOTE_OPEN: TRIPLE_QUOTE_OPEN -> pushMode(MultiLineString), type(TRIPLE_QUOTE_OPEN);
 
