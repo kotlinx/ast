@@ -203,6 +203,4 @@ kotlinFile
                                               MultiLineStrText >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
                                             TRIPLE_QUOTE_CLOSE >>>"""<<< (DEFAULT_TOKEN_CHANNEL)
         NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
-    semis
-      EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
   EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

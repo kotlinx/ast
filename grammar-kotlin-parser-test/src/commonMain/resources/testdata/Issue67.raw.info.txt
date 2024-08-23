@@ -2,7 +2,7 @@
       [0..30]      [1:1..1:36]    kotlinFile
                                     packageHeader
                                     importList
-      [0..30]      [1:1..1:36]      topLevelObject
+      [0..15]      [1:1..1:16]      topLevelObject
       [0..15]      [1:1..1:16]        declaration
       [0..15]      [1:1..1:16]          propertyDeclaration
     0 [0..3]       [1:1..1:4]             VAL
@@ -31,8 +31,6 @@
       [13..15]     [1:14..1:16]                                         primaryExpression
       [13..15]     [1:14..1:16]                                           literalConstant
     6 [13..15]     [1:14..1:16]                                             IntegerLiteral
-    7 [15..16]     [1:16..1:17]       WS
-    8 [16..30]     [1:17..1:31]       LineComment
-      [30..30]     [1:31..1:36]       semis
-    9 [30..30]     [1:31..1:36]         EOF
+    7 [15..16]     [1:16..1:17]     WS
+    8 [16..30]     [1:17..1:31]     LineComment
     9 [30..30]     [1:31..1:36]     EOF

@@ -2,7 +2,7 @@
       [0..58]      [1:1..3:6]     kotlinFile
                                     packageHeader
                                     importList
-      [0..58]      [1:1..3:6]       topLevelObject
+      [0..58]      [1:1..2:13]      topLevelObject
       [0..58]      [1:1..2:13]        declaration
       [0..58]      [1:1..2:13]          propertyDeclaration
       [0..46]      [1:1..1:47]            modifiers
@@ -70,6 +70,4 @@
       [50..57]     [2:5..2:12]              simpleIdentifier
    19 [50..57]     [2:5..2:12]                Identifier
    20 [57..58]     [2:12..2:13]           NL
-      [58..58]     [3:1..3:6]         semis
-   21 [58..58]     [3:1..3:6]           EOF
    21 [58..58]     [3:1..3:6]       EOF

@@ -30,8 +30,6 @@ kotlinFile
                                       primaryExpression
                                         literalConstant
                                           IntegerLiteral >>>42<<< (DEFAULT_TOKEN_CHANNEL)
-    WS >>> <<< (HIDDEN)
-    LineComment >>>//line comment<<< (COMMENT)
-    semis
-      EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
+  WS >>> <<< (HIDDEN)
+  LineComment >>>//line comment<<< (COMMENT)
   EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)

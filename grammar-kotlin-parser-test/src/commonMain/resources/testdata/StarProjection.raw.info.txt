@@ -2,7 +2,7 @@
       [0..29]      [1:1..2:6]     kotlinFile
                                     packageHeader
                                     importList
-      [0..29]      [1:1..2:6]       topLevelObject
+      [0..29]      [1:1..1:30]      topLevelObject
       [0..29]      [1:1..1:30]        declaration
       [0..29]      [1:1..1:30]          propertyDeclaration
     0 [0..3]       [1:1..1:4]             VAL
@@ -50,6 +50,4 @@
    13 [26..27]     [1:27..1:28]                                               LPAREN
    14 [27..28]     [1:28..1:29]                                               RPAREN
    15 [28..29]     [1:29..1:30]           NL
-      [29..29]     [2:1..2:6]         semis
-   16 [29..29]     [2:1..2:6]           EOF
    16 [29..29]     [2:1..2:6]       EOF
