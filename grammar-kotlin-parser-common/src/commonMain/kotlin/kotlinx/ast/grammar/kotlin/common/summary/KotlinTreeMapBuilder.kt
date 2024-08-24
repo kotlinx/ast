@@ -684,52 +684,32 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
             astContinue(starProjection)
         } else {
             recursiveFlatten(node).flatMap { list ->
-                list.fold(
-                    astSuccess(
-                        Pair(emptyList<KlassModifier>(), emptyList<KlassIdentifier>())
-                    )
-                ) { result, right ->
+                list.fold(astSuccess(TypeProjectionDescription())) { result, right ->
                     when {
-                        result is AstSuccess && result.success.second.isEmpty() ->
+                        result is AstSuccess && result.success.identifiers.isEmpty() -> {
+                            val typeProjection = result.success
                             when (right) {
                                 is KlassIdentifier ->
-                                    astSuccess(
-                                        result.success.copy(
-                                            second = listOf(right)
-                                        )
-                                    )
+                                    astSuccess(typeProjection.setIdentifier(right))
                                 is KlassModifier ->
-                                    astSuccess(
-                                        result.success.copy(
-                                            first = result.success.first + right
-                                        )
-                                    )
+                                    astSuccess(typeProjection.addModifier(right))
+                                is KlassAnnotation ->
+                                    astSuccess(typeProjection.addAnnotation(right))
                                 else ->
                                     astFailure("found unsupported ast node '$right' in typeProjection!")
                             }
+                        }
 
-                        result is AstSuccess && result.success.second.size == 1 -> {
-                            val left = result.success.second.first()
+                        result is AstSuccess && result.success.identifiers.size == 1 -> {
+                            val typeProjection = result.success
+                            val left = typeProjection.identifiers.first()
                             when {
                                 right is KlassIdentifier -> {
-                                    val identifier = listOf(
-                                        left.identifier,
-                                        right.identifier
-                                    ).joinToString(".")
-                                    astSuccess(
-                                        result.success.copy(
-                                            second = listOf(
-                                                left.copy(identifier = identifier)
-                                            )
-                                        )
-                                    )
+                                    val identifier = listOf(left.identifier, right.identifier).joinToString(".")
+                                    astSuccess(typeProjection.setIdentifier(left.copy(identifier = identifier)))
                                 }
                                 right.description == "quest" ->
-                                    astSuccess(
-                                        result.success.copy(
-                                            second = listOf(left.copy(nullable = true))
-                                        )
-                                    )
+                                    astSuccess(typeProjection.setIdentifier(left.copy(nullable = true)))
                                 else ->
                                     astFailure("found unsupported ast node '$right' in typeProjection!")
                             }
@@ -737,16 +717,20 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                         else ->
                             result
                     }
-                }.flatMap { (modifiers, identifiers) ->
+                }.flatMap { typeProjection ->
                     when {
-                        identifiers.isEmpty() ->
+                        typeProjection.identifiers.isEmpty() ->
                             astFailure("missing identifier in typeProjection!")
-                        identifiers.size != 1 ->
+                        typeProjection.identifiers.size != 1 ->
                             astFailure("expected exactly one identifier in typeProjection!")
-                        modifiers.isEmpty() ->
-                            astSuccess(listOf(identifiers.first()))
                         else ->
-                            astSuccess(listOf(identifiers.first().withModifiers(modifiers)))
+                            astSuccess(
+                                listOf(
+                                    typeProjection.identifiers.first()
+                                        .withModifiers(typeProjection.modifiers)
+                                        .withAnnotations(typeProjection.annotations)
+                                )
+                            )
                     }
                 }
             }
@@ -2335,3 +2319,20 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     ) { _: AstTerminal ->
         astDrop()
     }
+
+private data class TypeProjectionDescription(
+    val identifiers: List<KlassIdentifier> = listOf(),
+    val modifiers: List<KlassModifier> = listOf(),
+    val annotations: List<KlassAnnotation> = listOf()
+){
+    fun setIdentifier(identifier: KlassIdentifier): TypeProjectionDescription {
+        return copy(identifiers = listOf(identifier))
+    }
+    fun addModifier(modifier: KlassModifier): TypeProjectionDescription {
+        return copy(modifiers = this.modifiers + modifier)
+    }
+
+    fun addAnnotation(annotation: KlassAnnotation): TypeProjectionDescription {
+        return copy(annotations = this.annotations + annotation)
+    }
+}
