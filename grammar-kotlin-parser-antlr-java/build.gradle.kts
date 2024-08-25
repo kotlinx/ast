@@ -17,7 +17,7 @@ tasks.withType(Test::class.java).all {
 }
 
 dependencies {
-    antlr("org.antlr:antlr4:${Versions.antlrJava}")
+    antlr(libs.orgAntlr.antlr4)
     api(project(":parser-antlr-java"))
     api(project(":grammar-kotlin-parser-common"))
     testImplementation(project(":grammar-kotlin-parser-test"))

@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
     api(project(":common"))
-    api("org.antlr:antlr4:${Versions.antlrJava}")
+    api(libs.orgAntlr.antlr4)
 }
 
 kotlin {

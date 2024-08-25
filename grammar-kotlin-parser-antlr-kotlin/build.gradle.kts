@@ -30,8 +30,8 @@ kotlin {
 
 tasks.register<com.strumenta.antlrkotlin.gradle.AntlrKotlinTask>("generateGrammarSource") {
     antlrClasspath = configurations.detachedConfiguration(
-        project.dependencies.create("org.antlr:antlr4:${Versions.antlrUsedByAntlrKotlin}"),
-        project.dependencies.create("${Versions.antlrKotlinGroup}:antlr-kotlin-target:${Versions.antlrKotlin}")
+        project.dependencies.create(libs.orgAntlr.antlr4),
+        project.dependencies.create(libs.comStrumenta.antlrKotlinTarget)
     )
     maxHeapSize = "64m"
     packageName = "kotlinx.ast.grammar.kotlin.target.antlr.kotlin.generated"

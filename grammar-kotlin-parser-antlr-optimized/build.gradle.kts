@@ -17,7 +17,7 @@ tasks.withType(Test::class.java).all {
 }
 
 dependencies {
-    antlr("com.tunnelvisionlabs:antlr4:${Versions.antlrOptimized}")
+    antlr(libs.comTunnelvisionlabs.antlr4)
     api(project(":parser-antlr-optimized"))
     api(project(":grammar-kotlin-parser-common"))
     testImplementation(project(":grammar-kotlin-parser-test"))

@@ -1,0 +1,39 @@
+[versions]
+antlr-kotlin = "1.0.0-RC4"
+antlr-optimized = "4.7.4"
+antlr4 = "4.7.2"
+kotest = "5.5.4"
+kotlin = "2.0.10"
+logback = "1.2.10"
+
+[libraries.comStrumenta-antlrKotlinGradlePlugin]
+module = "com.strumenta:antlr-kotlin-gradle-plugin"
+version.ref = "antlr-kotlin"
+
+[libraries.comStrumenta-antlrKotlinRuntime]
+module = "com.strumenta:antlr-kotlin-runtime"
+version.ref = "antlr-kotlin"
+
+[libraries.comStrumenta-antlrKotlinTarget]
+module = "com.strumenta:antlr-kotlin-target"
+version.ref = "antlr-kotlin"
+
+[libraries.comTunnelvisionlabs-antlr4]
+module = "com.tunnelvisionlabs:antlr4"
+version.ref = "antlr-optimized"
+
+[libraries.orgAntlr-antlr4]
+module = "org.antlr:antlr4"
+version.ref = "antlr4"
+
+[libraries.ioKotest-kotestRunnerJunit5]
+module = "io.kotest:kotest-runner-junit5"
+version.ref = "kotest"
+
+[plugins.kotlin-multiplatform]
+id = "org.jetbrains.kotlin.multiplatform"
+version.ref = "kotlin"
+
+[libraries.chQosLogback-logbackClassic]
+module = "ch.qos.logback:logback-classic"
+version.ref = "logback"

@@ -1,13 +1,13 @@
 buildscript {
     dependencies {
         // add the antlr-kotlin-gradle-plugin to the classpath
-        classpath("${Versions.antlrKotlinGroup}:antlr-kotlin-gradle-plugin:${Versions.antlrKotlin}")
+        classpath(libs.comStrumenta.antlrKotlinGradlePlugin)
     }
 }
 
 plugins {
     base
-    kotlin("multiplatform") version Versions.kotlin apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
 // a small hack: the variable must be named like the property
@@ -40,6 +40,6 @@ allprojects {
 }
 
 tasks.withType<Wrapper> {
-    gradleVersion = Versions.gradle
+    gradleVersion = "8.10"
     distributionType = Wrapper.DistributionType.ALL
 }
