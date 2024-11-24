@@ -155,3 +155,5 @@ Or, if you prefer to use the `antlr-java` parser (JVM only):
 implementation("com.github.kotlinx.ast:grammar-kotlin-parser-antlr-java:0123456789")
 ```
 The latest version can be be seen in the Jitpack-Badge at the top of this page.
+
+Replace `0123456789` by commit identifier that you want to use.
